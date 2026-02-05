@@ -63,7 +63,6 @@
 }
 
 /* Inactive Tabs */
-/* Inactive Tabs */
 .pt-scope.light-mode .pt-tabBtn {
     color: var(--deep) !important;
     background: rgba(54, 99, 173, 0.08);
@@ -76,6 +75,13 @@
     color: white !important;
     font-weight: 800;
     box-shadow: 0 8px 24px rgba(22, 14, 68, 0.3);
+}
+
+/* Toggle Button */
+.pt-scope.light-mode .pt-theme-toggle {
+    background: white;
+    color: var(--deep);
+    border: 2px solid rgba(54, 99, 173, 0.2);
 }
 
 /* ================= HERO SECTIONS ================= */
@@ -168,6 +174,85 @@
     color: white !important;
 }
 
+/* ================= OPERATING SYSTEM TAB (Tab 4) ================= */
+
+/* Main Header & Explainer */
+.pt-scope.light-mode .pt-tableExplain h2 {
+    color: var(--deep) !important;
+    /* Header on light bg should be dark */
+    margin-bottom: 24px;
+}
+
+.pt-scope.light-mode .pt-explainBox {
+    background: var(--solid-deep);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(22, 14, 68, 0.15);
+}
+
+.pt-scope.light-mode .pt-explainBox h4,
+.pt-scope.light-mode .pt-explainBox li,
+.pt-scope.light-mode .pt-explainBox strong {
+    color: white !important;
+}
+
+/* Legend */
+.pt-scope.light-mode .pt-legend {
+    background: white !important;
+    border: 1px solid rgba(54, 99, 173, 0.2) !important;
+    box-shadow: 0 4px 12px rgba(54, 99, 173, 0.08) !important;
+}
+
+.pt-scope.light-mode .pt-legend span {
+    color: var(--deep) !important;
+    font-weight: 600;
+}
+
+/* Parent Takeaway */
+.pt-scope.light-mode .pt-parentTakeaway {
+    background: var(--solid-blue);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.pt-scope.light-mode .pt-parentTakeaway h4,
+.pt-scope.light-mode .pt-parentTakeaway p,
+.pt-scope.light-mode .pt-parentTakeaway li {
+    color: white !important;
+}
+
+/* Progress Tracking - New Section */
+.pt-scope.light-mode .pt-progressTracking h4 {
+    color: var(--deep) !important;
+    margin-bottom: 16px;
+}
+
+.pt-scope.light-mode .pt-trackingBox {
+    background: var(--solid-deep);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+}
+
+.pt-scope.light-mode .pt-trackingBox h5,
+.pt-scope.light-mode .pt-trackingBox li,
+.pt-scope.light-mode .pt-trackingBox strong {
+    color: white !important;
+}
+
+/* Periodic Table Colors */
+/* Ensure headers in the dark tables are legible */
+.pt-scope.light-mode .text-\[\#3269ae\],
+.pt-scope.light-mode .text-\[\#1e88b8\] {
+    color: #5BA4E5 !important;
+    /* Lighter blue for better contrast on dark NAVY bg */
+}
+
 /* ================= YEAR CONTENT STYLES ================= */
 /* The main year cards */
 .pt-scope.light-mode .pt-yearContent {
@@ -188,11 +273,4 @@
 /* Year Headings */
 .pt-scope.light-mode .pt-yearTitle strong {
     color: var(--deep);
-}
-
-/* Toggle Button */
-.pt-scope.light-mode .pt-theme-toggle {
-    background: white;
-    color: var(--deep);
-    border: 2px solid rgba(54, 99, 173, 0.2);
 }

@@ -629,7 +629,7 @@ export default function WorkingBBAInteractive() {
               </div>
 
               {/* Legend - Responsive Grid (Strict Scale) */}
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 p-4 bg-white/5 rounded-xl border border-white/10 shadow-lg backdrop-blur-sm">
+              <div className="pt-legend flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 p-4 bg-white/5 rounded-xl border border-white/10 shadow-lg backdrop-blur-sm">
                 <div className="flex items-center gap-2">
                   <div className="w-8 sm:w-10 h-4 sm:h-5 bg-gradient-to-r from-[#334c91] to-[#3663AD] rounded-lg shadow-sm"></div>
                   <span className="text-xs text-white/90 font-medium tracking-wide">Education</span>
