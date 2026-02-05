@@ -553,28 +553,28 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'job'}
               onClick={() => setActiveTab('job')}
             >
-              Entrepreneurial Job
+              Working BBA for Entrepreneurial Jobs
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'family'}
               onClick={() => setActiveTab('family')}
             >
-              Business Family
+              Working BBA for Business Families
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'venture'}
               onClick={() => setActiveTab('venture')}
             >
-              Venture Track
+              Working BBA for Venture Starters
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'periodic'}
               onClick={() => setActiveTab('periodic')}
             >
-              Periodic Table
+              Working BBA Operating System
             </button>
           </nav>
         </header>
