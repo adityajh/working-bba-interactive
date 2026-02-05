@@ -538,11 +538,11 @@ export default function WorkingBBAInteractive() {
 
           <div>
             <h1 className="text-white">India’s First Working BBA</h1>
-            <div className="pt-sub"><strong>Work is the Curriculum.</strong> A 3-year experiential business program that gets students into real work—faster than any traditional BBA.</div>
+            <div className="pt-sub"><strong>Work is the Curriculum.</strong> A 3-year business program where students learn by working—faster than any traditional BBA.</div>
             <div className="pt-chips" aria-label="Program pillars">
-              <span className="pt-chip"><span className="pt-dot"></span> Experiential business learning</span>
-              <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Industry immersion</span>
-              <span className="pt-chip"><span className="pt-dot" style={{ background: 'rgba(255,255,255,.60)', boxShadow: '0 0 0 3px rgba(255,255,255,.12)' }}></span> Proof of work</span>
+              <span className="pt-chip"><span className="pt-dot"></span> Learn by working</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Real apprenticeships</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: 'rgba(255,255,255,.60)', boxShadow: '0 0 0 3px rgba(255,255,255,.12)' }}></span> Portfolio + feedback + references</span>
             </div>
           </div>
 
@@ -588,9 +588,32 @@ export default function WorkingBBAInteractive() {
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
           {activeTab === 'periodic' && (
             <div className="space-y-6">
-              <div className="text-center mb-6">
-                <h2 className="text-2xl font-bold">LE Periodic Table of Experiences</h2>
-                <p className="text-white/50 text-sm">An experiential learning operating system that keeps the student journey organised, practical and serious.</p>
+              {/* NEW: Table Explanation Header */}
+              <div className="pt-tableExplain">
+                <h2>15 Core Work Skills: How We Track Your Child's Development</h2>
+
+                <div className="pt-explainGrid">
+                  <div className="pt-explainBox">
+                    <h4>How to read this system:</h4>
+                    <ul>
+                      <li><strong>Each block</strong> represents one work skill developed through real projects</li>
+                      <li><strong>Color coding</strong> shows which skills are practiced each semester</li>
+                      <li><strong>Numbers</strong> indicate the sequence skills are introduced and mastered</li>
+                      <li><strong>"Proof"</strong> means portfolio evidence plus feedback from work supervisors</li>
+                      <li><strong>Yearly sections</strong> show skill building progression from basic to advanced</li>
+                      <li><strong>Assessment</strong> happens through real work performance, not classroom tests</li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-explainBox">
+                    <h4>What this system prevents:</h4>
+                    <ul>
+                      <li><strong>Drift:</strong> Every month has specific skill development targets</li>
+                      <li><strong>Low effort:</strong> Skills are only checked off when work supervisors confirm competency</li>
+                      <li><strong>Confusion:</strong> Students and parents always know what's being developed and why</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
               {/* Legend - Responsive Grid (Strict Scale) */}
@@ -619,6 +642,18 @@ export default function WorkingBBAInteractive() {
                   <div className="w-8 sm:w-10 h-4 sm:h-5 bg-[#160E44] border border-[#FBBF24] rounded-sm shadow-sm"></div>
                   <span className="text-xs text-white/90 font-medium tracking-wide">Roles</span>
                 </div>
+              </div>
+
+              {/* NEW: Parent Takeaway */}
+              <div className="pt-parentTakeaway">
+                <h4>Parent Takeaway:</h4>
+                <p>You will see evidence every month.</p>
+                <ul>
+                  <li>Monthly skill development reports from work supervisors</li>
+                  <li>Quarterly portfolio reviews showing concrete project outcomes</li>
+                  <li>Semester feedback summaries from clients and team members</li>
+                  <li>Annual competency assessment by industry professionals</li>
+                </ul>
               </div>
 
               {/* EDUCATION & EXPERIENCE - Navy Background */}
@@ -776,6 +811,33 @@ export default function WorkingBBAInteractive() {
                 </div>
               </div>
 
+              {/* NEW: Progress Tracking Section */}
+              <div className="pt-progressTracking">
+                <h4>How we track progress:</h4>
+
+                <div className="pt-trackingGrid">
+                  <div className="pt-trackingBox">
+                    <h5>Four types of regular reviews:</h5>
+                    <ul>
+                      <li><strong>Weekly reviews:</strong> Work supervisors assess task completion and quality</li>
+                      <li><strong>Monthly feedback:</strong> Clients rate communication, reliability, and problem-solving</li>
+                      <li><strong>Quarterly submissions:</strong> Portfolio updates with project evidence and outcomes</li>
+                      <li><strong>Semester checks:</strong> Comprehensive skill assessment by program supervisors</li>
+                    </ul>
+                  </div>
+
+                  <div className="pt-trackingBox">
+                    <h5>What parents receive:</h5>
+                    <ul>
+                      <li>Monthly progress summary with specific skill development updates</li>
+                      <li>Quarterly detailed report including work supervisor feedback</li>
+                      <li>Semester portfolio review with evidence of competency growth</li>
+                      <li>Annual comprehensive assessment with industry benchmark comparisons</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
             </div>
           )}
         </main>
@@ -795,7 +857,96 @@ export default function WorkingBBAInteractive() {
 const trackData = {
   original: {
     name: 'Entrepreneurial Job',
+    // Hero section
+    heroTitle: 'Build Work Confidence in Growth Companies',
+    heroSub: 'Your child works as a business operations associate. Real deadlines. Real managers. Real feedback.',
+    mechanism: {
+      title: 'How confidence is built here:',
+      items: [
+        'Weekly one-on-one reviews with company managers',
+        'Monthly project deadlines with client consequences',
+        'Quarterly performance feedback from 3+ supervisors'
+      ]
+    },
+    // Best for section
     whoFor: 'Students who want fast-track real work and entrepreneurial jobs.',
+    // Parent clarity
+    whatTheyDo: {
+      title: 'What your child will do (in simple terms):',
+      items: [
+        'Manage projects for 3-5 company clients each semester',
+        'Create marketing campaigns that bring in actual customers',
+        'Build systems that other employees use daily'
+      ]
+    },
+    accountability: {
+      title: 'How we ensure they work:',
+      items: [
+        'Company managers review their work weekly (not just teachers)',
+        'Client feedback determines their project grades',
+        'Missing deadlines = immediate parent communication'
+      ]
+    },
+    // Year 1 summary
+    year1Summary: 'Your child becomes a reliable project manager who delivers work that company teams depend on.',
+    year1Parts: [
+      { name: 'Foundation (4 months)', desc: 'Learn to manage one project with daily supervision' },
+      { name: 'Application (4 months)', desc: 'Manage 2-3 projects with weekly supervision' },
+      { name: 'Leadership (4 months)', desc: 'Train newer students while managing full project load' }
+    ],
+    // Year 1 content
+    year1Content: {
+      whatTheyDo: [
+        'Manage client projects for 2-3 growing companies',
+        'Handle marketing campaigns with real budget responsibility',
+        'Coordinate teams of 5-8 employees across departments'
+      ],
+      whatTheySubmit: [
+        'Weekly project status reports to company managers',
+        'Monthly budget tracking with spending explanations',
+        'End-of-project client feedback and outcome data'
+      ],
+      feedback: [
+        'Company managers rate their reliability and communication',
+        'Clients score their project delivery and problem-solving',
+        'Peers evaluate their collaboration and leadership'
+      ]
+    },
+    // Progress review
+    progressReview: 'Every 6 months, company partners and parents receive a detailed review. This includes client feedback scores, project outcomes, and areas for improvement. Students who don\'t meet work standards receive additional supervision or program adjustments.',
+    // Year 2 content
+    year2Content: {
+      workplace: [
+        'Lead marketing projects that generate actual customer leads',
+        'Manage operations for company departments',
+        'Present project results to company leadership teams'
+      ],
+      clientDelivery: [
+        'Deliver projects that companies continue using after program ends',
+        'Handle customer service for 100+ company clients',
+        'Train company employees on systems they\'ve built'
+      ],
+      feedback: [
+        'Monthly performance reviews using company HR standards',
+        'Quarterly goal-setting with department heads',
+        'Annual review process identical to company employees'
+      ]
+    },
+    // Year 3 content
+    year3Content: {
+      intro: 'Students graduate with work experience equivalent to 2+ years in business operations. Partner companies provide reference letters. Portfolio includes measurable business results.',
+      portfolio: [
+        'Recommendation letters from 3+ company managers',
+        'Project portfolio with client feedback scores',
+        'Documented business results (cost savings, revenue growth, efficiency improvements)'
+      ],
+      placements: [
+        'Business operations roles at ₹8-12L starting salary',
+        'Project management positions in partner companies',
+        'Marketing coordinator roles with growth potential'
+      ]
+    },
+    // Legacy fields for compatibility
     promise: 'More industries. Stronger references.',
     outcome: 'Ready for roles where output and proof matter more than pedigree.',
     y2: [
@@ -807,7 +958,107 @@ const trackData = {
   },
   bf: {
     name: 'Business Family',
+    // Hero section
+    heroTitle: 'Build Business Reliability and Leadership',
+    heroSub: 'For students who will manage established businesses. Focus on responsibility, not ventures.',
+    mechanism: {
+      title: 'What your child becomes by Year 3:',
+      items: [
+        'Someone who can manage teams and processes reliably',
+        'Someone who communicates professionally with all business stakeholders',
+        'Someone ready to take on significant business responsibility'
+      ]
+    },
+    // Best for section
     whoFor: 'Families 100% clear: the child joins the family business after graduation.',
+    // Parent clarity - maturity development
+    whatTheyDo: {
+      title: 'What changes in your child:',
+      items: [
+        'Responsibility: They follow through on commitments without reminders',
+        'Communication: They speak confidently with customers, suppliers, and employees',
+        'Decision-making: They analyze situations and make sound business choices'
+      ]
+    },
+    accountability: {
+      title: 'What changes in how they show up at work:',
+      items: [
+        'Punctuality: They arrive on time and manage deadlines consistently',
+        'Ownership: They take responsibility for problems and find solutions',
+        'Follow-through: They complete tasks fully and communicate progress'
+      ]
+    },
+    // Family business connection
+    familyConnection: {
+      title: 'How this connects to your family business:',
+      items: [
+        'Process improvement: They learn to make existing operations more efficient',
+        'Team management: They practice leading long-term employees respectfully',
+        'Strategic thinking: They develop skills to grow established customer relationships'
+      ],
+      note: 'This is preparation and capability building, not immediate business takeover. They graduate ready to contribute meaningfully while learning your specific business.'
+    },
+    // Year 1 summary
+    year1Summary: 'Your child builds foundational work habits and learns professional reliability through structured project work.',
+    year1Parts: [
+      { name: 'Foundation (4 months)', desc: 'Learn professional work habits with daily guidance' },
+      { name: 'Application (4 months)', desc: 'Apply skills to team projects with increasing responsibility' },
+      { name: 'Leadership (4 months)', desc: 'Begin coordinating others while maintaining personal standards' }
+    ],
+    // Year 1 content (same structure, different focus)
+    year1Content: {
+      whatTheyDo: [
+        'Work on team projects that require consistent daily effort',
+        'Communicate progress updates to supervisors and team members',
+        'Meet deadlines and handle accountability for results'
+      ],
+      whatTheySubmit: [
+        'Weekly progress reports demonstrating consistent work',
+        'Team collaboration feedback and self-assessments',
+        'Project deliverables reviewed by industry professionals'
+      ],
+      feedback: [
+        'Supervisors assess reliability, punctuality, and follow-through',
+        'Team members evaluate collaboration and communication',
+        'Self-reflection on growth areas and improvement plans'
+      ]
+    },
+    // Progress review
+    progressReview: 'Every 6 months, parents receive a detailed maturity assessment. This includes work habit scores, communication evaluations, and readiness indicators for business responsibility.',
+    // Year 2 content - family business application
+    year2Content: {
+      workplace: [
+        'Process documentation: They can map and improve your current workflows',
+        'Customer relationships: They can handle customer communication professionally',
+        'Team coordination: They can manage projects across different departments'
+      ],
+      clientDelivery: [
+        'Basic execution: They can implement improvements without disrupting operations',
+        'Problem-solving: They can identify issues and propose practical solutions',
+        'Stakeholder management: They can work with suppliers, customers, and employees'
+      ],
+      feedback: [
+        'Monthly reliability assessments from work supervisors',
+        'Quarterly communication and leadership evaluations',
+        'Semester reviews measuring business readiness progression'
+      ]
+    },
+    // Year 3 content - handover readiness
+    year3Content: {
+      intro: 'A "handover-ready" student can manage business processes without constant supervision, handle difficult conversations, make decisions considering long-term relationships, and document systems for others to follow.',
+      portfolio: [
+        'Portfolio artifacts: Process improvements they\'ve implemented in real businesses',
+        'Management feedback: Reviews from business owners who supervised their work',
+        'Reliability record: Track record of meeting deadlines and handling responsibility',
+        'Team testimonials: Feedback from employees they\'ve worked with and managed'
+      ],
+      placements: [
+        'Ready to join family business with meaningful contribution capability',
+        'Able to manage a department or project independently',
+        'Prepared for gradual responsibility increase over 2-3 years'
+      ]
+    },
+    // Legacy fields for compatibility
     promise: 'Succession readiness + family alignment.',
     outcome: 'Ready to take responsibility inside the family business—with alignment and proof.',
     y2: [
@@ -822,16 +1073,125 @@ const trackData = {
   },
   solo: {
     name: 'Venture Track',
+    // Hero section
+    heroTitle: 'Build Your Own Business Through Disciplined Execution',
+    heroSub: 'This is for students ready for execution. Not for idea dreamers.',
+    mechanism: {
+      title: 'What makes ventures disciplined here:',
+      items: [
+        'Customer work: Every week requires direct customer interaction and feedback',
+        'Weekly shipping: Students must deliver something measurable every 7 days',
+        'Feedback loops: Monthly reviews with business owners who\'ve built successful companies'
+      ]
+    },
+    // Best for section
     whoFor: 'Families clear and supportive: the child builds their own venture by graduation.',
-    promise: 'Traction + founder systems.',
-    outcome: 'Ready to build a real venture—traction, systems, and repeatability.',
+    // Execution requirements
+    whatTheyDo: {
+      title: 'What they must do weekly:',
+      items: [
+        'Talk to 5+ potential customers about their business idea',
+        'Ship one improvement or test one business assumption',
+        'Document lessons learned and share with supervisor group'
+      ]
+    },
+    accountability: {
+      title: 'What happens if they don\'t execute:',
+      items: [
+        'Weekly check-ins flag missing deliverables immediately',
+        'Supervisors provide additional structure and supervision',
+        'Continued non-performance results in program track change'
+      ]
+    },
+    // Myth vs Reality
+    mythReality: {
+      myth: {
+        title: 'Myth: Business building = freedom',
+        items: [
+          'Work whenever you want',
+          'Be your own boss',
+          'Focus on big ideas'
+        ]
+      },
+      reality: {
+        title: 'Reality: Business building = deadlines + customers + rejection',
+        items: [
+          'Customer deadlines are harder than employee deadlines',
+          'Customers and investors are demanding bosses',
+          'Success requires executing hundreds of small details'
+        ]
+      }
+    },
+    // Year 1 summary
+    year1Summary: 'Your child learns that real business building means talking to customers, testing ideas, and shipping work every single week.',
+    year1Parts: [
+      { name: 'Foundation (4 months)', desc: 'Learn customer research and basic testing methods' },
+      { name: 'Application (4 months)', desc: 'Run multiple customer experiments with real feedback' },
+      { name: 'Leadership (4 months)', desc: 'Build first working prototype based on validated needs' }
+    ],
+    // Year 1 content - validation
+    year1Content: {
+      whatTheyDo: [
+        'Conduct 50+ customer interviews to understand real problems',
+        'Test 10+ different solutions with potential paying customers',
+        'Build and improve 3+ working prototypes based on customer feedback'
+      ],
+      whatTheySubmit: [
+        'Customer notes: Documented conversations showing what customers actually want',
+        'Working prototypes: Simple versions of products that customers can test',
+        'Pricing tests: Evidence of what customers will actually pay for'
+      ],
+      feedback: [
+        'Weekly progress reviews on customer conversation counts',
+        'Monthly assessments of learning quality and hypothesis testing',
+        'Quarterly evaluations by experienced business builders'
+      ]
+    },
+    // Progress review
+    progressReview: 'Every 6 months, parents receive a detailed execution report. This includes customer conversation counts, shipping frequency, and business validation progress. Students who don\'t execute consistently receive additional structure or track recommendations.',
+    // Year 2 content - systems
+    year2Content: {
+      workplace: [
+        'Daily customer communication and service delivery',
+        'Weekly financial tracking and business decision-making',
+        'Monthly team management and performance reviews'
+      ],
+      clientDelivery: [
+        'Business serving 20+ regular paying customers',
+        'Team of 3-5 people working on defined roles and schedules',
+        'Financial systems tracking revenue, costs, and profit accurately'
+      ],
+      feedback: [
+        'Weekly shipping reviews - what did you deliver this week?',
+        'Monthly customer satisfaction and retention metrics',
+        'Quarterly business health assessments by industry supervisors'
+      ]
+    },
+    // Year 3 content - outcomes
+    year3Content: {
+      intro: 'Two possible outcomes: (1) Successful venture generating consistent profit with growth potential, or (2) Venture-ready capability with proven ability to build businesses systematically.',
+      portfolio: [
+        'Ability to find and serve customers consistently',
+        'Experience managing people, budgets, and business operations',
+        'Track record of building something from nothing through persistent work',
+        'Either a running business or documented capability proof'
+      ],
+      placements: [
+        'Continue growing their own venture independently',
+        'Join early-stage companies in operational roles',
+        'Apply business-building skills to family enterprise'
+      ]
+    },
+    // Legacy fields for compatibility
+    promise: 'Customer validation + founder discipline.',
+    outcome: 'Ready to build a real venture—customers, systems, and repeatability.',
     y2: [
       { t: 'Venture', h: 'Solo Venture ×1', d: 'Offer + first customers' },
       { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
-      { t: 'Mentor', h: 'Solo Mentor Meetups ×4', d: 'Founder operator reps' }
+      { t: 'Mentor', h: 'Solo Supervisor Meetups ×4', d: 'Business operator guidance' }
     ],
     y3: [
-      { t: 'Venture', h: '9-month Venture Building', d: 'Traction → systems → repeatability' },
+      { t: 'Venture', h: '9-month Venture Building', d: 'Customers → systems → repeatability' },
       { t: 'Coaching', h: 'Venture Coaching ×4', d: 'Distribution, growth, resilience' }
     ]
   }
@@ -854,156 +1214,180 @@ const TrackView = ({ track }) => {
     });
   };
 
+  const renderList = (items) => (
+    <ul>
+      {items.map((item, i) => <li key={i}>{item}</li>)}
+    </ul>
+  );
+
   return (
     <div className="pt-tabPane active fade-in">
-      {/* TRACK HEADER */}
-      <div className="pt-trackIntro" style={{ marginBottom: 24 }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 8 }}>{current.name}</h2>
-        <div className="pt-trackMeta">
-          <div className="pt-trackLine"><span className="lbl">Best for</span><span>{current.whoFor}</span></div>
-          <div className="pt-trackLine"><span className="lbl">Promise</span><span>{current.promise}</span></div>
-          <div className="pt-trackLine"><span className="lbl">Outcome</span><span>{current.outcome}</span></div>
+      {/* ===================== HERO SECTION ===================== */}
+      <div className="pt-hero">
+        <h2>{current.heroTitle}</h2>
+        <h3>{current.heroSub}</h3>
+        <div className="pt-mechanism">
+          <strong>{current.mechanism.title}</strong>
+          {renderList(current.mechanism.items)}
         </div>
       </div>
 
-      {/* ===================== YEAR 1 (COMMON) ===================== */}
-      <section className="pt-section pt-year" aria-label="Year 1 Growth Year">
+      {/* ===================== BEST FOR + PARENT CLARITY ===================== */}
+      <div className="pt-trackIntro" style={{ marginBottom: 16 }}>
+        <div className="pt-trackMeta">
+          <div className="pt-trackLine"><span className="lbl">Best for</span><span>{current.whoFor}</span></div>
+        </div>
+      </div>
+
+      <div className="pt-parentClarity">
+        <div className="pt-clarityBox">
+          <h4>{current.whatTheyDo.title}</h4>
+          {renderList(current.whatTheyDo.items)}
+        </div>
+        <div className="pt-clarityBox">
+          <h4>{current.accountability.title}</h4>
+          {renderList(current.accountability.items)}
+        </div>
+      </div>
+
+      {/* ===================== MYTH VS REALITY (Venture only) ===================== */}
+      {current.mythReality && (
+        <div className="pt-mythReality">
+          <div className="pt-mythCol">
+            <h5>{current.mythReality.myth.title}</h5>
+            {renderList(current.mythReality.myth.items)}
+          </div>
+          <div className="pt-realityCol">
+            <h5>{current.mythReality.reality.title}</h5>
+            {renderList(current.mythReality.reality.items)}
+          </div>
+        </div>
+      )}
+
+      {/* ===================== FAMILY CONNECTION (Business Family only) ===================== */}
+      {current.familyConnection && (
+        <div className="pt-clarityBox" style={{ marginBottom: 20 }}>
+          <h4>{current.familyConnection.title}</h4>
+          {renderList(current.familyConnection.items)}
+          <p style={{ marginTop: 12, fontSize: 12, color: 'rgba(255,255,255,.78)', fontWeight: 600 }}>
+            <strong>Important:</strong> {current.familyConnection.note}
+          </p>
+        </div>
+      )}
+
+      {/* ===================== YEAR 1 SUMMARY ===================== */}
+      <div className="pt-yearSummary">
+        <h4>Year 1 in one line:</h4>
+        <p>{current.year1Summary}</p>
+        <div className="pt-threePart">
+          <h5>Year 1 has 3 main parts:</h5>
+          <ul>
+            {current.year1Parts.map((part, i) => (
+              <li key={i}><strong>{part.name}:</strong> {part.desc}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* ===================== YEAR 1 (DETAILED) ===================== */}
+      <section className="pt-section pt-year" aria-label="Year 1 Foundation">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 1 • Growth Year</strong>
+            <strong>Year 1 • Foundation Building</strong>
             <span className="pt-pill" style={{ background: 'rgba(37,188,189,0.2)', color: '#25BCBD' }}>Common for all 3 programs</span>
           </div>
-          <div className="pt-hint">Year 1 is the same for every student. You build skill reps, delivery discipline, and reliability—before choosing a track for Years 2 & 3.</div>
         </div>
 
         <div className="pt-body">
-          <div className="pt-panel">
-            <div className="pt-panelTitle"><span className="pt-icon">🧩</span> Year 1 structure (time sense)</div>
-
-            <div className="pt-cards">
-              <div className="pt-card">
-                <div className="t">Challenge cycles</div>
-                <div className="h">Challenges — 60%</div>
-                <div className="d">Cohort + Team + Solo/Duo reps. Build execution muscle through repeated cycles.</div>
-              </div>
-              <div className="pt-card">
-                <div className="t">Client delivery</div>
-                <div className="h">Client Project — 20%</div>
-                <div className="d">One real client cycle. Scope + feedback loop + delivery standards.</div>
-              </div>
-              <div className="pt-card">
-                <div className="t">Work reliability</div>
-                <div className="h">Apprenticeship — 20%</div>
-                <div className="d">A short placement. Learn manager expectations, reliability, and workplace behaviour.</div>
-              </div>
+          <div className="pt-yearContent">
+            <div className="pt-contentBlock">
+              <h5>What they do</h5>
+              {renderList(current.year1Content.whatTheyDo)}
             </div>
-
-            <div className="pt-barWrap" aria-label="Year 1 time allocation">
-              <div className="pt-bar" title="Challenges 60%, Client Project 20%, Apprenticeship 20%">
-                <div className="pt-seg pt-s1" style={{ width: '60%' }}></div>
-                <div className="pt-seg pt-s2" style={{ width: '20%' }}></div>
-                <div className="pt-seg pt-s4" style={{ width: '20%' }}></div>
-              </div>
-              <div className="pt-barLegend">
-                <span className="pt-key"><span className="pt-sw pt-s1"></span> Challenges (60%)</span>
-                <span className="pt-key"><span className="pt-sw pt-s2"></span> Client Project (20%)</span>
-                <span className="pt-key"><span className="pt-sw pt-s4"></span> Apprenticeship (20%)</span>
-              </div>
+            <div className="pt-contentBlock">
+              <h5>What they submit</h5>
+              {renderList(current.year1Content.whatTheySubmit)}
             </div>
-
-            <div className="pt-panel" style={{ marginTop: 12, background: 'rgba(255,255,255,.03)' }}>
-              <div className="pt-panelTitle"><span className="pt-icon">🧭</span> Always-on spine (runs alongside everything)</div>
-              <div className="pt-spineGrid" aria-label="Always-on spine sections">
-                <div className="pt-spineSeg">
-                  <div className="k">Coaching</div>
-                  <div className="v">Career Blueprint ×6</div>
-                  <div className="s">Clarity, confidence, decision-making</div>
-                </div>
-                <div className="pt-spineSeg">
-                  <div className="k">Networking</div>
-                  <div className="v">Regen (every year)</div>
-                  <div className="s">Industry exposure + introductions</div>
-                </div>
-                <div className="pt-spineSeg">
-                  <div className="k">Communication</div>
-                  <div className="v">Storysells</div>
-                  <div className="s">Pitch, publish, and build presence</div>
-                </div>
-                <div className="pt-spineSeg">
-                  <div className="k">Proof</div>
-                  <div className="v">Daily + Weekly Proof</div>
-                  <div className="s">Docs, media, data, testimonials</div>
-                </div>
-              </div>
+            <div className="pt-contentBlock">
+              <h5>What feedback looks like</h5>
+              {renderList(current.year1Content.feedback)}
             </div>
-          </div>
-
-          <div className="pt-strip" aria-label="Year 1 outcomes">
-            <strong>Year 1 outcome</strong>
-            <span>A student who can <span className="pt-opTag">show up, deliver, communicate</span>—with real proof. This is the foundation for higher-stakes work in Years 2 & 3.</span>
           </div>
         </div>
       </section>
 
+      {/* ===================== PROGRESS REVIEW ===================== */}
+      <div className="pt-progressCheck">
+        <h4>Progress Review:</h4>
+        <p>{current.progressReview}</p>
+      </div>
+
       {/* ===================== YEAR 2 ===================== */}
-      <section className="pt-section pt-year" aria-label="Year 2 Projects Year" style={{ marginTop: 32 }}>
+      <section className="pt-section pt-year" aria-label="Year 2 Business Operations" style={{ marginTop: 20 }}>
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 2 • Projects Year</strong>
-            <span className="pt-pill">Common spine + track specifics</span>
+            <strong>Year 2 • {track === 'original' ? 'Business Operations' : track === 'bf' ? 'Family Business Skills' : 'Building Business Systems'}</strong>
+            <span className="pt-pill">Track-specific focus</span>
           </div>
         </div>
 
         <div className="pt-body">
-          <div className="pt-split">
-            <div className="pt-panel commonPanel">
-              <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 2)</div>
-              <div className="pt-spineGrid" aria-label="Year 2 common spine">
-                <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Client Project ×1</div><div className="s">Real scope + feedback</div></div>
-                <div className="pt-spineSeg"><div className="k">Venture</div><div className="v">Team Venture</div><div className="s">Build + ship</div></div>
-                <div className="pt-spineSeg"><div className="k">Employer</div><div className="v">Apprenticeship ×1</div><div className="s">Professional standards</div></div>
-                <div className="pt-spineSeg"><div className="k">Communication</div><div className="v">Storysells</div><div className="s">Pitch + publish</div></div>
-                <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×4</div><div className="s">Direction + decisions</div></div>
-                <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
-              </div>
+          <div className="pt-yearContent">
+            <div className="pt-contentBlock">
+              <h5>{track === 'original' ? 'Workplace responsibilities' : track === 'bf' ? 'How they use these skills' : 'Building systems means'}</h5>
+              {renderList(current.year2Content.workplace)}
             </div>
+            <div className="pt-contentBlock">
+              <h5>{track === 'original' ? 'Client delivery expectations' : track === 'bf' ? 'Practical applications' : 'What they produce'}</h5>
+              {renderList(current.year2Content.clientDelivery)}
+            </div>
+            <div className="pt-contentBlock">
+              <h5>{track === 'original' ? 'Manager feedback process' : 'Feedback process'}</h5>
+              {renderList(current.year2Content.feedback)}
+            </div>
+          </div>
 
-            <div className="pt-panel deltaPanel">
-              <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track specifics (Year 2)</div>
-              <div className="pt-deltaCards">
-                {renderDelta(current.y2)}
-              </div>
+          {/* Legacy track specifics */}
+          <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
+            <div className="pt-panelTitle"><span className="pt-icon">➕</span> Additional track activities (Year 2)</div>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y2)}
             </div>
           </div>
         </div>
       </section>
 
       {/* ===================== YEAR 3 ===================== */}
-      <section className="pt-section pt-year" aria-label="Year 3 Work Year" style={{ marginTop: 32 }}>
+      <section className="pt-section pt-year" aria-label="Year 3 Outcomes" style={{ marginTop: 20 }}>
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 3 • Work Year</strong>
-            <span className="pt-pill">Common spine + track capstone</span>
+            <strong>Year 3 • {track === 'original' ? 'Job Readiness' : track === 'bf' ? 'Handover-Ready Capability' : 'Venture Progress or Capability'}</strong>
+            <span className="pt-pill">Outcome focus</span>
           </div>
         </div>
 
         <div className="pt-body">
-          <div className="pt-split">
-            <div className="pt-panel commonPanel">
-              <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 3)</div>
-              <div className="pt-spineGrid" aria-label="Year 3 common spine">
-                <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
-                <div className="pt-spineSeg"><div className="k">Proof</div><div className="v">Proof Packs</div><div className="s">Docs + media + data</div></div>
-                <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×6</div><div className="s">Transition ×4</div></div>
-                <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Team Residency (6 weeks)</div><div className="s">On-site delivery</div></div>
-              </div>
-            </div>
+          <div className="pt-outcomeSection">
+            <h4>{track === 'original' ? 'Employment preparation' : track === 'bf' ? 'What a "handover-ready" student looks like' : 'Two possible outcomes'}</h4>
+            <p>{current.year3Content.intro}</p>
+          </div>
 
-            <div className="pt-panel deltaPanel">
-              <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track capstone (Year 3)</div>
-              <div className="pt-deltaCards">
-                {renderDelta(current.y3)}
-              </div>
+          <div className="pt-yearContent" style={{ marginTop: 12 }}>
+            <div className="pt-contentBlock">
+              <h5>{track === 'original' ? 'Portfolio + references include' : track === 'bf' ? 'Evidence you can expect' : 'Either outcome demonstrates'}</h5>
+              {renderList(current.year3Content.portfolio)}
+            </div>
+            <div className="pt-contentBlock">
+              <h5>{track === 'original' ? 'Typical job placements' : track === 'bf' ? 'Readiness outcomes' : 'Possible paths'}</h5>
+              {renderList(current.year3Content.placements)}
+            </div>
+          </div>
+
+          {/* Legacy track capstone */}
+          <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
+            <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track capstone activities (Year 3)</div>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y3)}
             </div>
           </div>
         </div>
@@ -1011,7 +1395,7 @@ const TrackView = ({ track }) => {
 
       {/* FINAL NOTE */}
       <div className="pt-note" aria-label="Implementation note" style={{ marginTop: 32 }}>
-        <strong>Simple idea:</strong> Students graduate with <strong>proof of work</strong> and <strong>real references</strong>—not just a marksheet.
+        <strong>Simple idea:</strong> Students graduate with <strong>portfolio + feedback + references</strong>—not just a marksheet.
       </div>
     </div>
   );
