@@ -56,32 +56,47 @@
 }
 
 /* ================= TABS ================= */
+/* ================= TABS ================= */
 .pt-scope.light-mode .pt-tabs {
-    background: white;
-    border: 1px solid rgba(54, 99, 173, 0.15);
-    box-shadow: 0 4px 20px rgba(54, 99, 173, 0.08);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    /* Align neatly */
 }
 
 /* Inactive Tabs */
 .pt-scope.light-mode .pt-tabBtn {
-    color: var(--deep) !important;
-    background: rgba(54, 99, 173, 0.08);
-    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7) !important;
+    background: transparent;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pt-scope.light-mode .pt-tabBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white !important;
 }
 
 /* Active Tab */
 .pt-scope.light-mode .pt-tabBtn[data-active="true"] {
-    background: var(--solid-deep);
-    color: white !important;
+    background: white;
+    color: var(--deep) !important;
     font-weight: 800;
-    box-shadow: 0 8px 24px rgba(22, 14, 68, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: none;
 }
 
 /* Toggle Button */
 .pt-scope.light-mode .pt-theme-toggle {
-    background: white;
-    color: var(--deep);
-    border: 2px solid rgba(54, 99, 173, 0.2);
+    background: transparent;
+    color: white;
+    /* Icon must be white on blue header */
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.pt-scope.light-mode .pt-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 /* ================= HERO SECTIONS ================= */
