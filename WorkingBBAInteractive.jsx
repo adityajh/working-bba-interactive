@@ -1,27 +1,32 @@
 import { useState } from 'react';
+import './ProgramTabs.css';
 
 export default function WorkingBBAInteractive() {
   const [selectedElement, setSelectedElement] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
 
-  // Brand Colors from LE Guidelines
+  // Brand Colors from LE Guidelines (Strict Scale)
   const brandColors = {
-    enterpriseBlue: '#3663AD',
-    deepBlue: '#160E44',
-    brightTeal: '#25BCBD',
-    // Complementary colors
-    coral: '#E07B54',      // Assessments
-    slate: '#64748B',      // Roles
-    amber: '#D97706',      // Evidence
+    deepBlue: '#160E44',      // Deepest
+    navy2: '#282f6c',
+    navy3: '#334c91',
+    enterpriseBlue: '#3663AD', // Blue
+    blue4: '#3269ae',
+    tealBlue: '#1e88b8',
+    darkTeal: '#0da3bc',
+    brightTeal: '#25BCBD',    // Brightest
+    // Highlights
+    magenta: '#D946EF',
+    yellow: '#FBBF24',
   };
 
   // Periodic Table Elements Data
   const elements = {
-    // Education & Experience - Course (Enterprise Blue family)
+    // Education & Experience - Course (Blue Scale)
     course: {
       name: "COURSE",
       pillar: "education",
-      color: "bg-[#3663AD]",
+      color: "bg-[#3663AD]", // Enterprise Blue
       description: "Structured progression, problem/theme-led learning with no external stakeholder",
       duration: "2-6 weeks",
       size: "medium"
@@ -31,7 +36,7 @@ export default function WorkingBBAInteractive() {
     cohortChallenge: {
       name: "COHORT CHALLENGE",
       pillar: "education",
-      color: "bg-[#2952A3]",
+      color: "bg-[#334c91]", // Navy 3
       description: "Entire cohort works on challenge, milestone-based with feedback cycles",
       duration: "1-3 weeks",
       size: "medium"
@@ -39,7 +44,7 @@ export default function WorkingBBAInteractive() {
     teamChallenge: {
       name: "TEAM CHALLENGE",
       pillar: "education",
-      color: "bg-[#2952A3]",
+      color: "bg-[#334c91]",
       description: "Teams work on separate challenge tasks",
       duration: "1-3 weeks",
       size: "medium"
@@ -47,7 +52,7 @@ export default function WorkingBBAInteractive() {
     soloChallenge: {
       name: "SOLO/DUO CHALLENGE",
       pillar: "education",
-      color: "bg-[#2952A3]",
+      color: "bg-[#334c91]",
       description: "Clear goals, weekly check-ins, individual challenge",
       duration: "1-3 weeks",
       size: "medium"
@@ -57,7 +62,7 @@ export default function WorkingBBAInteractive() {
     skillTrack: {
       name: "SKILL TRACK",
       pillar: "education",
-      color: "bg-[#4A7CC9]",
+      color: "bg-[#3269ae]", // Blue 4
       description: "Individual, self-paced, facilitator-supported skill building",
       duration: "2-4 weeks",
       size: "medium"
@@ -65,17 +70,17 @@ export default function WorkingBBAInteractive() {
     teamTrack: {
       name: "TEAM TRACK",
       pillar: "education",
-      color: "bg-[#4A7CC9]",
+      color: "bg-[#3269ae]",
       description: "Teams work on separate tasks with common timelines",
       duration: "2-4 weeks",
       size: "medium"
     },
 
-    // Education & Experience - Venture (Teal family)
+    // Education & Experience - Venture (Blue Scale)
     soloVenture: {
       name: "SOLO VENTURE",
       pillar: "experience",
-      color: "bg-[#25BCBD]",
+      color: "bg-[#3663AD]", // Enterprise Blue
       description: "Individual launches and runs a real micro-business",
       duration: "Semester",
       size: "long"
@@ -83,7 +88,7 @@ export default function WorkingBBAInteractive() {
     teamVenture: {
       name: "TEAM VENTURE",
       pillar: "experience",
-      color: "bg-[#25BCBD]",
+      color: "bg-[#3663AD]",
       description: "Team builds and operates a real business together",
       duration: "Semester",
       size: "long"
@@ -91,25 +96,25 @@ export default function WorkingBBAInteractive() {
     cohortVenture: {
       name: "COHORT VENTURE",
       pillar: "experience",
-      color: "bg-[#1FA8A9]",
+      color: "bg-[#282f6c]", // Navy 2
       description: "Entire cohort collaborates on a shared venture ecosystem",
       duration: "Semester",
       size: "long"
     },
 
-    // Education & Experience - Client (Teal-Blue blend)
+    // Education & Experience - Client (Blue Scale)
     clientGig: {
       name: "CLIENT GIG",
       pillar: "experience",
-      color: "bg-[#2E9B9C]",
+      color: "bg-[#3269ae]",
       description: "Student-scoped, part-time work for external client with minimal supervision",
       duration: "2-4 weeks",
-      size: "medium"
+      size: "long"
     },
     clientProject: {
       name: "CLIENT PROJECT",
       pillar: "experience",
-      color: "bg-[#2E9B9C]",
+      color: "bg-[#3269ae]",
       description: "LE-scoped, facilitator-led, full-time team delivery for real client",
       duration: "4-8 weeks",
       size: "long"
@@ -117,17 +122,17 @@ export default function WorkingBBAInteractive() {
     clientHackathon: {
       name: "CLIENT HACKATHON",
       pillar: "experience",
-      color: "bg-[#2E9B9C]",
+      color: "bg-[#3269ae]",
       description: "1-7 days compressed build for external customer",
       duration: "1-7 days",
       size: "short"
     },
 
-    // Education & Experience - Employer (Deep Blue family)
+    // Education & Experience - Employer (Deep Scale)
     apprenticeship: {
       name: "APPRENTICE-SHIP",
       pillar: "experience",
-      color: "bg-[#1E3A5F]",
+      color: "bg-[#160E44]", // Deep Blue
       description: "Clear work description, LE-supported placement inside an organization",
       duration: "4 weeks - 9 months",
       size: "long"
@@ -135,17 +140,17 @@ export default function WorkingBBAInteractive() {
     teamResidency: {
       name: "TEAM RESIDENCY",
       pillar: "experience",
-      color: "bg-[#1E3A5F]",
+      color: "bg-[#160E44]",
       description: "Group of students with shared manager, shared deliverable, on-site",
       duration: "Semester",
       size: "long"
     },
 
-    // Awareness - Self (Deep Blue/Purple family)
+    // Awareness - Self (Bright Teal #25BCBD)
     conflexion: {
       name: "CONFLEX-ION",
       pillar: "awareness",
-      color: "bg-[#160E44]",
+      color: "bg-[#25BCBD] text-[#160E44]", // Teal with Dark Text
       description: "Monthly publishing, personal reflection and meaning-making",
       duration: "Monthly",
       size: "ongoing"
@@ -153,17 +158,17 @@ export default function WorkingBBAInteractive() {
     careerBlueprint: {
       name: "CAREER BLUEPRINT",
       pillar: "awareness",
-      color: "bg-[#2D1B69]",
+      color: "bg-[#25BCBD] text-[#160E44]",
       description: "Personal and career coaching sessions",
       duration: "Ongoing",
       size: "ongoing"
     },
 
-    // Awareness - Community
+    // Awareness - Community (Bright Teal)
     mastermind: {
       name: "MASTERMIND",
       pillar: "awareness",
-      color: "bg-[#160E44]",
+      color: "bg-[#25BCBD] text-[#160E44]",
       description: "Fortnightly/weekly peer-led growth-oriented group sessions",
       duration: "Fortnightly",
       size: "ongoing"
@@ -171,7 +176,7 @@ export default function WorkingBBAInteractive() {
     meetup: {
       name: "MEETUP",
       pillar: "awareness",
-      color: "bg-[#2D1B69]",
+      color: "bg-[#25BCBD] text-[#160E44]",
       description: "Guest or industry visit, student-led",
       duration: "As scheduled",
       size: "short"
@@ -179,17 +184,17 @@ export default function WorkingBBAInteractive() {
     storyTell: {
       name: "STORY TELL",
       pillar: "awareness",
-      color: "bg-[#160E44]",
+      color: "bg-[#25BCBD] text-[#160E44]",
       description: "End of cycle debrief, sense-making, publishing",
       duration: "End of cycle",
       size: "short"
     },
 
-    // Awareness - Events
+    // Awareness - Events (Bright Teal)
     camp: {
       name: "CAMP",
       pillar: "awareness",
-      color: "bg-[#3D2B7A]",
+      color: "bg-[#25BCBD] text-[#160E44]",
       description: "Workshop, camp, or travel - immersive experience",
       duration: "1-7 days",
       size: "short"
@@ -197,7 +202,7 @@ export default function WorkingBBAInteractive() {
     regen: {
       name: "REGEN",
       pillar: "awareness",
-      color: "bg-[#3D2B7A]",
+      color: "bg-[#25BCBD] text-[#160E44]",
       description: "Industry networking event",
       duration: "1-2 days",
       size: "short"
@@ -205,16 +210,16 @@ export default function WorkingBBAInteractive() {
     storysellsWorkshop: {
       name: "STORYSELLS WORKSHOP",
       pillar: "awareness",
-      color: "bg-[#3D2B7A]",
+      color: "bg-[#25BCBD] text-[#160E44]",
       description: "Engage and connect through storytelling",
       duration: "Half-day",
       size: "short"
     },
 
-    // Evidence - Now part of Awareness (outline style)
+    // Evidence - Separate Section (White/Outline)
     dailyCards: {
       name: "DAILY CARDS",
-      pillar: "awareness",
+      pillar: "evidence",
       color: "bg-white border-2 border-black text-black",
       description: "Daily reflection cards",
       duration: "Daily",
@@ -223,14 +228,14 @@ export default function WorkingBBAInteractive() {
     storyBuild: {
       name: "STORY BUILD",
       pillar: "awareness",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#25BCBD] text-[#160E44]", // Teal
       description: "Weekly hygiene, document and organize portfolio artifacts",
       duration: "Weekly",
       size: "medium"
     },
     docs: {
       name: "DOCS",
-      pillar: "awareness",
+      pillar: "evidence",
       color: "bg-white border-2 border-black text-black",
       description: "Sheets, docs, presentations, code artifacts",
       duration: "Per deliverable",
@@ -238,7 +243,7 @@ export default function WorkingBBAInteractive() {
     },
     assessmentOutputs: {
       name: "ASSESSMENT OUTPUTS",
-      pillar: "awareness",
+      pillar: "evidence",
       color: "bg-white border-2 border-black text-black",
       description: "Formal assessment results and evaluation records",
       duration: "Per assessment",
@@ -246,7 +251,7 @@ export default function WorkingBBAInteractive() {
     },
     testimonials: {
       name: "TESTIMONIALS",
-      pillar: "awareness",
+      pillar: "evidence",
       color: "bg-white border-2 border-black text-black",
       description: "Letters, videos, posts from stakeholders",
       duration: "Per activity",
@@ -254,7 +259,7 @@ export default function WorkingBBAInteractive() {
     },
     dataSets: {
       name: "DATA SET",
-      pillar: "awareness",
+      pillar: "evidence",
       color: "bg-white border-2 border-black text-black",
       description: "Collected data, research findings, analytics",
       duration: "Per project",
@@ -262,18 +267,18 @@ export default function WorkingBBAInteractive() {
     },
     media: {
       name: "MEDIA",
-      pillar: "awareness",
+      pillar: "evidence",
       color: "bg-white border-2 border-black text-black",
       description: "Photos, video, audio documentation",
       duration: "Per deliverable",
       size: "medium"
     },
 
-    // Assessments (Outline style)
+    // Assessments (Deep Blue w/ Magenta Text)
     outcomes: {
       name: "OUTCOMES",
       pillar: "assessment",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#160E44] text-[#D946EF]", // Deep Blue + Magenta
       description: "Quarterly assessment based on program outcomes",
       duration: "Quarterly",
       size: "medium"
@@ -281,7 +286,7 @@ export default function WorkingBBAInteractive() {
     engagement: {
       name: "ENGAGEMENT",
       pillar: "assessment",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#160E44] text-[#D946EF]",
       description: "Fortnightly rating based on participation",
       duration: "Fortnightly",
       size: "medium"
@@ -289,7 +294,7 @@ export default function WorkingBBAInteractive() {
     progress: {
       name: "PROGRESS",
       pillar: "assessment",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#160E44] text-[#D946EF]",
       description: "Fortnightly rating based on publishing",
       duration: "Fortnightly",
       size: "medium"
@@ -297,7 +302,7 @@ export default function WorkingBBAInteractive() {
     selfPeerFacRating: {
       name: "SELF / PEER / FAC RATING",
       pillar: "assessment",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#160E44] text-[#D946EF]",
       description: "Rating on a scale of 1 to 5 from self, peers, and facilitator",
       duration: "Per activity",
       size: "medium"
@@ -305,7 +310,7 @@ export default function WorkingBBAInteractive() {
     industryRating: {
       name: "INDUSTRY RATING",
       pillar: "assessment",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#160E44] text-[#D946EF]",
       description: "Rating on a scale of 1 to 5 from industry partner",
       duration: "Per placement",
       size: "medium"
@@ -313,7 +318,7 @@ export default function WorkingBBAInteractive() {
     specific: {
       name: "SPECIFIC",
       pillar: "assessment",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#160E44] text-[#D946EF]",
       description: "End of activity assessment based on deliverables",
       duration: "Per activity",
       size: "medium"
@@ -321,17 +326,17 @@ export default function WorkingBBAInteractive() {
     quiz: {
       name: "QUIZ",
       pillar: "assessment",
-      color: "bg-white border-2 border-black text-black",
+      color: "bg-[#160E44] text-[#D946EF]",
       description: "Closed or open book quizzes for knowledge check",
       duration: "As needed",
       size: "medium"
     },
 
-    // Roles (Dark Navy - High Contrast)
+    // Roles (Deep Blue w/ Yellow Text)
     facilitator: {
       name: "FACILITATOR",
       pillar: "role",
-      color: "bg-[#1E1B4B]",
+      color: "bg-[#160E44] text-[#FBBF24]", // Deep Blue + Yellow
       description: "Full-time, sets cadence, standards, and calendar",
       duration: "Constant",
       size: "medium"
@@ -339,7 +344,7 @@ export default function WorkingBBAInteractive() {
     developer: {
       name: "DEVELOPER",
       pillar: "role",
-      color: "bg-[#312E81]",
+      color: "bg-[#160E44] text-[#FBBF24]",
       description: "Develops re-usable experiences, playbooks, assets",
       duration: "Ongoing",
       size: "medium"
@@ -347,7 +352,7 @@ export default function WorkingBBAInteractive() {
     faculty: {
       name: "FACULTY",
       pillar: "role",
-      color: "bg-[#1E1B4B]",
+      color: "bg-[#160E44] text-[#FBBF24]",
       description: "External, conducts a course or workshop",
       duration: "Per course",
       size: "medium"
@@ -355,7 +360,7 @@ export default function WorkingBBAInteractive() {
     mentor: {
       name: "MENTOR",
       pillar: "role",
-      color: "bg-[#312E81]",
+      color: "bg-[#160E44] text-[#FBBF24]",
       description: "Hosts a project or venture with domain expertise",
       duration: "Per project",
       size: "medium"
@@ -363,7 +368,7 @@ export default function WorkingBBAInteractive() {
     expert: {
       name: "EXPERT",
       pillar: "role",
-      color: "bg-[#1E1B4B]",
+      color: "bg-[#160E44] text-[#FBBF24]",
       description: "Supports a project or venture with domain expertise",
       duration: "As needed",
       size: "medium"
@@ -371,7 +376,7 @@ export default function WorkingBBAInteractive() {
     lighthouse: {
       name: "LIGHT-HOUSE",
       pillar: "role",
-      color: "bg-[#0284C7]",
+      color: "bg-[#160E44] text-[#FBBF24]",
       description: "Inspiration and role modeling",
       duration: "Per event",
       size: "medium"
@@ -379,7 +384,7 @@ export default function WorkingBBAInteractive() {
     jury: {
       name: "JURY",
       pillar: "role",
-      color: "bg-[#1E1B4B]",
+      color: "bg-[#160E44] text-[#FBBF24]",
       description: "Students present or pitch to them for evaluation",
       duration: "Per event",
       size: "medium"
@@ -391,6 +396,7 @@ export default function WorkingBBAInteractive() {
     switch (pillar) {
       case 'education':
       case 'experience':
+      case 'evidence':
         return 'rounded-lg'; // Standard rounded
       case 'awareness':
         return 'rounded-lg'; // Same as education
@@ -398,17 +404,25 @@ export default function WorkingBBAInteractive() {
         return 'rounded-full'; // Pill shape
       case 'role':
         return 'rounded-sm'; // Squared corners
-      case 'evidence':
-        return 'rounded-lg border-2 border-white/30'; // Outline style
       default:
         return 'rounded-lg';
     }
   };
 
-  // Get width - standardized for all buttons
+  // Get width - standardized based on duration
   const getWidthStyle = (size) => {
-    // All buttons same size now
-    return 'min-w-[120px]';
+    switch (size) {
+      case 'short':
+        return 'w-24'; // 96px - Days/Weeks
+      case 'medium':
+        return 'w-36'; // 144px - Months
+      case 'long':
+        return 'w-48'; // 192px - Semester
+      case 'ongoing':
+        return 'w-40'; // Distinct size for ongoing
+      default:
+        return 'w-36';
+    }
   };
 
   const ElementBadge = ({ elementKey, showSize = true }) => {
@@ -416,7 +430,11 @@ export default function WorkingBBAInteractive() {
     if (!element) return null;
 
     const shapeStyle = getShapeStyle(element.pillar);
-    const widthStyle = showSize ? getWidthStyle(element.size) : '';
+    const widthStyle = showSize ? getWidthStyle(element.size) : 'w-auto px-4';
+
+    // Handle outline style text color
+    const isOutline = element.color.includes('bg-white');
+    const textColor = isOutline ? 'text-black' : 'text-white text-shadow-sm';
 
     return (
       <button
@@ -425,13 +443,14 @@ export default function WorkingBBAInteractive() {
           ${element.color} 
           ${shapeStyle}
           ${widthStyle}
-          h-8 px-4 py-2
-          text-xs font-bold
-          transition-all hover:scale-105 hover:shadow-lg hover:brightness-110
-          cursor-pointer 
+          h-10 py-1
           flex items-center justify-center
+          text-[10px] sm:text-xs font-bold ${textColor} leading-tight text-center
+          transition-all duration-300 ease-out
+          hover:scale-105 hover:shadow-lg hover:brightness-110
+          cursor-pointer 
           shadow-md
-          ${selectedElement === elementKey ? 'ring-2 ring-white ring-offset-2 ring-offset-[#160E44]' : ''}
+          ${selectedElement === elementKey ? 'ring-2 ring-[var(--color-highlight-magenta)] ring-offset-2 ring-offset-[#160E44] z-10 scale-110' : ''}
         `}
       >
         {element.name}
@@ -454,19 +473,33 @@ export default function WorkingBBAInteractive() {
     };
 
     return (
-      <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4" onClick={() => setSelectedElement(null)}>
-        <div className={`${element.color} rounded-2xl p-6 max-w-md w-full shadow-2xl border border-white/20`} onClick={e => e.stopPropagation()}>
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <div className="text-white/70 text-xs uppercase tracking-wider font-medium">{pillarLabels[element.pillar]}</div>
-              <div className="text-xl font-bold text-white mt-1">{element.name}</div>
-            </div>
-            <button onClick={() => setSelectedElement(null)} className="text-white/70 hover:text-white text-2xl leading-none">×</button>
+      <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4 backdrop-blur-sm" onClick={() => setSelectedElement(null)}>
+        <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden transform transition-all animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
+
+          {/* Header with Element Color */}
+          <div className={`${element.color.includes('bg-[') ? element.color : 'bg-gray-800'} p-6 relative`}>
+            <div className="text-white/80 text-xs uppercase tracking-wider font-bold mb-1 opacity-90">{pillarLabels[element.pillar]}</div>
+            <h3 className="text-2xl font-bold text-white leading-tight pr-8">{element.name}</h3>
+            <button
+              onClick={() => setSelectedElement(null)}
+              className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-black/20 text-white hover:bg-black/30 transition-colors"
+            >
+              ×
+            </button>
           </div>
-          <p className="text-white/90 mb-4 text-sm leading-relaxed">{element.description}</p>
-          <div className="bg-white/20 rounded-lg px-3 py-2 inline-block">
-            <span className="text-white/70 text-sm">Duration: </span>
-            <span className="text-white font-semibold">{element.duration}</span>
+
+          {/* Body with Dark Text */}
+          <div className="p-6">
+            <p className="text-gray-700 text-lg leading-relaxed mb-6 font-medium">
+              {element.description}
+            </p>
+
+            <div className="flex items-center gap-3 text-sm border-t border-gray-100 pt-4">
+              <span className="text-gray-400 font-semibold uppercase tracking-wide text-xs">DURATION</span>
+              <span className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full font-bold">
+                {element.duration}
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -478,7 +511,7 @@ export default function WorkingBBAInteractive() {
     const styles = {
       education: { bg: 'bg-gradient-to-r from-[#3663AD] to-[#4A7CC9]', label: 'EDUCATION' },
       experience: { bg: 'bg-gradient-to-r from-[#25BCBD] to-[#2E9B9C]', label: 'EXPERIENCE' },
-      awareness: { bg: 'bg-gradient-to-r from-[#9CA3AF] via-[#6B7280] to-[#3663AD]', label: 'AWARENESS' },
+      awareness: { bg: 'bg-gradient-to-r from-[#160E44] to-[#3D2B7A]', label: 'AWARENESS' },
     };
     const style = styles[type];
     return (
@@ -489,522 +522,255 @@ export default function WorkingBBAInteractive() {
     );
   };
 
+  // RENDER
   return (
-    <div className="min-h-screen bg-[#0D0828] text-white">
+    <div className="pt-scope">
+      <div className="pt-wrap">
+        {/* HEADER */}
+        <header className="pt-top">
+          <div className="pt-brand">
+            <div className="pt-logo" aria-label="Let's Enterprise logo">
+              {/* Logo Placeholder */}
+              <span style={{ fontSize: 24, fontWeight: 900, letterSpacing: -1, color: '#fff' }}>LE</span>
+            </div>
+            <div className="pt-kicker">Let’s Enterprise • Undergrad Business Program</div>
+          </div>
 
-      {/* Header with gradient like brand imagery */}
-      <div className="bg-gradient-to-r from-[#3663AD] to-[#160E44] border-b border-white/10 p-6 text-center">
-        <h1 className="text-3xl font-bold mb-1 tracking-tight">THE WORKING BBA</h1>
-        <p className="text-[#25BCBD] italic text-lg">"Work is the Curriculum"</p>
-      </div>
+          <div>
+            <h1 className="text-white">India’s First Working BBA</h1>
+            <div className="pt-sub"><strong>Work is the Curriculum.</strong> A 3-year experiential business program that gets students into real work—faster than any traditional BBA.</div>
+            <div className="pt-chips" aria-label="Program pillars">
+              <span className="pt-chip"><span className="pt-dot"></span> Experiential business learning</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Industry immersion</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: 'rgba(255,255,255,.60)', boxShadow: '0 0 0 3px rgba(255,255,255,.12)' }}></span> Proof of work</span>
+            </div>
+          </div>
 
-      {/* Tabs */}
-      <div className="bg-[#160E44] border-b border-white/10">
-        <div className="max-w-6xl mx-auto flex">
-          {[
-            { id: 'overview', label: 'Program Overview' },
-            { id: 'comparison', label: 'Track Comparison' },
-            { id: 'periodic', label: 'Periodic Table' },
-          ].map(tab => (
+          {/* NAV */}
+          <nav className="pt-tabs" aria-label="Page tabs">
             <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 font-semibold transition-colors ${activeTab === tab.id ? 'text-[#25BCBD] border-b-2 border-[#25BCBD]' : 'text-white/50 hover:text-white'}`}
+              className="pt-tabBtn"
+              data-active={activeTab === 'overview'}
+              onClick={() => setActiveTab('overview')}
             >
-              {tab.label}
+              Program Overview
             </button>
-          ))}
-        </div>
-      </div>
+            <button
+              className="pt-tabBtn"
+              data-active={activeTab === 'tracks'}
+              onClick={() => setActiveTab('tracks')}
+            >
+              Choose Your Track
+            </button>
+            <button
+              className="pt-tabBtn"
+              data-active={activeTab === 'periodic'}
+              onClick={() => setActiveTab('periodic')}
+            >
+              Periodic Table
+            </button>
+          </nav>
+        </header>
 
-      <div className="max-w-6xl mx-auto p-6">
+        {/* MAIN CONTENT */}
+        <main className="pt-section">
+          {activeTab === 'overview' && <OverviewTab navToTracks={() => setActiveTab('tracks')} />}
+          {activeTab === 'tracks' && <TracksTab navToOverview={() => setActiveTab('overview')} />}
 
-        {/* TAB 1: OVERVIEW */}
-        {activeTab === 'overview' && (
-          <div className="space-y-8">
-
-            {/* Year 1 Common Block */}
-            <div>
-              <div className="text-center mb-4">
-                <div className="text-white/50 text-sm uppercase tracking-wider">Common Foundation</div>
-                <h2 className="text-2xl font-bold text-[#25BCBD]">YEAR 1: GROWTH</h2>
-                <p className="text-white/50 text-sm mt-1">Click any element to see details</p>
+          {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
+          {activeTab === 'periodic' && (
+            <div className="space-y-6">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold">LE Periodic Table of Experiences</h2>
+                <p className="text-white/50 text-sm">Click any element to see details • Width indicates relative duration</p>
               </div>
 
-              <div className="bg-[#1E1458] rounded-2xl p-6 border border-[#25BCBD]/30">
-
-                {/* 3 Pillars Reference */}
-                <div className="flex justify-center gap-8 mb-6 pb-4 border-b border-white/10">
-                  <PillarIndicator type="education" />
-                  <PillarIndicator type="experience" />
-                  <PillarIndicator type="awareness" />
+              {/* Legend - Responsive Grid (Strict Scale) */}
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 p-4 bg-white/5 rounded-xl border border-white/10 shadow-lg backdrop-blur-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-gradient-to-r from-[#334c91] to-[#3663AD] rounded-lg shadow-sm"></div>
+                  <span className="text-xs text-white/90 font-medium tracking-wide">Education</span>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-                  {/* Challenges */}
-                  <div className="bg-[#160E44]/50 rounded-xl p-4">
-                    <div className="text-xs text-[#3663AD] uppercase tracking-wider mb-3 font-semibold">Primary Learning</div>
-                    <div className="flex flex-col gap-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-white">12×</span>
-                        <ElementBadge elementKey="soloChallenge" />
-                      </div>
-                      <div className="text-xs text-white/50 leading-relaxed">
-                        Sales, Product Design, Design Thinking, Digital Marketing, Spreadsheets, Business Analysis, Accounting, UI/UX, Financial Analysis, E-Commerce, 3D Printing, Market Research
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Client Work */}
-                  <div className="bg-[#160E44]/50 rounded-xl p-4">
-                    <div className="text-xs text-[#25BCBD] uppercase tracking-wider mb-3 font-semibold">Client Exposure</div>
-                    <div className="flex flex-col gap-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-white">1×</span>
-                        <ElementBadge elementKey="clientProject" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Employer */}
-                  <div className="bg-[#160E44]/50 rounded-xl p-4">
-                    <div className="text-xs text-[#25BCBD] uppercase tracking-wider mb-3 font-semibold">Industry Immersion</div>
-                    <div className="flex flex-col gap-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-white">1×</span>
-                        <ElementBadge elementKey="apprenticeship" />
-                      </div>
-                      <div className="text-xs text-white/50">External firm</div>
-                    </div>
-                  </div>
-
-                  {/* Coaching */}
-                  <div className="bg-[#160E44]/50 rounded-xl p-4">
-                    <div className="text-xs text-[#9CA3AF] uppercase tracking-wider mb-3 font-semibold">Self Awareness</div>
-                    <div className="flex flex-col gap-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-white">4×</span>
-                        <ElementBadge elementKey="careerBlueprint" />
-                      </div>
-                    </div>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-gradient-to-r from-[#3269ae] to-[#1e88b8] rounded-lg shadow-sm"></div>
+                  <span className="text-xs text-white/90 font-medium tracking-wide">Experience</span>
                 </div>
-
-                {/* Continuous Elements */}
-                <div className="mt-6 pt-6 border-t border-white/10">
-                  <div className="text-xs text-white/50 uppercase tracking-wider mb-3 font-semibold">Continuous Throughout Year 1</div>
-                  <div className="flex flex-wrap gap-2">
-                    <ElementBadge elementKey="mastermind" />
-                    <ElementBadge elementKey="dailyCards" />
-                    <ElementBadge elementKey="storyBuild" />
-                    <ElementBadge elementKey="storyTell" />
-                    <ElementBadge elementKey="storysellsWorkshop" />
-                    <ElementBadge elementKey="regen" />
-                    <ElementBadge elementKey="camp" />
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-gradient-to-r from-[#1e88b8] to-[#25BCBD] rounded-lg shadow-sm"></div>
+                  <span className="text-xs text-white/90 font-medium tracking-wide">Awareness</span>
                 </div>
-
-                {/* Roles */}
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <div className="text-xs text-white/50 uppercase tracking-wider mb-3 font-semibold">Roles Engaged</div>
-                  <div className="flex flex-wrap gap-2">
-                    <ElementBadge elementKey="facilitator" />
-                    <ElementBadge elementKey="faculty" />
-                    <ElementBadge elementKey="mentor" />
-                    <ElementBadge elementKey="jury" />
-                  </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-white border border-gray-300 rounded-lg shadow-sm"></div>
+                  <span className="text-xs text-white/90 font-medium tracking-wide">Evidence</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-[#160E44] border border-[#D946EF] rounded-full shadow-sm"></div>
+                  <span className="text-xs text-white/90 font-medium tracking-wide">Assessments</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-[#160E44] border border-[#FBBF24] rounded-sm shadow-sm"></div>
+                  <span className="text-xs text-white/90 font-medium tracking-wide">Roles</span>
                 </div>
               </div>
-            </div>
 
-            {/* Divergence */}
-            <div className="text-center py-4">
-              <div className="inline-flex items-center gap-4">
-                <div className="h-px w-20 bg-white/20"></div>
-                <span className="text-white/50 text-sm">Then choose your track →</span>
-                <div className="h-px w-20 bg-white/20"></div>
-              </div>
-            </div>
+              {/* EDUCATION & EXPERIENCE - Navy Background */}
+              <div className="bg-[#282f6c] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
+                <h3 className="text-xl font-bold mb-6 text-[#3269ae] border-b border-white/10 pb-3 tracking-wide">EDUCATION & EXPERIENCE</h3>
 
-            {/* Three Tracks Summary */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                { name: "ORIGINAL", color: "#3663AD", subtitle: "Entrepreneurial Careers", icon: "🏢", outcome: "Placed in entrepreneurial role" },
-                { name: "BUSINESS FAMILIES", color: "#6B21A8", subtitle: "Join Family Business", icon: "👨👩👧👦", outcome: "Ready to contribute to family business" },
-                { name: "SOLO-PRENEURS", color: "#25BCBD", subtitle: "Launch Own Venture", icon: "🚀", outcome: "Venture launched & operational" },
-              ].map((track, i) => (
-                <div key={i}
-                  className="rounded-xl p-5 text-center border"
-                  style={{
-                    backgroundColor: `${track.color}20`,
-                    borderColor: `${track.color}50`
-                  }}>
-                  <div className="text-4xl mb-2">{track.icon}</div>
-                  <div className="font-bold text-lg">{track.name}</div>
-                  <div className="text-white/50 text-sm mb-3">{track.subtitle}</div>
-                  <div className="text-sm px-3 py-1 rounded-full inline-block font-medium"
-                    style={{ backgroundColor: `${track.color}40` }}>
-                    {track.outcome}
+                <div className="min-w-[800px]"> {/* Force min width for scrolling on mobile */}
+                  {/* Header row */}
+                  <div className="grid grid-cols-6 gap-3 mb-4">
+                    <div></div>
+                    <div className="text-xs text-[#3269ae] text-center p-2 font-bold tracking-wider">COURSE</div>
+                    <div className="text-xs text-[#3269ae] text-center p-2 font-bold tracking-wider">CHALLENGE</div>
+                    <div className="text-xs text-[#1e88b8] text-center p-2 font-bold tracking-wider">BUSINESS</div>
+                    <div className="text-xs text-[#1e88b8] text-center p-2 font-bold tracking-wider">CLIENT</div>
+                    <div className="text-xs text-[#1e88b8] text-center p-2 font-bold tracking-wider">EMPLOYER</div>
+                  </div>
+
+                  {/* COHORT row */}
+                  <div className="grid grid-cols-6 gap-4 mb-4 items-center">
+                    <div className="text-xs text-white/60 text-right pr-3 font-bold uppercase tracking-wider">COHORT</div>
+                    <div className="flex justify-center"><ElementBadge elementKey="course" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="cohortChallenge" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="cohortVenture" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="clientHackathon" /></div>
+                    <div className="flex justify-center text-white/20">—</div>
+                  </div>
+
+                  {/* TEAM row */}
+                  <div className="grid grid-cols-6 gap-4 mb-4 items-center">
+                    <div className="text-xs text-white/60 text-right pr-3 font-bold uppercase tracking-wider">TEAM</div>
+                    <div className="flex justify-center"><ElementBadge elementKey="teamTrack" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="teamChallenge" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="teamVenture" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="clientProject" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="teamResidency" /></div>
+                  </div>
+
+                  {/* SOLO/DUO row */}
+                  <div className="grid grid-cols-6 gap-4 items-center">
+                    <div className="text-xs text-white/60 text-right pr-3 font-bold uppercase tracking-wider">SOLO/DUO</div>
+                    <div className="flex justify-center"><ElementBadge elementKey="skillTrack" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="soloChallenge" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="soloVenture" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="clientGig" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="apprenticeship" /></div>
                   </div>
                 </div>
-              ))}
+              </div>
+
+              {/* AWARENESS - Teal Background */}
+              <div className="bg-[#1e88b8] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
+                <h3 className="text-xl font-bold mb-6 text-[#160E44] border-b border-white/10 pb-3 tracking-wide">AWARENESS AND CAREER</h3>
+
+                <div className="min-w-[500px]">
+                  {/* Header row */}
+                  <div className="grid grid-cols-4 gap-3 mb-4">
+                    <div></div>
+                    <div className="text-xs text-[#160E44] text-center p-2 font-bold tracking-wider">SELF</div>
+                    <div className="text-xs text-[#160E44] text-center p-2 font-bold tracking-wider">CAREER</div>
+                    <div className="text-xs text-[#160E44] text-center p-2 font-bold tracking-wider">STORY-SELLS</div>
+                  </div>
+
+                  {/* COHORT row */}
+                  <div className="grid grid-cols-4 gap-4 mb-4 items-center">
+                    <div className="text-xs text-white/80 text-right pr-3 font-bold uppercase tracking-wider">COHORT</div>
+                    <div className="flex justify-center"><ElementBadge elementKey="camp" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="regen" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="storysellsWorkshop" /></div>
+                  </div>
+
+                  {/* TEAM row */}
+                  <div className="grid grid-cols-4 gap-4 mb-4 items-center">
+                    <div className="text-xs text-white/80 text-right pr-3 font-bold uppercase tracking-wider">TEAM</div>
+                    <div className="flex justify-center"><ElementBadge elementKey="mastermind" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="meetup" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="storyTell" /></div>
+                  </div>
+
+                  {/* SOLO row */}
+                  <div className="grid grid-cols-4 gap-4 items-center">
+                    <div className="text-xs text-white/80 text-right pr-3 font-bold uppercase tracking-wider">SOLO</div>
+                    <div className="flex justify-center"><ElementBadge elementKey="conflexion" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="careerBlueprint" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="storyBuild" /></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* EVIDENCE - White Background */}
+              <div className="bg-white rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-gray-200">
+                <h3 className="text-xl font-bold mb-6 text-gray-800 border-b border-gray-200 pb-3 tracking-wide">EVIDENCE</h3>
+
+                <div className="min-w-[600px]">
+                  {/* Row 1 */}
+                  <div className="grid grid-cols-4 gap-4 mb-4">
+                    <div className="flex justify-center"><ElementBadge elementKey="dailyCards" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="docs" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="assessmentOutputs" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="media" /></div>
+                  </div>
+
+                  {/* Row 2 */}
+                  <div className="grid grid-cols-4 gap-4">
+                    <div className="flex justify-center"><ElementBadge elementKey="testimonials" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="dataSets" /></div>
+                    <div className="flex justify-center opacity-0">—</div>
+                    <div className="flex justify-center opacity-0">—</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ASSESSMENTS - Navy Background (Magenta Header) */}
+              <div className="bg-[#282f6c] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
+                <h3 className="text-xl font-bold mb-6 text-[#D946EF] border-b border-white/10 pb-3 tracking-wide">ASSESSMENTS</h3>
+
+                <div className="min-w-[500px]">
+                  {/* Row 1 */}
+                  <div className="grid grid-cols-4 gap-4 mb-4">
+                    <div className="flex justify-center"><ElementBadge elementKey="selfPeerFacRating" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="industryRating" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="quiz" /></div>
+                    <div className="flex justify-center opacity-0">—</div>
+                  </div>
+
+                  {/* Row 2 */}
+                  <div className="grid grid-cols-4 gap-4">
+                    <div className="flex justify-center"><ElementBadge elementKey="outcomes" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="engagement" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="progress" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="specific" /></div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ROLES - Mid-Blue Background (Yellow Header) */}
+              <div className="bg-[#3269ae] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/20">
+                <h3 className="text-xl font-bold mb-6 text-[#FBBF24] border-b border-white/20 pb-3 tracking-wide">ROLES</h3>
+
+                <div className="min-w-[500px]">
+                  {/* Row 1 */}
+                  <div className="grid grid-cols-4 gap-4 mb-4">
+                    <div className="flex justify-center"><ElementBadge elementKey="facilitator" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="developer" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="faculty" /></div>
+                    <div className="flex justify-center text-blue-900/30 font-bold">—</div>
+                  </div>
+
+                  {/* Row 2 */}
+                  <div className="grid grid-cols-4 gap-4">
+                    <div className="flex justify-center"><ElementBadge elementKey="jury" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="lighthouse" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="expert" /></div>
+                    <div className="flex justify-center"><ElementBadge elementKey="mentor" /></div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-          </div>
-        )}
-
-        {/* TAB 2: COMPARISON */}
-        {activeTab === 'comparison' && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold">Track Comparison</h2>
-              <p className="text-white/50 text-sm">Click any element to see details • Differences highlighted</p>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr>
-                    <th className="bg-[#0D0828] p-4 text-left border border-white/10 w-32"></th>
-                    <th className="bg-[#3663AD] p-4 text-center border border-white/10">
-                      <div className="text-2xl mb-1">🏢</div>
-                      <div className="font-bold">ORIGINAL</div>
-                      <div className="text-sm text-white/70">Entrepreneurial Careers</div>
-                    </th>
-                    <th className="bg-[#6B21A8] p-4 text-center border border-white/10">
-                      <div className="text-2xl mb-1">👨👩👧👦</div>
-                      <div className="font-bold">BUSINESS FAMILIES</div>
-                      <div className="text-sm text-white/70">Join Family Business</div>
-                    </th>
-                    <th className="bg-[#0F766E] p-4 text-center border border-white/10">
-                      <div className="text-2xl mb-1">🚀</div>
-                      <div className="font-bold">SOLO-PRENEURS</div>
-                      <div className="text-sm text-white/70">Launch Own Venture</div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* Year 1 */}
-                  <tr>
-                    <td className="bg-[#25BCBD] p-3 font-bold border border-white/10 text-center text-[#160E44]" colSpan="4">
-                      YEAR 1: GROWTH (Common)
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 border border-white/10 text-sm text-white/50">Primary</td>
-                    <td className="bg-[#160E44] p-3 border border-white/10 text-center" colSpan="3">
-                      <div className="flex flex-wrap justify-center gap-2 items-center">
-                        <span className="text-white mr-1">12×</span>
-                        <ElementBadge elementKey="soloChallenge" showSize={false} />
-                        <span className="text-white/50 mx-1">+</span>
-                        <ElementBadge elementKey="clientProject" showSize={false} />
-                        <span className="text-white/50 mx-1">+</span>
-                        <ElementBadge elementKey="apprenticeship" showSize={false} />
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 border border-white/10 text-sm text-white/50">Coaching</td>
-                    <td className="bg-[#160E44] p-3 border border-white/10 text-center" colSpan="3">
-                      <div className="flex justify-center items-center gap-2">
-                        <span className="text-white">4×</span>
-                        <ElementBadge elementKey="careerBlueprint" showSize={false} />
-                      </div>
-                    </td>
-                  </tr>
-
-                  {/* Year 2 */}
-                  <tr>
-                    <td className="bg-[#3663AD] p-3 font-bold border border-white/10 text-center" colSpan="4">
-                      YEAR 2: PROJECTS (Differences Begin)
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 border border-white/10 text-sm text-white/50">Apprenticeships</td>
-                    <td className="bg-[#160E44] p-3 border border-white/10 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-white text-sm">2× External</span>
-                        <ElementBadge elementKey="apprenticeship" showSize={false} />
-                      </div>
-                    </td>
-                    <td className="bg-[#6B21A8]/20 p-3 border border-[#6B21A8]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-white text-sm">1× External</span>
-                        <span className="text-[#A855F7] font-semibold text-xs">+ 1× Other Family's Business ★</span>
-                        <ElementBadge elementKey="apprenticeship" showSize={false} />
-                      </div>
-                    </td>
-                    <td className="bg-[#0F766E]/20 p-3 border border-[#0F766E]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-white text-sm">1× External only</span>
-                        <ElementBadge elementKey="apprenticeship" showSize={false} />
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 border border-white/10 text-sm text-white/50">Venture</td>
-                    <td className="bg-[#160E44] p-3 border border-white/10 text-center text-white/30">—</td>
-                    <td className="bg-[#160E44] p-3 border border-white/10 text-center text-white/30">—</td>
-                    <td className="bg-[#0F766E]/20 p-3 border border-[#0F766E]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-[#25BCBD] font-semibold text-xs">1× ★</span>
-                        <ElementBadge elementKey="soloVenture" showSize={false} />
-                        <span className="text-white/50 text-xs">or Team Venture</span>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 border border-white/10 text-sm text-white/50">Client Work</td>
-                    <td className="bg-[#160E44] p-3 border border-white/10 text-center" colSpan="3">
-                      <div className="flex justify-center items-center gap-2">
-                        <span className="text-white">2×</span>
-                        <ElementBadge elementKey="clientProject" showSize={false} />
-                      </div>
-                    </td>
-                  </tr>
-
-                  {/* Year 3 */}
-                  <tr>
-                    <td className="bg-[#E07B54] p-3 font-bold border border-white/10 text-center text-white" colSpan="4">
-                      YEAR 3: WORK (Major Differentiation)
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 border border-white/10 text-sm text-white/50">Primary (9-mo)</td>
-                    <td className="bg-[#3663AD]/20 p-3 border border-[#3663AD]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <ElementBadge elementKey="apprenticeship" showSize={false} />
-                        <span className="text-white/50 text-xs">OR</span>
-                        <ElementBadge elementKey="soloVenture" showSize={false} />
-                      </div>
-                    </td>
-                    <td className="bg-[#6B21A8]/20 p-3 border border-[#6B21A8]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <ElementBadge elementKey="apprenticeship" showSize={false} />
-                        <span className="text-[#A855F7] font-semibold text-xs">in OWN FAMILY BUSINESS ★</span>
-                        <span className="text-white/50 text-xs">OR</span>
-                        <ElementBadge elementKey="clientProject" showSize={false} />
-                        <span className="text-[#A855F7] text-xs">(family as client)</span>
-                      </div>
-                    </td>
-                    <td className="bg-[#0F766E]/20 p-3 border border-[#0F766E]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <ElementBadge elementKey="soloVenture" showSize={false} />
-                        <span className="text-[#25BCBD] font-semibold text-xs">Full Focus ★</span>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 border border-white/10 text-sm text-white/50">Coaching Focus</td>
-                    <td className="bg-[#3663AD]/20 p-3 border border-[#3663AD]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-white text-sm">6×</span>
-                        <ElementBadge elementKey="careerBlueprint" showSize={false} />
-                        <span className="text-[#3663AD] text-xs font-semibold">Career Transition</span>
-                      </div>
-                    </td>
-                    <td className="bg-[#6B21A8]/20 p-3 border border-[#6B21A8]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-white text-sm">6×</span>
-                        <ElementBadge elementKey="careerBlueprint" showSize={false} />
-                        <span className="text-[#A855F7] text-xs font-semibold">Succession ★</span>
-                        <span className="text-[#A855F7] text-xs">(joint with family)</span>
-                      </div>
-                    </td>
-                    <td className="bg-[#0F766E]/20 p-3 border border-[#0F766E]/50 text-center">
-                      <div className="flex flex-col items-center gap-2">
-                        <span className="text-white text-sm">6×</span>
-                        <ElementBadge elementKey="careerBlueprint" showSize={false} />
-                        <span className="text-[#25BCBD] text-xs font-semibold">Venture Launch/Scale ★</span>
-                      </div>
-                    </td>
-                  </tr>
-
-                  {/* Outcome */}
-                  <tr>
-                    <td className="bg-[#1E1458] p-3 font-bold border border-white/10 text-sm">OUTCOME</td>
-                    <td className="bg-[#3663AD] p-3 border border-white/10 text-center font-semibold text-sm">
-                      Placed in entrepreneurial role
-                    </td>
-                    <td className="bg-[#6B21A8] p-3 border border-white/10 text-center font-semibold text-sm">
-                      Ready to contribute to family business
-                    </td>
-                    <td className="bg-[#0F766E] p-3 border border-white/10 text-center font-semibold text-sm">
-                      Venture launched & operational
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div className="text-center text-white/50 text-sm">
-              ★ = Key differentiator from Original track
-            </div>
-          </div>
-        )}
-
-        {/* TAB 3: PERIODIC TABLE */}
-        {activeTab === 'periodic' && (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold">LE Periodic Table of Experiences</h2>
-              <p className="text-white/50 text-sm">Click any element to see details • Width indicates relative duration</p>
-            </div>
-
-            {/* Legend */}
-            <div className="flex flex-wrap justify-center gap-6 mb-6 p-4 bg-[#1E1458] rounded-xl">
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-gradient-to-r from-[#3663AD] to-[#4A7CC9] rounded-lg"></div>
-                <span className="text-xs text-white/70">Education</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-gradient-to-r from-[#25BCBD] to-[#2E9B9C] rounded-lg"></div>
-                <span className="text-xs text-white/70">Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-gradient-to-r from-[#160E44] to-[#3D2B7A] rounded-lg"></div>
-                <span className="text-xs text-white/70">Awareness</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-white border-2 border-black rounded-full"></div>
-                <span className="text-xs text-white/70">Assessments</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-[#1E1B4B] rounded-sm"></div>
-                <span className="text-xs text-white/70">Roles</span>
-              </div>
-            </div>
-
-            {/* EDUCATION & EXPERIENCE */}
-            <div className="bg-[#1E1458] rounded-xl p-5">
-              <h3 className="text-lg font-bold mb-4 text-[#3663AD] border-b border-white/10 pb-2">EDUCATION & EXPERIENCE</h3>
-
-              {/* Header row */}
-              <div className="grid grid-cols-6 gap-3 mb-3">
-                <div></div>
-                <div className="text-xs text-[#3663AD] text-center p-2 font-semibold">COURSE</div>
-                <div className="text-xs text-[#3663AD] text-center p-2 font-semibold">CHALLENGE</div>
-                <div className="text-xs text-[#25BCBD] text-center p-2 font-semibold">BUSINESS</div>
-                <div className="text-xs text-[#25BCBD] text-center p-2 font-semibold">CLIENT</div>
-                <div className="text-xs text-[#25BCBD] text-center p-2 font-semibold">EMPLOYER</div>
-              </div>
-
-              {/* COHORT row */}
-              <div className="grid grid-cols-6 gap-3 mb-3 items-center">
-                <div className="text-xs text-white/50 text-right pr-2 font-semibold">COHORT</div>
-                <div className="flex justify-center"><ElementBadge elementKey="course" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="cohortChallenge" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="cohortVenture" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="clientHackathon" /></div>
-                <div className="flex justify-center text-white/20">—</div>
-              </div>
-
-              {/* TEAM row */}
-              <div className="grid grid-cols-6 gap-3 mb-3 items-center">
-                <div className="text-xs text-white/50 text-right pr-2 font-semibold">TEAM</div>
-                <div className="flex justify-center"><ElementBadge elementKey="teamTrack" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="teamChallenge" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="teamVenture" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="clientProject" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="teamResidency" /></div>
-              </div>
-
-              {/* SOLO/DUO row */}
-              <div className="grid grid-cols-6 gap-3 items-center">
-                <div className="text-xs text-white/50 text-right pr-2 font-semibold">SOLO/DUO</div>
-                <div className="flex justify-center"><ElementBadge elementKey="skillTrack" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="soloChallenge" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="soloVenture" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="clientGig" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="apprenticeship" /></div>
-              </div>
-            </div>
-
-            {/* AWARENESS & PORTFOLIO */}
-            <div className="bg-[#1E1458] rounded-xl p-5">
-              <h3 className="text-lg font-bold mb-4 text-[#9CA3AF] border-b border-white/10 pb-2">AWARENESS & PORTFOLIO</h3>
-
-              {/* Header row */}
-              <div className="grid grid-cols-5 gap-3 mb-3">
-                <div></div>
-                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">SELF</div>
-                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">CAREER</div>
-                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">STORY-SELLS</div>
-                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">EVIDENCE</div>
-              </div>
-
-              {/* COHORT row */}
-              <div className="grid grid-cols-5 gap-3 mb-3 items-center">
-                <div className="text-xs text-white/50 text-right pr-2 font-semibold">COHORT</div>
-                <div className="flex justify-center"><ElementBadge elementKey="camp" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="regen" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="storysellsWorkshop" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="dailyCards" /></div>
-              </div>
-
-              {/* TEAM row */}
-              <div className="grid grid-cols-5 gap-3 mb-3 items-center">
-                <div className="text-xs text-white/50 text-right pr-2 font-semibold">TEAM</div>
-                <div className="flex justify-center"><ElementBadge elementKey="mastermind" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="meetup" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="storyTell" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="docs" /></div>
-              </div>
-
-              {/* SOLO row */}
-              <div className="grid grid-cols-5 gap-3 items-center">
-                <div className="text-xs text-white/50 text-right pr-2 font-semibold">SOLO</div>
-                <div className="flex justify-center"><ElementBadge elementKey="conflexion" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="careerBlueprint" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="storyBuild" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="media" /></div>
-              </div>
-            </div>
-
-            {/* ASSESSMENTS */}
-            <div className="bg-[#1E1458] rounded-xl p-5">
-              <h3 className="text-lg font-bold mb-4 text-white border-b border-white/10 pb-2">ASSESSMENTS</h3>
-
-              {/* Row 1 */}
-              <div className="grid grid-cols-4 gap-3 mb-3">
-                <div className="flex justify-center"><ElementBadge elementKey="selfPeerFacRating" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="industryRating" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="quiz" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="testimonials" /></div>
-              </div>
-
-              {/* Row 2 */}
-              <div className="grid grid-cols-4 gap-3">
-                <div className="flex justify-center"><ElementBadge elementKey="outcomes" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="engagement" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="progress" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="specific" /></div>
-              </div>
-            </div>
-
-            {/* ROLES */}
-            <div className="bg-[#1E1458] rounded-xl p-5">
-              <h3 className="text-lg font-bold mb-4 text-[#8B5CF6] border-b border-white/10 pb-2">ROLES</h3>
-
-              {/* Row 1 */}
-              <div className="grid grid-cols-4 gap-3 mb-3">
-                <div className="flex justify-center"><ElementBadge elementKey="facilitator" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="developer" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="faculty" /></div>
-                <div className="flex justify-center text-white/20">—</div>
-              </div>
-
-              {/* Row 2 */}
-              <div className="grid grid-cols-4 gap-3">
-                <div className="flex justify-center"><ElementBadge elementKey="jury" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="lighthouse" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="expert" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="mentor" /></div>
-              </div>
-            </div>
-
-          </div>
-        )}
+          )}
+        </main>
       </div>
 
       {/* Element Detail Modal */}
@@ -1012,3 +778,280 @@ export default function WorkingBBAInteractive() {
     </div>
   );
 }
+
+/* -------------------------------------------------------------------------- */
+/*                               HELPER COMPONENTS                            */
+/* -------------------------------------------------------------------------- */
+
+// OVERVIEW TAB
+const OverviewTab = ({ navToTracks }) => {
+  return (
+    <div className="pt-tabPane active fade-in">
+      {/* YEAR 1 (Common Growth Year) */}
+      <section className="pt-section pt-year" aria-label="Year 1 Growth Year">
+        <div className="pt-yearHead">
+          <div className="pt-yearTitle">
+            <strong>Year 1 • Growth Year (Common)</strong>
+            <span className="pt-pill">Pune base • Build hunger + rhythm • Low → mid stakes</span>
+          </div>
+          <div className="pt-hint">Year 1 is the same for every student. You build skill reps, delivery discipline, and reliability—before choosing a track for Years 2 & 3.</div>
+        </div>
+
+        <div className="pt-body">
+          <div className="pt-panel">
+            <div className="pt-panelTitle"><span className="pt-icon">🧩</span> Year 1 structure (time sense)</div>
+
+            <div className="pt-cards">
+              <div className="pt-card">
+                <div className="t">Challenge cycles</div>
+                <div className="h">Challenges — 60%</div>
+                <div className="d">Cohort + Team + Solo/Duo reps. Build execution muscle through repeated cycles.</div>
+              </div>
+              <div className="pt-card">
+                <div className="t">Client delivery</div>
+                <div className="h">Client Project — 20%</div>
+                <div className="d">One real client cycle. Scope + feedback loop + delivery standards.</div>
+              </div>
+              <div className="pt-card">
+                <div className="t">Work reliability</div>
+                <div className="h">Apprenticeship — 20%</div>
+                <div className="d">A short placement. Learn manager expectations, reliability, and workplace behaviour.</div>
+              </div>
+            </div>
+
+            <div className="pt-barWrap" aria-label="Year 1 time allocation">
+              <div className="pt-bar" title="Challenges 60%, Client Project 20%, Apprenticeship 20%">
+                <div className="pt-seg pt-s1" style={{ width: '60%' }}></div>
+                <div className="pt-seg pt-s2" style={{ width: '20%' }}></div>
+                <div className="pt-seg pt-s4" style={{ width: '20%' }}></div>
+              </div>
+              <div className="pt-barLegend">
+                <span className="pt-key"><span className="pt-sw pt-s1"></span> Challenges (60%)</span>
+                <span className="pt-key"><span className="pt-sw pt-s2"></span> Client Project (20%)</span>
+                <span className="pt-key"><span className="pt-sw pt-s4"></span> Apprenticeship (20%)</span>
+              </div>
+            </div>
+
+            <div className="pt-panel" style={{ marginTop: 12, background: 'rgba(255,255,255,.03)' }}>
+              <div className="pt-panelTitle"><span className="pt-icon">🧭</span> Always-on spine (runs alongside everything)</div>
+              <div className="pt-spineGrid" aria-label="Always-on spine sections">
+                <div className="pt-spineSeg">
+                  <div className="k">Coaching</div>
+                  <div className="v">Career Blueprint ×6</div>
+                  <div className="s">Clarity, confidence, decision-making</div>
+                </div>
+                <div className="pt-spineSeg">
+                  <div className="k">Networking</div>
+                  <div className="v">Regen (every year)</div>
+                  <div className="s">Industry exposure + introductions</div>
+                </div>
+                <div className="pt-spineSeg">
+                  <div className="k">Communication</div>
+                  <div className="v">Storysells</div>
+                  <div class="s">Pitch, publish, and build presence</div>
+                </div>
+                <div className="pt-spineSeg">
+                  <div className="k">Proof</div>
+                  <div className="v">Daily + Weekly Proof</div>
+                  <div className="s">Docs, media, data, testimonials</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-strip" aria-label="Year 1 outcomes">
+            <strong>Year 1 outcome</strong>
+            <span>A student who can <span className="pt-opTag">show up, deliver, communicate</span>—with real proof. This is the foundation for higher-stakes work in Years 2 & 3.</span>
+          </div>
+
+          <div className="pt-ctaRow" aria-label="Compare tracks CTA">
+            <button className="pt-ctaBtn" onClick={navToTracks}>Compare tracks →</button>
+            <div className="pt-ctaHint">Years 2 & 3 change based on track.</div>
+          </div>
+
+          <div className="pt-note"><strong>What parents should notice:</strong> Year 1 builds responsibility and work habits through repeated delivery cycles. It’s not “learning about business.” It’s learning by doing—under standards, deadlines, and feedback.</div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// TRACKS TAB
+const TracksTab = ({ navToOverview }) => {
+  const [activeTrack, setActiveTrack] = useState('original');
+  const [openYear, setOpenYear] = useState('y2'); // 'y2' | 'y3' | null
+
+  const trackCopy = {
+    original: {
+      whoFor: 'Students who want fast-track real work and entrepreneurial jobs.',
+      promise: 'More industries. Stronger references.',
+      outcome: 'Ready for roles where output and proof matter more than pedigree.',
+      y2: [
+        { t: 'Employer', h: 'Outstation Apprenticeship ×1', d: 'Deeper exposure + stronger network' }
+      ],
+      y3: [
+        { t: 'Employer', h: '9-month Mentored Apprenticeship', d: 'Role clarity + output + strong references' }
+      ]
+    },
+    bf: {
+      whoFor: 'Families 100% clear: the child joins the family business after graduation.',
+      promise: 'Succession readiness + family alignment.',
+      outcome: 'Ready to take responsibility inside the family business—with alignment and proof.',
+      y2: [
+        { t: 'Employer', h: 'Family Business Apprenticeship', d: 'Learn how other families run business' },
+        { t: 'Coaching', h: 'Family Coaching ×2', d: 'Alignment + expectations' },
+        { t: 'Mentor', h: 'FB Mentor Meetups ×4', d: 'Succession + governance reps' }
+      ],
+      y3: [
+        { t: 'Capstone', h: '9-month Family Business Project', d: 'Real KPI + ownership' },
+        { t: 'Coaching', h: 'Family Coaching ×4', d: 'Role clarity + handover readiness' }
+      ]
+    },
+    solo: {
+      whoFor: 'Families clear and supportive: the child builds their own venture by graduation.',
+      promise: 'Traction + founder systems.',
+      outcome: 'Ready to build a real venture—traction, systems, and repeatability.',
+      y2: [
+        { t: 'Venture', h: 'Solo Venture ×1', d: 'Offer + first customers' },
+        { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
+        { t: 'Mentor', h: 'Solo Mentor Meetups ×4', d: 'Founder operator reps' }
+      ],
+      y3: [
+        { t: 'Venture', h: '9-month Venture Building', d: 'Traction → systems → repeatability' },
+        { t: 'Coaching', h: 'Venture Coaching ×4', d: 'Distribution, growth, resilience' }
+      ]
+    }
+  };
+
+  const current = trackCopy[activeTrack];
+
+  const renderDelta = (list) => {
+    return list.map((x, i) => {
+      const isTeal = x.t === 'Coaching' || x.t === 'Mentor';
+      return (
+        <div key={i} className={`pt-card${isTeal ? ' teal' : ''}`}>
+          <div className="t">{x.t}</div>
+          <div className="h">{x.h}</div>
+          <div className="d">{x.d}</div>
+        </div>
+      );
+    });
+  };
+
+  return (
+    <div className="pt-tabPane active fade-in">
+      <div className="pt-miniTop">
+        <button className="pt-linkBtn" onClick={navToOverview}>← Program overview</button>
+      </div>
+
+      {/* TRACK SELECTOR */}
+      <section className="pt-section pt-selector" aria-label="Track selection">
+        <div className="pt-selectorHead pt-stickyBar">
+          <strong style={{ letterSpacing: '.8px', textTransform: 'uppercase' }}>Choose your track (Years 2 & 3)</strong>
+          <div className="pt-hint">Same structure. Different focus.</div>
+
+          <div className="pt-segControl" role="group" aria-label="Track buttons">
+            <button
+              className="pt-trackBtn"
+              data-active={activeTrack === 'original'}
+              onClick={() => setActiveTrack('original')}
+            >
+              Entrepreneurial Jobs <span className="pt-opTag">(Operator)</span>
+            </button>
+            <button
+              className="pt-trackBtn"
+              data-active={activeTrack === 'bf'}
+              onClick={() => setActiveTrack('bf')}
+            >
+              Business Families
+            </button>
+            <button
+              className="pt-trackBtn"
+              data-active={activeTrack === 'solo'}
+              onClick={() => setActiveTrack('solo')}
+            >
+              Solo-preneurs
+            </button>
+          </div>
+
+          <div className="pt-trackIntro" aria-label="Track outcome box">
+            <div className="pt-trackMeta">
+              <div className="pt-trackLine"><span className="lbl">Best for</span><span>{current.whoFor}</span></div>
+              <div className="pt-trackLine"><span className="lbl">Promise</span><span>{current.promise}</span></div>
+              <div className="pt-trackLine"><span className="lbl">Outcome</span><span>{current.outcome}</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-trackBody active">
+          {/* YEAR 2 */}
+          <details className="pt-yearDetails" open={openYear === 'y2'} onToggle={(e) => { if (e.target.open) setOpenYear('y2'); }}>
+            <summary className="pt-sumRow" onClick={(e) => { e.preventDefault(); setOpenYear(openYear === 'y2' ? null : 'y2'); }}>
+              <span className="pt-sumTitle">Year 2 • Projects Year</span>
+              <span className="pt-sumPill">Common spine + track adds</span>
+            </summary>
+            {openYear === 'y2' && (
+              <div className="pt-body">
+                <div className="pt-split">
+                  <div className="pt-panel commonPanel">
+                    <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 2)</div>
+                    <div className="pt-spineGrid" aria-label="Year 2 common spine">
+                      <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Client Project ×1</div><div className="s">Real scope + feedback</div></div>
+                      <div className="pt-spineSeg"><div className="k">Venture</div><div className="v">Team Venture</div><div className="s">Build + ship</div></div>
+                      <div className="pt-spineSeg"><div className="k">Employer</div><div className="v">Apprenticeship ×1</div><div className="s">Professional standards</div></div>
+                      <div className="pt-spineSeg"><div className="k">Communication</div><div className="v">Storysells</div><div className="s">Pitch + publish</div></div>
+                      <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×4</div><div className="s">Direction + decisions</div></div>
+                      <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
+                    </div>
+                  </div>
+
+                  <div className="pt-panel deltaPanel">
+                    <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track adds (Year 2)</div>
+                    <div className="pt-deltaCards">
+                      {renderDelta(current.y2)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </details>
+
+          {/* YEAR 3 */}
+          <details className="pt-yearDetails" style={{ marginTop: 12 }} open={openYear === 'y3'} onToggle={(e) => { if (e.target.open) setOpenYear('y3'); }}>
+            <summary className="pt-sumRow" onClick={(e) => { e.preventDefault(); setOpenYear(openYear === 'y3' ? null : 'y3'); }}>
+              <span className="pt-sumTitle">Year 3 • Work Year</span>
+              <span className="pt-sumPill">Common spine + track capstone</span>
+            </summary>
+            {openYear === 'y3' && (
+              <div className="pt-body">
+                <div className="pt-split">
+                  <div className="pt-panel commonPanel">
+                    <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 3)</div>
+                    <div className="pt-spineGrid" aria-label="Year 3 common spine">
+                      <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
+                      <div className="pt-spineSeg"><div className="k">Proof</div><div className="v">Proof Packs</div><div className="s">Docs + media + data</div></div>
+                      <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×6</div><div className="s">Transition ×4</div></div>
+                      <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Team Residency (6 weeks)</div><div class="s">On-site delivery</div></div>
+                    </div>
+                  </div>
+
+                  <div className="pt-panel deltaPanel">
+                    <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track capstone (Year 3)</div>
+                    <div className="pt-deltaCards">
+                      {renderDelta(current.y3)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </details>
+        </div>
+      </section>
+
+      <div className="pt-note" aria-label="Implementation note">
+        <strong>Simple idea:</strong> Students graduate with <strong>proof of work</strong> and <strong>real references</strong>—not just a marksheet.
+      </div>
+    </div>
+  );
+};
+
