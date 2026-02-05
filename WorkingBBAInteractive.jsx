@@ -866,16 +866,12 @@ export default function WorkingBBAInteractive() {
                 <span className="text-xs text-white/70">Awareness</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-[#E07B54] rounded-full"></div>
+                <div className="w-10 h-5 bg-white border-2 border-black rounded-full"></div>
                 <span className="text-xs text-white/70">Assessments</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-[#0EA5E9] rounded-sm"></div>
+                <div className="w-10 h-5 bg-[#1E1B4B] rounded-sm"></div>
                 <span className="text-xs text-white/70">Roles</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-5 bg-[#D97706] rounded-lg border-2 border-white/30"></div>
-                <span className="text-xs text-white/70">Evidence</span>
               </div>
             </div>
 
@@ -888,7 +884,7 @@ export default function WorkingBBAInteractive() {
                 <div></div>
                 <div className="text-xs text-[#3663AD] text-center p-2 font-semibold">COURSE</div>
                 <div className="text-xs text-[#3663AD] text-center p-2 font-semibold">CHALLENGE</div>
-                <div className="text-xs text-[#25BCBD] text-center p-2 font-semibold">VENTURE</div>
+                <div className="text-xs text-[#25BCBD] text-center p-2 font-semibold">BUSINESS</div>
                 <div className="text-xs text-[#25BCBD] text-center p-2 font-semibold">CLIENT</div>
                 <div className="text-xs text-[#25BCBD] text-center p-2 font-semibold">EMPLOYER</div>
               </div>
@@ -929,77 +925,81 @@ export default function WorkingBBAInteractive() {
               <h3 className="text-lg font-bold mb-4 text-[#9CA3AF] border-b border-white/10 pb-2">AWARENESS & PORTFOLIO</h3>
 
               {/* Header row */}
-              <div className="grid grid-cols-4 gap-3 mb-3">
+              <div className="grid grid-cols-5 gap-3 mb-3">
                 <div></div>
                 <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">SELF</div>
-                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">COMMUNITY</div>
-                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">EVENTS</div>
+                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">CAREER</div>
+                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">STORY-SELLS</div>
+                <div className="text-xs text-[#9CA3AF] text-center p-2 font-semibold">EVIDENCE</div>
               </div>
 
               {/* COHORT row */}
-              <div className="grid grid-cols-4 gap-3 mb-3 items-center">
+              <div className="grid grid-cols-5 gap-3 mb-3 items-center">
                 <div className="text-xs text-white/50 text-right pr-2 font-semibold">COHORT</div>
-                <div className="flex justify-center"><ElementBadge elementKey="conflexion" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="mastermind" /></div>
                 <div className="flex justify-center"><ElementBadge elementKey="camp" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="regen" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="storysellsWorkshop" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="dailyCards" /></div>
               </div>
 
               {/* TEAM row */}
-              <div className="grid grid-cols-4 gap-3 mb-3 items-center">
+              <div className="grid grid-cols-5 gap-3 mb-3 items-center">
                 <div className="text-xs text-white/50 text-right pr-2 font-semibold">TEAM</div>
-                <div className="flex justify-center"><ElementBadge elementKey="careerBlueprint" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="mastermind" /></div>
                 <div className="flex justify-center"><ElementBadge elementKey="meetup" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="regen" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="storyTell" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="docs" /></div>
               </div>
 
               {/* SOLO row */}
-              <div className="grid grid-cols-4 gap-3 items-center">
+              <div className="grid grid-cols-5 gap-3 items-center">
                 <div className="text-xs text-white/50 text-right pr-2 font-semibold">SOLO</div>
+                <div className="flex justify-center"><ElementBadge elementKey="conflexion" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="careerBlueprint" /></div>
                 <div className="flex justify-center"><ElementBadge elementKey="storyBuild" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="storyTell" /></div>
-                <div className="flex justify-center"><ElementBadge elementKey="storysellsWorkshop" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="media" /></div>
               </div>
             </div>
 
             {/* ASSESSMENTS */}
             <div className="bg-[#1E1458] rounded-xl p-5">
-              <h3 className="text-lg font-bold mb-4 text-[#E07B54] border-b border-white/10 pb-2">ASSESSMENTS</h3>
-              <div className="flex flex-wrap gap-2">
-                <ElementBadge elementKey="outcomes" />
-                <ElementBadge elementKey="engagement" />
-                <ElementBadge elementKey="progress" />
-                <ElementBadge elementKey="selfPeerFacRating" />
-                <ElementBadge elementKey="industryRating" />
-                <ElementBadge elementKey="specific" />
-                <ElementBadge elementKey="quiz" />
+              <h3 className="text-lg font-bold mb-4 text-white border-b border-white/10 pb-2">ASSESSMENTS</h3>
+
+              {/* Row 1 */}
+              <div className="grid grid-cols-4 gap-3 mb-3">
+                <div className="flex justify-center"><ElementBadge elementKey="selfPeerFacRating" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="industryRating" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="quiz" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="testimonials" /></div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="grid grid-cols-4 gap-3">
+                <div className="flex justify-center"><ElementBadge elementKey="outcomes" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="engagement" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="progress" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="specific" /></div>
               </div>
             </div>
 
             {/* ROLES */}
             <div className="bg-[#1E1458] rounded-xl p-5">
-              <h3 className="text-lg font-bold mb-4 text-[#0EA5E9] border-b border-white/10 pb-2">ROLES</h3>
-              <div className="flex flex-wrap gap-2">
-                <ElementBadge elementKey="facilitator" />
-                <ElementBadge elementKey="developer" />
-                <ElementBadge elementKey="faculty" />
-                <ElementBadge elementKey="jury" />
-                <ElementBadge elementKey="lighthouse" />
-                <ElementBadge elementKey="expert" />
-                <ElementBadge elementKey="mentor" />
-              </div>
-            </div>
+              <h3 className="text-lg font-bold mb-4 text-[#8B5CF6] border-b border-white/10 pb-2">ROLES</h3>
 
-            {/* EVIDENCES */}
-            <div className="bg-[#1E1458] rounded-xl p-5">
-              <h3 className="text-lg font-bold mb-4 text-[#D97706] border-b border-white/10 pb-2">EVIDENCES</h3>
-              <div className="flex flex-wrap gap-2">
-                <ElementBadge elementKey="dailyCards" />
-                <ElementBadge elementKey="storyBuild" />
-                <ElementBadge elementKey="docs" />
-                <ElementBadge elementKey="media" />
-                <ElementBadge elementKey="assessmentOutputs" />
-                <ElementBadge elementKey="testimonials" />
-                <ElementBadge elementKey="dataSets" />
+              {/* Row 1 */}
+              <div className="grid grid-cols-4 gap-3 mb-3">
+                <div className="flex justify-center"><ElementBadge elementKey="facilitator" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="developer" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="faculty" /></div>
+                <div className="flex justify-center text-white/20">—</div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="grid grid-cols-4 gap-3">
+                <div className="flex justify-center"><ElementBadge elementKey="jury" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="lighthouse" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="expert" /></div>
+                <div className="flex justify-center"><ElementBadge elementKey="mentor" /></div>
               </div>
             </div>
 
