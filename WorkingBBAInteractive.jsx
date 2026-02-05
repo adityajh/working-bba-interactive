@@ -549,7 +549,7 @@ export default function WorkingBBAInteractive() {
           </button>
 
           <div>
-            <h1 className="text-white">India’s First Working BBA</h1>
+            <h1 className="pt-headline">India’s First Working BBA</h1>
             <div className="pt-sub"><strong>Work is the Curriculum.</strong> A 3-year business program where students learn by working—faster than any traditional BBA.</div>
             <div className="pt-chips" aria-label="Program pillars">
               <span className="pt-chip"><span className="pt-dot"></span> Learn by working</span>
