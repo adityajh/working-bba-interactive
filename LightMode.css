@@ -1,333 +1,197 @@
 /* ============================
-   WORKING BBA — LIGHT THEME
-   Light base + dark emphasis blocks (Solid Blue Style)
+   WORKING BBA — LIGHT THEME (Mobile Contrast Fix)
+   Style: Dark Blue Header + Solid Dark Blue Highlights
    ============================ */
 
 .pt-scope.light-mode {
-    /* Brand (LE palette) */
+    /* Brand */
     --teal: #25BCBD;
     --blue: #3663AD;
     --deep: #160E44;
 
-    /* Premium neutrals */
+    /* Neutrals */
     --bg: #F5F7FC;
     --bg-2: #EEF2FB;
     --surface: #ffffff;
-    --surface-2: rgba(255, 255, 255, .94);
-    --border: rgba(54, 99, 173, .14);
-    --border-strong: rgba(54, 99, 173, .24);
-
-    /* Accents */
-    --accent: var(--teal);
-    --accent-2: var(--blue);
-    --accent-grad: linear-gradient(90deg, rgba(37, 188, 189, 1), rgba(54, 99, 173, 1));
-
-    /* Text */
     --text: #0B1022;
     --muted: rgba(11, 16, 34, .78);
-    --muted-2: rgba(11, 16, 34, .66);
     --white: #ffffff;
 
-    /* Solid Blue/Deep Backgrounds (for buttons/boxes) */
-    --solid-blue: linear-gradient(180deg, rgba(54, 99, 173, 1), rgba(54, 99, 173, .92));
-    --solid-deep: linear-gradient(180deg, rgba(22, 14, 68, 1), rgba(22, 14, 68, .92));
-    --solid-grad: linear-gradient(180deg, rgba(22, 14, 68, .96), rgba(54, 99, 173, .40));
-
-    /* Radii + shadows */
-    --r-xl: 22px;
-    --r-lg: 18px;
-    --r-md: 14px;
-    --shadow: 0 22px 60px rgba(2, 6, 23, .16);
-    --shadow-soft: 0 16px 34px rgba(54, 99, 173, .15);
-    --shadow-chip: 0 12px 24px rgba(54, 99, 173, .12);
+    /* Solid fills for high contrast */
+    --solid-blue: #3663AD;
+    --solid-deep: #160E44;
+    --solid-grad: linear-gradient(135deg, #160E44 0%, #3663AD 100%);
 
     /* Background override */
-    background:
-        radial-gradient(1200px 700px at 14% -10%, rgba(54, 99, 173, .12), transparent 56%),
-        radial-gradient(1000px 640px at 92% 10%, rgba(37, 188, 189, .10), transparent 52%),
-        var(--bg);
+    background: var(--bg);
     color: var(--text);
 }
 
-/* Header in light mode */
-.pt-scope.light-mode .pt-headerTop {
-    color: var(--deep);
+/* ================= HEADER (Dark Blue Block) ================= */
+.pt-scope.light-mode .pt-top {
+    background: var(--solid-grad);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 30px rgba(54, 99, 173, 0.35);
+    padding: 24px;
 }
 
-.pt-scope.light-mode .pt-site {
-    color: var(--deep);
+/* Force text inside header to be white */
+.pt-scope.light-mode .pt-top * {
+    color: white !important;
 }
 
-.pt-scope.light-mode .pt-headline {
-    color: var(--deep);
+/* Subtext slightly transparent */
+.pt-scope.light-mode .pt-top .pt-sub {
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
-.pt-scope.light-mode .pt-sub {
-    color: var(--muted);
+/* Chips in Header */
+.pt-scope.light-mode .pt-chip {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* Pillars in light mode (Active Chips) */
-.pt-scope.light-mode .pt-pill {
-    background: var(--solid-blue);
-    border: 1px solid rgba(54, 99, 173, .55);
-    color: white;
-    box-shadow: 0 8px 20px rgba(54, 99, 173, .20);
+.pt-scope.light-mode .pt-dot {
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
-.pt-scope.light-mode .pt-pill::before {
-    background: var(--teal);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
-}
-
-/* Tabs in light mode */
+/* ================= TABS ================= */
 .pt-scope.light-mode .pt-tabs {
-    background: rgba(255, 255, 255, .90);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(54, 99, 173, .18);
-    box-shadow: 0 16px 34px rgba(54, 99, 173, .10);
+    background: white;
+    border: 1px solid rgba(54, 99, 173, 0.15);
+    box-shadow: 0 4px 20px rgba(54, 99, 173, 0.08);
 }
 
+/* Inactive Tabs */
+/* Inactive Tabs */
 .pt-scope.light-mode .pt-tabBtn {
-    background: rgba(54, 99, 173, .08);
-    border-color: rgba(54, 99, 173, .12);
-    color: var(--deep);
+    color: var(--deep) !important;
+    background: rgba(54, 99, 173, 0.08);
     font-weight: 700;
 }
 
-.pt-scope.light-mode .pt-tabBtn:hover {
-    background: rgba(54, 99, 173, .14);
-}
-
-/* Active Tab - Solid Deep Blue for contrast */
+/* Active Tab */
 .pt-scope.light-mode .pt-tabBtn[data-active="true"] {
     background: var(--solid-deep);
     color: white;
-    border-color: rgba(37, 188, 189, .22);
-    box-shadow: 0 16px 34px rgba(22, 14, 68, .26);
+    box-shadow: 0 8px 24px rgba(22, 14, 68, 0.3);
 }
 
-/* Cards and panels in light mode */
-.pt-scope.light-mode .pt-card {
-    background: var(--surface);
-    border-color: var(--border);
-    color: var(--text);
-    box-shadow: var(--shadow-soft);
-}
-
-.pt-scope.light-mode .pt-card .t,
-.pt-scope.light-mode .pt-card .h {
-    color: var(--deep);
-}
-
-.pt-scope.light-mode .pt-card .d {
-    color: var(--muted);
-}
-
-/* Hero sections - Solid Blue Header Block */
-.pt-scope.light-mode .pt-hero-section {
-    background: var(--solid-blue);
-    border-color: rgba(255, 255, 255, .14);
-    box-shadow: 0 20px 44px rgba(54, 99, 173, .22);
-    color: white;
-}
-
-.pt-scope.light-mode .pt-hero-section h2 {
-    color: white;
-}
-
-.pt-scope.light-mode .pt-hero-section p {
-    color: rgba(255, 255, 255, .90);
-}
-
-/* Mechanism box - Deep Blue Block */
-.pt-scope.light-mode .pt-mechanism-box {
-    background: var(--solid-deep);
-    border-color: rgba(37, 188, 189, .22);
-    color: rgba(255, 255, 255, .96);
-    box-shadow: 0 24px 60px rgba(22, 14, 68, .26);
-}
-
-.pt-scope.light-mode .pt-mechanism-box h4 {
-    color: var(--teal);
-}
-
-.pt-scope.light-mode .pt-mechanism-box li {
-    color: rgba(255, 255, 255, .86);
-}
-
-/* Best for chip */
-.pt-scope.light-mode .pt-bestfor-chip {
-    background: rgba(54, 99, 173, .10);
-    border-color: rgba(54, 99, 173, .20);
-    color: var(--deep);
-    font-weight: 700;
-}
-
-/* Parent clarity cards - White with Blue borders */
-.pt-scope.light-mode .pt-parent-clarity {
-    background: var(--surface);
-    border: 1px solid rgba(54, 99, 173, .20);
-    box-shadow: 0 10px 24px rgba(54, 99, 173, .08);
-}
-
-.pt-scope.light-mode .pt-parent-clarity h4 {
-    color: var(--deep);
-}
-
-.pt-scope.light-mode .pt-parent-clarity li {
-    color: var(--text);
-}
-
-/* Year summary - Gradient Blue/Deep */
-.pt-scope.light-mode .pt-year-summary {
-    background: var(--solid-grad);
-    border-color: rgba(255, 255, 255, .10);
-    color: white;
-    box-shadow: 0 16px 40px rgba(22, 14, 68, .18);
-}
-
-.pt-scope.light-mode .pt-year-summary h4 {
-    color: white;
-}
-
-.pt-scope.light-mode .pt-year-summary li {
-    color: rgba(255, 255, 255, .90);
-}
-
-/* Year content cards */
-.pt-scope.light-mode .pt-year-content {
-    background: var(--surface);
-    border: 1px solid rgba(54, 99, 173, .15);
-    box-shadow: 0 12px 28px rgba(54, 99, 173, .08);
-}
-
-.pt-scope.light-mode .pt-year-content h3 {
-    color: var(--deep);
-}
-
-.pt-scope.light-mode .pt-year-item h5 {
-    color: var(--blue);
-}
-
-.pt-scope.light-mode .pt-year-item li {
-    color: var(--muted);
-}
-
-/* Progress review - Solid Deep */
-.pt-scope.light-mode .pt-progress-review {
-    background: var(--solid-deep);
-    border-color: rgba(37, 188, 189, .22);
-    color: white;
-}
-
-.pt-scope.light-mode .pt-progress-review p {
-    color: rgba(255, 255, 255, .90);
-}
-
-/* Final note */
-.pt-scope.light-mode .pt-final-note {
-    background: rgba(54, 99, 173, .08);
-    border: 1px solid rgba(54, 99, 173, .18);
-    color: var(--deep);
-}
-
-/* Grid sections */
-.pt-scope.light-mode .pt-section-row h2 {
-    color: var(--deep);
-}
-
-.pt-scope.light-mode .pt-sectionLab {
-    color: var(--deep);
-}
-
-/* Element badges */
-.pt-scope.light-mode .pt-elBadge {
-    background: var(--surface);
-    border: 1px solid rgba(54, 99, 173, .14);
-    color: var(--text);
-    box-shadow: 0 6px 12px rgba(54, 99, 173, .06);
-}
-
-.pt-scope.light-mode .pt-elBadge .sym {
-    color: var(--deep);
-}
-
-.pt-scope.light-mode .pt-elBadge .lbl {
-    color: var(--muted);
-}
-
-/* Legend */
-.pt-scope.light-mode .pt-legend {
-    background: rgba(255, 255, 255, .85);
-    border-color: rgba(54, 99, 173, .18);
-}
-
-.pt-scope.light-mode .pt-legend span {
-    color: var(--text);
-}
-
-/* Explanation grid */
-.pt-scope.light-mode .pt-explanation-grid {
-    background: var(--surface);
-    border: 1px solid rgba(54, 99, 173, .18);
-    box-shadow: var(--shadow-soft);
-}
-
-.pt-scope.light-mode .pt-explanation-grid h4 {
-    color: var(--deep);
-}
-
-.pt-scope.light-mode .pt-explanation-grid li {
-    color: var(--text);
-}
-
-/* Parent takeaway - Solid Blue */
-.pt-scope.light-mode .pt-parent-takeaway {
+/* ================= HERO SECTIONS ================= */
+/* Dark Blue Header Block */
+.pt-scope.light-mode .pt-hero {
     background: var(--solid-blue);
     color: white;
-    box-shadow: 0 18px 46px rgba(54, 99, 173, .22);
+    border: none;
+    box-shadow: 0 12px 30px rgba(54, 99, 173, 0.2);
 }
 
-.pt-scope.light-mode .pt-parent-takeaway h4 {
+/* Ensure text inside hero is white */
+.pt-scope.light-mode .pt-hero h2,
+.pt-scope.light-mode .pt-hero h3,
+.pt-scope.light-mode .pt-hero li,
+.pt-scope.light-mode .pt-hero strong {
+    color: white !important;
+}
+
+/* ================= HIGHLIGHT BOXES (Solid Deep Blue) ================= */
+/* "How confidence is built" box */
+.pt-scope.light-mode .pt-mechanism {
+    background: rgba(22, 14, 68, 0.3);
+    /* Slightly transparent on dark bg */
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
 }
 
-.pt-scope.light-mode .pt-parent-takeaway li {
-    color: rgba(255, 255, 255, .90);
+.pt-scope.light-mode .pt-mechanism strong {
+    color: white !important;
 }
 
-/* Family connection */
-.pt-scope.light-mode .pt-family-connection {
-    background: rgba(54, 99, 173, .06);
-    border: 1px solid rgba(54, 99, 173, .18);
+/* "Best For" Section */
+.pt-scope.light-mode .pt-trackMeta {
+    color: var(--deep) !important;
 }
 
-.pt-scope.light-mode .pt-family-connection h4 {
-    color: var(--deep);
+.pt-scope.light-mode .pt-trackMeta span {
+    color: var(--deep) !important;
 }
 
-/* Myth vs Reality */
-.pt-scope.light-mode .pt-myth-reality {
-    background: var(--surface);
-    border: 1px solid rgba(54, 99, 173, .15);
+.pt-scope.light-mode .pt-trackMeta .lbl {
+    background: var(--deep);
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
 }
 
-.pt-scope.light-mode .pt-myth h5 {
-    color: #DC2626;
+/* "Year 1 in one line" Summary Box */
+.pt-scope.light-mode .pt-yearSummary {
+    background: var(--solid-deep);
+    color: white;
+    box-shadow: 0 10px 30px rgba(22, 14, 68, 0.2);
+    border: 1px solid rgba(54, 99, 173, 0.3);
 }
 
-.pt-scope.light-mode .pt-reality h5 {
-    color: #16A34A;
+.pt-scope.light-mode .pt-yearSummary h4,
+.pt-scope.light-mode .pt-yearSummary h5,
+.pt-scope.light-mode .pt-yearSummary p,
+.pt-scope.light-mode .pt-yearSummary li {
+    color: white !important;
 }
 
-/* Dark mode toggle button in light mode */
-.pt-scope.light-mode .pt-theme-toggle {
-    border-color: rgba(54, 99, 173, .20);
+/* Parent Clarity Boxes */
+.pt-scope.light-mode .pt-clarityBox {
     background: white;
-    color: var(--blue);
-    box-shadow: 0 4px 12px rgba(54, 99, 173, .10);
+    /* Keep content cards white for readability */
+    border: 2px solid rgba(54, 99, 173, 0.15);
+    box-shadow: 0 4px 12px rgba(54, 99, 173, 0.05);
 }
 
-.pt-scope.light-mode .pt-theme-toggle:hover {
-    background: rgba(54, 99, 173, .05);
+.pt-scope.light-mode .pt-clarityBox h4 {
+    color: var(--blue);
+}
+
+.pt-scope.light-mode .pt-clarityBox li {
+    color: var(--text);
+}
+
+/* Progress Mechanism Box */
+.pt-scope.light-mode .pt-progressCheck {
+    background: var(--solid-blue);
+    color: white;
+    border-radius: var(--r2);
+    padding: 16px;
+}
+
+.pt-scope.light-mode .pt-progressCheck h4,
+.pt-scope.light-mode .pt-progressCheck p {
+    color: white !important;
+}
+
+/* ================= YEAR CONTENT STYLES ================= */
+/* The main year cards */
+.pt-scope.light-mode .pt-yearContent {
+    background: white;
+    border: 1px solid rgba(54, 99, 173, 0.15);
+}
+
+.pt-scope.light-mode .pt-contentBlock h5 {
+    color: var(--deep);
+    border-bottom: 2px solid rgba(54, 99, 173, 0.1);
+    padding-bottom: 8px;
+}
+
+.pt-scope.light-mode .pt-contentBlock li {
+    color: var(--text);
+}
+
+/* Year Headings */
+.pt-scope.light-mode .pt-yearTitle strong {
+    color: var(--deep);
+}
+
+/* Toggle Button */
+.pt-scope.light-mode .pt-theme-toggle {
+    background: white;
+    color: var(--deep);
+    border: 2px solid rgba(54, 99, 173, 0.2);
 }
