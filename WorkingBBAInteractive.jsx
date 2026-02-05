@@ -3,7 +3,7 @@ import './ProgramTabs.css';
 
 export default function WorkingBBAInteractive() {
   const [selectedElement, setSelectedElement] = useState(null);
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState('job'); // job | family | venture | periodic
 
   // Brand Colors from LE Guidelines (Strict Scale)
   const brandColors = {
@@ -550,17 +550,24 @@ export default function WorkingBBAInteractive() {
           <nav className="pt-tabs" aria-label="Page tabs">
             <button
               className="pt-tabBtn"
-              data-active={activeTab === 'overview'}
-              onClick={() => setActiveTab('overview')}
+              data-active={activeTab === 'job'}
+              onClick={() => setActiveTab('job')}
             >
-              Year 1
+              Entrepreneurial Job
             </button>
             <button
               className="pt-tabBtn"
-              data-active={activeTab === 'tracks'}
-              onClick={() => setActiveTab('tracks')}
+              data-active={activeTab === 'family'}
+              onClick={() => setActiveTab('family')}
             >
-              Year 2 & 3
+              Business Family
+            </button>
+            <button
+              className="pt-tabBtn"
+              data-active={activeTab === 'venture'}
+              onClick={() => setActiveTab('venture')}
+            >
+              Venture Track
             </button>
             <button
               className="pt-tabBtn"
@@ -574,8 +581,9 @@ export default function WorkingBBAInteractive() {
 
         {/* MAIN CONTENT */}
         <main className="pt-section">
-          {activeTab === 'overview' && <OverviewTab navToTracks={() => setActiveTab('tracks')} />}
-          {activeTab === 'tracks' && <TracksTab navToOverview={() => setActiveTab('overview')} />}
+          {activeTab === 'job' && <TrackView track="original" />}
+          {activeTab === 'family' && <TrackView track="bf" />}
+          {activeTab === 'venture' && <TrackView track="solo" />}
 
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
           {activeTab === 'periodic' && (
@@ -783,16 +791,87 @@ export default function WorkingBBAInteractive() {
 /*                               HELPER COMPONENTS                            */
 /* -------------------------------------------------------------------------- */
 
-// OVERVIEW TAB
-const OverviewTab = ({ navToTracks }) => {
+// Track data for Year 2 & 3 specifics
+const trackData = {
+  original: {
+    name: 'Entrepreneurial Job',
+    whoFor: 'Students who want fast-track real work and entrepreneurial jobs.',
+    promise: 'More industries. Stronger references.',
+    outcome: 'Ready for roles where output and proof matter more than pedigree.',
+    y2: [
+      { t: 'Employer', h: 'Outstation Apprenticeship ×1', d: 'Deeper exposure + stronger network' }
+    ],
+    y3: [
+      { t: 'Employer', h: '9-month Mentored Apprenticeship', d: 'Role clarity + output + strong references' }
+    ]
+  },
+  bf: {
+    name: 'Business Family',
+    whoFor: 'Families 100% clear: the child joins the family business after graduation.',
+    promise: 'Succession readiness + family alignment.',
+    outcome: 'Ready to take responsibility inside the family business—with alignment and proof.',
+    y2: [
+      { t: 'Employer', h: 'Family Business Apprenticeship', d: 'Learn how other families run business' },
+      { t: 'Coaching', h: 'Family Coaching ×2', d: 'Alignment + expectations' },
+      { t: 'Mentor', h: 'FB Mentor Meetups ×4', d: 'Succession + governance reps' }
+    ],
+    y3: [
+      { t: 'Capstone', h: '9-month Family Business Project', d: 'Real KPI + ownership' },
+      { t: 'Coaching', h: 'Family Coaching ×4', d: 'Role clarity + handover readiness' }
+    ]
+  },
+  solo: {
+    name: 'Venture Track',
+    whoFor: 'Families clear and supportive: the child builds their own venture by graduation.',
+    promise: 'Traction + founder systems.',
+    outcome: 'Ready to build a real venture—traction, systems, and repeatability.',
+    y2: [
+      { t: 'Venture', h: 'Solo Venture ×1', d: 'Offer + first customers' },
+      { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
+      { t: 'Mentor', h: 'Solo Mentor Meetups ×4', d: 'Founder operator reps' }
+    ],
+    y3: [
+      { t: 'Venture', h: '9-month Venture Building', d: 'Traction → systems → repeatability' },
+      { t: 'Coaching', h: 'Venture Coaching ×4', d: 'Distribution, growth, resilience' }
+    ]
+  }
+};
+
+// TRACK VIEW - Complete 3-year journey for a specific track
+const TrackView = ({ track }) => {
+  const current = trackData[track];
+
+  const renderDelta = (list) => {
+    return list.map((x, i) => {
+      const isTeal = x.t === 'Coaching' || x.t === 'Mentor';
+      return (
+        <div key={i} className={`pt-card${isTeal ? ' teal' : ''}`}>
+          <div className="t">{x.t}</div>
+          <div className="h">{x.h}</div>
+          <div className="d">{x.d}</div>
+        </div>
+      );
+    });
+  };
+
   return (
     <div className="pt-tabPane active fade-in">
-      {/* YEAR 1 (Common Growth Year) */}
+      {/* TRACK HEADER */}
+      <div className="pt-trackIntro" style={{ marginBottom: 24 }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 8 }}>{current.name}</h2>
+        <div className="pt-trackMeta">
+          <div className="pt-trackLine"><span className="lbl">Best for</span><span>{current.whoFor}</span></div>
+          <div className="pt-trackLine"><span className="lbl">Promise</span><span>{current.promise}</span></div>
+          <div className="pt-trackLine"><span className="lbl">Outcome</span><span>{current.outcome}</span></div>
+        </div>
+      </div>
+
+      {/* ===================== YEAR 1 (COMMON) ===================== */}
       <section className="pt-section pt-year" aria-label="Year 1 Growth Year">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 1 • Growth Year (Common)</strong>
-            <span className="pt-pill">Pune base • Build hunger + rhythm • Low → mid stakes</span>
+            <strong>Year 1 • Growth Year</strong>
+            <span className="pt-pill" style={{ background: 'rgba(37,188,189,0.2)', color: '#25BCBD' }}>Common for all 3 programs</span>
           </div>
           <div className="pt-hint">Year 1 is the same for every student. You build skill reps, delivery discipline, and reliability—before choosing a track for Years 2 & 3.</div>
         </div>
@@ -848,7 +927,7 @@ const OverviewTab = ({ navToTracks }) => {
                 <div className="pt-spineSeg">
                   <div className="k">Communication</div>
                   <div className="v">Storysells</div>
-                  <div class="s">Pitch, publish, and build presence</div>
+                  <div className="s">Pitch, publish, and build presence</div>
                 </div>
                 <div className="pt-spineSeg">
                   <div className="k">Proof</div>
@@ -863,192 +942,75 @@ const OverviewTab = ({ navToTracks }) => {
             <strong>Year 1 outcome</strong>
             <span>A student who can <span className="pt-opTag">show up, deliver, communicate</span>—with real proof. This is the foundation for higher-stakes work in Years 2 & 3.</span>
           </div>
-
-          <div className="pt-ctaRow" aria-label="Compare tracks CTA">
-            <button className="pt-ctaBtn" onClick={navToTracks}>Compare tracks →</button>
-            <div className="pt-ctaHint">Years 2 & 3 change based on track.</div>
-          </div>
-
-          <div className="pt-note"><strong>What parents should notice:</strong> Year 1 builds responsibility and work habits through repeated delivery cycles. It’s not “learning about business.” It’s learning by doing—under standards, deadlines, and feedback.</div>
         </div>
       </section>
-    </div>
-  );
-};
 
-// TRACKS TAB
-const TracksTab = ({ navToOverview }) => {
-  const [activeTrack, setActiveTrack] = useState('original');
-  const [openYear, setOpenYear] = useState('y2'); // 'y2' | 'y3' | null
-
-  const trackCopy = {
-    original: {
-      whoFor: 'Students who want fast-track real work and entrepreneurial jobs.',
-      promise: 'More industries. Stronger references.',
-      outcome: 'Ready for roles where output and proof matter more than pedigree.',
-      y2: [
-        { t: 'Employer', h: 'Outstation Apprenticeship ×1', d: 'Deeper exposure + stronger network' }
-      ],
-      y3: [
-        { t: 'Employer', h: '9-month Mentored Apprenticeship', d: 'Role clarity + output + strong references' }
-      ]
-    },
-    bf: {
-      whoFor: 'Families 100% clear: the child joins the family business after graduation.',
-      promise: 'Succession readiness + family alignment.',
-      outcome: 'Ready to take responsibility inside the family business—with alignment and proof.',
-      y2: [
-        { t: 'Employer', h: 'Family Business Apprenticeship', d: 'Learn how other families run business' },
-        { t: 'Coaching', h: 'Family Coaching ×2', d: 'Alignment + expectations' },
-        { t: 'Mentor', h: 'FB Mentor Meetups ×4', d: 'Succession + governance reps' }
-      ],
-      y3: [
-        { t: 'Capstone', h: '9-month Family Business Project', d: 'Real KPI + ownership' },
-        { t: 'Coaching', h: 'Family Coaching ×4', d: 'Role clarity + handover readiness' }
-      ]
-    },
-    solo: {
-      whoFor: 'Families clear and supportive: the child builds their own venture by graduation.',
-      promise: 'Traction + founder systems.',
-      outcome: 'Ready to build a real venture—traction, systems, and repeatability.',
-      y2: [
-        { t: 'Venture', h: 'Solo Venture ×1', d: 'Offer + first customers' },
-        { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
-        { t: 'Mentor', h: 'Solo Mentor Meetups ×4', d: 'Founder operator reps' }
-      ],
-      y3: [
-        { t: 'Venture', h: '9-month Venture Building', d: 'Traction → systems → repeatability' },
-        { t: 'Coaching', h: 'Venture Coaching ×4', d: 'Distribution, growth, resilience' }
-      ]
-    }
-  };
-
-  const current = trackCopy[activeTrack];
-
-  const renderDelta = (list) => {
-    return list.map((x, i) => {
-      const isTeal = x.t === 'Coaching' || x.t === 'Mentor';
-      return (
-        <div key={i} className={`pt-card${isTeal ? ' teal' : ''}`}>
-          <div className="t">{x.t}</div>
-          <div className="h">{x.h}</div>
-          <div className="d">{x.d}</div>
-        </div>
-      );
-    });
-  };
-
-  return (
-    <div className="pt-tabPane active fade-in">
-      <div className="pt-miniTop">
-        <button className="pt-linkBtn" onClick={navToOverview}>← Program overview</button>
-      </div>
-
-      {/* TRACK SELECTOR */}
-      <section className="pt-section pt-selector" aria-label="Track selection">
-        <div className="pt-selectorHead pt-stickyBar">
-          <strong style={{ letterSpacing: '.8px', textTransform: 'uppercase' }}>Choose your track (Years 2 & 3)</strong>
-          <div className="pt-hint">Same structure. Different focus.</div>
-
-          <div className="pt-segControl" role="group" aria-label="Track buttons">
-            <button
-              className="pt-trackBtn"
-              data-active={activeTrack === 'original'}
-              onClick={() => setActiveTrack('original')}
-            >
-              Entrepreneurial Jobs <span className="pt-opTag">(Operator)</span>
-            </button>
-            <button
-              className="pt-trackBtn"
-              data-active={activeTrack === 'bf'}
-              onClick={() => setActiveTrack('bf')}
-            >
-              Business Families
-            </button>
-            <button
-              className="pt-trackBtn"
-              data-active={activeTrack === 'solo'}
-              onClick={() => setActiveTrack('solo')}
-            >
-              Solo-preneurs
-            </button>
+      {/* ===================== YEAR 2 ===================== */}
+      <section className="pt-section pt-year" aria-label="Year 2 Projects Year" style={{ marginTop: 32 }}>
+        <div className="pt-yearHead">
+          <div className="pt-yearTitle">
+            <strong>Year 2 • Projects Year</strong>
+            <span className="pt-pill">Common spine + track specifics</span>
           </div>
+        </div>
 
-          <div className="pt-trackIntro" aria-label="Track outcome box">
-            <div className="pt-trackMeta">
-              <div className="pt-trackLine"><span className="lbl">Best for</span><span>{current.whoFor}</span></div>
-              <div className="pt-trackLine"><span className="lbl">Promise</span><span>{current.promise}</span></div>
-              <div className="pt-trackLine"><span className="lbl">Outcome</span><span>{current.outcome}</span></div>
+        <div className="pt-body">
+          <div className="pt-split">
+            <div className="pt-panel commonPanel">
+              <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 2)</div>
+              <div className="pt-spineGrid" aria-label="Year 2 common spine">
+                <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Client Project ×1</div><div className="s">Real scope + feedback</div></div>
+                <div className="pt-spineSeg"><div className="k">Venture</div><div className="v">Team Venture</div><div className="s">Build + ship</div></div>
+                <div className="pt-spineSeg"><div className="k">Employer</div><div className="v">Apprenticeship ×1</div><div className="s">Professional standards</div></div>
+                <div className="pt-spineSeg"><div className="k">Communication</div><div className="v">Storysells</div><div className="s">Pitch + publish</div></div>
+                <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×4</div><div className="s">Direction + decisions</div></div>
+                <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
+              </div>
+            </div>
+
+            <div className="pt-panel deltaPanel">
+              <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track specifics (Year 2)</div>
+              <div className="pt-deltaCards">
+                {renderDelta(current.y2)}
+              </div>
             </div>
           </div>
         </div>
+      </section>
 
-        <div className="pt-trackBody active">
-          {/* YEAR 2 */}
-          <details className="pt-yearDetails" open={openYear === 'y2'} onToggle={(e) => { if (e.target.open) setOpenYear('y2'); }}>
-            <summary className="pt-sumRow" onClick={(e) => { e.preventDefault(); setOpenYear(openYear === 'y2' ? null : 'y2'); }}>
-              <span className="pt-sumTitle">Year 2 • Projects Year</span>
-              <span className="pt-sumPill">Common spine + track adds</span>
-            </summary>
-            {openYear === 'y2' && (
-              <div className="pt-body">
-                <div className="pt-split">
-                  <div className="pt-panel commonPanel">
-                    <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 2)</div>
-                    <div className="pt-spineGrid" aria-label="Year 2 common spine">
-                      <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Client Project ×1</div><div className="s">Real scope + feedback</div></div>
-                      <div className="pt-spineSeg"><div className="k">Venture</div><div className="v">Team Venture</div><div className="s">Build + ship</div></div>
-                      <div className="pt-spineSeg"><div className="k">Employer</div><div className="v">Apprenticeship ×1</div><div className="s">Professional standards</div></div>
-                      <div className="pt-spineSeg"><div className="k">Communication</div><div className="v">Storysells</div><div className="s">Pitch + publish</div></div>
-                      <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×4</div><div className="s">Direction + decisions</div></div>
-                      <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
-                    </div>
-                  </div>
+      {/* ===================== YEAR 3 ===================== */}
+      <section className="pt-section pt-year" aria-label="Year 3 Work Year" style={{ marginTop: 32 }}>
+        <div className="pt-yearHead">
+          <div className="pt-yearTitle">
+            <strong>Year 3 • Work Year</strong>
+            <span className="pt-pill">Common spine + track capstone</span>
+          </div>
+        </div>
 
-                  <div className="pt-panel deltaPanel">
-                    <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track adds (Year 2)</div>
-                    <div className="pt-deltaCards">
-                      {renderDelta(current.y2)}
-                    </div>
-                  </div>
-                </div>
+        <div className="pt-body">
+          <div className="pt-split">
+            <div className="pt-panel commonPanel">
+              <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 3)</div>
+              <div className="pt-spineGrid" aria-label="Year 3 common spine">
+                <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
+                <div className="pt-spineSeg"><div className="k">Proof</div><div className="v">Proof Packs</div><div className="s">Docs + media + data</div></div>
+                <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×6</div><div className="s">Transition ×4</div></div>
+                <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Team Residency (6 weeks)</div><div className="s">On-site delivery</div></div>
               </div>
-            )}
-          </details>
+            </div>
 
-          {/* YEAR 3 */}
-          <details className="pt-yearDetails" style={{ marginTop: 12 }} open={openYear === 'y3'} onToggle={(e) => { if (e.target.open) setOpenYear('y3'); }}>
-            <summary className="pt-sumRow" onClick={(e) => { e.preventDefault(); setOpenYear(openYear === 'y3' ? null : 'y3'); }}>
-              <span className="pt-sumTitle">Year 3 • Work Year</span>
-              <span className="pt-sumPill">Common spine + track capstone</span>
-            </summary>
-            {openYear === 'y3' && (
-              <div className="pt-body">
-                <div className="pt-split">
-                  <div className="pt-panel commonPanel">
-                    <div className="pt-panelTitle"><span className="pt-icon">🧬</span> Common (Year 3)</div>
-                    <div className="pt-spineGrid" aria-label="Year 3 common spine">
-                      <div className="pt-spineSeg"><div className="k">Network</div><div className="v">Regen</div><div className="s">Introductions</div></div>
-                      <div className="pt-spineSeg"><div className="k">Proof</div><div className="v">Proof Packs</div><div className="s">Docs + media + data</div></div>
-                      <div className="pt-spineSeg"><div className="k">Coaching</div><div className="v">Career Blueprint ×6</div><div className="s">Transition ×4</div></div>
-                      <div className="pt-spineSeg"><div className="k">Client</div><div className="v">Team Residency (6 weeks)</div><div class="s">On-site delivery</div></div>
-                    </div>
-                  </div>
-
-                  <div className="pt-panel deltaPanel">
-                    <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track capstone (Year 3)</div>
-                    <div className="pt-deltaCards">
-                      {renderDelta(current.y3)}
-                    </div>
-                  </div>
-                </div>
+            <div className="pt-panel deltaPanel">
+              <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track capstone (Year 3)</div>
+              <div className="pt-deltaCards">
+                {renderDelta(current.y3)}
               </div>
-            )}
-          </details>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div className="pt-note" aria-label="Implementation note">
+      {/* FINAL NOTE */}
+      <div className="pt-note" aria-label="Implementation note" style={{ marginTop: 32 }}>
         <strong>Simple idea:</strong> Students graduate with <strong>proof of work</strong> and <strong>real references</strong>—not just a marksheet.
       </div>
     </div>
