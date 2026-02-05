@@ -1,0 +1,379 @@
+/* ============================
+   WORKING BBA — LIGHT THEME
+   Light base + dark emphasis blocks
+   ============================ */
+
+.pt-scope.light-mode {
+    /* Brand (LE palette) */
+    --teal: #25BCBD;
+    --blue: #3663AD;
+    --deep: #160E44;
+
+    /* Premium neutrals */
+    --bg: #F5F7FC;
+    --bg-2: #EEF2FB;
+    --surface: rgba(255, 255, 255, .93);
+    --surface-2: rgba(255, 255, 255, .74);
+    --border: rgba(22, 14, 68, .10);
+    --border-strong: rgba(22, 14, 68, .18);
+
+    /* Accents */
+    --accent: var(--teal);
+    --accent-2: var(--blue);
+    --accent-grad: linear-gradient(90deg, rgba(37, 188, 189, 1), rgba(54, 99, 173, 1));
+    --accent-glow: 0 0 0 3px rgba(37, 188, 189, .16), 0 18px 50px rgba(54, 99, 173, .18);
+
+    /* Text */
+    --text: #0B1022;
+    --muted: rgba(11, 16, 34, .78);
+    --muted-2: rgba(11, 16, 34, .66);
+    --white: #0B1022;
+
+    /* Dark emphasis blocks */
+    --ink: #0E0A2A;
+    --ink-2: #140F33;
+    --ink-border: rgba(37, 188, 189, .18);
+    --ink-text: rgba(255, 255, 255, .95);
+    --ink-muted: rgba(255, 255, 255, .76);
+
+    /* Radii + shadows */
+    --r-xl: 22px;
+    --r-lg: 18px;
+    --r-md: 14px;
+    --shadow: 0 22px 60px rgba(2, 6, 23, .16);
+    --shadow-soft: 0 16px 34px rgba(2, 6, 23, .11);
+    --shadow-chip: 0 12px 24px rgba(2, 6, 23, .12);
+
+    /* Background override */
+    background:
+        radial-gradient(1200px 700px at 14% -10%, rgba(54, 99, 173, .18), transparent 56%),
+        radial-gradient(1000px 640px at 92% 10%, rgba(37, 188, 189, .16), transparent 52%),
+        radial-gradient(900px 520px at 40% 110%, rgba(54, 99, 173, .12), transparent 58%),
+        linear-gradient(180deg, rgba(255, 255, 255, .0), rgba(238, 242, 251, .55)),
+        var(--bg);
+    color: var(--text);
+}
+
+/* Header in light mode */
+.pt-scope.light-mode .pt-headerTop {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-site {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-headline {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-sub {
+    color: var(--muted);
+}
+
+/* Pillars in light mode */
+.pt-scope.light-mode .pt-pill {
+    background: rgba(54, 99, 173, .10);
+    border-color: rgba(54, 99, 173, .20);
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-pill::before {
+    background: var(--teal);
+}
+
+/* Tabs in light mode */
+.pt-scope.light-mode .pt-tabs {
+    background:
+        radial-gradient(700px 200px at 10% 0%, rgba(54, 99, 173, .14), transparent 60%),
+        radial-gradient(520px 180px at 92% 10%, rgba(37, 188, 189, .10), transparent 60%),
+        rgba(255, 255, 255, .82);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(54, 99, 173, .18);
+    box-shadow: 0 16px 34px rgba(2, 6, 23, .11);
+}
+
+.pt-scope.light-mode .pt-tabBtn {
+    background: rgba(54, 99, 173, .06);
+    border-color: rgba(54, 99, 173, .10);
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-tabBtn:hover {
+    background: rgba(54, 99, 173, .10);
+}
+
+.pt-scope.light-mode .pt-tabBtn[data-active="true"] {
+    background:
+        radial-gradient(120px 60px at 20% 0%, rgba(37, 188, 189, .30), transparent 60%),
+        radial-gradient(140px 80px at 90% 10%, rgba(54, 99, 173, .40), transparent 60%),
+        linear-gradient(180deg, rgba(22, 14, 68, 1), rgba(22, 14, 68, .92));
+    color: white;
+    border-color: rgba(37, 188, 189, .22);
+    box-shadow: 0 16px 34px rgba(22, 14, 68, .26);
+}
+
+/* Cards and panels in light mode */
+.pt-scope.light-mode .pt-card {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+    box-shadow: var(--shadow-soft);
+}
+
+.pt-scope.light-mode .pt-card .t,
+.pt-scope.light-mode .pt-card .h {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-card .d {
+    color: var(--muted);
+}
+
+.pt-scope.light-mode .pt-card.teal {
+    background:
+        radial-gradient(700px 260px at 10% 0%, rgba(54, 99, 173, .22), transparent 55%),
+        linear-gradient(180deg, rgba(54, 99, 173, .10), rgba(255, 255, 255, .80));
+    border-color: rgba(54, 99, 173, .26);
+    box-shadow: 0 18px 40px rgba(54, 99, 173, .12);
+}
+
+/* Hero sections in light mode */
+.pt-scope.light-mode .pt-hero-section {
+    background:
+        radial-gradient(700px 260px at 12% 0%, rgba(54, 99, 173, .22), transparent 58%),
+        linear-gradient(180deg, rgba(54, 99, 173, .08), rgba(255, 255, 255, .86));
+    border-color: rgba(54, 99, 173, .20);
+    box-shadow: 0 16px 34px rgba(54, 99, 173, .10);
+}
+
+.pt-scope.light-mode .pt-hero-section h2 {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-hero-section p {
+    color: var(--muted);
+}
+
+/* Mechanism box in light mode */
+.pt-scope.light-mode .pt-mechanism-box {
+    background:
+        radial-gradient(1200px 600px at 12% 0%, rgba(54, 99, 173, .60), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(37, 188, 189, .26), transparent 60%),
+        linear-gradient(180deg, rgba(22, 14, 68, 1), rgba(54, 99, 173, .32));
+    border-color: var(--ink-border);
+    color: var(--ink-text);
+}
+
+.pt-scope.light-mode .pt-mechanism-box h4 {
+    color: var(--teal);
+}
+
+.pt-scope.light-mode .pt-mechanism-box li {
+    color: rgba(255, 255, 255, .90);
+}
+
+/* Best for chip in light mode */
+.pt-scope.light-mode .pt-bestfor-chip {
+    background: rgba(54, 99, 173, .06);
+    border-color: rgba(54, 99, 173, .18);
+    color: var(--deep);
+}
+
+/* Parent clarity in light mode */
+.pt-scope.light-mode .pt-parent-clarity {
+    background:
+        radial-gradient(700px 200px at 10% 0%, rgba(54, 99, 173, .14), transparent 60%),
+        rgba(255, 255, 255, .92);
+    border-color: rgba(54, 99, 173, .18);
+}
+
+.pt-scope.light-mode .pt-parent-clarity h4 {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-parent-clarity li {
+    color: var(--text);
+}
+
+/* Year summary in light mode */
+.pt-scope.light-mode .pt-year-summary {
+    background:
+        radial-gradient(700px 260px at 12% 0%, rgba(54, 99, 173, .22), transparent 58%),
+        linear-gradient(180deg, rgba(54, 99, 173, .08), rgba(255, 255, 255, .86));
+    border-color: rgba(54, 99, 173, .20);
+}
+
+.pt-scope.light-mode .pt-year-summary h4 {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-year-summary li {
+    color: var(--text);
+}
+
+/* Year content in light mode */
+.pt-scope.light-mode .pt-year-content {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.pt-scope.light-mode .pt-year-content h3 {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-year-item h5 {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-year-item li {
+    color: var(--muted);
+}
+
+/* Progress review in light mode */
+.pt-scope.light-mode .pt-progress-review {
+    background:
+        radial-gradient(700px 260px at 12% 0%, rgba(37, 188, 189, .18), transparent 58%),
+        linear-gradient(180deg, rgba(22, 14, 68, .94), rgba(22, 14, 68, .86));
+    border-color: rgba(37, 188, 189, .22);
+    color: rgba(255, 255, 255, .96);
+}
+
+/* Final note in light mode */
+.pt-scope.light-mode .pt-final-note {
+    background:
+        radial-gradient(600px 220px at 10% 0%, rgba(54, 99, 173, .16), transparent 58%),
+        linear-gradient(180deg, rgba(22, 14, 68, .04), rgba(255, 255, 255, .70));
+    border-color: rgba(54, 99, 173, .18);
+    color: var(--text);
+}
+
+/* Grid sections in light mode */
+.pt-scope.light-mode .pt-section-row h2 {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-sectionLab {
+    color: var(--deep);
+}
+
+/* Element badges in light mode */
+.pt-scope.light-mode .pt-elBadge {
+    background: var(--surface);
+    border-color: var(--border);
+    color: var(--text);
+    box-shadow: var(--shadow-chip);
+}
+
+.pt-scope.light-mode .pt-elBadge .sym {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-elBadge .lbl {
+    color: var(--muted);
+}
+
+/* Legend in light mode */
+.pt-scope.light-mode .pt-legend {
+    background: rgba(255, 255, 255, .80);
+    border-color: rgba(54, 99, 173, .18);
+}
+
+.pt-scope.light-mode .pt-legend span {
+    color: var(--text);
+}
+
+/* Explanation grid in light mode */
+.pt-scope.light-mode .pt-explanation-grid {
+    background:
+        radial-gradient(700px 200px at 10% 0%, rgba(54, 99, 173, .14), transparent 60%),
+        rgba(255, 255, 255, .92);
+    border-color: rgba(54, 99, 173, .18);
+}
+
+.pt-scope.light-mode .pt-explanation-grid h4 {
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-explanation-grid li {
+    color: var(--text);
+}
+
+/* Parent takeaway in light mode */
+.pt-scope.light-mode .pt-parent-takeaway {
+    background:
+        radial-gradient(700px 260px at 12% 0%, rgba(37, 188, 189, .18), transparent 58%),
+        linear-gradient(180deg, rgba(22, 14, 68, .94), rgba(22, 14, 68, .86));
+    color: rgba(255, 255, 255, .96);
+}
+
+/* Family connection in light mode */
+.pt-scope.light-mode .pt-family-connection {
+    background:
+        radial-gradient(700px 260px at 12% 0%, rgba(54, 99, 173, .22), transparent 58%),
+        linear-gradient(180deg, rgba(54, 99, 173, .08), rgba(255, 255, 255, .86));
+    border-color: rgba(54, 99, 173, .20);
+}
+
+.pt-scope.light-mode .pt-family-connection h4 {
+    color: var(--deep);
+}
+
+/* Myth vs Reality in light mode */
+.pt-scope.light-mode .pt-myth-reality {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.pt-scope.light-mode .pt-myth h5 {
+    color: #DC2626;
+}
+
+.pt-scope.light-mode .pt-reality h5 {
+    color: #16A34A;
+}
+
+/* Progress tracking in light mode */
+.pt-scope.light-mode .pt-progress-tracking {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.pt-scope.light-mode .pt-progress-tracking h3 {
+    color: var(--deep);
+}
+
+/* Dark mode toggle button */
+.pt-theme-toggle {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, .20);
+    background: rgba(255, 255, 255, .10);
+    color: rgba(255, 255, 255, .90);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.pt-theme-toggle:hover {
+    background: rgba(255, 255, 255, .20);
+    transform: scale(1.05);
+}
+
+.pt-scope.light-mode .pt-theme-toggle {
+    border-color: rgba(22, 14, 68, .20);
+    background: rgba(22, 14, 68, .08);
+    color: var(--deep);
+}
+
+.pt-scope.light-mode .pt-theme-toggle:hover {
+    background: rgba(22, 14, 68, .14);
+}

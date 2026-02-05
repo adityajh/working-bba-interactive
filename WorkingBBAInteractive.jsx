@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './ProgramTabs.css';
+import './LightMode.css';
 
 export default function WorkingBBAInteractive() {
   const [selectedElement, setSelectedElement] = useState(null);
   const [activeTab, setActiveTab] = useState('job'); // job | family | venture | periodic
+  const [isDarkMode, setIsDarkMode] = useState(true); // true = dark, false = light
 
   // Brand Colors from LE Guidelines (Strict Scale)
   const brandColors = {
@@ -524,7 +526,7 @@ export default function WorkingBBAInteractive() {
 
   // RENDER
   return (
-    <div className="pt-scope">
+    <div className={`pt-scope${isDarkMode ? '' : ' light-mode'}`}>
       <div className="pt-wrap">
         {/* HEADER */}
         <header className="pt-top">
@@ -535,6 +537,16 @@ export default function WorkingBBAInteractive() {
             </div>
             <div className="pt-kicker">Let’s Enterprise • Undergrad Business Program</div>
           </div>
+
+          {/* Theme Toggle Button */}
+          <button
+            className="pt-theme-toggle"
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {isDarkMode ? '☀️' : '🌙'}
+          </button>
 
           <div>
             <h1 className="text-white">India’s First Working BBA</h1>
