@@ -147,22 +147,44 @@
 
 /* Tabs */
 .pt-tabs {
-    display: flex;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
     margin-top: 10px;
+}
+
+@media (min-width: 640px) {
+    .pt-tabs {
+        display: flex;
+        gap: 10px;
+    }
 }
 
 .pt-tabBtn {
     flex: 1;
-    min-height: 44px;
+    min-height: 40px;
     border-radius: 999px;
     border: 1px solid rgba(255, 255, 255, .14);
     background: rgba(255, 255, 255, .06);
     color: rgba(255, 255, 255, .92);
-    font-weight: 900;
+    font-weight: 700;
+    font-size: 12px;
     letter-spacing: .2px;
     cursor: pointer;
-    padding: 12px;
+    padding: 8px 10px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 640px) {
+    .pt-tabBtn {
+        min-height: 44px;
+        font-weight: 900;
+        font-size: 14px;
+        padding: 12px;
+    }
 }
 
 .pt-tabBtn[data-active="true"] {
@@ -860,7 +882,7 @@ summary.pt-sumRow::-webkit-details-marker {
     color: var(--c6);
 }
 
-.pt-yearSummary > p {
+.pt-yearSummary>p {
     margin: 0 0 14px;
     font-size: 14px;
     color: rgba(255, 255, 255, .92);
