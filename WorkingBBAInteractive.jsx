@@ -553,14 +553,14 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'overview'}
               onClick={() => setActiveTab('overview')}
             >
-              Program Overview
+              Year 1
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'tracks'}
               onClick={() => setActiveTab('tracks')}
             >
-              Choose Your Track
+              Year 2 & 3
             </button>
             <button
               className="pt-tabBtn"
@@ -582,7 +582,7 @@ export default function WorkingBBAInteractive() {
             <div className="space-y-6">
               <div className="text-center mb-6">
                 <h2 className="text-2xl font-bold">LE Periodic Table of Experiences</h2>
-                <p className="text-white/50 text-sm">Click any element to see details • Width indicates relative duration</p>
+                <p className="text-white/50 text-sm">An experiential learning operating system that keeps the student journey organised, practical and serious.</p>
               </div>
 
               {/* Legend - Responsive Grid (Strict Scale) */}
