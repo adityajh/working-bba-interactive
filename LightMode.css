@@ -73,7 +73,8 @@
 /* Active Tab */
 .pt-scope.light-mode .pt-tabBtn[data-active="true"] {
     background: var(--solid-deep);
-    color: white;
+    color: white !important;
+    font-weight: 800;
     box-shadow: 0 8px 24px rgba(22, 14, 68, 0.3);
 }
 
