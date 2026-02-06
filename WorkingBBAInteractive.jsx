@@ -583,7 +583,7 @@ export default function WorkingBBAInteractive() {
         <header className="pt-top">
           <div className="pt-brand">
             <div className="pt-logo" aria-label="Let's Enterprise logo">
-              <img src="/Let's-Enterprise-Final-Logo_PNG.png" alt="Let's Enterprise" style={{ height: '48px', width: 'auto' }} />
+              <img src="/Let's-Enterprise-Final-Logo_PNG.png" alt="Let's Enterprise" style={{ height: '62px', width: 'auto', filter: 'none' }} />
             </div>
           </div>
 
@@ -1041,11 +1041,18 @@ const trackData = {
     // Legacy fields for compatibility
     promise: 'More industries. Stronger references.',
     outcome: 'Ready for roles where output and proof matter more than pedigree.',
+    y1: [
+      { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
+      { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
+    ],
     y2: [
-      { t: 'Employer', h: 'Outstation Apprenticeship ×1', d: 'Deeper exposure + stronger network' }
+      { t: 'Employer', h: 'Outstation Apprenticeship ×1', d: 'Deeper exposure + stronger network' },
+      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
+      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
     ],
     y3: [
-      { t: 'Employer', h: '9-month Mentored Apprenticeship', d: 'Role clarity + output + strong references' }
+      { t: 'Employer', h: '9-month Mentored Apprenticeship', d: 'Role clarity + output + strong references' },
+      { t: 'Client', h: '6-Week Client Project', d: 'Integrated marketing, data analysis, legal aspects, client expectation management' }
     ]
   },
   bf: {
@@ -1153,14 +1160,21 @@ const trackData = {
     // Legacy fields for compatibility
     promise: 'Succession readiness + family alignment.',
     outcome: 'Ready to take responsibility inside the family business—with alignment and proof.',
+    y1: [
+      { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
+      { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
+    ],
     y2: [
       { t: 'Employer', h: 'Family Business Apprenticeship', d: 'Learn how other families run business' },
       { t: 'Coaching', h: 'Family Coaching ×2', d: 'Alignment + expectations' },
-      { t: 'Mentor', h: 'FB Mentor Meetups ×4', d: 'Succession + governance reps' }
+      { t: 'Mentor', h: 'FB Mentor Meetups ×4', d: 'Succession + governance reps' },
+      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
+      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
     ],
     y3: [
       { t: 'Capstone', h: '9-month Family Business Project', d: 'Real KPI + ownership' },
-      { t: 'Coaching', h: 'Family Coaching ×4', d: 'Role clarity + handover readiness' }
+      { t: 'Coaching', h: 'Family Coaching ×4', d: 'Role clarity + handover readiness' },
+      { t: 'Client', h: '6-Week Client Project', d: 'Integrated marketing, data analysis, legal aspects, client expectation management' }
     ]
   },
   solo: {
@@ -1277,14 +1291,21 @@ const trackData = {
     // Legacy fields for compatibility
     promise: 'Customer validation + founder discipline.',
     outcome: 'Ready to build a real venture—customers, systems, and repeatability.',
+    y1: [
+      { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
+      { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
+    ],
     y2: [
       { t: 'Venture', h: 'Solo Venture ×1', d: 'Offer + first customers' },
       { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
-      { t: 'Mentor', h: 'Solo Supervisor Meetups ×4', d: 'Business operator guidance' }
+      { t: 'Mentor', h: 'Solo Supervisor Meetups ×4', d: 'Business operator guidance' },
+      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
+      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
     ],
     y3: [
       { t: 'Venture', h: '9-month Venture Building', d: 'Customers → systems → repeatability' },
-      { t: 'Coaching', h: 'Venture Coaching ×4', d: 'Distribution, growth, resilience' }
+      { t: 'Coaching', h: 'Venture Coaching ×4', d: 'Distribution, growth, resilience' },
+      { t: 'Client', h: '6-Week Client Project', d: 'Integrated marketing, data analysis, legal aspects, client expectation management' }
     ]
   }
 };
@@ -1295,7 +1316,7 @@ const TrackView = ({ track }) => {
 
   const renderDelta = (list) => {
     return list.map((x, i) => {
-      const isTeal = x.t === 'Coaching' || x.t === 'Mentor';
+      const isTeal = x.t === 'Client' || x.t === 'Coaching' || x.t === 'Mentor';
       return (
         <div key={i} className={`pt-card${isTeal ? ' teal' : ''}`}>
           <div className="t">{x.t}</div>
@@ -1403,6 +1424,14 @@ const TrackView = ({ track }) => {
             <div className="pt-contentBlock">
               <h5>What feedback looks like</h5>
               {renderList(current.year1Content.feedback)}
+            </div>
+          </div>
+
+          {/* NEW: Year 1 Delta Cards */}
+          <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
+            <div className="pt-panelTitle"><span className="pt-icon">➕</span> Additional track activities (Year 1)</div>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y1)}
             </div>
           </div>
         </div>
