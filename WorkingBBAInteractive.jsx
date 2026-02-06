@@ -654,12 +654,20 @@ export default function WorkingBBAInteractive() {
           {activeTab === 'periodic' && (
             <div className="space-y-6">
 
+              {/* OS EXPLAINER */}
+              <div className="pt-osExplainer mb-6">
+                <p className="text-white/90 text-lg leading-relaxed max-w-4xl">
+                  One integrated system that tracks and connects every part of your child's education and work experience—complete transparency, zero gaps.
+                </p>
+              </div>
+
               {/* NEW: Program Specific Outcomes */}
               <div className="pt-psoSection mb-8">
 
                 <div className="mb-4">
                   <h2 className="text-2xl font-bold text-white">Program Specific Outcomes</h2>
-                  <p className="text-sm text-white/80 font-medium">This is what we design for and assess for throughout the program</p>
+                  <p className="text-sm text-white/80 font-medium mb-1">Clear career readiness goals measured throughout—you'll always know where your child stands and where they're headed.</p>
+                  <p className="text-xs text-white/50 italic">This is what we design for and assess for throughout the program</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -754,7 +762,8 @@ export default function WorkingBBAInteractive() {
 
               {/* EDUCATION & EXPERIENCE - Navy Background */}
               <div className="bg-[#282f6c] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
-                <h3 className="text-xl font-bold mb-6 text-[#3269ae] border-b border-white/10 pb-3 tracking-wide">EDUCATION & EXPERIENCE</h3>
+                <h3 className="text-xl font-bold mb-2 text-[#3269ae] tracking-wide">EDUCATION & EXPERIENCE</h3>
+                <p className="text-white/70 text-sm mb-6 pb-3 border-b border-white/10">Real work experience combined with structured learning—no more wondering if college is actually preparing them for jobs.</p>
 
                 <div className="min-w-[800px]"> {/* Force min width for scrolling on mobile */}
                   {/* Header row */}
@@ -801,7 +810,8 @@ export default function WorkingBBAInteractive() {
 
               {/* AWARENESS - Teal Background */}
               <div className="bg-[#1e88b8] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
-                <h3 className="text-xl font-bold mb-6 text-[#160E44] border-b border-white/10 pb-3 tracking-wide">AWARENESS AND CAREER</h3>
+                <h3 className="text-xl font-bold mb-2 text-[#160E44] tracking-wide">AWARENESS AND CAREER</h3>
+                <p className="text-white/80 text-sm mb-6 pb-3 border-b border-white/10">From self-discovery to professional networking—we guide every step of their career journey so they graduate job-ready, not just degree-ready.</p>
 
                 <div className="min-w-[500px]">
                   {/* Header row */}
@@ -840,7 +850,8 @@ export default function WorkingBBAInteractive() {
 
               {/* EVIDENCE - White Background */}
               <div className="bg-white rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-gray-200">
-                <h3 className="text-xl font-bold mb-6 text-gray-800 border-b border-gray-200 pb-3 tracking-wide">EVIDENCE</h3>
+                <h3 className="text-xl font-bold mb-2 text-gray-800 tracking-wide">EVIDENCE BASED PORTFOLIO</h3>
+                <p className="text-gray-600 text-sm mb-6 pb-3 border-b border-gray-200">Everything your child builds is documented and verified—a portfolio that proves real skills to employers, not just grades on paper.</p>
 
                 <div className="min-w-[600px]">
                   {/* Row 1 */}
@@ -863,7 +874,8 @@ export default function WorkingBBAInteractive() {
 
               {/* ASSESSMENTS - Navy Background (Magenta Header) */}
               <div className="bg-[#282f6c] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
-                <h3 className="text-xl font-bold mb-6 text-[#D946EF] border-b border-white/10 pb-3 tracking-wide">ASSESSMENTS</h3>
+                <h3 className="text-xl font-bold mb-2 text-[#D946EF] tracking-wide">ASSESSMENTS</h3>
+                <p className="text-white/70 text-sm mb-6 pb-3 border-b border-white/10">Your child is evaluated by industry professionals and work supervisors, not just professors—the people who actually hire will validate their readiness.</p>
 
                 <div className="min-w-[500px]">
                   {/* Row 1 */}
@@ -886,7 +898,8 @@ export default function WorkingBBAInteractive() {
 
               {/* ROLES - Mid-Blue Background (Yellow Header) */}
               <div className="bg-[#3269ae] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/20">
-                <h3 className="text-xl font-bold mb-6 text-[#FBBF24] border-b border-white/20 pb-3 tracking-wide">ROLES</h3>
+                <h3 className="text-xl font-bold mb-2 text-[#FBBF24] tracking-wide">ROLES</h3>
+                <p className="text-white/80 text-sm mb-6 pb-3 border-b border-white/20">Six distinct professional experiences across real companies—your child won't just learn about business, they'll actually do business.</p>
 
                 <div className="min-w-[500px]">
                   {/* Row 1 */}
