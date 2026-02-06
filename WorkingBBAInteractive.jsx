@@ -652,9 +652,12 @@ export default function WorkingBBAInteractive() {
 
               {/* NEW: Program Specific Outcomes */}
               <div className="pt-psoSection mb-8">
+                {/* IMG_1: Main Header Tab */}
+                <img src="/IMG_1.png" alt="Program Outcomes Header" className="w-full rounded-xl shadow-lg mb-6" />
+
                 <div className="mb-4">
-                  <h2 className="text-2xl font-bold text-[#160E44] dark:text-white">Program Specific Outcomes</h2>
-                  <p className="text-lg text-[#3269ae] dark:text-white/80 font-medium">This is what we design for and assess for throughout the program</p>
+                  <h2 className="text-2xl font-bold text-white">Program Specific Outcomes</h2>
+                  <p className="text-sm text-white/80 font-medium">This is what we design for and assess for throughout the program</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -681,7 +684,7 @@ export default function WorkingBBAInteractive() {
 
               {/* NEW: Table Explanation Header */}
               <div className="pt-tableExplain">
-                <h2>15 Core Work Skills: How We Track Your Child's Development</h2>
+                <h2>Core Work Skills: How your child develops them, and how we track them</h2>
 
                 <div className="pt-explainGrid">
                   <div className="pt-explainBox">
@@ -948,6 +951,7 @@ export default function WorkingBBAInteractive() {
 const trackData = {
   original: {
     name: 'Entrepreneurial Job',
+    images: { y1: '/IMG_5.png', end: '/IMG_6.png' },
     // Hero section
     heroTitle: 'Build Work Confidence in Growth Companies',
     heroSub: 'Get ready to work in fast growing companies, close to decision makers. Real deadlines. Real managers. Real feedback.',
@@ -1057,6 +1061,7 @@ const trackData = {
   },
   bf: {
     name: 'Business Family',
+    images: { y1: '/IMG_2.png', end: '/IMG_3.png' },
     // Hero section
     heroTitle: 'Build Business Reliability and Leadership',
     heroSub: 'For students who will manage established businesses. Focus on responsibility, not ventures.',
@@ -1179,6 +1184,7 @@ const trackData = {
   },
   solo: {
     name: 'Venture Track',
+    images: { y1: '/IMG_4.png', end: '/IMG_7.png' },
     // Hero section
     heroTitle: 'Build Your Own Business Through Disciplined Execution',
     heroSub: 'This is for students ready for execution. Not for idea dreamers.',
@@ -1434,6 +1440,13 @@ const TrackView = ({ track }) => {
               {renderDelta(current.y1)}
             </div>
           </div>
+
+          {/* Track Image Y1 */}
+          {current.images && current.images.y1 && (
+            <div className="mt-6">
+              <img src={current.images.y1} alt="Track Year 1 Highlight" className="w-full rounded-xl shadow-lg" />
+            </div>
+          )}
         </div>
       </section>
 
@@ -1513,6 +1526,13 @@ const TrackView = ({ track }) => {
           </div>
         </div>
       </section>
+
+      {/* Track Image End */}
+      {current.images && current.images.end && (
+        <div className="pt-trackEndImage mt-8 mb-8">
+          <img src={current.images.end} alt="Track Summary Highlight" className="w-full rounded-xl shadow-lg" />
+        </div>
+      )}
 
       {/* FINAL NOTE */}
       <div className="pt-note" aria-label="Implementation note" style={{ marginTop: 32 }}>
