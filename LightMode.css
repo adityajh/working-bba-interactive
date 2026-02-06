@@ -289,3 +289,21 @@
 .pt-scope.light-mode .pt-yearTitle strong {
     color: var(--deep);
 }
+
+/* ================= DELTA PANELS (Capstone Activities) ================= */
+.pt-scope.light-mode .deltaPanel {
+    background: white;
+    border: 1px solid rgba(11, 16, 34, 0.15);
+    /* Thin outline */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+}
+
+.pt-scope.light-mode .deltaPanel .pt-panelTitle {
+    color: var(--deep) !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}

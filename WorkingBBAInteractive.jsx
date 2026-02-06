@@ -1437,7 +1437,7 @@ const TrackView = ({ track }) => {
 
           {/* NEW: Year 1 Delta Cards */}
           <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
-            <div className="pt-panelTitle"><span className="pt-icon">➕</span> Additional track activities (Year 1)</div>
+            <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 1</div>
             <div className="pt-deltaCards">
               {renderDelta(current.y1)}
             </div>
@@ -1485,7 +1485,7 @@ const TrackView = ({ track }) => {
 
           {/* Legacy track specifics */}
           <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
-            <div className="pt-panelTitle"><span className="pt-icon">➕</span> Additional track activities (Year 2)</div>
+            <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 2</div>
             <div className="pt-deltaCards">
               {renderDelta(current.y2)}
             </div>
@@ -1521,7 +1521,7 @@ const TrackView = ({ track }) => {
 
           {/* Legacy track capstone */}
           <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
-            <div className="pt-panelTitle"><span className="pt-icon">➕</span> Track capstone activities (Year 3)</div>
+            <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 3</div>
             <div className="pt-deltaCards">
               {renderDelta(current.y3)}
             </div>
