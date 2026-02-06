@@ -605,6 +605,10 @@ export default function WorkingBBAInteractive() {
               <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Real apprenticeships</span>
               <span className="pt-chip"><span className="pt-dot" style={{ background: 'rgba(255,255,255,.60)', boxShadow: '0 0 0 3px rgba(255,255,255,.12)' }}></span> Portfolio + feedback + references</span>
             </div>
+            {/* IMG_1: Main Header Tab */}
+            <div className="mt-8 mb-4">
+              <img src="/IMG_1.png" alt="Program Outcomes Header" className="w-full rounded-xl shadow-lg" />
+            </div>
           </div>
 
           {/* NAV */}
@@ -652,8 +656,6 @@ export default function WorkingBBAInteractive() {
 
               {/* NEW: Program Specific Outcomes */}
               <div className="pt-psoSection mb-8">
-                {/* IMG_1: Main Header Tab */}
-                <img src="/IMG_1.png" alt="Program Outcomes Header" className="w-full rounded-xl shadow-lg mb-6" />
 
                 <div className="mb-4">
                   <h2 className="text-2xl font-bold text-white">Program Specific Outcomes</h2>
