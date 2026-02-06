@@ -391,6 +391,56 @@ export default function WorkingBBAInteractive() {
       duration: "Per event",
       size: "medium"
     },
+
+    // Program Specific Outcomes (PSOs)
+    pso1: {
+      name: "PSO1 PROFESSIONAL READINESS",
+      pillar: "pso",
+      color: "bg-[#160E44] text-white border-2 border-[#25BCBD]",
+      description: "Students will be able to make informed career decisions based on self-awareness, market understanding, and reflective practice. They will present themselves through a strong body of work, communicate professionally with diverse stakeholders, and conduct themselves with responsibility, ethics, and personal leadership in real-world environments.",
+      duration: "Outcome",
+      size: "pso"
+    },
+    pso2: {
+      name: "PSO2 COMMERCIAL READINESS",
+      pillar: "pso",
+      color: "bg-[#160E44] text-white border-2 border-[#25BCBD]",
+      description: "Students will understand key commercial, financial, and legal aspects of running a business and apply analytical and digital tools to make proposals, perform calculations, and evaluate business decisions. They will be able to negotiate win-win arrangements and contribute meaningfully to sustainable value creation.",
+      duration: "Outcome",
+      size: "pso"
+    },
+    pso3: {
+      name: "PSO3 ENTREPRENEURIAL READINESS",
+      pillar: "pso",
+      color: "bg-[#160E44] text-white border-2 border-[#25BCBD]",
+      description: "Students will be able to identify opportunities, assess market potential, analyse internal and external factors, and validate ideas through customer research and experimentation. They will make calculated decisions, leverage networks and resources, and take initiative to enter new markets or develop new products and services.",
+      duration: "Outcome",
+      size: "pso"
+    },
+    pso4: {
+      name: "PSO4 MARKETING READINESS",
+      pillar: "pso",
+      color: "bg-[#160E44] text-white border-2 border-[#25BCBD]",
+      description: "Students will understand markets, customers, and behavioural drivers; conduct qualitative and quantitative research; and use technology-enabled tools to segment, analyse, and interpret data. They will be able to create persuasive marketing collateral, practise storytelling and storyselling, and design communication that supports sales and business development.",
+      duration: "Outcome",
+      size: "pso"
+    },
+    pso5: {
+      name: "PSO5 INNOVATION READINESS",
+      pillar: "pso",
+      color: "bg-[#160E44] text-white border-2 border-[#25BCBD]",
+      description: "Students will observe deeply, identify opportunities for innovation, and apply design thinking processes to generate ideas, prototype solutions, gather stakeholder feedback, and iterate toward commercially viable outcomes. They will use appropriate technologies and creative tools to strengthen innovation and improve user experience.",
+      duration: "Outcome",
+      size: "pso"
+    },
+    pso6: {
+      name: "PSO6 OPERATIONS READINESS",
+      pillar: "pso",
+      color: "bg-[#160E44] text-white border-2 border-[#25BCBD]",
+      description: "Students will be able to plan, execute, and monitor projects and routine operations using structured processes, digital tools, and collaborative practices. They will identify opportunities for improving efficiency and effectiveness, document workflows, coordinate teams, and apply systems thinking to enhance organisational performance.",
+      duration: "Outcome",
+      size: "pso"
+    },
   };
 
   // Get shape/style based on pillar
@@ -471,7 +521,8 @@ export default function WorkingBBAInteractive() {
       awareness: 'AWARENESS',
       assessment: 'ASSESSMENT',
       role: 'ROLE',
-      evidence: 'EVIDENCE'
+      evidence: 'EVIDENCE',
+      pso: 'PROGRAM SPECIFIC OUTCOME'
     };
 
     return (
@@ -532,10 +583,8 @@ export default function WorkingBBAInteractive() {
         <header className="pt-top">
           <div className="pt-brand">
             <div className="pt-logo" aria-label="Let's Enterprise logo">
-              {/* Logo Placeholder */}
-              <span style={{ fontSize: 24, fontWeight: 900, letterSpacing: -1, color: '#fff' }}>LE</span>
+              <img src="/Let's-Enterprise-Final-Logo_PNG.png" alt="Let's Enterprise" style={{ height: '48px', width: 'auto' }} />
             </div>
-            <div className="pt-kicker">Let’s Enterprise • Undergrad Business Program</div>
           </div>
 
           {/* Theme Toggle Button */}
@@ -586,7 +635,7 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'periodic'}
               onClick={() => setActiveTab('periodic')}
             >
-              Working BBA Operating System
+              Curriculum Operating System
             </button>
           </nav>
         </header>
@@ -600,6 +649,36 @@ export default function WorkingBBAInteractive() {
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
           {activeTab === 'periodic' && (
             <div className="space-y-6">
+
+              {/* NEW: Program Specific Outcomes */}
+              <div className="pt-psoSection mb-8">
+                <div className="mb-4">
+                  <h2 className="text-2xl font-bold text-[#160E44] dark:text-white">Program Specific Outcomes</h2>
+                  <p className="text-lg text-[#3269ae] dark:text-white/80 font-medium">This is what we design for and assess for throughout the program</p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {['pso1', 'pso2', 'pso3', 'pso4', 'pso5', 'pso6'].map(key => {
+                    const parts = elements[key].name.split(' ');
+                    const code = parts[0];
+                    const label = parts.slice(1).join(' ');
+                    return (
+                      <button
+                        key={key}
+                        onClick={() => setSelectedElement(key)}
+                        className="bg-[#160E44] text-white p-4 rounded-xl shadow-lg border border-white/20 hover:scale-105 hover:border-[#25BCBD] transition-all duration-200 text-left group relative overflow-hidden"
+                      >
+                        <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-20 transition-opacity">
+                          <span className="text-4xl">🎯</span>
+                        </div>
+                        <h5 className="font-bold text-[#25BCBD] mb-1 text-sm tracking-widest">{code}</h5>
+                        <span className="font-bold text-sm leading-tight block">{label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
               {/* NEW: Table Explanation Header */}
               <div className="pt-tableExplain">
                 <h2>15 Core Work Skills: How We Track Your Child's Development</h2>
@@ -871,13 +950,13 @@ const trackData = {
     name: 'Entrepreneurial Job',
     // Hero section
     heroTitle: 'Build Work Confidence in Growth Companies',
-    heroSub: 'Your child works as a business operations associate. Real deadlines. Real managers. Real feedback.',
+    heroSub: 'Get ready to work in fast growing companies, close to decision makers. Real deadlines. Real managers. Real feedback.',
     mechanism: {
       title: 'How confidence is built here:',
       items: [
-        'Weekly one-on-one reviews with company managers',
-        'Monthly project deadlines with client consequences',
-        'Quarterly performance feedback from 3+ supervisors'
+        'Weekly one-on-one reviews',
+        'Monthly project deadlines',
+        'Quarterly performance feedback'
       ]
     },
     // Best for section
@@ -886,51 +965,52 @@ const trackData = {
     whatTheyDo: {
       title: 'What your child will do (in simple terms):',
       items: [
-        'Manage projects for 3-5 company clients each semester',
+        'Manage realprojects for 4 - 5 company clients',
         'Create marketing campaigns that bring in actual customers',
-        'Build systems that other employees use daily'
+        'Build systems that are used daily'
       ]
     },
     accountability: {
       title: 'How we ensure they work:',
       items: [
-        'Company managers review their work weekly (not just teachers)',
-        'Client feedback determines their project grades',
-        'Missing deadlines = immediate parent communication'
+        'Industry mentors review their project work weekly (not just teachers)',
+        'Client feedback determines their project assessment',
+        'Missing deadlines 3 times = immediate parent communication'
       ]
     },
     // Year 1 summary
-    year1Summary: 'Your child becomes a reliable project manager who delivers work that company teams depend on.',
+    year1Summary: 'Your child becomes a reliable project manager who founders and decision makers depend on.',
     year1Parts: [
       { name: 'Foundation (4 months)', desc: 'Learn to manage one project with daily supervision' },
       { name: 'Application (4 months)', desc: 'Manage 2-3 projects with weekly supervision' },
-      { name: 'Leadership (4 months)', desc: 'Train newer students while managing full project load' }
+      { name: 'Leadership (4 months)', desc: 'Working in teams while managing full project load' }
     ],
     // Year 1 content
     year1Content: {
       whatTheyDo: [
         'Manage client projects for 2-3 growing companies',
         'Handle marketing campaigns with real budget responsibility',
-        'Coordinate teams of 5-8 employees across departments'
+        'Coordinate teams of 5-8 employees across departments',
       ],
       whatTheySubmit: [
         'Weekly project status reports to company managers',
         'Monthly budget tracking with spending explanations',
-        'End-of-project client feedback and outcome data'
+        'End-of-project client feedback and outcome data',
       ],
       feedback: [
         'Company managers rate their reliability and communication',
         'Clients score their project delivery and problem-solving',
-        'Peers evaluate their collaboration and leadership'
-      ]
+        'Peers evaluate their collaboration and leadership',
+      ],
     },
     // Progress review
-    progressReview: 'Every 6 months, company partners and parents receive a detailed review. This includes client feedback scores, project outcomes, and areas for improvement. Students who don\'t meet work standards receive additional supervision or program adjustments.',
+    progressReview: 'Every 6 months, students and parents receive a detailed review. This includes client feedback scores, project outcomes, and areas for improvement. Students who don\'t meet work standards receive additional supervision or program adjustments.',
     // Year 2 content
     year2Content: {
       workplace: [
+        'Do 2 mentored apprenticeships of 2 months each',
         'Lead marketing projects that generate actual customer leads',
-        'Manage operations for company departments',
+        'Work on 3-',
         'Present project results to company leadership teams'
       ],
       clientDelivery: [
