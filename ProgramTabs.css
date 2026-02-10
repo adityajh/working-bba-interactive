@@ -1671,13 +1671,22 @@ summary.pt-sumRow::-webkit-details-marker {
 .bk-modal {
     position: relative;
     width: 92%;
-    max-width: 440px;
+    max-width: 580px;
     border-radius: 16px;
     background: linear-gradient(160deg, #1a1552 0%, #160e44 60%, #0f0a30 100%);
     border: 1px solid rgba(37, 188, 189, .20);
     box-shadow: 0 32px 80px rgba(0, 0, 0, .50), 0 0 40px rgba(37, 188, 189, .08);
     padding: 32px 28px 24px;
     animation: bkSlideIn .3s cubic-bezier(.16, 1, .3, 1);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.bk-zoho {
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, .03);
+    min-height: 520px;
 }
 
 @keyframes bkSlideIn {

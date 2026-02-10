@@ -1097,38 +1097,15 @@ export default function WorkingBBAInteractive() {
                 <p className="bk-context">{contextLine}</p>
               </div>
 
-              <form className="bk-form" onSubmit={e => {
-                e.preventDefault();
-                const fd = new FormData(e.target);
-                const data = Object.fromEntries(fd.entries());
-                alert(`Thank you${data.name ? ', ' + data.name : ''}! We\u2019ll reach out${data.phone ? ' at ' + data.phone : ''} to schedule your call${data.slot ? ' (' + data.slot + ')' : ''}.`);
-                closeBooking();
-              }}>
-                <label>
-                  <span>Your Name</span>
-                  <input name="name" type="text" placeholder="e.g. Rahul Sharma" required autoFocus />
-                </label>
-
-                <label>
-                  <span>Phone / WhatsApp</span>
-                  <input name="phone" type="tel" placeholder="+91 98765 43210" required />
-                </label>
-
-                <label>
-                  <span>Preferred Time</span>
-                  <select name="slot" required>
-                    <option value="">Choose a slot\u2026</option>
-                    <option value="Morning (10 AM – 12 PM)">Morning (10 AM \u2013 12 PM)</option>
-                    <option value="Afternoon (12 PM – 3 PM)">Afternoon (12 PM \u2013 3 PM)</option>
-                    <option value="Evening (3 PM – 6 PM)">Evening (3 PM \u2013 6 PM)</option>
-                    <option value="Late Evening (6 PM – 8 PM)">Late Evening (6 PM \u2013 8 PM)</option>
-                  </select>
-                </label>
-
-                <button type="submit" className="bk-submit">{bookingModal.label || 'Book Now'} \u2192</button>
-              </form>
-
-              <p className="bk-footer">We\u2019ll call you — no spam, no follow-up emails. Just a conversation.</p>
+              <div className="bk-zoho">
+                <iframe
+                  src="https://letsenterprise.zohobookings.com/portal-embed#/Admissionhelp"
+                  title="Book a Call — Zoho Bookings"
+                  frameBorder="0"
+                  allowFullScreen
+                  style={{ width: '100%', height: 520, border: 'none', borderRadius: 8 }}
+                />
+              </div>
             </div>
           </div>
         );
