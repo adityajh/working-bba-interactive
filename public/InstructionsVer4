@@ -1,0 +1,405 @@
+# Working BBA Interactive Brochure — Precision Modification Spec (v1.1)
+
+## A. Scope and Non-Goals
+
+### A1. In scope
+1. Convert the app framing from “tracks” → **three separate programs**, plus “How It Works.”
+2. Add **Parent/Student toggle** (persistent).
+3. Add **fear-first hero** per program (before curriculum content).
+4. Standardize **cards** so *every activity* in every year uses the same scannable “Delta Card” system (common + program-specific).
+5. Replace “Curriculum Operating System” tab with **How It Works** page (content rules below).
+6. Add **Portfolio Section (Section 9)** with the provided image placement map (keep existing images too).
+7. CTAs become **contextual** by section + toggle state.
+8. Remove PSO codes from external-facing content (except internal-only structures if you keep them under the hood).
+
+### A2. Out of scope (explicitly)
+- No major visual redesign beyond components required (toggle, hero, cards, portfolio section, CTA system).
+- No removal of existing images; only **add** and **reposition** while preserving current imagery.
+
+---
+
+# B. Architecture Changes (JSX-Level)
+
+## B1. Rename “track” to “program” everywhere in UI
+### Where to change in current JSX
+- `TrackView` component → rename to `ProgramView`
+- `trackData` object → rename to `programData`
+- `track` prop → rename to `programKey`
+
+### UI string changes (exact)
+- Tabs:
+  - “Working BBA for Entrepreneurial Jobs” → **“Working BBA — Entrepreneurial Jobs”**
+  - “Working BBA for Business Families” → **“Working BBA — Business Families”**
+  - “Working BBA for Venture Starters” → **“Working BBA — Venture Starters”**
+  - “Curriculum Operating System” → **“How It Works”**
+- Pills and section labels:
+  - “Track-specific focus” → **“Program focus”**
+  - “Track Summary Highlight” → **“Program Summary Highlight”** (alt text)
+  - Any `track === ...` logic in headings should output “Program” phrasing.
+
+**Acceptance test:** Search for “Track”, “track”, “Track-specific” in repo: **0 user-facing occurrences** remain.
+
+---
+
+# C. Global Persistent UI (All Tabs)
+
+## C1. Parent/Student toggle (persistent, top-right)
+### State
+Add:
+- `const [audience, setAudience] = useState('parent'); // 'parent' | 'student'`
+
+Default = `'parent'`.
+
+### Component
+Pill switch, not dropdown. Example UI:
+- `[ 👨‍👩‍👧 For Parents ] [ 🎓 For Students ]`
+- Active option appears filled; inactive outlined.
+
+### Behavior
+- Switching toggle **must not** change `activeTab`.
+- Only content elements listed in Section D change; everything else stays.
+
+**Acceptance test:** Toggle changes copy/visibility in-place with no navigation.
+
+---
+
+## C2. Bottom “Hero banner footer” (persistent)
+### Requirement
+Add a visually prominent banner at the bottom of **every tab** (including How It Works):
+
+> “Students graduate with a portfolio, references, and real work experience — not just a marksheet.”
+
+### Implementation detail
+- Not the small `pt-note` currently used; replace / upgrade it into a true banner.
+- Use contrasting background; larger type; “single most important line.”
+
+**Acceptance test:** Always visible after scrolling to bottom; consistent styling across tabs.
+
+---
+
+# D. Audience Toggle Content Rules (Exact)
+
+Only these items change by toggle:
+
+## D1. Program page hero subtitle + Year intros (copy switch)
+Create helper:
+- `copy.programHeroSub[programKey][audience]`
+- `copy.yearIntro[yearNumber][audience]`
+
+Use your provided text *verbatim* (from your doc).
+
+## D2. Show/hide components by toggle
+Implement `audienceVisibility` flags:
+
+**Visible only for Parent**
+- Accountability Promise section (Section H)
+- “What parents receive” details (expanded tracking lists)
+- Parent quote (social proof)
+
+**Visible only for Student**
+- Student before/after quote (full)
+- “Peer/community proof quotes” (if you add)
+
+**Visible for both, but shorter for Student**
+- Competitive comparison section (How It Works page) → student version uses same table but less preamble + smaller emphasis.
+- Progress tracking → student uses brief version.
+
+**Acceptance test:** Student toggle does **not** show Accountability Promise CTA.
+
+---
+
+# E. Program Tabs & Top Hero (Already Present, refine)
+
+## E1. Top hero (above tabs)
+Already present in your JSX:
+- Headline, subhead, chips, IMG_1
+
+Keep structure but ensure copy matches:
+- Headline: “India’s First Working BBA”
+- Subhead: “Work is the Curriculum...”
+- Chips remain 3.
+
+No additional changes required except ensuring typography/spacing consistent across dark/light.
+
+---
+
+# F. Program Page Structure (All 3 Programs)
+
+You want the same page skeleton for all 3 program tabs. Implement this standardized layout **in `ProgramView`**:
+
+**Order (must match):**
+1. Fear-first hero statement (audience variant)
+2. Myth vs Reality block (NEW for EJ, FAM; refined for VEN)
+3. “Best For” line
+4. Year 1 — Common Foundation (with 9 Challenges grid + common core cards)
+5. Portfolio After Year 1 (Section I) — uses the new images
+6. Year 2 — Common Core + Program Focus
+7. Year 3 — Deep Specialisation
+8. What You Graduate With (3-column output summary)
+9. Accountability Promise (Parent only)
+10. Social proof (toggle rules)
+11. Section CTA (contextual)
+12. Persistent footer banner (global)
+
+**Acceptance test:** EJ/FAM pages include Myth vs Reality before Year 1 (currently only VEN has it).
+
+---
+
+# G. Delta Card Standardization (Critical Implementation)
+
+## G1. Replace legacy “capstone delta cards” with universal activity cards
+Currently, you have:
+- Year sections with “What they do / submit / feedback”
+- Plus “CAPSTONE ACTIVITIES YEAR X” cards from `current.y1/y2/y3`
+
+New requirement: **Every activity is a card**, for **all years**, including common core.
+
+### Implementation approach
+1. Create a unified schema:
+
+activity: {
+  title,
+  duration,
+  description,
+  badge: 'All programs' | 'Entrepreneurial Jobs' | 'Business Families' | 'Venture Starters',
+  category: 'Common' | 'ProgramSpecific'
+}
+
+2. Build arrays per year:
+- `year1.commonActivities[]`
+- `year2.commonActivities[]`
+- `year2.programActivities[]`
+- `year3.commonActivities[]`
+- `year3.programActivities[]`
+
+3. Render:
+- A single `ActivityCard` component (replaces `pt-card` delta style).
+- Color coding:
+  - Common Core = Color A
+  - Program-specific = Color B
+  - Include label text: **“All programs”** vs **“Entrepreneurial Jobs only”** etc.
+
+### Explicit deletions
+- Remove “CAPSTONE ACTIVITIES YEAR 1/2/3” as a separate concept.
+- Remove reliance on `y1/y2/y3` legacy arrays for display (they can be mapped into the new schema if you want).
+
+**Acceptance test:** In Year 1, every item listed in your spec (9 challenges, client projects, first apprenticeship, skill tracks, camp, coaching, storytelling, reflection, networking week) appears as cards.
+
+---
+
+# H. Data Corrections (Must Fix From Current PDF/App)
+
+These are present in the current EJ content/PDF and must be corrected:
+
+1. Remove salary claim “₹8-12L starting salary” and replace with:
+   - “Targeted placement in business operations, project management, and marketing roles at growth-stage companies.”  
+   (This incorrect claim is visible in current PDF export.) fileciteturn0file3
+
+2. Year 1 is 100% common core:
+   - Delete/replace EJ Year 1 “Manage client projects for 2-3 growing companies” framing that implies ongoing management.  
+   (This line appears in current app/PDF Year 1 “WHAT THEY DO”.) fileciteturn0file3
+
+3. “50+ customer interviews” is **VEN Year 2 focus**, not Year 1.
+
+4. Apprenticeship naming:
+   - Always use **“Mentored Apprenticeship”** (not “Apprenticeship”).
+
+5. Replace “Mentor” vs “Coach” inconsistency:
+   - Role label = **Coach** (professional role), “mentor” only informally.
+
+---
+
+# I. New Components (Precise Specs)
+
+## I1. Myth vs Reality block
+### Where
+Immediately after Fear-first hero (all 3 programs).
+
+### What
+- EJ and FAM: new tables exactly as provided.
+- VEN: keep structure, update text as provided.
+
+### Styling
+Use the same `pt-mythReality` layout you already have for VEN:
+- Left column “Myth”
+- Right column “Reality”
+
+**Acceptance test:** EJ/FAM now have myth/reality; VEN text updated.
+
+---
+
+## I2. Accountability Promise section
+### Where
+- On each program page: after “What You Graduate With” (Parent only)
+- On How It Works page: always visible
+
+### Content
+Use your timeline copy as-is (Weekly/Monthly/Quarterly/6 months + “If standards aren’t met”).
+
+### CTA after
+Parent only:
+- “See an actual student dashboard”
+
+**Acceptance test:** Hidden on student toggle in program pages; visible on How It Works for both.
+
+---
+
+## I3. Sample Portfolio After Year 1 (Section 9)
+### Where
+- On each program page: immediately after Year 1 section.
+- Also add a linkable anchor from How It Works → Evidence/Portfolio section.
+
+### Layout (exact)
+1. HERO full-width image: `portfolio-messy-desk-evidence.png`
+2. Three rows of 2 cards (desktop), stacked (mobile):
+   - Row 1: client pitch room (L) + whiteboard brainstorm (R)
+   - Row 2: reference letter (L) + daily cards stack (R)
+   - Row 3: storysells stage (L) + jury saturday (R)
+3. Closing full-width image: `portfolio-apprenticeship-workspace.png`
+
+### Captions
+Use your captions verbatim.
+
+### Behavior
+- Keep images “photo essay” style.
+- Optional hover zoom is allowed but must be subtle.
+
+**Acceptance test:** Images load without replacing/removing existing IMG_2…IMG_7 assets.
+
+---
+
+## I4. 9 Challenges grid (Year 1, Common Foundation)
+### Where
+Inside Year 1 section, before other Year 1 common-core cards.
+
+### Display rules
+- Desktop: 3×3 grid
+- Mobile: vertical list or carousel
+
+Each card shows:
+- Number 01–09
+- Challenge Name (bold)
+- Subtitle
+- Expand/collapse description on tap/hover
+
+**Acceptance test:** Users can scan all 9 challenges without reading dense paragraphs.
+
+---
+
+# J. How It Works Page (Tab 4) — Content Rules
+
+## J1. Rename tab + remove jargon
+Tab label: **How It Works**
+Page must **not** show:
+- periodic table
+- element codes
+- PSO codes
+- “container / pillar / artifact / cycle”
+
+## J2. Page structure (must match)
+1. Page hero (audience copy variant)
+2. “Six things your child will be able to do by graduation” (6 cards)
+3. “What a Typical Week Looks Like” (3 schedule tabs/carousel)
+4. Accountability Promise (same component)
+5. Competitive comparison table
+6. “What your child graduates with” (proof summary)
+7. Social proof (3 quotes)
+8. CTA
+9. Persistent footer banner
+
+## J3. What to do with existing OPS content in JSX
+Right now `activeTab === 'periodic'` renders:
+- OS explainer
+- PSO grid (pso1..pso6) that opens modal
+- heavy “how to read system” table explanations
+- legend blocks
+
+**Instruction (precise):**
+- Keep the `elements` dataset and `ElementModal` code only if you still need it internally, **but do not render it on How It Works**.
+- Replace the whole periodic table UI with the new How It Works page content above.
+
+**Acceptance test:** No PSO buttons visible on How It Works page.
+
+---
+
+# K. Social Proof (Toggle Rules)
+
+## K1. Placement
+- Program pages: show 1 quote after “What You Graduate With”
+- How It Works: show all 3
+
+## K2. Toggle logic
+- Parent quote: parent only
+- Student before/after: student only (parent sees only “After” line if you want)
+- Employer quote: both
+
+---
+
+# L. Contextual CTA System (Behavior + Copy)
+
+## L1. Behavior
+All CTAs go to one URL (config constant):
+- `const CTA_URL = '…' // placeholder`
+
+## L2. Copy map (exact)
+Use your table from Section 13 (Parent/Student variants). Implement via:
+- `getCtaCopy(sectionKey, audience)`
+
+## L3. Placement rule
+After each “major section”:
+- Year 1
+- Year 2
+- Year 3 / Outcomes
+- Accountability (where visible)
+- Portfolio section
+- Comparison
+- Social proof
+- Page bottom
+
+**Acceptance test:** Same destination; copy varies correctly.
+
+---
+
+# M. Keep Existing Images (Explicit)
+
+## M1. Preserve existing assets
+Do not remove:
+- `/IMG_1.png` (header)
+- `/IMG_2.png` `/IMG_3.png` `/IMG_4.png` (program images y1)
+- `/IMG_5.png` `/IMG_6.png` `/IMG_7.png` (program end images)
+- Logo image
+
+## M2. Add new portfolio images
+Add the Section 9 images using your placement map exactly.
+
+---
+
+# N. Implementation Sequencing (Dev Checklist)
+
+### P0 (do first)
+1. Parent/Student toggle + audience state + copy switching
+2. “Track” → “Program” renames (UI + code)
+3. Fear-first hero block per program (audience variants)
+
+### P1
+4. Myth vs Reality for EJ + FAM, update VEN
+5. Remove salary claim + Year 1 common-core correction + move 50 interviews to VEN Year 2
+6. Delta card standardization (new ActivityCard schema)
+
+### P2
+7. How It Works page replacement (remove periodic UI rendering)
+8. Accountability Promise component + placement rules
+
+### P3
+9. 9 challenges grid
+10. Portfolio section images + captions
+11. Contextual CTA system
+12. Social proof rules
+
+---
+
+## Quick Notes Where Your Current Code Conflicts With New Strategy (So Devs Don’t Miss It)
+
+- `TrackView` currently uses **different Year 1 content per track**, even though you want Year 1 fully common. This must be refactored: Year 1 content should come from a single common dataset, not `programData[programKey].year1Content`.
+- VEN currently says “Continued non-performance results in program track change” — must become **program adjustment** language (and avoid “track change” entirely).
+- OPS tab currently renders PSOs and periodic table; new How It Works must be plain-language cards and schedules.
