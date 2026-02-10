@@ -876,7 +876,8 @@ const portfolioItems = [
   { src: '/portfolio-daily-cards-stack.png', caption: '200+ daily reflection cards. The habit that turns experience into learning.' },
   { src: '/portfolio-storysells-stage.png', caption: 'Telling your story to a room \u2014 the professional storytelling presentation every student delivers.' },
   { src: '/portfolio-jury-saturday.png', caption: 'Saturday jury review \u2014 presenting real project work to industry professionals who score and challenge you.' },
-  { src: '/portfolio-apprenticeship-workspace.png', caption: '9 weeks inside a real company. Not visiting. Not observing. Working.', hero: true }
+  { src: '/portfolio-apprenticeship-workspace.png', caption: '9 weeks inside a real company. Not visiting. Not observing. Working.', hero: true },
+  { src: '/portfolio-client-project-urbanbrew.png', caption: 'Real deliverable \u2014 a marketing campaign execution for Urban Brew, driving actual footfall and sales.' }
 ];
 
 // Program data for Year 2 & 3 specifics
@@ -1183,7 +1184,7 @@ const programData = {
     images: {
       y1: { src: portfolioItems[0].src, caption: portfolioItems[0].caption },
       y2: { src: portfolioItems[5].src, caption: portfolioItems[5].caption },
-      y3: { src: portfolioItems[7].src, caption: "Building a venture requires an ecosystem." }
+      y3: { src: portfolioItems[8].src, caption: "Building a venture requires an ecosystem." }
     },
     // Fear-first hero
     fearHero: {
