@@ -307,3 +307,39 @@
     padding-bottom: 12px;
     margin-bottom: 16px;
 }
+
+/* ================= AUDIENCE TOGGLE (Light Mode) ================= */
+.pt-scope.light-mode .pt-audienceToggle {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.pt-scope.light-mode .pt-audBtn {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.pt-scope.light-mode .pt-audBtn:hover {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.pt-scope.light-mode .pt-audBtn.active {
+    background: white;
+    color: var(--deep) !important;
+    font-weight: 800;
+}
+
+/* ================= FOOTER BANNER (Light Mode) ================= */
+.pt-scope.light-mode .pt-footerBanner {
+    background: linear-gradient(135deg, #160E44 0%, #3663AD 100%);
+    border: none;
+    box-shadow: 0 12px 30px rgba(22, 14, 68, 0.25);
+}
+
+.pt-scope.light-mode .pt-footerBanner p {
+    color: white !important;
+}
+
+.pt-scope.light-mode .pt-footerBanner strong {
+    color: #25BCBD !important;
+}

@@ -1254,3 +1254,93 @@ summary.pt-sumRow::-webkit-details-marker {
     line-height: 1.4;
     margin-bottom: 4px;
 }
+
+/* ========== TOP CONTROLS (Toggle + Theme) ========== */
+.pt-topControls {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 20;
+}
+
+/* Move theme toggle out of absolute positioning since it's now inside topControls */
+.pt-topControls .pt-theme-toggle {
+    position: static;
+}
+
+/* ========== AUDIENCE TOGGLE ========== */
+.pt-audienceToggle {
+    display: flex;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .20);
+    background: rgba(255, 255, 255, .06);
+}
+
+.pt-audBtn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    color: rgba(255, 255, 255, .70);
+    background: transparent;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.pt-audBtn:hover {
+    color: rgba(255, 255, 255, .92);
+    background: rgba(255, 255, 255, .08);
+}
+
+.pt-audBtn.active {
+    background: rgba(37, 188, 189, .22);
+    color: #fff;
+    font-weight: 800;
+}
+
+@media (max-width: 640px) {
+    .pt-topControls {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .pt-audBtn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+}
+
+/* ========== PERSISTENT FOOTER BANNER ========== */
+.pt-footerBanner {
+    margin-top: 32px;
+    padding: 28px 24px;
+    border-radius: var(--r2);
+    background: linear-gradient(135deg, rgba(37, 188, 189, .25) 0%, rgba(54, 99, 173, .30) 50%, rgba(22, 14, 68, .90) 100%);
+    border: 1px solid rgba(37, 188, 189, .30);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .30);
+    text-align: center;
+}
+
+.pt-footerBanner p {
+    margin: 0;
+    font-size: clamp(16px, 2.8vw, 22px);
+    font-weight: 600;
+    color: rgba(255, 255, 255, .95);
+    line-height: 1.4;
+    letter-spacing: .2px;
+}
+
+.pt-footerBanner strong {
+    color: #25BCBD;
+    font-weight: 800;
+}

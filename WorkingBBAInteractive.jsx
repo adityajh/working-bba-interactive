@@ -6,6 +6,7 @@ export default function WorkingBBAInteractive() {
   const [selectedElement, setSelectedElement] = useState(null);
   const [activeTab, setActiveTab] = useState('job'); // job | family | venture | periodic
   const [isDarkMode, setIsDarkMode] = useState(true); // true = dark, false = light
+  const [audience, setAudience] = useState('parent'); // 'parent' | 'student'
 
   // Brand Colors from LE Guidelines (Strict Scale)
   const brandColors = {
@@ -587,15 +588,36 @@ export default function WorkingBBAInteractive() {
             </div>
           </div>
 
-          {/* Theme Toggle Button */}
-          <button
-            className="pt-theme-toggle"
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {isDarkMode ? '☀️' : '🌙'}
-          </button>
+          {/* Top-right controls row */}
+          <div className="pt-topControls">
+            {/* Audience Toggle */}
+            <div className="pt-audienceToggle" role="radiogroup" aria-label="Audience selector">
+              <button
+                className={`pt-audBtn${audience === 'parent' ? ' active' : ''}`}
+                onClick={() => setAudience('parent')}
+                aria-pressed={audience === 'parent'}
+              >
+                👨‍👩‍👧 For Parents
+              </button>
+              <button
+                className={`pt-audBtn${audience === 'student' ? ' active' : ''}`}
+                onClick={() => setAudience('student')}
+                aria-pressed={audience === 'student'}
+              >
+                🎓 For Students
+              </button>
+            </div>
+
+            {/* Theme Toggle Button */}
+            <button
+              className="pt-theme-toggle"
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+            >
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
+          </div>
 
           <div>
             <h1 className="pt-headline">India’s First Working BBA</h1>
@@ -618,37 +640,37 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'job'}
               onClick={() => setActiveTab('job')}
             >
-              Working BBA for Entrepreneurial Jobs
+              Working BBA — Entrepreneurial Jobs
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'family'}
               onClick={() => setActiveTab('family')}
             >
-              Working BBA for Business Families
+              Working BBA — Business Families
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'venture'}
               onClick={() => setActiveTab('venture')}
             >
-              Working BBA for Venture Starters
+              Working BBA — Venture Starters
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'periodic'}
               onClick={() => setActiveTab('periodic')}
             >
-              Curriculum Operating System
+              How It Works
             </button>
           </nav>
         </header>
 
         {/* MAIN CONTENT */}
         <main className="pt-section">
-          {activeTab === 'job' && <TrackView track="original" />}
-          {activeTab === 'family' && <TrackView track="bf" />}
-          {activeTab === 'venture' && <TrackView track="solo" />}
+          {activeTab === 'job' && <ProgramView programKey="original" audience={audience} />}
+          {activeTab === 'family' && <ProgramView programKey="bf" audience={audience} />}
+          {activeTab === 'venture' && <ProgramView programKey="solo" audience={audience} />}
 
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
           {activeTab === 'periodic' && (
@@ -950,6 +972,11 @@ export default function WorkingBBAInteractive() {
             </div>
           )}
         </main>
+
+        {/* PERSISTENT FOOTER BANNER */}
+        <div className="pt-footerBanner">
+          <p>Students graduate with a <strong>portfolio, references, and real work experience</strong> — not just a marksheet.</p>
+        </div>
       </div>
 
       {/* Element Detail Modal */}
@@ -962,8 +989,8 @@ export default function WorkingBBAInteractive() {
 /*                               HELPER COMPONENTS                            */
 /* -------------------------------------------------------------------------- */
 
-// Track data for Year 2 & 3 specifics
-const trackData = {
+// Program data for Year 2 & 3 specifics
+const programData = {
   original: {
     name: 'Entrepreneurial Job',
     images: { y1: '/IMG_5.png', end: '/IMG_6.png' },
@@ -1052,7 +1079,7 @@ const trackData = {
         'Documented business results (cost savings, revenue growth, efficiency improvements)'
       ],
       placements: [
-        'Business operations roles at ₹8-12L starting salary',
+        'Targeted placement in business operations, project management, and marketing roles at growth-stage companies.',
         'Project management positions in partner companies',
         'Marketing coordinator roles with growth potential'
       ]
@@ -1187,7 +1214,7 @@ const trackData = {
     y2: [
       { t: 'Employer', h: 'Family Business Apprenticeship', d: 'Learn how other families run business' },
       { t: 'Coaching', h: 'Family Coaching ×2', d: 'Alignment + expectations' },
-      { t: 'Mentor', h: 'FB Mentor Meetups ×4', d: 'Succession + governance reps' },
+      { t: 'Coach', h: 'FB Coach Meetups ×4', d: 'Succession + governance reps' },
       { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
       { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
     ],
@@ -1198,7 +1225,7 @@ const trackData = {
     ]
   },
   solo: {
-    name: 'Venture Track',
+    name: 'Venture Starters',
     images: { y1: '/IMG_4.png', end: '/IMG_7.png' },
     // Hero section
     heroTitle: 'Build Your Own Business Through Disciplined Execution',
@@ -1227,7 +1254,7 @@ const trackData = {
       items: [
         'Weekly check-ins flag missing deliverables immediately',
         'Supervisors provide additional structure and supervision',
-        'Continued non-performance results in program track change'
+        'Continued non-performance results in program adjustment'
       ]
     },
     // Myth vs Reality
@@ -1259,7 +1286,7 @@ const trackData = {
     // Year 1 content - validation
     year1Content: {
       whatTheyDo: [
-        'Conduct 50+ customer interviews to understand real problems',
+        'Explore business problems through structured customer conversations',
         'Test 10+ different solutions with potential paying customers',
         'Build and improve 3+ working prototypes based on customer feedback'
       ],
@@ -1279,6 +1306,7 @@ const trackData = {
     // Year 2 content - systems
     year2Content: {
       workplace: [
+        'Conduct 50+ customer interviews to validate and deepen business understanding',
         'Daily customer communication and service delivery',
         'Weekly financial tracking and business decision-making',
         'Monthly team management and performance reviews'
@@ -1319,7 +1347,7 @@ const trackData = {
     y2: [
       { t: 'Venture', h: 'Solo Venture ×1', d: 'Offer + first customers' },
       { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
-      { t: 'Mentor', h: 'Solo Supervisor Meetups ×4', d: 'Business operator guidance' },
+      { t: 'Coach', h: 'Solo Supervisor Meetups ×4', d: 'Business operator guidance' },
       { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
       { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
     ],
@@ -1331,13 +1359,13 @@ const trackData = {
   }
 };
 
-// TRACK VIEW - Complete 3-year journey for a specific track
-const TrackView = ({ track }) => {
-  const current = trackData[track];
+// PROGRAM VIEW - Complete 3-year journey for a specific program
+const ProgramView = ({ programKey, audience }) => {
+  const current = programData[programKey];
 
   const renderDelta = (list) => {
     return list.map((x, i) => {
-      const isTeal = x.t === 'Client' || x.t === 'Coaching' || x.t === 'Mentor';
+      const isTeal = x.t === 'Client' || x.t === 'Coaching' || x.t === 'Coach';
       return (
         <div key={i} className={`pt-card${isTeal ? ' teal' : ''}`}>
           <div className="t">{x.t}</div>
@@ -1456,10 +1484,10 @@ const TrackView = ({ track }) => {
             </div>
           </div>
 
-          {/* Track Image Y1 */}
+          {/* Program Image Y1 */}
           {current.images && current.images.y1 && (
             <div className="mt-6">
-              <img src={current.images.y1} alt="Track Year 1 Highlight" className="w-full rounded-xl shadow-lg" />
+              <img src={current.images.y1} alt="Program Year 1 Highlight" className="w-full rounded-xl shadow-lg" />
             </div>
           )}
         </div>
@@ -1475,28 +1503,28 @@ const TrackView = ({ track }) => {
       <section className="pt-section pt-year" aria-label="Year 2 Business Operations" style={{ marginTop: 20 }}>
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 2 • {track === 'original' ? 'Business Operations' : track === 'bf' ? 'Family Business Skills' : 'Building Business Systems'}</strong>
-            <span className="pt-pill">Track-specific focus</span>
+            <strong>Year 2 • {programKey === 'original' ? 'Business Operations' : programKey === 'bf' ? 'Family Business Skills' : 'Building Business Systems'}</strong>
+            <span className="pt-pill">Program focus</span>
           </div>
         </div>
 
         <div className="pt-body">
           <div className="pt-yearContent">
             <div className="pt-contentBlock">
-              <h5>{track === 'original' ? 'Workplace responsibilities' : track === 'bf' ? 'How they use these skills' : 'Building systems means'}</h5>
+              <h5>{programKey === 'original' ? 'Workplace responsibilities' : programKey === 'bf' ? 'How they use these skills' : 'Building systems means'}</h5>
               {renderList(current.year2Content.workplace)}
             </div>
             <div className="pt-contentBlock">
-              <h5>{track === 'original' ? 'Client delivery expectations' : track === 'bf' ? 'Practical applications' : 'What they produce'}</h5>
+              <h5>{programKey === 'original' ? 'Client delivery expectations' : programKey === 'bf' ? 'Practical applications' : 'What they produce'}</h5>
               {renderList(current.year2Content.clientDelivery)}
             </div>
             <div className="pt-contentBlock">
-              <h5>{track === 'original' ? 'Manager feedback process' : 'Feedback process'}</h5>
+              <h5>{programKey === 'original' ? 'Manager feedback process' : 'Feedback process'}</h5>
               {renderList(current.year2Content.feedback)}
             </div>
           </div>
 
-          {/* Legacy track specifics */}
+          {/* Legacy program specifics */}
           <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
             <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 2</div>
             <div className="pt-deltaCards">
@@ -1510,29 +1538,29 @@ const TrackView = ({ track }) => {
       <section className="pt-section pt-year" aria-label="Year 3 Outcomes" style={{ marginTop: 20 }}>
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 3 • {track === 'original' ? 'Job Readiness' : track === 'bf' ? 'Handover-Ready Capability' : 'Venture Progress or Capability'}</strong>
+            <strong>Year 3 • {programKey === 'original' ? 'Job Readiness' : programKey === 'bf' ? 'Handover-Ready Capability' : 'Venture Progress or Capability'}</strong>
             <span className="pt-pill">Outcome focus</span>
           </div>
         </div>
 
         <div className="pt-body">
           <div className="pt-outcomeSection">
-            <h4>{track === 'original' ? 'Employment preparation' : track === 'bf' ? 'What a "handover-ready" student looks like' : 'Two possible outcomes'}</h4>
+            <h4>{programKey === 'original' ? 'Employment preparation' : programKey === 'bf' ? 'What a "handover-ready" student looks like' : 'Two possible outcomes'}</h4>
             <p>{current.year3Content.intro}</p>
           </div>
 
           <div className="pt-yearContent" style={{ marginTop: 12 }}>
             <div className="pt-contentBlock">
-              <h5>{track === 'original' ? 'Portfolio + references include' : track === 'bf' ? 'Evidence you can expect' : 'Either outcome demonstrates'}</h5>
+              <h5>{programKey === 'original' ? 'Portfolio + references include' : programKey === 'bf' ? 'Evidence you can expect' : 'Either outcome demonstrates'}</h5>
               {renderList(current.year3Content.portfolio)}
             </div>
             <div className="pt-contentBlock">
-              <h5>{track === 'original' ? 'Typical job placements' : track === 'bf' ? 'Readiness outcomes' : 'Possible paths'}</h5>
+              <h5>{programKey === 'original' ? 'Typical job placements' : programKey === 'bf' ? 'Readiness outcomes' : 'Possible paths'}</h5>
               {renderList(current.year3Content.placements)}
             </div>
           </div>
 
-          {/* Legacy track capstone */}
+          {/* Legacy program capstone */}
           <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
             <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 3</div>
             <div className="pt-deltaCards">
@@ -1542,17 +1570,12 @@ const TrackView = ({ track }) => {
         </div>
       </section>
 
-      {/* Track Image End */}
+      {/* Program Image End */}
       {current.images && current.images.end && (
         <div className="pt-trackEndImage mt-8 mb-8">
-          <img src={current.images.end} alt="Track Summary Highlight" className="w-full rounded-xl shadow-lg" />
+          <img src={current.images.end} alt="Program Summary Highlight" className="w-full rounded-xl shadow-lg" />
         </div>
       )}
-
-      {/* FINAL NOTE */}
-      <div className="pt-note" aria-label="Implementation note" style={{ marginTop: 32 }}>
-        <strong>Simple idea:</strong> Students graduate with <strong>portfolio + feedback + references</strong>—not just a marksheet.
-      </div>
     </div>
   );
 };
