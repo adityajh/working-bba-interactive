@@ -778,291 +778,13 @@ export default function WorkingBBAInteractive() {
                 <button className="pt-ctaBtn" onClick={() => openBooking('howItWorks', ctaCopy.howItWorks[audience])}>{ctaCopy.howItWorks[audience]} →</button>
               </div>
 
-              {/* NEW: Program Specific Outcomes */}
-              <div className="pt-psoSection mb-8">
 
-                <div className="mb-4">
-                  <h2 className="text-2xl font-bold text-white">Program Specific Outcomes</h2>
-                  <p className="text-sm text-white/80 font-medium mb-1">Clear career readiness goals measured throughout—you'll always know where your child stands and where they're headed.</p>
-                  <p className="text-xs text-white/50 italic">This is what we design for and assess for throughout the program</p>
-                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                  {['pso1', 'pso2', 'pso3', 'pso4', 'pso5', 'pso6'].map(key => {
-                    const parts = elements[key].name.split(' ');
-                    const code = parts[0];
-                    const label = parts.slice(1).join(' ');
-                    return (
-                      <button
-                        key={key}
-                        onClick={() => setSelectedElement(key)}
-                        className="bg-[#160E44] text-white p-4 rounded-xl shadow-lg border border-white/20 hover:scale-105 hover:border-[#25BCBD] transition-all duration-200 text-left group relative overflow-hidden"
-                      >
-                        <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-20 transition-opacity">
-                          <span className="text-4xl">🎯</span>
-                        </div>
-                        <h5 className="font-bold text-[#25BCBD] mb-1 text-sm tracking-widest">{code}</h5>
-                        <span className="font-bold text-sm leading-tight block">{label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
 
-              {/* NEW: Table Explanation Header */}
-              <div className="pt-tableExplain">
-                <h2>Core Work Skills: How your child develops them, and how we track them</h2>
 
-                <div className="pt-explainGrid">
-                  <div className="pt-explainBox">
-                    <h4>How to read this system:</h4>
-                    <ul>
-                      <li><strong>Each block</strong> represents one work skill developed through real projects</li>
-                      <li><strong>Color coding</strong> shows which skills are practiced each semester</li>
-                      <li><strong>Numbers</strong> indicate the sequence skills are introduced and mastered</li>
-                      <li><strong>"Proof"</strong> means portfolio evidence plus feedback from work supervisors</li>
-                      <li><strong>Yearly sections</strong> show skill building progression from basic to advanced</li>
-                      <li><strong>Assessment</strong> happens through real work performance, not classroom tests</li>
-                    </ul>
-                  </div>
 
-                  <div className="pt-explainBox">
-                    <h4>What this system prevents:</h4>
-                    <ul>
-                      <li><strong>Drift:</strong> Every month has specific skill development targets</li>
-                      <li><strong>Low effort:</strong> Skills are only checked off when work supervisors confirm competency</li>
-                      <li><strong>Confusion:</strong> Students and parents always know what's being developed and why</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
 
-              {/* Legend - Responsive Grid (Strict Scale) */}
-              <div className="pt-legend flex flex-wrap justify-center gap-4 sm:gap-6 mb-6 p-4 bg-white/5 rounded-xl border border-white/10 shadow-lg backdrop-blur-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-gradient-to-r from-[#334c91] to-[#3663AD] rounded-lg shadow-sm"></div>
-                  <span className="text-xs text-white/90 font-medium tracking-wide">Education</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-gradient-to-r from-[#3269ae] to-[#1e88b8] rounded-lg shadow-sm"></div>
-                  <span className="text-xs text-white/90 font-medium tracking-wide">Experience</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-gradient-to-r from-[#1e88b8] to-[#25BCBD] rounded-lg shadow-sm"></div>
-                  <span className="text-xs text-white/90 font-medium tracking-wide">Awareness</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-white border border-gray-300 rounded-lg shadow-sm"></div>
-                  <span className="text-xs text-white/90 font-medium tracking-wide">Evidence</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-[#160E44] border border-[#D946EF] rounded-full shadow-sm"></div>
-                  <span className="text-xs text-white/90 font-medium tracking-wide">Assessments</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 sm:w-10 h-4 sm:h-5 bg-[#160E44] border border-[#FBBF24] rounded-sm shadow-sm"></div>
-                  <span className="text-xs text-white/90 font-medium tracking-wide">Roles</span>
-                </div>
-              </div>
 
-              {/* NEW: Parent Takeaway */}
-              <div className="pt-parentTakeaway">
-                <h4>Parent Takeaway:</h4>
-                <p>You will see evidence every month.</p>
-                <ul>
-                  <li>Monthly skill development reports from work supervisors</li>
-                  <li>Quarterly portfolio reviews showing concrete project outcomes</li>
-                  <li>Semester feedback summaries from clients and team members</li>
-                  <li>Annual competency assessment by industry professionals</li>
-                </ul>
-              </div>
-
-              {/* EDUCATION & EXPERIENCE - Navy Background */}
-              <div className="bg-[#282f6c] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
-                <h3 className="text-xl font-bold mb-2 text-[#3269ae] tracking-wide">EDUCATION & EXPERIENCE</h3>
-                <p className="text-white/70 text-sm mb-6 pb-3 border-b border-white/10">Real work experience combined with structured learning—no more wondering if college is actually preparing them for jobs.</p>
-
-                <div className="min-w-[800px]"> {/* Force min width for scrolling on mobile */}
-                  {/* Header row */}
-                  <div className="grid grid-cols-6 gap-3 mb-4">
-                    <div></div>
-                    <div className="text-xs text-[#3269ae] text-center p-2 font-bold tracking-wider">COURSE</div>
-                    <div className="text-xs text-[#3269ae] text-center p-2 font-bold tracking-wider">CHALLENGE</div>
-                    <div className="text-xs text-[#1e88b8] text-center p-2 font-bold tracking-wider">BUSINESS</div>
-                    <div className="text-xs text-[#1e88b8] text-center p-2 font-bold tracking-wider">CLIENT</div>
-                    <div className="text-xs text-[#1e88b8] text-center p-2 font-bold tracking-wider">EMPLOYER</div>
-                  </div>
-
-                  {/* COHORT row */}
-                  <div className="grid grid-cols-6 gap-4 mb-4 items-center">
-                    <div className="text-xs text-white/60 text-right pr-3 font-bold uppercase tracking-wider">COHORT</div>
-                    <div className="flex justify-center"><ElementBadge elementKey="course" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="cohortChallenge" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="cohortVenture" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="clientHackathon" /></div>
-                    <div className="flex justify-center text-white/20">—</div>
-                  </div>
-
-                  {/* TEAM row */}
-                  <div className="grid grid-cols-6 gap-4 mb-4 items-center">
-                    <div className="text-xs text-white/60 text-right pr-3 font-bold uppercase tracking-wider">TEAM</div>
-                    <div className="flex justify-center"><ElementBadge elementKey="teamTrack" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="teamChallenge" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="teamVenture" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="clientProject" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="teamResidency" /></div>
-                  </div>
-
-                  {/* SOLO/DUO row */}
-                  <div className="grid grid-cols-6 gap-4 items-center">
-                    <div className="text-xs text-white/60 text-right pr-3 font-bold uppercase tracking-wider">SOLO/DUO</div>
-                    <div className="flex justify-center"><ElementBadge elementKey="skillTrack" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="soloChallenge" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="soloVenture" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="clientGig" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="apprenticeship" /></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* AWARENESS - Teal Background */}
-              <div className="bg-[#1e88b8] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
-                <h3 className="text-xl font-bold mb-2 text-[#160E44] tracking-wide">AWARENESS AND CAREER</h3>
-                <p className="text-white/80 text-sm mb-6 pb-3 border-b border-white/10">From self-discovery to professional networking—we guide every step of their career journey so they graduate job-ready, not just degree-ready.</p>
-
-                <div className="min-w-[500px]">
-                  {/* Header row */}
-                  <div className="grid grid-cols-4 gap-3 mb-4">
-                    <div></div>
-                    <div className="text-xs text-[#160E44] text-center p-2 font-bold tracking-wider">SELF</div>
-                    <div className="text-xs text-[#160E44] text-center p-2 font-bold tracking-wider">CAREER</div>
-                    <div className="text-xs text-[#160E44] text-center p-2 font-bold tracking-wider">STORY-SELLS</div>
-                  </div>
-
-                  {/* COHORT row */}
-                  <div className="grid grid-cols-4 gap-4 mb-4 items-center">
-                    <div className="text-xs text-white/80 text-right pr-3 font-bold uppercase tracking-wider">COHORT</div>
-                    <div className="flex justify-center"><ElementBadge elementKey="camp" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="regen" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="storysellsWorkshop" /></div>
-                  </div>
-
-                  {/* TEAM row */}
-                  <div className="grid grid-cols-4 gap-4 mb-4 items-center">
-                    <div className="text-xs text-white/80 text-right pr-3 font-bold uppercase tracking-wider">TEAM</div>
-                    <div className="flex justify-center"><ElementBadge elementKey="mastermind" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="meetup" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="storyTell" /></div>
-                  </div>
-
-                  {/* SOLO row */}
-                  <div className="grid grid-cols-4 gap-4 items-center">
-                    <div className="text-xs text-white/80 text-right pr-3 font-bold uppercase tracking-wider">SOLO</div>
-                    <div className="flex justify-center"><ElementBadge elementKey="conflexion" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="careerBlueprint" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="storyBuild" /></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* EVIDENCE - White Background */}
-              <div className="bg-white rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-gray-200">
-                <h3 className="text-xl font-bold mb-2 text-gray-800 tracking-wide">EVIDENCE BASED PORTFOLIO</h3>
-                <p className="text-gray-600 text-sm mb-6 pb-3 border-b border-gray-200">Everything your child builds is documented and verified—a portfolio that proves real skills to employers, not just grades on paper.</p>
-
-                <div className="min-w-[600px]">
-                  {/* Row 1 */}
-                  <div className="grid grid-cols-4 gap-4 mb-4">
-                    <div className="flex justify-center"><ElementBadge elementKey="dailyCards" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="docs" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="assessmentOutputs" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="media" /></div>
-                  </div>
-
-                  {/* Row 2 */}
-                  <div className="grid grid-cols-4 gap-4">
-                    <div className="flex justify-center"><ElementBadge elementKey="testimonials" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="dataSets" /></div>
-                    <div className="flex justify-center opacity-0">—</div>
-                    <div className="flex justify-center opacity-0">—</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* ASSESSMENTS - Navy Background (Magenta Header) */}
-              <div className="bg-[#282f6c] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/5">
-                <h3 className="text-xl font-bold mb-2 text-[#D946EF] tracking-wide">ASSESSMENTS</h3>
-                <p className="text-white/70 text-sm mb-6 pb-3 border-b border-white/10">Your child is evaluated by industry professionals and work supervisors, not just professors—the people who actually hire will validate their readiness.</p>
-
-                <div className="min-w-[500px]">
-                  {/* Row 1 */}
-                  <div className="grid grid-cols-4 gap-4 mb-4">
-                    <div className="flex justify-center"><ElementBadge elementKey="selfPeerFacRating" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="industryRating" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="quiz" /></div>
-                    <div className="flex justify-center opacity-0">—</div>
-                  </div>
-
-                  {/* Row 2 */}
-                  <div className="grid grid-cols-4 gap-4">
-                    <div className="flex justify-center"><ElementBadge elementKey="outcomes" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="engagement" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="progress" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="specific" /></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* ROLES - Mid-Blue Background (Yellow Header) */}
-              <div className="bg-[#3269ae] rounded-xl p-4 sm:p-6 overflow-x-auto shadow-xl border border-white/20">
-                <h3 className="text-xl font-bold mb-2 text-[#FBBF24] tracking-wide">ROLES</h3>
-                <p className="text-white/80 text-sm mb-6 pb-3 border-b border-white/20">Six distinct professional experiences across real companies—your child won't just learn about business, they'll actually do business.</p>
-
-                <div className="min-w-[500px]">
-                  {/* Row 1 */}
-                  <div className="grid grid-cols-4 gap-4 mb-4">
-                    <div className="flex justify-center"><ElementBadge elementKey="facilitator" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="developer" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="faculty" /></div>
-                    <div className="flex justify-center text-blue-900/30 font-bold">—</div>
-                  </div>
-
-                  {/* Row 2 */}
-                  <div className="grid grid-cols-4 gap-4">
-                    <div className="flex justify-center"><ElementBadge elementKey="jury" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="lighthouse" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="expert" /></div>
-                    <div className="flex justify-center"><ElementBadge elementKey="mentor" /></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* NEW: Progress Tracking Section */}
-              <div className="pt-progressTracking">
-                <h4>How we track progress:</h4>
-
-                <div className="pt-trackingGrid">
-                  <div className="pt-trackingBox">
-                    <h5>Four types of regular reviews:</h5>
-                    <ul>
-                      <li><strong>Weekly reviews:</strong> Work supervisors assess task completion and quality</li>
-                      <li><strong>Monthly feedback:</strong> Clients rate communication, reliability, and problem-solving</li>
-                      <li><strong>Quarterly submissions:</strong> Portfolio updates with project evidence and outcomes</li>
-                      <li><strong>Semester checks:</strong> Comprehensive skill assessment by program supervisors</li>
-                    </ul>
-                  </div>
-
-                  <div className="pt-trackingBox">
-                    <h5>What parents receive:</h5>
-                    <ul>
-                      <li>Monthly progress summary with specific skill development updates</li>
-                      <li>Quarterly detailed report including work supervisor feedback</li>
-                      <li>Semester portfolio review with evidence of competency growth</li>
-                      <li>Annual comprehensive assessment with industry benchmark comparisons</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
 
             </div>
           )}
@@ -1123,14 +845,14 @@ const CTA_URL = '#';
 // 9 Challenges for Year 1
 const year1Challenges = [
   { num: '01', name: 'Kickstart', sub: 'Start like an adult.', desc: 'Students enter the work rhythm: hygiene, communication, cadence, and delivery standards.' },
-  { num: '02', name: 'Sales Sprint', sub: 'Rejection is training.', desc: 'Outreach + pitching + follow-ups + closing small wins. Confidence is built through repetition.' },
-  { num: '03', name: 'Ops Jam', sub: 'Systems beat talent.', desc: 'Checklists, tracking, handovers, quality control\u2014students learn to run a process reliably.' },
-  { num: '04', name: 'Brand Hack', sub: 'Create belief.', desc: 'Clear offer, framing, basic collateral, storytelling\u2014built for real persuasion, not classroom creativity.' },
-  { num: '05', name: 'Research Raid', sub: 'Learn to see the market.', desc: 'Primary research, insights, patterns\u2014then turn it into decisions and actions.' },
-  { num: '06', name: 'Finance Dash', sub: 'Become numerate enough to be trusted.', desc: 'Pricing, margins, cost logic, basic decision math\u2014applied, not theoretical.' },
-  { num: '07', name: 'People Lab', sub: 'Business is people.', desc: 'Collaboration, feedback, responsibility, conflict handling\u2014how you show up in teams.' },
-  { num: '08', name: 'Legal Launch', sub: 'Know enough to not be reckless.', desc: 'Practical legal + commitment hygiene so students don\u2019t operate like amateurs.' },
-  { num: '09', name: 'Innovation Sprint', sub: 'Build. Test. Iterate.', desc: 'Identify opportunity, prototype quickly, gather feedback, and improve\u2014shipping over talking.' }
+  { num: '02', name: 'Product Design', sub: 'Build things people want.', desc: 'User needs, prototyping, iteration—students learn to design solutions that solve real problems.' },
+  { num: '03', name: 'Design Thinking', sub: 'Think like a problem solver.', desc: 'Empathy, ideation, testing—structured frameworks for tackling ambiguous challenges.' },
+  { num: '04', name: 'Digital Marketing', sub: 'Get attention. Drive action.', desc: 'Campaigns, content, analytics—students learn to reach audiences and measure what works.' },
+  { num: '05', name: 'Business Analysis', sub: 'Turn data into decisions.', desc: 'Requirements, process mapping, stakeholder alignment—how to analyze and recommend solutions.' },
+  { num: '06', name: 'Sales & Outreach', sub: 'Rejection is training.', desc: 'Pitching, follow-ups, closing—confidence is built through repetition and real conversations.' },
+  { num: '07', name: 'User Research', sub: 'Learn to see the market.', desc: 'Interviews, insights, patterns—then turn research into decisions and actions.' },
+  { num: '08', name: 'Accounting & Financial Analysis', sub: 'Become numerate enough to be trusted.', desc: 'P&L, cash flow, margins, decision math—applied financial thinking, not theory.' },
+  { num: '09', name: 'Spreadsheets', sub: 'Master the tool of business.', desc: 'Formulas, data modeling, dashboards—students build fluency in the language of work.' }
 ];
 
 // CTA copy per section × audience
@@ -1161,7 +883,11 @@ const portfolioItems = [
 const programData = {
   original: {
     name: 'Entrepreneurial Job',
-    images: { y1: '/IMG_5.png', end: '/IMG_6.png' },
+    images: {
+      y1: { src: portfolioItems[2].src, caption: portfolioItems[2].caption },
+      y2: { src: portfolioItems[1].src, caption: portfolioItems[1].caption },
+      y3: { src: portfolioItems[7].src, caption: portfolioItems[7].caption }
+    },
     // Fear-first hero
     fearHero: {
       parent: {
@@ -1188,8 +914,8 @@ const programData = {
     mechanism: {
       title: 'How confidence is built here:',
       items: [
-        'Weekly one-on-one reviews',
-        'Monthly project deadlines',
+        'Weekly presentations to Industry Professionals',
+        'Facing project deadline pressure',
         'Quarterly performance feedback'
       ]
     },
@@ -1224,7 +950,7 @@ const programData = {
       whatTheyDo: [
         'Manage client projects for 2-3 growing companies',
         'Handle marketing campaigns with real budget responsibility',
-        'Coordinate teams of 5-8 employees across departments',
+        'Coordinate teams of 5–8 employees across departments to deliver project outcomes',
       ],
       whatTheySubmit: [
         'Weekly project status reports to company managers',
@@ -1276,22 +1002,35 @@ const programData = {
     promise: 'More industries. Stronger references.',
     outcome: 'Ready for roles where output and proof matter more than pedigree.',
     y1: [
+      { t: 'Immersion', h: 'Self-Awareness Camp + Rural Project', d: '3-day workshop + 7-day rural immersion' },
+      { t: 'Coaching', h: 'Career Blueprint ×4', d: 'Skills mapping & goal setting' },
+      { t: 'Network', h: 'Regen Networking Week', d: 'Connecting with industry professionals' },
+      { t: 'Skills', h: 'StorySells 1', d: 'Portfolio refinement & LinkedIn branding' },
       { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
       { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
     ],
     y2: [
-      { t: 'Employer', h: 'Outstation Apprenticeship ×1', d: 'Deeper exposure + stronger network' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
-      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
+      { t: 'Immersion', h: 'Solo Travel Project', d: '1-week independent service project' },
+      { t: 'Coaching', h: 'StorySells 2', d: 'Personal branding & narrative building' },
+      { t: 'Skills', h: 'Advanced Challenges', d: 'Data analysis, automation & prototyping' },
+      { t: 'Employer', h: 'Outstation Apprenticeship', d: '9 weeks in a new city with broader exposure' },
+      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Deeper industry immersion (Common Core)' },
+      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, systems' }
     ],
     y3: [
-      { t: 'Employer', h: '9-month Mentored Apprenticeship', d: 'Role clarity + output + strong references' },
-      { t: 'Client', h: '6-Week Client Project', d: 'Integrated marketing, data analysis, legal aspects, client expectation management' }
+      { t: 'Client', h: 'Client Multi-domain Project', d: 'Integrated marketing, data & legal outcome' },
+      { t: 'Skills', h: 'Final Challenges', d: 'Business ethics, governance & legal aspects' },
+      { t: 'Coaching', h: 'StorySells 3', d: 'Purpose, values & transition planning' },
+      { t: 'Employer', h: '9-Month Capstone Role', d: 'Full-time role: output + references' }
     ]
   },
   bf: {
     name: 'Business Family',
-    images: { y1: '/IMG_3.png', end: '/IMG_2.png' },
+    images: {
+      y1: { src: portfolioItems[4].src, caption: portfolioItems[4].caption },
+      y2: { src: portfolioItems[6].src, caption: portfolioItems[6].caption },
+      y3: { src: portfolioItems[3].src, caption: portfolioItems[3].caption }
+    },
     // Fear-first hero
     fearHero: {
       parent: {
@@ -1416,25 +1155,36 @@ const programData = {
     promise: 'Succession readiness + family alignment.',
     outcome: 'Ready to take responsibility inside the family business—with alignment and proof.',
     y1: [
+      { t: 'Immersion', h: 'Self-Awareness Camp + Rural Project', d: '3-day workshop + 7-day rural immersion' },
+      { t: 'Coaching', h: 'Career Blueprint ×4', d: 'Skills mapping & goal setting' },
+      { t: 'Network', h: 'Regen Networking Week', d: 'Connecting with industry professionals' },
+      { t: 'Skills', h: 'StorySells 1', d: 'Portfolio refinement & LinkedIn branding' },
       { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
       { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
     ],
     y2: [
-      { t: 'Employer', h: 'Family Business Apprenticeship', d: 'Learn how other families run business' },
+      { t: 'Immersion', h: 'Solo Travel Project', d: '1-week independent service project' },
+      { t: 'Coaching', h: 'StorySells 2', d: 'Personal branding & narrative building' },
+      { t: 'Skills', h: 'Advanced Challenges', d: 'Data analysis, automation & prototyping' },
+      { t: 'Employer', h: 'Family Business Project', d: '2 months inside another family business' },
       { t: 'Coaching', h: 'Family Coaching ×2', d: 'Alignment + expectations' },
-      { t: 'Coach', h: 'FB Coach Meetups ×4', d: 'Succession + governance reps' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
-      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
+      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Deeper industry immersion (Common Core)' },
+      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, systems' }
     ],
     y3: [
-      { t: 'Capstone', h: '9-month Family Business Project', d: 'Real KPI + ownership' },
-      { t: 'Coaching', h: 'Family Coaching ×4', d: 'Role clarity + handover readiness' },
-      { t: 'Client', h: '6-Week Client Project', d: 'Integrated marketing, data analysis, legal aspects, client expectation management' }
+      { t: 'Client', h: 'Client Multi-domain Project', d: 'Integrated marketing, data & legal outcome' },
+      { t: 'Skills', h: 'Final Challenges', d: 'Business ethics, governance & legal aspects' },
+      { t: 'Coaching', h: 'StorySells 3', d: 'Purpose, values & transition planning' },
+      { t: 'Capstone', h: '9-month Family Business Project', d: 'Real KPI + ownership inside family biz' }
     ]
   },
   solo: {
     name: 'Venture Starters',
-    images: { y1: '/IMG_4.png', end: '/IMG_7.png' },
+    images: {
+      y1: { src: portfolioItems[0].src, caption: portfolioItems[0].caption },
+      y2: { src: portfolioItems[5].src, caption: portfolioItems[5].caption },
+      y3: { src: portfolioItems[7].src, caption: "Building a venture requires an ecosystem." }
+    },
     // Fear-first hero
     fearHero: {
       parent: {
@@ -1549,20 +1299,27 @@ const programData = {
     promise: 'Customer validation + founder discipline.',
     outcome: 'Ready to build a real venture—customers, systems, and repeatability.',
     y1: [
+      { t: 'Immersion', h: 'Self-Awareness Camp + Rural Project', d: '3-day workshop + 7-day rural immersion' },
+      { t: 'Coaching', h: 'Career Blueprint ×4', d: 'Skills mapping & goal setting' },
+      { t: 'Network', h: 'Regen Networking Week', d: 'Connecting with industry professionals' },
+      { t: 'Skills', h: 'StorySells 1', d: 'Portfolio refinement & LinkedIn branding' },
       { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
       { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
     ],
     y2: [
-      { t: 'Venture', h: 'Solo Venture ×1', d: 'Offer + first customers' },
+      { t: 'Immersion', h: 'Solo Travel Project', d: '1-week independent service project' },
+      { t: 'Coaching', h: 'StorySells 2', d: 'Personal branding & narrative building' },
+      { t: 'Skills', h: 'Advanced Challenges', d: 'Data analysis, automation & prototyping' },
+      { t: 'Venture', h: 'Business Prototyping Project', d: '2 months building & testing venture idea' },
       { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
-      { t: 'Coach', h: 'Solo Supervisor Meetups ×4', d: 'Business operator guidance' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Industry immersion + work scoping' },
-      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, automation, reporting systems' }
+      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Deeper industry immersion (Common Core)' },
+      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, systems' }
     ],
     y3: [
-      { t: 'Venture', h: '9-month Venture Building', d: 'Customers → systems → repeatability' },
-      { t: 'Coaching', h: 'Venture Coaching ×4', d: 'Distribution, growth, resilience' },
-      { t: 'Client', h: '6-Week Client Project', d: 'Integrated marketing, data analysis, legal aspects, client expectation management' }
+      { t: 'Client', h: 'Client Multi-domain Project', d: 'Integrated marketing, data & legal outcome' },
+      { t: 'Skills', h: 'Final Challenges', d: 'Business ethics, governance & legal aspects' },
+      { t: 'Coaching', h: 'StorySells 3', d: 'Purpose, values & transition planning' },
+      { t: 'Venture', h: '9-month Venture Building', d: 'Customers → systems → repeatability' }
     ]
   }
 };
@@ -1605,10 +1362,6 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <div className="pt-hero">
         <h2>{current.heroTitle}</h2>
         <h3>{current.heroSub}</h3>
-        <div className="pt-mechanism">
-          <strong>{current.mechanism.title}</strong>
-          {renderList(current.mechanism.items)}
-        </div>
       </div>
 
       {/* ===================== MYTH VS REALITY ===================== */}
@@ -1637,30 +1390,9 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
         </div>
       </div>
 
-      {/* ===================== FAMILY CONNECTION (Business Family only) ===================== */}
-      {current.familyConnection && (
-        <div className="pt-clarityBox" style={{ marginBottom: 20 }}>
-          <h4>{current.familyConnection.title}</h4>
-          {renderList(current.familyConnection.items)}
-          <p style={{ marginTop: 12, fontSize: 12, color: 'rgba(255,255,255,.78)', fontWeight: 600 }}>
-            <strong>Important:</strong> {current.familyConnection.note}
-          </p>
-        </div>
-      )}
 
-      {/* ===================== YEAR 1 SUMMARY ===================== */}
-      <div className="pt-yearSummary">
-        <h4>Year 1 in one line:</h4>
-        <p>{current.year1Summary}</p>
-        <div className="pt-threePart">
-          <h5>Year 1 has 3 main parts:</h5>
-          <ul>
-            {current.year1Parts.map((part, i) => (
-              <li key={i}><strong>{part.name}:</strong> {part.desc}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
+
+
 
       {/* ===================== YEAR 1 (DETAILED) ===================== */}
       <section className="pt-section pt-year" aria-label="Year 1 Foundation">
@@ -1694,20 +1426,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
             <button className="pt-ctaBtn" onClick={() => onCTA('challenges', ctaCopy.challenges[audience])}>{ctaCopy.challenges[audience]} →</button>
           </div>
 
-          <div className="pt-yearContent">
-            <div className="pt-contentBlock">
-              <h5>What they do</h5>
-              {renderList(current.year1Content.whatTheyDo)}
-            </div>
-            <div className="pt-contentBlock">
-              <h5>What they submit</h5>
-              {renderList(current.year1Content.whatTheySubmit)}
-            </div>
-            <div className="pt-contentBlock">
-              <h5>What feedback looks like</h5>
-              {renderList(current.year1Content.feedback)}
-            </div>
-          </div>
+
 
           {/* NEW: Year 1 Delta Cards */}
           <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
@@ -1718,52 +1437,16 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
           </div>
 
           {/* Program Image Y1 */}
-          {current.images && current.images.y1 && (
-            <div className="mt-6">
-              <img src={current.images.y1} alt="Program Year 1 Highlight" className="w-full rounded-xl shadow-lg" />
+          {current.images?.y1 && (
+            <div className="mt-6 mb-6">
+              <img src={current.images.y1.src} alt={current.images.y1.caption} className="w-full rounded-xl shadow-lg" />
+              <p className="text-sm text-center text-gray-400 mt-2 italic">{current.images.y1.caption}</p>
             </div>
           )}
         </div>
       </section>
 
-      {/* ===================== PORTFOLIO AFTER YEAR 1 ===================== */}
-      <div className="pt-portfolioSection">
-        <h4>💼 Sample Portfolio After Year 1</h4>
 
-        {/* Hero image */}
-        <div className="pt-portfolioHero">
-          <img src={portfolioItems[0].src} alt={portfolioItems[0].caption} />
-          <div className="pt-portfolioCaption">{portfolioItems[0].caption}</div>
-        </div>
-
-        {/* 3 rows × 2 cards */}
-        <div className="pt-portfolioGrid">
-          {portfolioItems.slice(1, 7).map((item, i) => (
-            <div key={i} className="pt-portfolioCard">
-              <img src={item.src} alt={item.caption} />
-              <div className="pt-portfolioCaption">{item.caption}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Closing hero */}
-        <div className="pt-portfolioHero">
-          <img src={portfolioItems[7].src} alt={portfolioItems[7].caption} />
-          <div className="pt-portfolioCaption">{portfolioItems[7].caption}</div>
-        </div>
-
-        {/* Promise line */}
-        <div className="pt-portfolioPromise">
-          <p>{audience === 'parent'
-            ? '5 client projects shipped. Real manager feedback. Real references. A portfolio that proves capability—not potential.'
-            : 'You’ll ship 5 client projects. Deadlines + feedback + proof. Not theory. Not pretending.'
-          }</p>
-        </div>
-
-        <div className="pt-ctaBlock">
-          <button className="pt-ctaBtn" onClick={() => onCTA('portfolio', ctaCopy.portfolio[audience])}>{ctaCopy.portfolio[audience]} →</button>
-        </div>
-      </div>
 
       {/* ===================== PROGRESS REVIEW ===================== */}
       <div className="pt-progressCheck">
@@ -1781,20 +1464,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
         </div>
 
         <div className="pt-body">
-          <div className="pt-yearContent">
-            <div className="pt-contentBlock">
-              <h5>{programKey === 'original' ? 'Workplace responsibilities' : programKey === 'bf' ? 'How they use these skills' : 'Building systems means'}</h5>
-              {renderList(current.year2Content.workplace)}
-            </div>
-            <div className="pt-contentBlock">
-              <h5>{programKey === 'original' ? 'Client delivery expectations' : programKey === 'bf' ? 'Practical applications' : 'What they produce'}</h5>
-              {renderList(current.year2Content.clientDelivery)}
-            </div>
-            <div className="pt-contentBlock">
-              <h5>{programKey === 'original' ? 'Manager feedback process' : 'Feedback process'}</h5>
-              {renderList(current.year2Content.feedback)}
-            </div>
-          </div>
+
 
           {/* Legacy program specifics */}
           <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
@@ -1803,6 +1473,14 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
               {renderDelta(current.y2)}
             </div>
           </div>
+
+          {/* Program Image Y2 */}
+          {current.images?.y2 && (
+            <div className="mt-6 mb-6">
+              <img src={current.images.y2.src} alt={current.images.y2.caption} className="w-full rounded-xl shadow-lg" />
+              <p className="text-sm text-center text-gray-400 mt-2 italic">{current.images.y2.caption}</p>
+            </div>
+          )}
         </div>
       </section>
 
@@ -1816,10 +1494,6 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
         </div>
 
         <div className="pt-body">
-          <div className="pt-outcomeSection">
-            <h4>{programKey === 'original' ? 'Employment preparation' : programKey === 'bf' ? 'What a "handover-ready" student looks like' : 'Two possible outcomes'}</h4>
-            <p>{current.year3Content.intro}</p>
-          </div>
 
           <div className="pt-yearContent" style={{ marginTop: 12 }}>
             <div className="pt-contentBlock">
@@ -1839,15 +1513,18 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
               {renderDelta(current.y3)}
             </div>
           </div>
+
+          {/* Program Image Y3 */}
+          {current.images?.y3 && (
+            <div className="mt-6 mb-6">
+              <img src={current.images.y3.src} alt={current.images.y3.caption} className="w-full rounded-xl shadow-lg" />
+              <p className="text-sm text-center text-gray-400 mt-2 italic">{current.images.y3.caption}</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Program Image End */}
-      {current.images && current.images.end && (
-        <div className="pt-trackEndImage mt-8 mb-8">
-          <img src={current.images.end} alt="Program Summary Highlight" className="w-full rounded-xl shadow-lg" />
-        </div>
-      )}
+
 
       {/* ===================== FINAL CTA ===================== */}
       <div className="pt-ctaBlock">
