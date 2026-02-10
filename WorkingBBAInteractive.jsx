@@ -7,6 +7,10 @@ export default function WorkingBBAInteractive() {
   const [activeTab, setActiveTab] = useState('job'); // job | family | venture | periodic
   const [isDarkMode, setIsDarkMode] = useState(true); // true = dark, false = light
   const [audience, setAudience] = useState('parent'); // 'parent' | 'student'
+  const [bookingModal, setBookingModal] = useState(null); // null | { section, label }
+
+  const openBooking = (section, label) => setBookingModal({ section, label });
+  const closeBooking = () => setBookingModal(null);
 
   // Brand Colors from LE Guidelines (Strict Scale)
   const brandColors = {
@@ -668,9 +672,9 @@ export default function WorkingBBAInteractive() {
 
         {/* MAIN CONTENT */}
         <main className="pt-section">
-          {activeTab === 'job' && <ProgramView programKey="original" audience={audience} />}
-          {activeTab === 'family' && <ProgramView programKey="bf" audience={audience} />}
-          {activeTab === 'venture' && <ProgramView programKey="solo" audience={audience} />}
+          {activeTab === 'job' && <ProgramView programKey="original" audience={audience} onCTA={openBooking} />}
+          {activeTab === 'family' && <ProgramView programKey="bf" audience={audience} onCTA={openBooking} />}
+          {activeTab === 'venture' && <ProgramView programKey="solo" audience={audience} onCTA={openBooking} />}
 
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
           {activeTab === 'periodic' && (
@@ -771,7 +775,7 @@ export default function WorkingBBAInteractive() {
               </div>
 
               <div className="pt-ctaBlock">
-                <a href={CTA_URL} className="pt-ctaBtn">{ctaCopy.howItWorks[audience]} →</a>
+                <button className="pt-ctaBtn" onClick={() => openBooking('howItWorks', ctaCopy.howItWorks[audience])}>{ctaCopy.howItWorks[audience]} →</button>
               </div>
 
               {/* NEW: Program Specific Outcomes */}
@@ -1072,6 +1076,63 @@ export default function WorkingBBAInteractive() {
 
       {/* Element Detail Modal */}
       <ElementModal />
+
+      {/* ===================== BOOKING MODAL ===================== */}
+      {bookingModal && (() => {
+        const contextDescriptions = {
+          howItWorks: 'You were exploring how the program works — let\u2019s walk you through it live.',
+          challenges: 'The 9 Challenges caught your eye — let\u2019s talk about what Year 1 looks like.',
+          portfolio: 'You\u2019re curious about the proof students graduate with — great place to start.',
+          final: 'You\u2019ve seen enough — let\u2019s find out if this is the right fit.'
+        };
+        const contextLine = contextDescriptions[bookingModal.section] || 'Let\u2019s connect and answer any questions you have.';
+
+        return (
+          <div className="bk-overlay" onClick={closeBooking}>
+            <div className="bk-modal" onClick={e => e.stopPropagation()}>
+              <button className="bk-close" onClick={closeBooking}>&times;</button>
+
+              <div className="bk-header">
+                <h3>Book a Call</h3>
+                <p className="bk-context">{contextLine}</p>
+              </div>
+
+              <form className="bk-form" onSubmit={e => {
+                e.preventDefault();
+                const fd = new FormData(e.target);
+                const data = Object.fromEntries(fd.entries());
+                alert(`Thank you${data.name ? ', ' + data.name : ''}! We\u2019ll reach out${data.phone ? ' at ' + data.phone : ''} to schedule your call${data.slot ? ' (' + data.slot + ')' : ''}.`);
+                closeBooking();
+              }}>
+                <label>
+                  <span>Your Name</span>
+                  <input name="name" type="text" placeholder="e.g. Rahul Sharma" required autoFocus />
+                </label>
+
+                <label>
+                  <span>Phone / WhatsApp</span>
+                  <input name="phone" type="tel" placeholder="+91 98765 43210" required />
+                </label>
+
+                <label>
+                  <span>Preferred Time</span>
+                  <select name="slot" required>
+                    <option value="">Choose a slot\u2026</option>
+                    <option value="Morning (10 AM – 12 PM)">Morning (10 AM \u2013 12 PM)</option>
+                    <option value="Afternoon (12 PM – 3 PM)">Afternoon (12 PM \u2013 3 PM)</option>
+                    <option value="Evening (3 PM – 6 PM)">Evening (3 PM \u2013 6 PM)</option>
+                    <option value="Late Evening (6 PM – 8 PM)">Late Evening (6 PM \u2013 8 PM)</option>
+                  </select>
+                </label>
+
+                <button type="submit" className="bk-submit">{bookingModal.label || 'Book Now'} \u2192</button>
+              </form>
+
+              <p className="bk-footer">We\u2019ll call you — no spam, no follow-up emails. Just a conversation.</p>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
@@ -1530,7 +1591,7 @@ const programData = {
 };
 
 // PROGRAM VIEW - Complete 3-year journey for a specific program
-const ProgramView = ({ programKey, audience }) => {
+const ProgramView = ({ programKey, audience, onCTA }) => {
   const current = programData[programKey];
   const [expandedChallenge, setExpandedChallenge] = useState(null);
 
@@ -1653,7 +1714,7 @@ const ProgramView = ({ programKey, audience }) => {
           </div>
 
           <div className="pt-ctaBlock">
-            <a href={CTA_URL} className="pt-ctaBtn">{ctaCopy.challenges[audience]} →</a>
+            <button className="pt-ctaBtn" onClick={() => onCTA('challenges', ctaCopy.challenges[audience])}>{ctaCopy.challenges[audience]} →</button>
           </div>
 
           <div className="pt-yearContent">
@@ -1723,7 +1784,7 @@ const ProgramView = ({ programKey, audience }) => {
         </div>
 
         <div className="pt-ctaBlock">
-          <a href={CTA_URL} className="pt-ctaBtn">{ctaCopy.portfolio[audience]} →</a>
+          <button className="pt-ctaBtn" onClick={() => onCTA('portfolio', ctaCopy.portfolio[audience])}>{ctaCopy.portfolio[audience]} →</button>
         </div>
       </div>
 
@@ -1813,7 +1874,7 @@ const ProgramView = ({ programKey, audience }) => {
 
       {/* ===================== FINAL CTA ===================== */}
       <div className="pt-ctaBlock">
-        <a href={CTA_URL} className="pt-ctaBtn">{ctaCopy.final[audience]} →</a>
+        <button className="pt-ctaBtn" onClick={() => onCTA('final', ctaCopy.final[audience])}>{ctaCopy.final[audience]} →</button>
       </div>
     </div>
   );
