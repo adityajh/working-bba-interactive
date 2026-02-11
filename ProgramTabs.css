@@ -1606,9 +1606,9 @@ summary.pt-sumRow::-webkit-details-marker {
     margin-top: 32px;
     padding: 28px 24px;
     border-radius: var(--r2);
-    background: linear-gradient(135deg, rgba(37, 188, 189, .25) 0%, rgba(54, 99, 173, .30) 50%, rgba(22, 14, 68, .90) 100%);
-    border: 1px solid rgba(37, 188, 189, .30);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, .30);
+    background: linear-gradient(135deg, rgba(22, 14, 68, .95) 0%, rgba(40, 47, 108, .92) 50%, rgba(22, 14, 68, .98) 100%);
+    border: 1px solid rgba(37, 188, 189, .40);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .50);
     text-align: center;
 }
 
@@ -1967,6 +1967,11 @@ summary.pt-sumRow::-webkit-details-marker {
 }
 
 /* Fix Toggle Switch and Tags visibility in Light Mode */
+.pt-scope.light-theme .pt-audienceToggle {
+    border: 1px solid #94a3b8;
+    border-radius: 10px;
+}
+
 .pt-scope.light-theme .pt-toggleBtn,
 .pt-scope.light-theme .pt-audBtn {
     color: #334155;

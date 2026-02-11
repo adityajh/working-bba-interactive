@@ -599,11 +599,7 @@ export default function WorkingBBAInteractive() {
                 style={{ height: '62px', width: 'auto', filter: 'none' }}
               />
             </div>
-          </div>
-
-          {/* Top-right controls row */}
-          <div className="pt-topControls">
-            {/* Audience Toggle */}
+            {/* Audience Toggle — inline with logo */}
             <div className="pt-audienceToggle" role="radiogroup" aria-label="Audience selector">
               <button
                 className={`pt-audBtn${audience === 'parent' ? ' active' : ''}`}
@@ -620,7 +616,6 @@ export default function WorkingBBAInteractive() {
                 🎓 For Students
               </button>
             </div>
-
           </div>
 
           <div>
@@ -796,7 +791,12 @@ export default function WorkingBBAInteractive() {
 
         {/* PERSISTENT FOOTER BANNER */}
         <div className="pt-footerBanner">
-          <p>Students graduate with recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections - not just a marksheet</p>
+          <p>
+            {audience === 'parent'
+              ? <><strong style={{ color: '#25BCBD' }}>Students graduate with</strong> recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections — not just a marksheet</>
+              : <><strong style={{ color: '#25BCBD' }}>You graduate with</strong> a recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections — not just a marksheet</>
+            }
+          </p>
         </div>
       </div >
 
@@ -1008,14 +1008,21 @@ const programData = {
     // Legacy fields for compatibility
     promise: 'More industries. Stronger references.',
     outcome: 'Ready for roles where output and proof matter more than pedigree.',
-    y1: [
-      { t: 'Immersion', h: 'Self-Awareness Camp + Rural Project', d: '3-day workshop + 7-day rural immersion' },
-      { t: 'Coaching', h: 'Career Blueprint ×4', d: 'Skills mapping & goal setting' },
-      { t: 'Network', h: 'Regen Networking Week', d: 'Connecting with industry professionals' },
-      { t: 'Skills', h: 'StorySells 1', d: 'Portfolio refinement & LinkedIn branding' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
-      { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
-    ],
+    y1: {
+      workExp: [
+        { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
+        { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (typically ~2–3 months)' },
+        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 from: Prompt Engineering, User Research, Data Analysis — self-paced deep skill building' }
+      ],
+      skills: [
+        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (7 days)' },
+        { t: 'Self-Reflection', h: 'Conflex-ion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
+        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week with professionals (typically ~3–7 days)' },
+        { t: 'Career Coaching', h: 'Career Blueprint sessions', d: '4 individual sessions — mapping skills, interests, and goals into an actionable career path' },
+        { t: 'StorySells Workshop 1', h: 'Portfolio & LinkedIn', d: '3 days: crafting your professional story' }
+      ]
+    },
     y2: {
       common: [
         { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
@@ -1448,10 +1455,9 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
     if (!list) return null;
     return list.map((x, i) => (
       <div key={i} className={`pt-card ${variantClass || ''}`}>
-        <div className="t">{x.t}</div>
         <div className="h">{x.h}</div>
         {x.d && x.d.includes(' · ') ? (
-          <ul className="d-list" style={{ marginTop: '8px', paddingLeft: '14px', listStyle: 'disc', fontSize: '11px', lineHeight: '1.4', color: 'inherit' }}>
+          <ul className="d-list" style={{ marginTop: '6px', paddingLeft: '14px', listStyle: 'disc', fontSize: '11px', lineHeight: '1.4', color: 'inherit' }}>
             {x.d.split(' · ').map((item, idx) => (
               <li key={idx} style={{ marginBottom: '2px' }}>{item}</li>
             ))}
@@ -1464,42 +1470,46 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
   };
   const TrackingSection = ({ data, year }) => (
     <div className="pt-progress-tracking">
-      <h4>How We Track Progress ({year})</h4>
-      <p><strong>Progress Visibility:</strong> {data.visibility}</p>
+      <h4 style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '.3px', marginBottom: '6px' }}>How We Track Progress ({year})</h4>
+      <p style={{ fontSize: '11px', lineHeight: '1.35' }}><strong>Progress Visibility:</strong> {data.visibility}</p>
       <div className="pt-evidence-list">
-        <p><strong>Evidence produced ({year}):</strong> {data.evidence}</p>
+        <p style={{ fontSize: '11px', lineHeight: '1.35' }}><strong>Evidence produced ({year}):</strong> {data.evidence}</p>
       </div>
     </div>
   );
 
-  const GradOutcomeSection = ({ data }) => (
+  const GradOutcomeSection = ({ data, audience }) => (
     <div className="pt-grad-outcome">
-      <h3 className="text-2xl font-bold mb-6">WHAT YOUR CHILD GRADUATES WITH</h3>
+      <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '12px', letterSpacing: '.3px' }}>
+        {audience === 'parent' ? 'WHAT YOUR CHILD GRADUATES WITH' : 'WHAT YOU GRADUATE WITH'}
+      </h3>
       <div className="pt-grad-grid">
-        <div className="card-outcome p-6 border rounded-xl">
-          <h5 className="font-bold mb-4 text-teal-400">WORK PORTFOLIO</h5>
-          <ul className="list-disc pl-5 space-y-2 text-sm opacity-90">
-            {data.portfolio.map((item, i) => <li key={i}>{item}</li>)}
+        <div className="card-outcome" style={{ padding: '12px', borderRadius: '12px' }}>
+          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '12px' }}>WORK PORTFOLIO</h5>
+          <ul className="list-disc pl-4 text-xs opacity-90" style={{ lineHeight: '1.4' }}>
+            {data.portfolio.map((item, i) => <li key={i} style={{ marginBottom: '2px' }}>{item}</li>)}
           </ul>
         </div>
-        <div className="card-outcome p-6 border rounded-xl">
-          <h5 className="font-bold mb-4 text-teal-400">REFERENCES & FEEDBACK</h5>
-          <ul className="list-disc pl-5 space-y-2 text-sm opacity-90">
-            {data.references.map((item, i) => <li key={i}>{item}</li>)}
+        <div className="card-outcome" style={{ padding: '12px', borderRadius: '12px' }}>
+          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '12px' }}>REFERENCES & FEEDBACK</h5>
+          <ul className="list-disc pl-4 text-xs opacity-90" style={{ lineHeight: '1.4' }}>
+            {data.references.map((item, i) => <li key={i} style={{ marginBottom: '2px' }}>{item}</li>)}
           </ul>
         </div>
-        <div className="card-outcome p-6 border rounded-xl">
-          <h5 className="font-bold mb-4 text-teal-400">CAREER READINESS</h5>
-          <ul className="list-disc pl-5 space-y-2 text-sm opacity-90">
-            {data.readiness.map((item, i) => <li key={i}>{item}</li>)}
+        <div className="card-outcome" style={{ padding: '12px', borderRadius: '12px' }}>
+          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '12px' }}>CAREER READINESS</h5>
+          <ul className="list-disc pl-4 text-xs opacity-90" style={{ lineHeight: '1.4' }}>
+            {data.readiness.map((item, i) => <li key={i} style={{ marginBottom: '2px' }}>{item}</li>)}
           </ul>
         </div>
       </div>
 
       {/* Common Degree Info */}
-      <div className="mt-8 p-4 bg-white/10 rounded-lg border border-white/20">
-        <h5 className="font-bold mb-2">Recognised BBA Degree (Common)</h5>
-        <p className="text-sm">BBA degree from partner Online University — completed in parallel with the Working BBA Program (Let's Enterprise). Your child earns a recognised degree while gaining real experience.</p>
+      <div className="mt-4 p-3 bg-white/10 rounded-lg border border-white/20">
+        <h5 className="font-bold mb-1" style={{ fontSize: '12px' }}>Recognised BBA Degree (Common)</h5>
+        <p style={{ fontSize: '11px', lineHeight: '1.4' }}>
+          BBA degree from partner Online University — completed in parallel with the Working BBA Program (Let's Enterprise). {audience === 'parent' ? 'Your child earns' : 'You earn'} a recognised degree while gaining real experience.
+        </p>
       </div>
     </div>
   );
@@ -1534,9 +1544,12 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       )}
 
       {/* ===================== BEST FOR + PARENT CLARITY ===================== */}
-      <div className="pt-trackIntro" style={{ marginBottom: 16 }}>
+      <div className="pt-trackIntro pt-bestFor" style={{ marginBottom: 16 }}>
         <div className="pt-trackMeta">
-          <div className="pt-trackLine"><span className="lbl">Best for</span><span>{current.whoFor}</span></div>
+          <div className="pt-trackLine">
+            <span className="lbl" style={{ fontSize: '13px', fontWeight: 900, color: '#25BCBD' }}>Best for</span>
+            <span style={{ fontSize: '14px', fontWeight: 600 }}>{current.whoFor}</span>
+          </div>
         </div>
       </div>
 
@@ -1548,10 +1561,9 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 1 Foundation">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>YEAR 1 • GROWTH YEAR</strong>
-            <br />
-            <span className="pt-tealBox">Common for all 3 programs</span>
-            <div className="mt-2 text-lg opacity-80 font-normal">Foundation building</div>
+            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 1 • GROWTH YEAR</h2>
+            <span className="pt-tealBox" style={{ fontSize: '11px' }}>Common for all 3 programs</span>
+            <div style={{ marginTop: '4px', fontSize: '13px', opacity: 0.8, fontWeight: 400 }}>Foundation building</div>
           </div>
         </div>
 
@@ -1587,7 +1599,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       {/* ===================== PROGRESS REVIEW ===================== */}
       <div className="pt-progressCheck">
         <h4>Progress Review:</h4>
-        <p>{current.progressReview}</p>
+        <p>{audience === 'parent' ? current.progressReview : current.progressReview.replace(/parents receive/g, 'you receive').replace(/students and parents/g, 'you').replace(/Students who/g, 'If you')}</p>
       </div>
 
       {/* ===================== YEAR 2 ===================== */}
@@ -1595,12 +1607,11 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 2 Operations">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>YEAR 2 • PROJECTS YEAR</strong>
-            <br />
-            <span className="pt-tealBox">{current.name}</span>
-            <div className="mt-2 text-lg opacity-80 font-normal">Transition to Industry</div>
-            <div className="mt-3 text-sm opacity-90 font-light border-l-2 border-teal-500 pl-3">
-              → Your child tackles advanced challenges, runs a consulting project and a venture, completes a 2nd apprenticeship — then enters their program-specific Focus Area.
+            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 2 • PROJECTS YEAR</h2>
+            <span className="pt-tealBox" style={{ fontSize: '11px' }}>{current.name}</span>
+            <div style={{ marginTop: '4px', fontSize: '13px', opacity: 0.8, fontWeight: 400 }}>Transition to Industry</div>
+            <div style={{ marginTop: '6px', fontSize: '12px', opacity: 0.9, fontWeight: 300, borderLeft: '2px solid #25BCBD', paddingLeft: '8px' }}>
+              → {audience === 'parent' ? 'Your child tackles' : 'You tackle'} advanced challenges, {audience === 'parent' ? 'runs' : 'run'} a consulting project and a venture, {audience === 'parent' ? 'completes' : 'complete'} a 2nd apprenticeship — then {audience === 'parent' ? 'enters their' : 'enter your'} program-specific Focus Area.
             </div>
           </div>
         </div>
@@ -1647,17 +1658,16 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 3 Outcomes" style={{ marginTop: 20 }}>
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>YEAR 3 • WORK YEAR</strong>
-            <br />
-            <span className="pt-tealBox">{current.name}</span>
-            <div className="mt-2 text-lg opacity-80 font-normal">Deep Industry Immersion</div>
+            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 3 • WORK YEAR</h2>
+            <span className="pt-tealBox" style={{ fontSize: '11px' }}>{current.name}</span>
+            <div style={{ marginTop: '4px', fontSize: '13px', opacity: 0.8, fontWeight: 400 }}>Deep Industry Immersion</div>
           </div>
         </div>
 
         <div className="pt-body">
           {/* Intro */}
-          <p className="text-lg leading-relaxed mb-8 opacity-90 border-l-4 border-teal-400 pl-4">
-            {current.y3.intro}
+          <p style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '16px', opacity: 0.9, borderLeft: '4px solid #25BCBD', paddingLeft: '12px' }}>
+            {audience === 'parent' ? current.y3.intro : current.y3.intro.replace(/Your child/g, 'You').replace(/your child/g, 'you').replace(/completes/g, 'complete').replace(/spends/g, 'spend').replace(/their ultimate/g, 'your ultimate')}
           </p>
 
           {/* Common Core */}
@@ -1688,7 +1698,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
           <TrackingSection data={current.y3.tracking} year="Year 3" />
 
           {/* Graduation Outcome */}
-          <GradOutcomeSection data={current.y3.gradOutcome} />
+          <GradOutcomeSection data={current.y3.gradOutcome} audience={audience} />
 
           {/* Program Image Y3 */}
           {current.images?.y3 && (
