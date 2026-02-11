@@ -681,57 +681,66 @@ export default function WorkingBBAInteractive() {
 
               {/* HOW IT WORKS — CAPABILITY CARDS */}
               <div className="pt-osExplainer mb-6">
-                <h2 style={{ fontSize: 22, fontWeight: 800, color: '#fff', marginBottom: 6 }}>How It Works</h2>
-                <p className="text-white/90 text-lg leading-relaxed max-w-4xl">
-                  One integrated system that tracks and connects every part of your child's education and work experience—complete transparency, zero gaps.
+                <h2 style={{ fontSize: 18, fontWeight: 800, marginBottom: 6 }} className="hiw-heading">How It Works</h2>
+                <p className="hiw-intro" style={{ fontSize: '13px', lineHeight: 1.5, maxWidth: '720px', margin: '0 0 16px', opacity: 0.85 }}>
+                  {audience === 'parent'
+                    ? 'One integrated system that tracks and connects every part of your child\u2019s education and work experience\u2014complete transparency, zero gaps.'
+                    : 'One integrated system that tracks and connects every part of your education and work experience\u2014complete transparency, zero gaps.'}
                 </p>
               </div>
 
               {/* 6 Capability Cards */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 12 }}>
+              <div className="hiw-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 10 }}>
                 {[
-                  { icon: '🔧', title: 'Work Discipline', desc: 'Students build adult habits: punctuality, follow-through, hygiene, and weekly delivery. Not vibes. Not motivation. Output.' },
-                  { icon: '🗣️', title: 'Communication Under Pressure', desc: 'Updates, follow-ups, presentations, stakeholder calls—done repeatedly. They learn to speak clearly even when nervous.' },
-                  { icon: '📊', title: 'Real Business Execution', desc: 'Sales, operations, research, basic finance thinking, and structured problem-solving—done through challenges and real projects.' },
-                  { icon: '📁', title: 'Proof-Based Portfolio', desc: 'Everything is documented: docs, media, testimonials, feedback scores, and project outcomes. Proof beats potential.' },
-                  { icon: '🔄', title: 'Feedback Loops (Not Exams)', desc: 'Assessment happens through supervisors, clients, peers, facilitators—and real deliverables. They improve by being evaluated, not by cramming.' },
-                  { icon: '🧭', title: 'Career Clarity Through Work', desc: 'Students don\u2019t \u201cchoose\u201d blindly. They experience roles, environments, and expectations—then decide with evidence.' }
+                  { icon: '\ud83d\udd27', title: 'Work Discipline', desc: 'Students build adult habits: punctuality, follow-through, hygiene, and weekly delivery. Not vibes. Not motivation. Output.' },
+                  { icon: '\ud83d\udde3\ufe0f', title: 'Communication Under Pressure', desc: 'Updates, follow-ups, presentations, stakeholder calls\u2014done repeatedly. They learn to speak clearly even when nervous.' },
+                  { icon: '\ud83d\udcca', title: 'Real Business Execution', desc: 'Sales, operations, research, basic finance thinking, and structured problem-solving\u2014done through challenges and real projects.' },
+                  { icon: '\ud83d\udcc1', title: 'Proof-Based Portfolio', desc: 'Everything is documented: docs, media, testimonials, feedback scores, and project outcomes. Proof beats potential.' },
+                  { icon: '\ud83d\udd04', title: 'Feedback Loops (Not Exams)', desc: 'Assessment happens through supervisors, clients, peers, facilitators\u2014and real deliverables. They improve by being evaluated, not by cramming.' },
+                  { icon: '\ud83e\udded', title: 'Career Clarity Through Work', desc: 'Students don\u2019t \u201cchoose\u201d blindly. They experience roles, environments, and expectations\u2014then decide with evidence.' }
                 ].map((card, i) => (
-                  <div key={i} style={{
-                    background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.08)',
-                    borderRadius: 12, padding: 20, transition: 'all .2s ease'
-                  }}
-                    onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,.08)'; e.currentTarget.style.borderColor = 'rgba(37,188,189,.25)'; }}
-                    onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,.04)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,.08)'; }}
-                  >
-                    <div style={{ fontSize: 28, marginBottom: 8 }}>{card.icon}</div>
-                    <h4 style={{ fontSize: 15, fontWeight: 800, color: 'rgba(255,255,255,.95)', marginBottom: 6 }}>{card.title}</h4>
-                    <p style={{ fontSize: 13, color: 'rgba(255,255,255,.70)', lineHeight: 1.5, margin: 0 }}>{card.desc}</p>
+                  <div key={i} className="hiw-card">
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+                      <span style={{ fontSize: 22, lineHeight: 1 }}>{card.icon}</span>
+                      <h4 className="hiw-card-title" style={{ fontSize: 13, fontWeight: 800, margin: 0 }}>{card.title}</h4>
+                    </div>
+                    <p className="hiw-card-desc" style={{ fontSize: 12, lineHeight: 1.45, margin: 0, opacity: 0.75 }}>{card.desc}</p>
                   </div>
                 ))}
               </div>
 
               {/* Typical Week Schedule */}
-              <div style={{
-                background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.08)',
-                borderRadius: 12, padding: 20, marginTop: 16
-              }}>
-                <h4 style={{ fontSize: 15, fontWeight: 800, color: 'rgba(255,255,255,.95)', marginBottom: 10 }}>📅 Typical Week</h4>
-                <p style={{ fontSize: 14, color: '#25BCBD', fontWeight: 700, marginBottom: 4 }}>Monday to Friday: 10:00 AM – 5:00 PM</p>
-                <p style={{ fontSize: 14, color: '#25BCBD', fontWeight: 700, marginBottom: 12 }}>Saturday: 10:00 AM – 1:00 PM (student presentations + reviews)</p>
-                <ul style={{ margin: 0, paddingLeft: 20 }}>
-                  <li style={{ fontSize: 13, color: 'rgba(255,255,255,.75)', marginBottom: 4 }}>A structured weekly rhythm</li>
-                  <li style={{ fontSize: 13, color: 'rgba(255,255,255,.75)', marginBottom: 4 }}>Regular presentations and feedback loops</li>
-                  <li style={{ fontSize: 13, color: 'rgba(255,255,255,.75)', marginBottom: 0 }}>A culture of showing work, not just talking about it</li>
-                </ul>
+              <div className="hiw-section" style={{ borderRadius: 12, padding: '16px 20px', marginTop: 14 }}>
+                <h4 className="hiw-section-title" style={{ fontSize: 14, fontWeight: 800, marginBottom: 10 }}>📅 A Typical Week</h4>
+                <p className="hiw-section-subtitle" style={{ fontSize: 12, fontWeight: 700, color: '#25BCBD', marginBottom: 10 }}>Monday to Friday: 10:00 AM – 5:00 PM &nbsp;|&nbsp; Saturday: 10:00 AM – 1:00 PM</p>
+                <div className="hiw-week-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 8 }}>
+                  {[
+                    { day: 'Mon', items: ['Challenge / Project sprint', 'Team stand-up', 'Work blocks (3–4 hrs)', 'Daily Card reflection'] },
+                    { day: 'Tue', items: ['Skill track deep-work', 'Client project sessions', 'Peer review & feedback', 'Daily Card reflection'] },
+                    { day: 'Wed', items: ['Challenge sprint contd.', 'Masterminds / Coaching', 'Portfolio documentation', 'Daily Card reflection'] },
+                    { day: 'Thu', items: ['Apprenticeship prep', 'Stakeholder updates', 'Self-study blocks', 'Daily Card reflection'] },
+                    { day: 'Fri', items: ['Weekly deliverable wrap', 'Presentation prep', 'Feedback debrief', 'Daily Card reflection'] },
+                    { day: 'Sat', items: ['Student presentations', 'Industry jury review', 'Weekly progress score'] }
+                  ].map((d, i) => (
+                    <div key={i} className="hiw-day-card" style={{ borderRadius: 8, padding: '10px', textAlign: 'center' }}>
+                      <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 6, color: '#25BCBD' }}>{d.day}</div>
+                      {d.items.map((item, j) => (
+                        <div key={j} className="hiw-day-item" style={{ fontSize: 10, lineHeight: 1.35, marginBottom: 3, opacity: 0.8 }}>{item}</div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Comparison Table */}
-              <div style={{
-                background: 'rgba(255,255,255,.04)', border: '1px solid rgba(255,255,255,.08)',
-                borderRadius: 12, overflow: 'hidden', marginTop: 16
-              }}>
-                <h4 style={{ padding: '14px 20px 10px', margin: 0, fontSize: 15, fontWeight: 800, color: 'rgba(255,255,255,.95)', letterSpacing: '.5px', textTransform: 'uppercase' }}>Working BBA vs Typical BBA</h4>
+              <div className="hiw-section hiw-comparison" style={{ borderRadius: 12, overflow: 'hidden', marginTop: 14 }}>
+                <h4 className="hiw-section-title" style={{ padding: '12px 16px 8px', margin: 0, fontSize: 14, fontWeight: 800, letterSpacing: '.3px', textTransform: 'uppercase' }}>Working BBA vs Typical BBA</h4>
+                {/* Table Header */}
+                <div className="hiw-table-header" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr 1.5fr' }}>
+                  <div style={{ padding: '8px 12px', fontSize: 11, fontWeight: 800, opacity: 0.6 }}></div>
+                  <div style={{ padding: '8px 12px', fontSize: 11, fontWeight: 800, color: '#25BCBD', borderLeft: '1px solid var(--hiw-border)' }}>Working BBA</div>
+                  <div style={{ padding: '8px 12px', fontSize: 11, fontWeight: 800, opacity: 0.5, borderLeft: '1px solid var(--hiw-border)' }}>Typical BBA</div>
+                </div>
                 <div>
                   {[
                     { feature: 'Curriculum', le: 'Work + challenges + projects', typical: 'Mostly classroom theory' },
@@ -741,34 +750,30 @@ export default function WorkingBBAInteractive() {
                     { feature: 'Parent visibility', le: 'Ongoing evidence + progress signals', typical: 'Syllabus + grades' },
                     { feature: 'Outcome', le: 'Work-ready capability', typical: 'Degree + uncertain readiness' }
                   ].map((row, i) => (
-                    <div key={i} style={{
+                    <div key={i} className="hiw-table-row" style={{
                       display: 'grid', gridTemplateColumns: '1fr 1.5fr 1.5fr',
-                      borderTop: '1px solid rgba(255,255,255,.06)'
+                      borderTop: '1px solid var(--hiw-border)'
                     }}>
-                      <div style={{ padding: '10px 16px', fontSize: 13, fontWeight: 700, color: 'rgba(255,255,255,.85)' }}>{row.feature}</div>
-                      <div style={{ padding: '10px 16px', fontSize: 13, fontWeight: 600, color: 'rgba(37,188,189,.95)', borderLeft: '1px solid rgba(255,255,255,.06)' }}>{row.le}</div>
-                      <div style={{ padding: '10px 16px', fontSize: 13, fontWeight: 500, color: 'rgba(255,255,255,.45)', borderLeft: '1px solid rgba(255,255,255,.06)' }}>{row.typical}</div>
+                      <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 700 }}>{row.feature}</div>
+                      <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 600, color: '#25BCBD', borderLeft: '1px solid var(--hiw-border)' }}>{row.le}</div>
+                      <div className="hiw-typical" style={{ padding: '8px 12px', fontSize: 12, fontWeight: 500, opacity: 0.55, borderLeft: '1px solid var(--hiw-border)' }}>{row.typical}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Social Proof Quotes */}
-              <div style={{
-                background: 'rgba(37,188,189,.06)', border: '1px solid rgba(37,188,189,.12)',
-                borderRadius: 12, padding: 20, marginTop: 16
-              }}>
-                <h4 style={{ fontSize: 14, fontWeight: 800, color: '#25BCBD', marginBottom: 12, textTransform: 'uppercase', letterSpacing: '.5px' }}>What students say</h4>
+              <div className="hiw-section hiw-quotes" style={{ borderRadius: 12, padding: '16px 20px', marginTop: 14 }}>
+                <h4 style={{ fontSize: 13, fontWeight: 800, color: '#25BCBD', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '.3px' }}>What students say</h4>
                 {[
-                  { year: 'Y2', quote: '\u201cI used to wait for instructions. Now I just start.\u201d' },
-                  { year: 'Y2', quote: '\u201cIt\u2019s not easy. But it feels real.\u201d' },
-                  { year: 'Y3', quote: '\u201cDeadlines changed me. I don\u2019t like it\u2026 but I needed it.\u201d' },
-                  { year: 'Y3', quote: '\u201cI still get nervous. I just do it anyway.\u201d' },
-                  { year: 'Y2/Y3', quote: '\u201cMy parents stopped asking \u2018what are you studying?\u2019 Now they ask \u2018what did you build this week?\u2019\u201d' }
-                ].map((sp, i) => (
-                  <div key={i} style={{ marginBottom: i < 4 ? 10 : 0, paddingLeft: 12, borderLeft: '3px solid rgba(37,188,189,.30)' }}>
-                    <span style={{ fontSize: 11, fontWeight: 700, color: 'rgba(37,188,189,.70)', marginRight: 8 }}>{sp.year}</span>
-                    <span style={{ fontSize: 13, color: 'rgba(255,255,255,.80)', fontWeight: 500, fontStyle: 'italic' }}>{sp.quote}</span>
+                  '\u201cI used to wait for instructions. Now I just start.\u201d',
+                  '\u201cIt\u2019s not easy. But it feels real.\u201d',
+                  '\u201cDeadlines changed me. I don\u2019t like it\u2026 but I needed it.\u201d',
+                  '\u201cI still get nervous. I just do it anyway.\u201d',
+                  '\u201cMy parents stopped asking \u2018what are you studying?\u2019 Now they ask \u2018what did you build this week?\u2019\u201d'
+                ].map((quote, i) => (
+                  <div key={i} style={{ marginBottom: i < 4 ? 8 : 0, paddingLeft: 10, borderLeft: '3px solid rgba(37,188,189,.30)' }}>
+                    <span className="hiw-quote-text" style={{ fontSize: 12, fontWeight: 500, fontStyle: 'italic', opacity: 0.85 }}>{quote}</span>
                   </div>
                 ))}
               </div>
@@ -784,17 +789,16 @@ export default function WorkingBBAInteractive() {
 
 
 
-
             </div>
           )}
         </main>
 
         {/* PERSISTENT FOOTER BANNER */}
         <div className="pt-footerBanner">
-          <p>
+          <p style={{ color: '#fff' }}>
             {audience === 'parent'
-              ? <><strong style={{ color: '#25BCBD' }}>Students graduate with</strong> recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections — not just a marksheet</>
-              : <><strong style={{ color: '#25BCBD' }}>You graduate with</strong> a recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections — not just a marksheet</>
+              ? <><strong style={{ color: '#25BCBD' }}>Students graduate with</strong> recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections \u2014 not just a marksheet</>
+              : <><strong style={{ color: '#25BCBD' }}>You graduate with</strong> a recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections \u2014 not just a marksheet</>
             }
           </p>
         </div>

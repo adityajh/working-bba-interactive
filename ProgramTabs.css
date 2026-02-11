@@ -1601,6 +1601,138 @@ summary.pt-sumRow::-webkit-details-marker {
     }
 }
 
+/* ========== HOW IT WORKS TAB ========== */
+:root {
+    --hiw-border: rgba(255, 255, 255, .10);
+}
+
+.hiw-heading {
+    color: #fff;
+}
+
+.hiw-intro {
+    color: rgba(255, 255, 255, .85);
+}
+
+.hiw-card {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: all .2s ease;
+}
+
+.hiw-card:hover {
+    background: rgba(255, 255, 255, .08);
+    border-color: rgba(37, 188, 189, .30);
+}
+
+.hiw-card-title {
+    color: rgba(255, 255, 255, .95);
+}
+
+.hiw-card-desc {
+    color: rgba(255, 255, 255, .65);
+}
+
+.hiw-section {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .10);
+}
+
+.hiw-section-title {
+    color: rgba(255, 255, 255, .95);
+}
+
+.hiw-day-card {
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.hiw-day-item {
+    color: rgba(255, 255, 255, .75);
+}
+
+.hiw-table-row,
+.hiw-table-header {
+    color: rgba(255, 255, 255, .85);
+}
+
+.hiw-typical {
+    color: rgba(255, 255, 255, .45);
+}
+
+.hiw-quote-text {
+    color: rgba(255, 255, 255, .80);
+}
+
+/* ── Light mode overrides for How It Works ── */
+.pt-scope.light-theme .hiw-heading {
+    color: #0f172a;
+}
+
+.pt-scope.light-theme .hiw-intro {
+    color: #334155;
+}
+
+.pt-scope.light-theme .hiw-card {
+    background: #fff;
+    border: 1px solid #cbd5e1;
+}
+
+.pt-scope.light-theme .hiw-card:hover {
+    background: #f1f5f9;
+    border-color: #25BCBD;
+}
+
+.pt-scope.light-theme .hiw-card-title {
+    color: #0f172a;
+}
+
+.pt-scope.light-theme .hiw-card-desc {
+    color: #475569;
+}
+
+.pt-scope.light-theme .hiw-section {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+}
+
+.pt-scope.light-theme .hiw-section-title {
+    color: #0f172a;
+}
+
+.pt-scope.light-theme .hiw-day-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+}
+
+.pt-scope.light-theme .hiw-day-item {
+    color: #475569;
+}
+
+.pt-scope.light-theme {
+    --hiw-border: #e2e8f0;
+}
+
+.pt-scope.light-theme .hiw-table-row,
+.pt-scope.light-theme .hiw-table-header {
+    color: #1e293b;
+}
+
+.pt-scope.light-theme .hiw-typical {
+    color: #64748b;
+}
+
+.pt-scope.light-theme .hiw-quote-text {
+    color: #334155;
+}
+
+.pt-scope.light-theme .hiw-quotes {
+    background: rgba(37, 188, 189, .06);
+    border-color: rgba(37, 188, 189, .15);
+}
+
 /* ========== PERSISTENT FOOTER BANNER ========== */
 .pt-footerBanner {
     margin-top: 32px;
@@ -1624,6 +1756,15 @@ summary.pt-sumRow::-webkit-details-marker {
 .pt-footerBanner strong {
     color: #25BCBD;
     font-weight: 800;
+}
+
+/* Force footer text white in light mode (overrides the broad light-theme p rule) */
+.pt-scope.light-theme .pt-footerBanner p {
+    color: #fff !important;
+}
+
+.pt-scope.light-theme .pt-footerBanner strong {
+    color: #25BCBD !important;
 }
 
 /* ========== BOOKING MODAL ========== */
