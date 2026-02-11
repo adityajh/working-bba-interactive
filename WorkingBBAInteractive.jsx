@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './ProgramTabs.css';
 import './LightMode.css';
 
@@ -11,6 +11,11 @@ export default function WorkingBBAInteractive() {
 
   const openBooking = (section, label) => setBookingModal({ section, label });
   const closeBooking = () => setBookingModal(null);
+
+  // Theme auto-switch based on audience
+  useEffect(() => {
+    setIsDarkMode(audience === 'student');
+  }, [audience]);
 
   // Brand Colors from LE Guidelines (Strict Scale)
   const brandColors = {
@@ -582,13 +587,17 @@ export default function WorkingBBAInteractive() {
 
   // RENDER
   return (
-    <div className={`pt-scope${isDarkMode ? '' : ' light-mode'}`}>
+    <div className={`pt-scope ${isDarkMode ? 'dark-theme' : 'light-theme'}`}>
       <div className="pt-wrap">
         {/* HEADER */}
         <header className="pt-top">
           <div className="pt-brand">
             <div className="pt-logo" aria-label="Let's Enterprise logo">
-              <img src="/Let's-Enterprise-Final-Logo_PNG.png" alt="Let's Enterprise" style={{ height: '62px', width: 'auto', filter: 'none' }} />
+              <img
+                src={isDarkMode ? "/Let's-Enterprise-Final-Logo_PNG.png" : "/Let's-Enterprise-Final-Logo_LightMode.png"}
+                alt="Let's Enterprise"
+                style={{ height: '62px', width: 'auto', filter: 'none' }}
+              />
             </div>
           </div>
 
@@ -612,20 +621,15 @@ export default function WorkingBBAInteractive() {
               </button>
             </div>
 
-            {/* Theme Toggle Button */}
-            <button
-              className="pt-theme-toggle"
-              onClick={() => setIsDarkMode(!isDarkMode)}
-              aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-              title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDarkMode ? '☀️' : '🌙'}
-            </button>
           </div>
 
           <div>
             <h1 className="pt-headline">India’s First Working BBA</h1>
-            <div className="pt-sub"><strong>Work is the Curriculum.</strong> A 3-year business program where students learn by working—faster than any traditional BBA.</div>
+            <div className="pt-sub">
+              <strong>Work is the Curriculum.</strong> A 3-year business program where students learn by working—faster than any traditional BBA.
+              <br /><br />
+              Graduate with a Working BBA Program (Let's Enterprise) + UGC Approved Online University BBA Degree
+            </div>
             <div className="pt-chips" aria-label="Program pillars">
               <span className="pt-chip"><span className="pt-dot"></span> Learn by working</span>
               <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Real apprenticeships</span>
@@ -792,47 +796,49 @@ export default function WorkingBBAInteractive() {
 
         {/* PERSISTENT FOOTER BANNER */}
         <div className="pt-footerBanner">
-          <p>Students graduate with a <strong>portfolio, references, and real work experience</strong> — not just a marksheet.</p>
+          <p>Students graduate with recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections - not just a marksheet</p>
         </div>
-      </div>
+      </div >
 
       {/* Element Detail Modal */}
-      <ElementModal />
+      < ElementModal />
 
       {/* ===================== BOOKING MODAL ===================== */}
-      {bookingModal && (() => {
-        const contextDescriptions = {
-          howItWorks: 'You were exploring how the program works — let\u2019s walk you through it live.',
-          challenges: 'The 9 Challenges caught your eye — let\u2019s talk about what Year 1 looks like.',
-          portfolio: 'You\u2019re curious about the proof students graduate with — great place to start.',
-          final: 'You\u2019ve seen enough — let\u2019s find out if this is the right fit.'
-        };
-        const contextLine = contextDescriptions[bookingModal.section] || 'Let\u2019s connect and answer any questions you have.';
+      {
+        bookingModal && (() => {
+          const contextDescriptions = {
+            howItWorks: 'You were exploring how the program works — let\u2019s walk you through it live.',
+            challenges: 'The 9 Challenges caught your eye — let\u2019s talk about what Year 1 looks like.',
+            portfolio: 'You\u2019re curious about the proof students graduate with — great place to start.',
+            final: 'You\u2019ve seen enough — let\u2019s find out if this is the right fit.'
+          };
+          const contextLine = contextDescriptions[bookingModal.section] || 'Let\u2019s connect and answer any questions you have.';
 
-        return (
-          <div className="bk-overlay" onClick={closeBooking}>
-            <div className="bk-modal" onClick={e => e.stopPropagation()}>
-              <button className="bk-close" onClick={closeBooking}>&times;</button>
+          return (
+            <div className="bk-overlay" onClick={closeBooking}>
+              <div className="bk-modal" onClick={e => e.stopPropagation()}>
+                <button className="bk-close" onClick={closeBooking}>&times;</button>
 
-              <div className="bk-header">
-                <h3>Book a Call</h3>
-                <p className="bk-context">{contextLine}</p>
-              </div>
+                <div className="bk-header">
+                  <h3>Book a Call</h3>
+                  <p className="bk-context">{contextLine}</p>
+                </div>
 
-              <div className="bk-zoho">
-                <iframe
-                  src="https://letsenterprise.zohobookings.com/portal-embed#/Admissionhelp"
-                  title="Book a Call — Zoho Bookings"
-                  frameBorder="0"
-                  allowFullScreen
-                  style={{ width: '100%', height: 520, border: 'none', borderRadius: 8 }}
-                />
+                <div className="bk-zoho">
+                  <iframe
+                    src="https://letsenterprise.zohobookings.com/portal-embed#/Admissionhelp"
+                    title="Book a Call — Zoho Bookings"
+                    frameBorder="0"
+                    allowFullScreen
+                    style={{ width: '100%', height: 520, border: 'none', borderRadius: 8 }}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })()}
-    </div>
+          );
+        })()
+      }
+    </div >
   );
 }
 
@@ -1010,20 +1016,49 @@ const programData = {
       { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
       { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
     ],
-    y2: [
-      { t: 'Immersion', h: 'Solo Travel Project', d: '1-week independent service project' },
-      { t: 'Coaching', h: 'StorySells 2', d: 'Personal branding & narrative building' },
-      { t: 'Skills', h: 'Advanced Challenges', d: 'Data analysis, automation & prototyping' },
-      { t: 'Employer', h: 'Outstation Apprenticeship', d: '9 weeks in a new city with broader exposure' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Deeper industry immersion (Common Core)' },
-      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, systems' }
-    ],
-    y3: [
-      { t: 'Client', h: 'Client Multi-domain Project', d: 'Integrated marketing, data & legal outcome' },
-      { t: 'Skills', h: 'Final Challenges', d: 'Business ethics, governance & legal aspects' },
-      { t: 'Coaching', h: 'StorySells 3', d: 'Purpose, values & transition planning' },
-      { t: 'Employer', h: '9-Month Capstone Role', d: 'Full-time role: output + references' }
-    ]
+    y2: {
+      common: [
+        { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
+        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — real consulting engagement with a client company (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
+        { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
+      ],
+      skills: [
+        { t: 'Skills & Coaching', h: 'Camp', d: 'Solo Travel Service Project (typically ~3–7 days) — independent immersion experience' },
+        { t: 'Skills & Coaching', h: 'Career + Reflection', d: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
+      ],
+      focus: [
+        { t: 'Program Focus', h: 'Outstation Apprenticeship', d: 'Work in a new city with a different employer — broader exposure and network (typically ~2–3 months)' }
+      ],
+      tracking: {
+        visibility: 'Quarterly portfolio reviews · Client & employer feedback reports · Industry ratings from apprenticeship hosts · Skills progression dashboard',
+        evidence: 'Advanced challenge artefacts + consulting deliverable + venture experiment report + apprenticeship feedback + focus‑area samples + quarterly portfolio reviews'
+      }
+    },
+    y3: {
+      intro: 'Your child completes a final client project and 2 capstone challenges, then spends 9 months in their ultimate specialisation — the defining experience of the program.',
+      common: [
+        { t: 'Common Core', h: 'Client Multi-domain Project', d: 'Integrated project or team residency covering marketing, data analysis, legal aspects, client management (typically 4–8 weeks)' },
+        { t: 'Common Core', h: 'Final Challenges', d: 'Legal Aspects of Business + Business Ethics & Governance (typically 2–4 weeks total)' },
+        { t: 'Common Core', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business' }
+      ],
+      skills: [
+        { t: 'Coaching', h: 'Career Coaching', d: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
+      ],
+      focus: [
+        { t: 'Program Focus', h: '9‑Month Capstone', d: 'Entrepreneurial Jobs: full‑time apprenticeship role with clear outputs + strong references' }
+      ],
+      tracking: {
+        visibility: '9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry benchmark comparison · Career readiness certification',
+        evidence: 'Integrated client deliverable + capstone outputs (performance reviews / KPIs / venture traction) + references + final portfolio + readiness certification'
+      },
+      gradOutcome: {
+        portfolio: ['Client project deliverables with measurable results', 'Apprentice work samples across industries', '15 challenge outputs'],
+        references: ['Recommendation letters from 3+ company managers', 'Client feedback scores', 'Industry ratings from hosts'],
+        readiness: ['Business operations roles at ₹8-12L+', 'Project management readiness', 'Professional network of 50+ contacts']
+      }
+    }
   },
   bf: {
     name: 'Business Family',
@@ -1155,29 +1190,69 @@ const programData = {
     // Legacy fields for compatibility
     promise: 'Succession readiness + family alignment.',
     outcome: 'Ready to take responsibility inside the family business—with alignment and proof.',
-    y1: [
-      { t: 'Immersion', h: 'Self-Awareness Camp + Rural Project', d: '3-day workshop + 7-day rural immersion' },
-      { t: 'Coaching', h: 'Career Blueprint ×4', d: 'Skills mapping & goal setting' },
-      { t: 'Network', h: 'Regen Networking Week', d: 'Connecting with industry professionals' },
-      { t: 'Skills', h: 'StorySells 1', d: 'Portfolio refinement & LinkedIn branding' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
-      { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
-    ],
-    y2: [
-      { t: 'Immersion', h: 'Solo Travel Project', d: '1-week independent service project' },
-      { t: 'Coaching', h: 'StorySells 2', d: 'Personal branding & narrative building' },
-      { t: 'Skills', h: 'Advanced Challenges', d: 'Data analysis, automation & prototyping' },
-      { t: 'Employer', h: 'Family Business Project', d: '2 months inside another family business' },
-      { t: 'Coaching', h: 'Family Coaching ×2', d: 'Alignment + expectations' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Deeper industry immersion (Common Core)' },
-      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, systems' }
-    ],
-    y3: [
-      { t: 'Client', h: 'Client Multi-domain Project', d: 'Integrated marketing, data & legal outcome' },
-      { t: 'Skills', h: 'Final Challenges', d: 'Business ethics, governance & legal aspects' },
-      { t: 'Coaching', h: 'StorySells 3', d: 'Purpose, values & transition planning' },
-      { t: 'Capstone', h: '9-month Family Business Project', d: 'Real KPI + ownership inside family biz' }
-    ]
+
+    y1: {
+      workExp: [
+        { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
+        { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (typically ~2–3 months)' },
+        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 from: Prompt Engineering, User Research, Data Analysis — self-paced deep skill building' }
+      ],
+      skills: [
+        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (7 days)' },
+        { t: 'Self-Reflection', h: 'Conflex-ion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
+        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week with professionals (typically ~3–7 days)' },
+        { t: 'Career Coaching', h: 'Career Blueprint sessions', d: '4 individual sessions — mapping skills, interests, and goals into an actionable career path' },
+        { t: 'StorySells Workshop 1', h: 'Portfolio & LinkedIn', d: '3 days: crafting your professional story' }
+      ]
+    },
+    y2: {
+      common: [
+        { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
+        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — real consulting engagement with a client company (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
+        { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
+      ],
+      skills: [
+        { t: 'Skills & Coaching', h: 'Camp', d: 'Solo Travel Service Project (typically ~3–7 days) — independent immersion experience' },
+        { t: 'Skills & Coaching', h: 'Career + Reflection', d: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
+      ],
+      focus: [
+        { t: 'Program Focus', h: 'Family Business Project', d: 'Work inside another family\'s business — learn how others do it (2 months)' },
+        { t: 'Program Focus', h: 'Founder Led Workshop', d: 'Learn from experienced family business founders' },
+        { t: 'Program Focus', h: 'Business Coaching', d: '2 Individual + 2 Family coaching sessions (Family alignment & expectations)' }
+      ],
+      tracking: {
+        visibility: 'Quarterly portfolio reviews · Client & employer feedback reports · Industry ratings from apprenticeship hosts · Skills progression dashboard',
+        evidence: 'Advanced challenge artefacts + consulting deliverable + venture experiment report + apprenticeship feedback + focus‑area samples + quarterly portfolio reviews'
+      }
+    },
+    y3: {
+      intro: 'Your child completes a final client project and 2 capstone challenges, then spends 9 months in their ultimate specialisation — the defining experience of the program.',
+      common: [
+        { t: 'Common Core', h: 'Client Multi-domain Project', d: 'Integrated project or team residency covering marketing, data analysis, legal aspects, client management (typically 4–8 weeks)' },
+        { t: 'Common Core', h: 'Final Challenges', d: 'Legal Aspects of Business + Business Ethics & Governance (typically 2–4 weeks total)' },
+        { t: 'Common Core', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business' }
+      ],
+      skills: [
+        { t: 'Coaching', h: 'Career Coaching', d: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
+      ],
+      focus: [
+        { t: 'Program Focus', h: '9-Month Family Business Project', d: 'Work inside your own family\'s business, Own real KPIs and deliver real outcomes., Graduate ready for succession.' },
+        { t: 'Program Focus', h: 'Founder-Led Workshop', d: '3-day Founder Led Business Transition Workshop, How successful families navigate transitions' },
+        { t: 'Program Focus', h: 'Business Coaching', d: '6 Individual + 2 Family sessions, Focus: Succession & Integration' }
+      ],
+      tracking: {
+        visibility: '9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry benchmark comparison · Career readiness certification',
+        evidence: 'Integrated client deliverable + capstone outputs (performance reviews / KPIs / venture traction) + references + final portfolio + readiness certification'
+      },
+      gradOutcome: {
+        portfolio: ['Family business process improvements', 'Cross-family project documentation', 'Professional skill evidence'],
+        references: ['Management feedback from family business owners', 'Cross-family mentor testimonials', 'Reliability records'],
+        readiness: ['Ready to join family business independently', 'Can manage a department or project', 'Aligned family expectations']
+      }
+    }
   },
   solo: {
     name: 'Venture Starters',
@@ -1299,29 +1374,68 @@ const programData = {
     // Legacy fields for compatibility
     promise: 'Customer validation + founder discipline.',
     outcome: 'Ready to build a real venture—customers, systems, and repeatability.',
-    y1: [
-      { t: 'Immersion', h: 'Self-Awareness Camp + Rural Project', d: '3-day workshop + 7-day rural immersion' },
-      { t: 'Coaching', h: 'Career Blueprint ×4', d: 'Skills mapping & goal setting' },
-      { t: 'Network', h: 'Regen Networking Week', d: 'Connecting with industry professionals' },
-      { t: 'Skills', h: 'StorySells 1', d: 'Portfolio refinement & LinkedIn branding' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (1)', d: 'Industry immersion + workplace dynamics' },
-      { t: 'Client', h: 'Client Project ×1', d: 'Learn sales, outreach and marketing' }
-    ],
-    y2: [
-      { t: 'Immersion', h: 'Solo Travel Project', d: '1-week independent service project' },
-      { t: 'Coaching', h: 'StorySells 2', d: 'Personal branding & narrative building' },
-      { t: 'Skills', h: 'Advanced Challenges', d: 'Data analysis, automation & prototyping' },
-      { t: 'Venture', h: 'Business Prototyping Project', d: '2 months building & testing venture idea' },
-      { t: 'Coaching', h: 'Venture Design Coaching ×2', d: 'Offer, pricing, distribution' },
-      { t: 'Employer', h: 'Mentored Apprenticeship (2)', d: 'Deeper industry immersion (Common Core)' },
-      { t: 'Client', h: 'Client Project ×2', d: 'Proposal making, deal negotiation, systems' }
-    ],
-    y3: [
-      { t: 'Client', h: 'Client Multi-domain Project', d: 'Integrated marketing, data & legal outcome' },
-      { t: 'Skills', h: 'Final Challenges', d: 'Business ethics, governance & legal aspects' },
-      { t: 'Coaching', h: 'StorySells 3', d: 'Purpose, values & transition planning' },
-      { t: 'Venture', h: '9-month Venture Building', d: 'Customers → systems → repeatability' }
-    ]
+    y1: {
+      workExp: [
+        { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
+        { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (typically ~2–3 months)' },
+        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 from: Prompt Engineering, User Research, Data Analysis — self-paced deep skill building' }
+      ],
+      skills: [
+        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (7 days)' },
+        { t: 'Self-Reflection', h: 'Conflex-ion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
+        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week with professionals (typically ~3–7 days)' },
+        { t: 'Career Coaching', h: 'Career Blueprint sessions', d: '4 individual sessions — mapping skills, interests, and goals into an actionable career path' },
+        { t: 'StorySells Workshop 1', h: 'Portfolio & LinkedIn', d: '3 days: crafting your professional story' }
+      ]
+    },
+    y2: {
+      common: [
+        { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
+        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — real consulting engagement with a client company (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
+        { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
+      ],
+      skills: [
+        { t: 'Skills & Coaching', h: 'Camp', d: 'Solo Travel Service Project (typically ~3–7 days) — independent immersion experience' },
+        { t: 'Skills & Coaching', h: 'Career + Reflection', d: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
+      ],
+      focus: [
+        { t: 'Program Focus', h: 'Program-Specific Experience', d: 'Family Business Project (2 months), Work inside another family\'s business — learn how others do it' },
+        { t: 'Program Focus', h: 'Founder-Led Venture Workshop', d: '2-day Founder Led Family Business Workshop, Learn from experienced family business founders' },
+        { t: 'Program Focus', h: 'Business Coaching', d: '2 Individual + 2 Family coaching sessions (Family alignment & expectations)' }
+      ],
+      tracking: {
+        visibility: 'Quarterly portfolio reviews · Client & employer feedback reports · Industry ratings from apprenticeship hosts · Skills progression dashboard',
+        evidence: 'Advanced challenge artefacts + consulting deliverable + venture experiment report + apprenticeship feedback + focus‑area samples + quarterly portfolio reviews'
+      }
+    },
+    y3: {
+      intro: 'Your child completes a final client project and 2 capstone challenges, then spends 9 months in their ultimate specialisation — the defining experience of the program.',
+      common: [
+        { t: 'Common Core', h: 'Client Multi-domain Project', d: 'Integrated project or team residency covering marketing, data analysis, legal aspects, client management (typically 4–8 weeks)' },
+        { t: 'Common Core', h: 'Final Challenges', d: 'Legal Aspects of Business + Business Ethics & Governance (typically 2–4 weeks total)' },
+        { t: 'Common Core', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business' }
+      ],
+      skills: [
+        { t: 'Coaching', h: 'Career Coaching', d: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
+      ],
+      focus: [
+        { t: 'Program Focus', h: '9-Month Venture Building', d: 'Build your own business from scratch., Find customers, build systems, create repeatability., Graduate with a running business or proven capability.' },
+        { t: 'Program Focus', h: 'Founder-Led Workshop', d: '3-day Founder Led Business Incubation Workshop, How founders scale from idea to traction' },
+        { t: 'Program Focus', h: 'Business Coaching', d: '7 Individual + 1 Family sessions, Focus: Growth & Resilience' }
+      ],
+      tracking: {
+        visibility: '9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry benchmark comparison · Career readiness certification',
+        evidence: 'Integrated client deliverable + capstone outputs (performance reviews / KPIs / venture traction) + references + final portfolio + readiness certification'
+      },
+      gradOutcome: {
+        portfolio: ['Business plan with real customer data', 'Financial records and systems', 'Product/service documentation'],
+        references: ['Customer testimonials', 'Mentor feedback', 'Business performance metrics'],
+        readiness: ['Continue growing own venture', 'Join early-stage companies', 'Proven business-building capability']
+      }
+    }
   }
 };
 
@@ -1330,23 +1444,64 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
   const current = programData[programKey];
   const [expandedChallenge, setExpandedChallenge] = useState(null);
 
-  const renderDelta = (list) => {
-    return list.map((x, i) => {
-      const isTeal = x.t === 'Client' || x.t === 'Coaching' || x.t === 'Coach';
-      return (
-        <div key={i} className={`pt-card${isTeal ? ' teal' : ''}`}>
-          <div className="t">{x.t}</div>
-          <div className="h">{x.h}</div>
+  const renderDelta = (list, variantClass) => {
+    if (!list) return null;
+    return list.map((x, i) => (
+      <div key={i} className={`pt-card ${variantClass || ''}`}>
+        <div className="t">{x.t}</div>
+        <div className="h">{x.h}</div>
+        {x.d && x.d.includes(' · ') ? (
+          <ul className="d-list" style={{ marginTop: '8px', paddingLeft: '14px', listStyle: 'disc', fontSize: '11px', lineHeight: '1.4', color: 'inherit' }}>
+            {x.d.split(' · ').map((item, idx) => (
+              <li key={idx} style={{ marginBottom: '2px' }}>{item}</li>
+            ))}
+          </ul>
+        ) : (
           <div className="d">{x.d}</div>
-        </div>
-      );
-    });
+        )}
+      </div>
+    ));
   };
+  const TrackingSection = ({ data, year }) => (
+    <div className="pt-progress-tracking">
+      <h4>How We Track Progress ({year})</h4>
+      <p><strong>Progress Visibility:</strong> {data.visibility}</p>
+      <div className="pt-evidence-list">
+        <p><strong>Evidence produced ({year}):</strong> {data.evidence}</p>
+      </div>
+    </div>
+  );
 
-  const renderList = (items) => (
-    <ul>
-      {items.map((item, i) => <li key={i}>{item}</li>)}
-    </ul>
+  const GradOutcomeSection = ({ data }) => (
+    <div className="pt-grad-outcome">
+      <h3 className="text-2xl font-bold mb-6">WHAT YOUR CHILD GRADUATES WITH</h3>
+      <div className="pt-grad-grid">
+        <div className="card-outcome p-6 border rounded-xl">
+          <h5 className="font-bold mb-4 text-teal-400">WORK PORTFOLIO</h5>
+          <ul className="list-disc pl-5 space-y-2 text-sm opacity-90">
+            {data.portfolio.map((item, i) => <li key={i}>{item}</li>)}
+          </ul>
+        </div>
+        <div className="card-outcome p-6 border rounded-xl">
+          <h5 className="font-bold mb-4 text-teal-400">REFERENCES & FEEDBACK</h5>
+          <ul className="list-disc pl-5 space-y-2 text-sm opacity-90">
+            {data.references.map((item, i) => <li key={i}>{item}</li>)}
+          </ul>
+        </div>
+        <div className="card-outcome p-6 border rounded-xl">
+          <h5 className="font-bold mb-4 text-teal-400">CAREER READINESS</h5>
+          <ul className="list-disc pl-5 space-y-2 text-sm opacity-90">
+            {data.readiness.map((item, i) => <li key={i}>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+
+      {/* Common Degree Info */}
+      <div className="mt-8 p-4 bg-white/10 rounded-lg border border-white/20">
+        <h5 className="font-bold mb-2">Recognised BBA Degree (Common)</h5>
+        <p className="text-sm">BBA degree from partner Online University — completed in parallel with the Working BBA Program (Let's Enterprise). Your child earns a recognised degree while gaining real experience.</p>
+      </div>
+    </div>
   );
 
   return (
@@ -1366,21 +1521,15 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       </div>
 
       {/* ===================== MYTH VS REALITY ===================== */}
+      {/* ===================== MYTH VS REALITY ===================== */}
       {current.mythReality && current.mythReality.pairs && (
         <div className="pt-mythReality">
-          <h4 className="pt-mythTitle">Myth vs Reality</h4>
-          <div className="pt-mythTable">
-            <div className="pt-mythRow pt-mythHeader">
-              <div className="pt-mythCell">❌ Myth</div>
-              <div className="pt-realityCell">✅ Reality</div>
+          {current.mythReality.pairs.map((pair, i) => (
+            <div key={i} className="pt-mythRow">
+              <span className="myth">Myth: {pair.myth}</span>
+              <span className="reality">Reality: {pair.reality}</span>
             </div>
-            {current.mythReality.pairs.map((pair, i) => (
-              <div key={i} className="pt-mythRow">
-                <div className="pt-mythCell">{pair.myth}</div>
-                <div className="pt-realityCell">{pair.reality}</div>
-              </div>
-            ))}
-          </div>
+          ))}
         </div>
       )}
 
@@ -1399,41 +1548,27 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 1 Foundation">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 1 • Foundation Building</strong>
-            <span className="pt-pill" style={{ background: 'rgba(37,188,189,0.2)', color: '#25BCBD' }}>Common for all 3 programs</span>
+            <strong>YEAR 1 • GROWTH YEAR</strong>
+            <br />
+            <span className="pt-tealBox">Common for all 3 programs</span>
+            <div className="mt-2 text-lg opacity-80 font-normal">Foundation building</div>
           </div>
         </div>
 
         <div className="pt-body">
-          {/* ===== 9 CHALLENGES GRID ===== */}
-          <h4 style={{ fontSize: 15, fontWeight: 800, color: 'rgba(255,255,255,.95)', marginBottom: 12 }}>The 9 Challenges of Year 1</h4>
-          <div className="pt-challengeGrid">
-            {year1Challenges.map((ch, i) => (
-              <div
-                key={i}
-                className={`pt-challengeCard${expandedChallenge === i ? ' expanded' : ''}`}
-                onClick={() => setExpandedChallenge(expandedChallenge === i ? null : i)}
-              >
-                <div className="ch-num">CHALLENGE {ch.num}</div>
-                <div className="ch-name">{ch.name}</div>
-                <div className="ch-sub">{ch.sub}</div>
-                <div className="ch-desc">{ch.desc}</div>
-                <span className="ch-toggle">{expandedChallenge === i ? '▲ Less' : '▼ More'}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="pt-ctaBlock">
-            <button className="pt-ctaBtn" onClick={() => onCTA('challenges', ctaCopy.challenges[audience])}>{ctaCopy.challenges[audience]} →</button>
-          </div>
-
-
-
-          {/* NEW: Year 1 Delta Cards */}
-          <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
-            <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 1</div>
+          {/* Work Experience (Deep Blue) */}
+          <div className="mt-6">
+            <h4 className="text-xl font-bold mb-4 text-[#334c91]">Work Experience</h4>
             <div className="pt-deltaCards">
-              {renderDelta(current.y1)}
+              {renderDelta(current.y1.workExp, 'card-delta-common')}
+            </div>
+          </div>
+
+          {/* Skills & Coaching (Teal) */}
+          <div className="mt-8">
+            <h4 className="text-xl font-bold mb-4 text-[#25BCBD]">Skills, Self-Discovery & Career Coaching</h4>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y1.skills, 'card-delta-skills')}
             </div>
           </div>
 
@@ -1456,24 +1591,47 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       </div>
 
       {/* ===================== YEAR 2 ===================== */}
-      <section className="pt-section pt-year" aria-label="Year 2 Business Operations" style={{ marginTop: 20 }}>
+      {/* ===================== YEAR 2 ===================== */}
+      <section className="pt-section pt-year" aria-label="Year 2 Operations">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 2 • {programKey === 'original' ? 'Business Operations' : programKey === 'bf' ? 'Family Business Skills' : 'Building Business Systems'}</strong>
-            <span className="pt-pill">Program focus</span>
+            <strong>YEAR 2 • PROJECTS YEAR</strong>
+            <br />
+            <span className="pt-tealBox">{current.name}</span>
+            <div className="mt-2 text-lg opacity-80 font-normal">Transition to Industry</div>
+            <div className="mt-3 text-sm opacity-90 font-light border-l-2 border-teal-500 pl-3">
+              → Your child tackles advanced challenges, runs a consulting project and a venture, completes a 2nd apprenticeship — then enters their program-specific Focus Area.
+            </div>
           </div>
         </div>
 
         <div className="pt-body">
-
-
-          {/* Legacy program specifics */}
-          <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
-            <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 2</div>
+          {/* Common Core */}
+          <div className="mt-6">
+            <h4 className="text-xl font-bold mb-4 text-[#334c91]">Common Business Core</h4>
             <div className="pt-deltaCards">
-              {renderDelta(current.y2)}
+              {renderDelta(current.y2.common, 'card-delta-common')}
             </div>
           </div>
+
+          {/* Skills */}
+          <div className="mt-8">
+            <h4 className="text-xl font-bold mb-4 text-[#25BCBD]">Skills, Self-Discovery & Coaching</h4>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y2.skills, 'card-delta-skills')}
+            </div>
+          </div>
+
+          {/* Program Focus */}
+          <div className="mt-8">
+            <h4 className="text-xl font-bold mb-4 text-[#3663AD]">Program Focus — {current.name}</h4>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y2.focus, 'card-delta-focus')}
+            </div>
+          </div>
+
+          {/* Tracking */}
+          <TrackingSection data={current.y2.tracking} year="Year 2" />
 
           {/* Program Image Y2 */}
           {current.images?.y2 && (
@@ -1489,31 +1647,48 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 3 Outcomes" style={{ marginTop: 20 }}>
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <strong>Year 3 • {programKey === 'original' ? 'Job Readiness' : programKey === 'bf' ? 'Handover-Ready Capability' : 'Venture Progress or Capability'}</strong>
-            <span className="pt-pill">Outcome focus</span>
+            <strong>YEAR 3 • WORK YEAR</strong>
+            <br />
+            <span className="pt-tealBox">{current.name}</span>
+            <div className="mt-2 text-lg opacity-80 font-normal">Deep Industry Immersion</div>
           </div>
         </div>
 
         <div className="pt-body">
+          {/* Intro */}
+          <p className="text-lg leading-relaxed mb-8 opacity-90 border-l-4 border-teal-400 pl-4">
+            {current.y3.intro}
+          </p>
 
-          <div className="pt-yearContent" style={{ marginTop: 12 }}>
-            <div className="pt-contentBlock">
-              <h5>{programKey === 'original' ? 'Portfolio + references include' : programKey === 'bf' ? 'Evidence you can expect' : 'Either outcome demonstrates'}</h5>
-              {renderList(current.year3Content.portfolio)}
-            </div>
-            <div className="pt-contentBlock">
-              <h5>{programKey === 'original' ? 'Typical job placements' : programKey === 'bf' ? 'Readiness outcomes' : 'Possible paths'}</h5>
-              {renderList(current.year3Content.placements)}
-            </div>
-          </div>
-
-          {/* Legacy program capstone */}
-          <div className="pt-panel deltaPanel" style={{ marginTop: 16 }}>
-            <div className="pt-panelTitle">CAPSTONE ACTIVITIES YEAR 3</div>
+          {/* Common Core */}
+          <div className="mt-6">
+            <h4 className="text-xl font-bold mb-4 text-[#334c91]">Common Business Core</h4>
             <div className="pt-deltaCards">
-              {renderDelta(current.y3)}
+              {renderDelta(current.y3.common, 'card-delta-common')}
             </div>
           </div>
+
+          {/* Skills */}
+          <div className="mt-8">
+            <h4 className="text-xl font-bold mb-4 text-[#25BCBD]">Career Coaching & Narrative Making</h4>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y3.skills, 'card-delta-skills')}
+            </div>
+          </div>
+
+          {/* Program Focus */}
+          <div className="mt-8">
+            <h4 className="text-xl font-bold mb-4 text-[#3663AD]">Program Focus — {current.name}</h4>
+            <div className="pt-deltaCards">
+              {renderDelta(current.y3.focus, 'card-delta-focus')}
+            </div>
+          </div>
+
+          {/* Tracking */}
+          <TrackingSection data={current.y3.tracking} year="Year 3" />
+
+          {/* Graduation Outcome */}
+          <GradOutcomeSection data={current.y3.gradOutcome} />
 
           {/* Program Image Y3 */}
           {current.images?.y3 && (

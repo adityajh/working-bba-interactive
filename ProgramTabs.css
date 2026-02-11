@@ -1302,74 +1302,38 @@ summary.pt-sumRow::-webkit-details-marker {
 /* ========== MYTH VS REALITY TABLE ========== */
 .pt-mythReality {
     margin: 16px 0;
-    border-radius: var(--r2);
-    overflow: hidden;
-    background: rgba(255, 255, 255, .04);
-    border: 1px solid rgba(255, 255, 255, .08);
-}
-
-.pt-mythTitle {
-    padding: 14px 20px 10px;
-    margin: 0;
-    font-size: 15px;
-    font-weight: 800;
-    color: rgba(255, 255, 255, .95);
-    letter-spacing: .5px;
-    text-transform: uppercase;
-}
-
-.pt-mythTable {
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
 .pt-mythRow {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0;
-    border-top: 1px solid rgba(255, 255, 255, .06);
-}
-
-.pt-mythRow.pt-mythHeader {
-    background: rgba(255, 255, 255, .06);
-    border-top: none;
-}
-
-.pt-mythRow.pt-mythHeader .pt-mythCell,
-.pt-mythRow.pt-mythHeader .pt-realityCell {
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: .5px;
-    text-transform: uppercase;
-    padding: 10px 16px;
-}
-
-.pt-mythCell {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 8px;
     padding: 12px 16px;
-    font-size: 13px;
-    color: rgba(231, 76, 60, .90);
-    font-weight: 600;
-    line-height: 1.4;
-    border-right: 1px solid rgba(255, 255, 255, .06);
+    gap: 6px;
 }
 
-.pt-realityCell {
-    padding: 12px 16px;
-    font-size: 13px;
-    color: rgba(37, 188, 189, .95);
+.myth {
+    color: #ef4444;
+    /* Red for Myth */
     font-weight: 600;
-    line-height: 1.4;
+    font-size: 14px;
 }
 
-@media (max-width: 640px) {
-    .pt-mythRow {
-        grid-template-columns: 1fr;
-    }
+.reality {
+    color: #10b981;
+    /* Teal/Green for Reality */
+    font-weight: 600;
+    font-size: 14px;
+}
 
-    .pt-mythCell {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, .04);
-    }
+.pt-scope.light-theme .pt-mythRow {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* ========== 9 CHALLENGES GRID ========== */
@@ -1839,4 +1803,249 @@ summary.pt-sumRow::-webkit-details-marker {
     .bk-header h3 {
         font-size: 20px;
     }
+}
+
+/* --- V5 Theme & Style Updates --- */
+
+/* Parent Mode (Light) - Overrides */
+.pt-scope.light-theme {
+    --bg: #f1f5f9;
+    --card: #ffffff;
+    --card2: #f8fafc;
+    --stroke: rgba(15, 23, 42, 0.12);
+    /* Visible dark border */
+    --muted: #475569;
+    --muted2: #64748b;
+    --white: #0f172a;
+    /* Text becomes dark */
+    --ink: #0f172a;
+    /* Primary text color */
+
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    background: var(--bg);
+    color: var(--ink);
+}
+
+/* Typography Updates */
+.pt-mythReality .pt-pair {
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.pt-mythReality .pt-myth,
+.pt-mythReality .pt-reality {
+    font-size: 1.15rem;
+}
+
+.pt-myth::before {
+    content: '✗ ';
+    color: #ef4444;
+    font-weight: 800;
+    margin-right: 8px;
+}
+
+.pt-reality::before {
+    content: '✓ ';
+    color: #10b981;
+    font-weight: 800;
+    margin-right: 8px;
+}
+
+.pt-yearHead h2 {
+    font-size: 3rem;
+    /* Increased size */
+}
+
+.pt-yearHead .pt-tealBox {
+    background: rgba(37, 188, 189, 0.15);
+    color: #0da3bc;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+/* Card Variants */
+.card-delta-common {
+    border-top: 3px solid var(--c2);
+    background: linear-gradient(180deg, rgba(51, 76, 145, 0.15) 0%, rgba(51, 76, 145, 0.05) 100%);
+}
+
+.card-delta-skills {
+    border-top: 3px solid var(--c6);
+    background: linear-gradient(180deg, rgba(37, 188, 189, 0.15) 0%, rgba(37, 188, 189, 0.05) 100%);
+}
+
+.card-delta-focus {
+    border-top: 3px solid var(--c4);
+    background: linear-gradient(180deg, rgba(30, 136, 184, 0.15) 0%, rgba(30, 136, 184, 0.05) 100%);
+}
+
+.card-outcome {
+    border: 1px solid var(--white);
+    background: transparent;
+}
+
+.pt-scope.light-theme .card-outcome {
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Tracking Styles */
+.pt-progress-tracking {
+    margin: 40px 0;
+    padding: 24px;
+    background: var(--card);
+    border: 1px solid var(--stroke);
+    border-radius: var(--r2);
+}
+
+.pt-progress-tracking h4 {
+    color: var(--c6);
+    margin-bottom: 16px;
+}
+
+.pt-evidence-list {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--stroke);
+}
+
+/* Graduation Outcome Styles */
+.pt-grad-outcome {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background: var(--c0);
+    border-top: 1px solid var(--stroke);
+    text-align: center;
+}
+
+.pt-scope.light-theme .pt-grad-outcome {
+    background: #e2e8f0;
+}
+
+.pt-grad-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+    text-align: left;
+}
+
+/* =========================================
+   LIGHT MODE SPECIFIC OVERRIDES
+   ========================================= */
+
+/* Ensure Headers and Text are Dark */
+.pt-scope.light-theme h1,
+.pt-scope.light-theme h2,
+.pt-scope.light-theme h3,
+.pt-scope.light-theme h4,
+.pt-scope.light-theme h5,
+.pt-scope.light-theme strong,
+.pt-scope.light-theme .pt-headline,
+.pt-scope.light-theme .pt-sub,
+.pt-scope.light-theme .lbl,
+/* Best For Label */
+.pt-scope.light-theme .ch-name,
+.pt-scope.light-theme .t,
+.pt-scope.light-theme .h {
+    color: #0f172a !important;
+}
+
+.pt-scope.light-theme p,
+.pt-scope.light-theme li,
+.pt-scope.light-theme .d,
+.pt-scope.light-theme .ch-desc,
+.pt-scope.light-theme .pt-trackLine span {
+    color: #334155 !important;
+}
+
+/* Fix Toggle Switch and Tags visibility in Light Mode */
+.pt-scope.light-theme .pt-toggleBtn,
+.pt-scope.light-theme .pt-audBtn {
+    color: #334155;
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.pt-scope.light-theme .pt-toggleBtn.active,
+.pt-scope.light-theme .pt-audBtn.active {
+    background: #0f172a;
+    color: #fff;
+    font-weight: 800;
+}
+
+.pt-scope.light-theme .pt-chip {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.pt-scope.light-theme .pt-tabBtn {
+    background: #fff;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+.pt-scope.light-theme .pt-tabBtn[data-active="true"] {
+    background: #0f172a;
+    color: #fff;
+    border-color: #0f172a;
+}
+
+.pt-scope.light-theme .pt-ctaBtn {
+    background: #0f172a;
+    color: #fff;
+}
+
+/* Best For Section Visibility */
+.pt-scope.light-theme .pt-trackIntro {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Add Borders to Transparent Boxes */
+.pt-scope.light-theme .pt-card,
+.pt-scope.light-theme .pt-challengeCard,
+.pt-scope.light-theme .pt-trackingBox,
+.pt-scope.light-theme .pt-outcomeSection,
+.pt-scope.light-theme .pt-fearHero,
+.pt-scope.light-theme .card-outcome {
+    background: #ffffff;
+    border: 1px solid var(--stroke);
+    box-shadow: var(--shadow);
+}
+
+.pt-scope.light-theme .pt-top {
+    background: #ffffff;
+    border: 1px solid var(--stroke);
+}
+
+/* Specific Card Variant Overrides for Light Mode */
+.pt-scope.light-theme .card-delta-common {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-top: 3px solid var(--c2);
+}
+
+.pt-scope.light-theme .card-delta-skills {
+    background: #f0fdf9;
+    border: 1px solid #99f6e4;
+    border-top: 3px solid var(--c6);
+}
+
+.pt-scope.light-theme .card-delta-focus {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-top: 3px solid var(--c4);
+}
+
+.pt-scope.light-theme .card-outcome {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
 }
