@@ -6,7 +6,7 @@ export default function WorkingBBAInteractive() {
   const [selectedElement, setSelectedElement] = useState(null);
   const [activeTab, setActiveTab] = useState('job'); // job | family | venture | periodic
   const [isDarkMode, setIsDarkMode] = useState(true); // true = dark, false = light
-  const [audience, setAudience] = useState('student'); // 'parent' | 'student'
+  const [audience, setAudience] = useState('parent'); // 'parent' | 'student'
   const [bookingModal, setBookingModal] = useState(null); // null | { section, label }
 
   const openBooking = (section, label) => setBookingModal({ section, label });
