@@ -487,11 +487,11 @@
 
 .pt-card {
     border-radius: 18px;
-    padding: 10px 10px;
+    padding: 14px 14px;
     border: 1px solid rgba(255, 255, 255, .10);
     box-shadow: var(--shadow2);
     background: linear-gradient(180deg, rgba(50, 105, 174, .96), rgba(50, 105, 174, .72));
-    min-height: 78px;
+    min-height: 90px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1358,6 +1358,11 @@ summary.pt-sumRow::-webkit-details-marker {
     padding: 16px;
     cursor: pointer;
     transition: all 0.2s ease;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4px;
 }
 
 .pt-challengeCard:hover {
@@ -1465,10 +1470,14 @@ summary.pt-sumRow::-webkit-details-marker {
 }
 
 .pt-portfolioCard {
-    border-radius: var(--r2);
+    position: relative;
+    border-radius: 22px;
     overflow: hidden;
     background: rgba(255, 255, 255, .03);
-    border: 1px solid rgba(255, 255, 255, .06);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .pt-portfolioCard img {
@@ -1621,6 +1630,11 @@ summary.pt-sumRow::-webkit-details-marker {
     border-radius: 10px;
     padding: 14px 16px;
     transition: all .2s ease;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
 }
 
 .hiw-card:hover {
@@ -2177,7 +2191,30 @@ summary.pt-sumRow::-webkit-details-marker {
 .pt-scope.light-theme .card-delta-common {
     background: #eff6ff;
     border: 1px solid #bfdbfe;
-    border-top: 3px solid var(--c2);
+    border-left: 3px solid var(--c3);
+    min-height: 120px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-delta-skills {
+    border-left: 3px solid var(--c5);
+    min-height: 120px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-delta-focus {
+    border-left: 3px solid var(--c6);
+    min-height: 120px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .pt-scope.light-theme .card-delta-skills {
