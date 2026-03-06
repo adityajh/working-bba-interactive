@@ -626,9 +626,10 @@ export default function WorkingBBAInteractive() {
               Graduate with a Working BBA Program (Let's Enterprise) + UGC Approved Online University BBA Degree
             </div>
             <div className="pt-chips" aria-label="Program pillars">
-              <span className="pt-chip"><span className="pt-dot"></span> Apprenticeships</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c6)' }}></span> Client Projects</span>
               <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Apprenticeships</span>
-              <span className="pt-chip"><span className="pt-dot" style={{ background: 'rgba(255,255,255,.60)', boxShadow: '0 0 0 3px rgba(255,255,255,.12)' }}></span> Portfolio + feedback + references</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c2)' }}></span> Business Knowledge</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: '#fff', boxShadow: '0 0 0 3px rgba(255,255,255,.12)' }}></span> Proof of Work Portfolio</span>
             </div>
             {/* IMG_1: Main Header Tab */}
             <div className="mt-8 mb-4">
@@ -1531,16 +1532,16 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
         <div className="pt-body">
           {/* Work Experience (Deep Blue) */}
-          <div className="mt-6">
-            <h4 className="text-xl font-bold mb-4 text-[#334c91]">Work Experience</h4>
+          <div className="mb-12">
+            <h4 className="font-bold mb-4 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Work Experience</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y1.workExp, 'card-delta-common')}
             </div>
           </div>
 
           {/* Skills & Coaching (Teal) */}
-          <div className="mt-8">
-            <h4 className="text-xl font-bold mb-4 text-[#25BCBD]">Skills, Self-Discovery & Career Coaching</h4>
+          <div className="mb-12">
+            <h4 className="font-bold mb-4 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-Discovery & Career Coaching</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y1.skills, 'card-delta-skills')}
             </div>
@@ -1639,10 +1640,9 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
               {renderDelta(current.y3.common, 'card-delta-common')}
             </div>
           </div>
-
-          {/* Skills */}
-          <div className="mt-8">
-            <h4 className="text-xl font-bold mb-4 text-[#25BCBD]">Career Coaching & Narrative Making</h4>
+          {/* Career Coaching & Narrative Making */}
+          <div className="mb-12">
+            <h4 className="font-bold mb-4 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Career Coaching & Narrative Making</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y3.skills, 'card-delta-skills')}
             </div>
