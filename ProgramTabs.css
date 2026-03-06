@@ -1286,7 +1286,7 @@ summary.pt-sumRow::-webkit-details-marker {
 .pt-fearHero h2 {
     font-size: clamp(18px, 3vw, 26px);
     font-weight: 800;
-    color: #e74c3c;
+    color: #fff;
     margin: 0 0 10px 0;
     line-height: 1.25;
 }
@@ -1318,15 +1318,15 @@ summary.pt-sumRow::-webkit-details-marker {
 }
 
 .myth {
-    color: #ef4444;
-    /* Red for Myth */
+    color: #fff;
+    /* White for Myth */
     font-weight: 600;
     font-size: 14px;
 }
 
 .reality {
-    color: #10b981;
-    /* Teal/Green for Reality */
+    color: #25BCBD;
+    /* Bright Teal for Reality */
     font-weight: 600;
     font-size: 14px;
 }

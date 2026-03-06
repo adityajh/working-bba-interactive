@@ -915,8 +915,7 @@ const programData = {
       pairs: [
         { myth: '\u201cA BBA makes you job-ready.\u201d', reality: 'Job readiness comes from deadlines, managers, and delivery.' },
         { myth: '\u201cConfidence comes from knowledge.\u201d', reality: 'Confidence comes from shipping work and being evaluated.' },
-        { myth: '\u201cInternships are enough.\u201d', reality: 'Apprenticeships + client projects build real reliability and proof.' },
-        { myth: '\u201cMarks show capability.\u201d', reality: 'Portfolio + feedback + references show capability.' }
+        { myth: '\u201cInternships are enough.\u201d', reality: 'Apprenticeships + client projects build real reliability and proof.' }
       ]
     },
     // Hero section
@@ -1093,7 +1092,6 @@ const programData = {
     mythReality: {
       pairs: [
         { myth: '\u201cThey\u2019ll learn inside our business.\u201d', reality: 'Without baseline maturity, they become a burden, not an asset.' },
-        { myth: '\u201cThey\u2019ll become responsible over time.\u201d', reality: 'Responsibility is trained through commitments, follow-through, and feedback loops.' },
         { myth: '\u201cBusiness needs \u201cbig ideas\u201d from youth.\u201d', reality: 'Business first needs discipline: punctuality, communication, ownership, decision logic.' },
         { myth: '\u201cWe just need them to join.\u201d', reality: 'You need them to be handover-ready: trusted, consistent, and professional.' }
       ]
