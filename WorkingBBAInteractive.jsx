@@ -681,8 +681,8 @@ export default function WorkingBBAInteractive() {
 
               {/* HOW IT WORKS — CAPABILITY CARDS */}
               <div className="pt-osExplainer mb-6">
-                <h2 style={{ fontSize: 18, fontWeight: 800, marginBottom: 6 }} className="hiw-heading">How It Works</h2>
-                <p className="hiw-intro" style={{ fontSize: '13px', lineHeight: 1.5, maxWidth: '720px', margin: '0 0 16px', opacity: 0.85 }}>
+                <h2 style={{ fontSize: 19, fontWeight: 800, marginBottom: 6 }} className="hiw-heading">How It Works</h2>
+                <p className="hiw-intro" style={{ fontSize: '14px', lineHeight: 1.5, maxWidth: '720px', margin: '0 0 16px', opacity: 0.85 }}>
                   {audience === 'parent'
                     ? 'One integrated system that tracks and connects every part of your child\u2019s education and work experience\u2014complete transparency, zero gaps.'
                     : 'One integrated system that tracks and connects every part of your education and work experience\u2014complete transparency, zero gaps.'}
@@ -701,18 +701,18 @@ export default function WorkingBBAInteractive() {
                 ].map((card, i) => (
                   <div key={i} className="hiw-card">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
-                      <span style={{ fontSize: 22, lineHeight: 1 }}>{card.icon}</span>
-                      <h4 className="hiw-card-title" style={{ fontSize: 13, fontWeight: 800, margin: 0 }}>{card.title}</h4>
+                      <span style={{ fontSize: 23, lineHeight: 1 }}>{card.icon}</span>
+                      <h4 className="hiw-card-title" style={{ fontSize: 14, fontWeight: 800, margin: 0 }}>{card.title}</h4>
                     </div>
-                    <p className="hiw-card-desc" style={{ fontSize: 12, lineHeight: 1.45, margin: 0, opacity: 0.75 }}>{card.desc}</p>
+                    <p className="hiw-card-desc" style={{ fontSize: 13, lineHeight: 1.45, margin: 0, opacity: 0.75 }}>{card.desc}</p>
                   </div>
                 ))}
               </div>
 
               {/* Typical Week Schedule */}
               <div className="hiw-section" style={{ borderRadius: 12, padding: '16px 20px', marginTop: 14 }}>
-                <h4 className="hiw-section-title" style={{ fontSize: 14, fontWeight: 800, marginBottom: 10 }}>📅 A Typical Week</h4>
-                <p className="hiw-section-subtitle" style={{ fontSize: 12, fontWeight: 700, color: '#25BCBD', marginBottom: 10 }}>Monday to Friday: 10:00 AM – 5:00 PM &nbsp;|&nbsp; Saturday: 10:00 AM – 1:00 PM</p>
+                <h4 className="hiw-section-title" style={{ fontSize: 15, fontWeight: 800, marginBottom: 10 }}>📅 A Typical Week</h4>
+                <p className="hiw-section-subtitle" style={{ fontSize: 13, fontWeight: 700, color: '#25BCBD', marginBottom: 10 }}>Monday to Friday: 10:00 AM – 5:00 PM &nbsp;|&nbsp; Saturday: 10:00 AM – 1:00 PM</p>
                 <div className="hiw-week-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 8 }}>
                   {[
                     { day: 'Mon', items: ['Challenge / Project sprint', 'Team stand-up', 'Work blocks (3–4 hrs)', 'Daily Card reflection'] },
@@ -723,9 +723,9 @@ export default function WorkingBBAInteractive() {
                     { day: 'Sat', items: ['Student presentations', 'Industry jury review', 'Weekly progress score'] }
                   ].map((d, i) => (
                     <div key={i} className="hiw-day-card" style={{ borderRadius: 8, padding: '10px', textAlign: 'center' }}>
-                      <div style={{ fontSize: 12, fontWeight: 900, marginBottom: 6, color: '#25BCBD' }}>{d.day}</div>
+                      <div style={{ fontSize: 13, fontWeight: 900, marginBottom: 6, color: '#25BCBD' }}>{d.day}</div>
                       {d.items.map((item, j) => (
-                        <div key={j} className="hiw-day-item" style={{ fontSize: 10, lineHeight: 1.35, marginBottom: 3, opacity: 0.8 }}>{item}</div>
+                        <div key={j} className="hiw-day-item" style={{ fontSize: 11, lineHeight: 1.35, marginBottom: 3, opacity: 0.8 }}>{item}</div>
                       ))}
                     </div>
                   ))}
@@ -734,12 +734,12 @@ export default function WorkingBBAInteractive() {
 
               {/* Comparison Table */}
               <div className="hiw-section hiw-comparison" style={{ borderRadius: 12, overflow: 'hidden', marginTop: 14 }}>
-                <h4 className="hiw-section-title" style={{ padding: '12px 16px 8px', margin: 0, fontSize: 14, fontWeight: 800, letterSpacing: '.3px', textTransform: 'uppercase' }}>Working BBA vs Typical BBA</h4>
+                <h4 className="hiw-section-title" style={{ padding: '12px 16px 8px', margin: 0, fontSize: 15, fontWeight: 800, letterSpacing: '.3px', textTransform: 'uppercase' }}>Working BBA vs Typical BBA</h4>
                 {/* Table Header */}
                 <div className="hiw-table-header" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr 1.5fr' }}>
-                  <div style={{ padding: '8px 12px', fontSize: 11, fontWeight: 800, opacity: 0.6 }}></div>
-                  <div style={{ padding: '8px 12px', fontSize: 11, fontWeight: 800, color: '#25BCBD', borderLeft: '1px solid var(--hiw-border)' }}>Working BBA</div>
-                  <div style={{ padding: '8px 12px', fontSize: 11, fontWeight: 800, opacity: 0.5, borderLeft: '1px solid var(--hiw-border)' }}>Typical BBA</div>
+                  <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 800, opacity: 0.6 }}></div>
+                  <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 800, color: '#25BCBD', borderLeft: '1px solid var(--hiw-border)' }}>Working BBA</div>
+                  <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 800, opacity: 0.5, borderLeft: '1px solid var(--hiw-border)' }}>Typical BBA</div>
                 </div>
                 <div>
                   {[
@@ -754,9 +754,9 @@ export default function WorkingBBAInteractive() {
                       display: 'grid', gridTemplateColumns: '1fr 1.5fr 1.5fr',
                       borderTop: '1px solid var(--hiw-border)'
                     }}>
-                      <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 700 }}>{row.feature}</div>
-                      <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 600, color: '#25BCBD', borderLeft: '1px solid var(--hiw-border)' }}>{row.le}</div>
-                      <div className="hiw-typical" style={{ padding: '8px 12px', fontSize: 12, fontWeight: 500, opacity: 0.55, borderLeft: '1px solid var(--hiw-border)' }}>{row.typical}</div>
+                      <div style={{ padding: '8px 12px', fontSize: 13, fontWeight: 700 }}>{row.feature}</div>
+                      <div style={{ padding: '8px 12px', fontSize: 13, fontWeight: 600, color: '#25BCBD', borderLeft: '1px solid var(--hiw-border)' }}>{row.le}</div>
+                      <div className="hiw-typical" style={{ padding: '8px 12px', fontSize: 13, fontWeight: 500, opacity: 0.55, borderLeft: '1px solid var(--hiw-border)' }}>{row.typical}</div>
                     </div>
                   ))}
                 </div>
@@ -764,7 +764,7 @@ export default function WorkingBBAInteractive() {
 
               {/* Social Proof Quotes */}
               <div className="hiw-section hiw-quotes" style={{ borderRadius: 12, padding: '16px 20px', marginTop: 14 }}>
-                <h4 style={{ fontSize: 13, fontWeight: 800, color: '#25BCBD', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '.3px' }}>What students say</h4>
+                <h4 style={{ fontSize: 14, fontWeight: 800, color: '#25BCBD', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '.3px' }}>What students say</h4>
                 {[
                   '\u201cI used to wait for instructions. Now I just start.\u201d',
                   '\u201cIt\u2019s not easy. But it feels authentic.\u201d',
@@ -773,7 +773,7 @@ export default function WorkingBBAInteractive() {
                   '\u201cMy parents stopped asking \u2018what are you studying?\u2019 Now they ask \u2018what did you build this week?\u2019\u201d'
                 ].map((quote, i) => (
                   <div key={i} style={{ marginBottom: i < 4 ? 8 : 0, paddingLeft: 10, borderLeft: '3px solid rgba(37,188,189,.30)' }}>
-                    <span className="hiw-quote-text" style={{ fontSize: 12, fontWeight: 500, fontStyle: 'italic', opacity: 0.85 }}>{quote}</span>
+                    <span className="hiw-quote-text" style={{ fontSize: 13, fontWeight: 500, fontStyle: 'italic', opacity: 0.85 }}>{quote}</span>
                   </div>
                 ))}
               </div>
@@ -1426,7 +1426,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <div key={i} className={`pt-card ${variantClass || ''}`}>
         <div className="h">{x.h}</div>
         {x.d && x.d.includes(' · ') ? (
-          <ul className="d-list" style={{ marginTop: '6px', paddingLeft: '14px', listStyle: 'disc', fontSize: '11px', lineHeight: '1.4', color: 'inherit' }}>
+          <ul className="d-list" style={{ marginTop: '6px', paddingLeft: '14px', listStyle: 'disc', fontSize: '12px', lineHeight: '1.4', color: 'inherit' }}>
             {x.d.split(' · ').map((item, idx) => (
               <li key={idx} style={{ marginBottom: '2px' }}>{item}</li>
             ))}
@@ -1439,34 +1439,34 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
   };
   const TrackingSection = ({ data, year }) => (
     <div className="pt-progress-tracking">
-      <h4 style={{ fontSize: '12px', fontWeight: 800, letterSpacing: '.3px', marginBottom: '6px' }}>How We Track Progress ({year})</h4>
-      <p style={{ fontSize: '11px', lineHeight: '1.35' }}><strong>Progress Visibility:</strong> {data.visibility}</p>
+      <h4 style={{ fontSize: '13px', fontWeight: 800, letterSpacing: '.3px', marginBottom: '6px' }}>How We Track Progress ({year})</h4>
+      <p style={{ fontSize: '12px', lineHeight: '1.35' }}><strong>Progress Visibility:</strong> {data.visibility}</p>
       <div className="pt-evidence-list">
-        <p style={{ fontSize: '11px', lineHeight: '1.35' }}><strong>Evidence produced ({year}):</strong> {data.evidence}</p>
+        <p style={{ fontSize: '12px', lineHeight: '1.35' }}><strong>Evidence produced ({year}):</strong> {data.evidence}</p>
       </div>
     </div>
   );
 
   const GradOutcomeSection = ({ data, audience }) => (
     <div className="pt-grad-outcome">
-      <h3 style={{ fontSize: '16px', fontWeight: 800, marginBottom: '12px', letterSpacing: '.3px' }}>
+      <h3 style={{ fontSize: '17px', fontWeight: 800, marginBottom: '12px', letterSpacing: '.3px' }}>
         {audience === 'parent' ? 'WHAT YOUR CHILD GRADUATES WITH' : 'WHAT YOU GRADUATE WITH'}
       </h3>
       <div className="pt-grad-grid">
         <div className="card-outcome" style={{ padding: '12px', borderRadius: '12px' }}>
-          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '12px' }}>WORK PORTFOLIO</h5>
+          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '13px' }}>WORK PORTFOLIO</h5>
           <ul className="list-disc pl-4 text-xs opacity-90" style={{ lineHeight: '1.4' }}>
             {data.portfolio.map((item, i) => <li key={i} style={{ marginBottom: '2px' }}>{item}</li>)}
           </ul>
         </div>
         <div className="card-outcome" style={{ padding: '12px', borderRadius: '12px' }}>
-          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '12px' }}>REFERENCES & FEEDBACK</h5>
+          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '13px' }}>REFERENCES & FEEDBACK</h5>
           <ul className="list-disc pl-4 text-xs opacity-90" style={{ lineHeight: '1.4' }}>
             {data.references.map((item, i) => <li key={i} style={{ marginBottom: '2px' }}>{item}</li>)}
           </ul>
         </div>
         <div className="card-outcome" style={{ padding: '12px', borderRadius: '12px' }}>
-          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '12px' }}>CAREER READINESS</h5>
+          <h5 className="font-bold mb-2 text-teal-400" style={{ fontSize: '13px' }}>CAREER READINESS</h5>
           <ul className="list-disc pl-4 text-xs opacity-90" style={{ lineHeight: '1.4' }}>
             {data.readiness.map((item, i) => <li key={i} style={{ marginBottom: '2px' }}>{item}</li>)}
           </ul>
@@ -1475,8 +1475,8 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
       {/* Common Degree Info */}
       <div className="mt-4 p-3 bg-white/10 rounded-lg border border-white/20">
-        <h5 className="font-bold mb-1" style={{ fontSize: '12px' }}>Recognised BBA Degree (Common)</h5>
-        <p style={{ fontSize: '11px', lineHeight: '1.4' }}>
+        <h5 className="font-bold mb-1" style={{ fontSize: '13px' }}>Recognised BBA Degree (Common)</h5>
+        <p style={{ fontSize: '12px', lineHeight: '1.4' }}>
           BBA degree from partner Online University — completed in parallel with the Working BBA Program (Let's Enterprise). {audience === 'parent' ? 'Your child earns' : 'You earn'} a recognised degree while gaining professional experience.
         </p>
       </div>
@@ -1509,8 +1509,8 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <div className="pt-trackIntro pt-bestFor" style={{ marginBottom: 16 }}>
         <div className="pt-trackMeta">
           <div className="pt-trackLine">
-            <span className="lbl" style={{ fontSize: '13px', fontWeight: 900, color: '#25BCBD' }}>Best for</span>
-            <span style={{ fontSize: '14px', fontWeight: 600 }}>{current.whoFor}</span>
+            <span className="lbl" style={{ fontSize: '14px', fontWeight: 900, color: '#25BCBD' }}>Best for</span>
+            <span style={{ fontSize: '15px', fontWeight: 600 }}>{current.whoFor}</span>
           </div>
         </div>
       </div>
@@ -1523,9 +1523,9 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 1 Foundation">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 1 • GROWTH YEAR</h2>
-            <span className="pt-tealBox" style={{ fontSize: '11px' }}>Common for all 3 programs</span>
-            <div style={{ marginTop: '4px', fontSize: '13px', opacity: 0.8, fontWeight: 400 }}>Foundation building</div>
+            <h2 style={{ fontSize: 'clamp(25px, 4vw, 37px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 1 • GROWTH YEAR</h2>
+            <span className="pt-tealBox" style={{ fontSize: '12px' }}>Common for all 3 programs</span>
+            <div style={{ marginTop: '4px', fontSize: '14px', opacity: 0.8, fontWeight: 400 }}>Foundation building</div>
           </div>
         </div>
 
@@ -1569,10 +1569,10 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 2 Operations">
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 2 • PROJECTS YEAR</h2>
-            <span className="pt-tealBox" style={{ fontSize: '11px' }}>{current.name}</span>
-            <div style={{ marginTop: '4px', fontSize: '13px', opacity: 0.8, fontWeight: 400 }}>Transition to Industry</div>
-            <div style={{ marginTop: '6px', fontSize: '12px', opacity: 0.9, fontWeight: 300, borderLeft: '2px solid #25BCBD', paddingLeft: '8px' }}>
+            <h2 style={{ fontSize: 'clamp(25px, 4vw, 37px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 2 • PROJECTS YEAR</h2>
+            <span className="pt-tealBox" style={{ fontSize: '12px' }}>{current.name}</span>
+            <div style={{ marginTop: '4px', fontSize: '14px', opacity: 0.8, fontWeight: 400 }}>Transition to Industry</div>
+            <div style={{ marginTop: '6px', fontSize: '13px', opacity: 0.9, fontWeight: 300, borderLeft: '2px solid #25BCBD', paddingLeft: '8px' }}>
               → {audience === 'parent' ? 'Your child tackles' : 'You tackle'} advanced challenges, {audience === 'parent' ? 'runs' : 'run'} a consulting project and a venture, {audience === 'parent' ? 'completes' : 'complete'} a 2nd apprenticeship — then {audience === 'parent' ? 'enters their' : 'enter your'} program-specific Focus Area.
             </div>
           </div>
@@ -1620,15 +1620,15 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <section className="pt-section pt-year" aria-label="Year 3 Outcomes" style={{ marginTop: 20 }}>
         <div className="pt-yearHead">
           <div className="pt-yearTitle">
-            <h2 style={{ fontSize: 'clamp(24px, 4vw, 36px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 3 • WORK YEAR</h2>
-            <span className="pt-tealBox" style={{ fontSize: '11px' }}>{current.name}</span>
-            <div style={{ marginTop: '4px', fontSize: '13px', opacity: 0.8, fontWeight: 400 }}>Deep Industry Immersion</div>
+            <h2 style={{ fontSize: 'clamp(25px, 4vw, 37px)', fontWeight: 900, margin: 0, lineHeight: 1.1 }}>YEAR 3 • WORK YEAR</h2>
+            <span className="pt-tealBox" style={{ fontSize: '12px' }}>{current.name}</span>
+            <div style={{ marginTop: '4px', fontSize: '14px', opacity: 0.8, fontWeight: 400 }}>Deep Industry Immersion</div>
           </div>
         </div>
 
         <div className="pt-body">
           {/* Intro */}
-          <p style={{ fontSize: '13px', lineHeight: '1.5', marginBottom: '16px', opacity: 0.9, borderLeft: '4px solid #25BCBD', paddingLeft: '12px' }}>
+          <p style={{ fontSize: '14px', lineHeight: '1.5', marginBottom: '16px', opacity: 0.9, borderLeft: '4px solid #25BCBD', paddingLeft: '12px' }}>
             {audience === 'parent' ? current.y3.intro : current.y3.intro.replace(/Your child/g, 'You').replace(/your child/g, 'you').replace(/completes/g, 'complete').replace(/spends/g, 'spend').replace(/their ultimate/g, 'your ultimate')}
           </p>
 
