@@ -93,7 +93,7 @@ export default function WorkingBBAInteractive() {
       name: "SOLO VENTURE",
       pillar: "experience",
       color: "bg-[#3663AD]", // Enterprise Blue
-      description: "Individual launches and runs a real micro-business",
+      description: "Individual launches and runs a micro-business",
       duration: "Semester",
       size: "long"
     },
@@ -101,7 +101,7 @@ export default function WorkingBBAInteractive() {
       name: "TEAM VENTURE",
       pillar: "experience",
       color: "bg-[#3663AD]",
-      description: "Team builds and operates a real business together",
+      description: "Team builds and operates a business together",
       duration: "Semester",
       size: "long"
     },
@@ -127,7 +127,7 @@ export default function WorkingBBAInteractive() {
       name: "CLIENT PROJECT",
       pillar: "experience",
       color: "bg-[#3269ae]",
-      description: "LE-scoped, facilitator-led, full-time team delivery for real client",
+      description: "LE-scoped, facilitator-led, full-time team delivery for clients",
       duration: "4-8 weeks",
       size: "long"
     },
@@ -407,7 +407,7 @@ export default function WorkingBBAInteractive() {
       name: "PSO1 PROFESSIONAL READINESS",
       pillar: "pso",
       color: "bg-[#160E44] text-white border-2 border-[#25BCBD]",
-      description: "Students will be able to make informed career decisions based on self-awareness, market understanding, and reflective practice. They will present themselves through a strong body of work, communicate professionally with diverse stakeholders, and conduct themselves with responsibility, ethics, and personal leadership in real-world environments.",
+      description: "Students will be able to make informed career decisions based on self-awareness, market understanding, and reflective practice. They will present themselves through a strong body of work, communicate professionally with diverse stakeholders, and conduct themselves with responsibility, ethics, and personal leadership in professional environments.",
       duration: "Outcome",
       size: "pso"
     },
@@ -626,8 +626,8 @@ export default function WorkingBBAInteractive() {
               Graduate with a Working BBA Program (Let's Enterprise) + UGC Approved Online University BBA Degree
             </div>
             <div className="pt-chips" aria-label="Program pillars">
-              <span className="pt-chip"><span className="pt-dot"></span> Learn by working</span>
-              <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Real apprenticeships</span>
+              <span className="pt-chip"><span className="pt-dot"></span> Apprenticeships</span>
+              <span className="pt-chip"><span className="pt-dot" style={{ background: 'var(--c4)', boxShadow: '0 0 0 3px rgba(30,136,184,.18)' }}></span> Apprenticeships</span>
               <span className="pt-chip"><span className="pt-dot" style={{ background: 'rgba(255,255,255,.60)', boxShadow: '0 0 0 3px rgba(255,255,255,.12)' }}></span> Portfolio + feedback + references</span>
             </div>
             {/* IMG_1: Main Header Tab */}
@@ -694,9 +694,9 @@ export default function WorkingBBAInteractive() {
                 {[
                   { icon: '\ud83d\udd27', title: 'Work Discipline', desc: 'Students build adult habits: punctuality, follow-through, hygiene, and weekly delivery. Not vibes. Not motivation. Output.' },
                   { icon: '\ud83d\udde3\ufe0f', title: 'Communication Under Pressure', desc: 'Updates, follow-ups, presentations, stakeholder calls\u2014done repeatedly. They learn to speak clearly even when nervous.' },
-                  { icon: '\ud83d\udcca', title: 'Real Business Execution', desc: 'Sales, operations, research, basic finance thinking, and structured problem-solving\u2014done through challenges and real projects.' },
+                  { icon: '\ud83d\udcca', title: 'Business Execution', desc: 'Sales, operations, research, basic finance thinking, and structured problem-solving\u2014done through challenges and projects.' },
                   { icon: '\ud83d\udcc1', title: 'Proof-Based Portfolio', desc: 'Everything is documented: docs, media, testimonials, feedback scores, and project outcomes. Proof beats potential.' },
-                  { icon: '\ud83d\udd04', title: 'Feedback Loops (Not Exams)', desc: 'Assessment happens through supervisors, clients, peers, facilitators\u2014and real deliverables. They improve by being evaluated, not by cramming.' },
+                  { icon: '\ud83d\udd04', title: 'Feedback Loops (Not Exams)', desc: 'Assessment happens through supervisors, clients, peers, facilitators\u2014and professional deliverables. They improve by being evaluated, not by cramming.' },
                   { icon: '\ud83e\udded', title: 'Career Clarity Through Work', desc: 'Students don\u2019t \u201cchoose\u201d blindly. They experience roles, environments, and expectations\u2014then decide with evidence.' }
                 ].map((card, i) => (
                   <div key={i} className="hiw-card">
@@ -746,7 +746,7 @@ export default function WorkingBBAInteractive() {
                     { feature: 'Curriculum', le: 'Work + challenges + projects', typical: 'Mostly classroom theory' },
                     { feature: 'Proof', le: 'Portfolio + feedback + references', typical: 'Marksheets + exams' },
                     { feature: 'Accountability', le: 'Deadlines + reviews + delivery', typical: 'Attendance + exams' },
-                    { feature: 'Skill-building', le: 'Repetition under real pressure', typical: 'Limited real output cycles' },
+                    { feature: 'Skill-building', le: 'Repetition under industry pressure', typical: 'Limited output cycles' },
                     { feature: 'Parent visibility', le: 'Ongoing evidence + progress signals', typical: 'Syllabus + grades' },
                     { feature: 'Outcome', le: 'Work-ready capability', typical: 'Degree + uncertain readiness' }
                   ].map((row, i) => (
@@ -767,7 +767,7 @@ export default function WorkingBBAInteractive() {
                 <h4 style={{ fontSize: 13, fontWeight: 800, color: '#25BCBD', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '.3px' }}>What students say</h4>
                 {[
                   '\u201cI used to wait for instructions. Now I just start.\u201d',
-                  '\u201cIt\u2019s not easy. But it feels real.\u201d',
+                  '\u201cIt\u2019s not easy. But it feels authentic.\u201d',
                   '\u201cDeadlines changed me. I don\u2019t like it\u2026 but I needed it.\u201d',
                   '\u201cI still get nervous. I just do it anyway.\u201d',
                   '\u201cMy parents stopped asking \u2018what are you studying?\u2019 Now they ask \u2018what did you build this week?\u2019\u201d'
@@ -797,8 +797,8 @@ export default function WorkingBBAInteractive() {
         <div className="pt-footerBanner">
           <p style={{ color: '#fff' }}>
             {audience === 'parent'
-              ? <><strong style={{ color: '#25BCBD' }}>Students graduate with</strong> recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections \u2014 not just a marksheet</>
-              : <><strong style={{ color: '#25BCBD' }}>You graduate with</strong> a recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and real industry connections \u2014 not just a marksheet</>
+              ? <><strong style={{ color: '#25BCBD' }}>Students graduate with</strong> recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and industry connections \u2014 not just a marksheet</>
+              : <><strong style={{ color: '#25BCBD' }}>You graduate with</strong> a recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and industry connections \u2014 not just a marksheet</>
             }
           </p>
         </div>
@@ -855,11 +855,11 @@ const CTA_URL = '#';
 // 9 Challenges for Year 1
 const year1Challenges = [
   { num: '01', name: 'Kickstart', sub: 'Start like an adult.', desc: 'Students enter the work rhythm: hygiene, communication, cadence, and delivery standards.' },
-  { num: '02', name: 'Product Design', sub: 'Build things people want.', desc: 'User needs, prototyping, iteration—students learn to design solutions that solve real problems.' },
+  { num: '02', name: 'Product Design', sub: 'Build things people want.', desc: 'User needs, prototyping, iteration—students learn to design solutions that solve business problems.' },
   { num: '03', name: 'Design Thinking', sub: 'Think like a problem solver.', desc: 'Empathy, ideation, testing—structured frameworks for tackling ambiguous challenges.' },
   { num: '04', name: 'Digital Marketing', sub: 'Get attention. Drive action.', desc: 'Campaigns, content, analytics—students learn to reach audiences and measure what works.' },
   { num: '05', name: 'Business Analysis', sub: 'Turn data into decisions.', desc: 'Requirements, process mapping, stakeholder alignment—how to analyze and recommend solutions.' },
-  { num: '06', name: 'Sales & Outreach', sub: 'Rejection is training.', desc: 'Pitching, follow-ups, closing—confidence is built through repetition and real conversations.' },
+  { num: '06', name: 'Sales & Outreach', sub: 'Rejection is training.', desc: 'Pitching, follow-ups, closing—confidence is built through repetition and professional conversations.' },
   { num: '07', name: 'User Research', sub: 'Learn to see the market.', desc: 'Interviews, insights, patterns—then turn research into decisions and actions.' },
   { num: '08', name: 'Accounting & Financial Analysis', sub: 'Become numerate enough to be trusted.', desc: 'P&L, cash flow, margins, decision math—applied financial thinking, not theory.' },
   { num: '09', name: 'Spreadsheets', sub: 'Master the tool of business.', desc: 'Formulas, data modeling, dashboards—students build fluency in the language of work.' }
@@ -879,15 +879,15 @@ const ctaCopy = {
 
 // Portfolio images + captions
 const portfolioItems = [
-  { src: '/portfolio-messy-desk-evidence.png', caption: 'This is what a year of real work looks like. Every item is earned, not assigned.', hero: true },
-  { src: '/portfolio-client-pitch-room.png', caption: 'Client Project \u2014 presenting a live marketing strategy to company leadership. Week 4 of a real engagement.' },
+  { src: '/portfolio-messy-desk-evidence.png', caption: 'This is what a year of work looks like. Every item is earned, not assigned.', hero: true },
+  { src: '/portfolio-client-pitch-room.png', caption: 'Client Project \u2014 presenting a live marketing strategy to company leadership. Week 4 of an engagement.' },
   { src: '/portfolio-whiteboard-brainstorm.png.png', caption: 'The thinking behind the work \u2014 a business model canvas built during the Kickstart challenge.' },
-  { src: '/portfolio-reference-letter-desk.png', caption: 'The letter you take home \u2014 a real reference from the manager who supervised 9 weeks of real work.' },
+  { src: '/portfolio-reference-letter-desk.png', caption: 'The letter you take home \u2014 a reference from the manager who supervised 9 weeks of professional work.' },
   { src: '/portfolio-daily-cards-stack.png', caption: '200+ daily reflection cards. The habit that turns experience into learning.' },
   { src: '/portfolio-storysells-stage.png', caption: 'Telling your story to a room \u2014 the professional storytelling presentation every student delivers.' },
-  { src: '/portfolio-jury-saturday.png', caption: 'Saturday jury review \u2014 presenting real project work to industry professionals who score and challenge you.' },
-  { src: '/portfolio-apprenticeship-workspace.png', caption: '9 weeks inside a real company. Not visiting. Not observing. Working.', hero: true },
-  { src: '/portfolio-client-project-urbanbrew.png', caption: 'Real deliverable \u2014 a marketing campaign execution for Urban Brew, driving actual footfall and sales.' }
+  { src: '/portfolio-jury-saturday.png', caption: 'Saturday jury review \u2014 presenting project work to industry professionals who score and challenge you.' },
+  { src: '/portfolio-apprenticeship-workspace.png', caption: '9 weeks inside a company. Not visiting. Not observing. Working.', hero: true },
+  { src: '/portfolio-client-project-urbanbrew.png', caption: 'Deliverable \u2014 a marketing campaign execution for Urban Brew, driving actual footfall and sales.' }
 ];
 
 // Program data for Year 2 & 3 specifics
@@ -904,12 +904,12 @@ const programData = {
       pairs: [
         { myth: '\u201cA BBA makes you job-ready.\u201d', reality: 'Job readiness comes from deadlines, managers, and delivery.' },
         { myth: '\u201cConfidence comes from knowledge.\u201d', reality: 'Confidence comes from shipping work and being evaluated.' },
-        { myth: '\u201cInternships are enough.\u201d', reality: 'Apprenticeships + client projects build real reliability and proof.' }
+        { myth: '\u201cInternships are enough.\u201d', reality: 'Apprenticeships + client projects build reliability and proof.' }
       ]
     },
     // Hero section
     heroTitle: 'Build Work Confidence in Growth Companies',
-    heroSub: 'Get ready to work in fast growing companies, close to decision makers. Real deadlines. Real managers. Real feedback.',
+    heroSub: 'Get ready to work in fast growing companies, close to decision makers. Industry deadlines. Professional managers. Direct feedback.',
     mechanism: {
       title: 'How confidence is built here:',
       items: [
@@ -919,7 +919,7 @@ const programData = {
       ]
     },
     // Best for section
-    whoFor: 'Students who want fast-track real work and entrepreneurial jobs.',
+    whoFor: 'Students who want fast-track work and entrepreneurial jobs.',
     // Parent clarity
     whatTheyDo: {
       title: 'What your child will do (in simple terms):',
@@ -948,7 +948,7 @@ const programData = {
     year1Content: {
       whatTheyDo: [
         'Manage client projects for 2-3 growing companies',
-        'Handle marketing campaigns with real budget responsibility',
+        'Handle marketing campaigns with budget responsibility',
         'Coordinate teams of 5–8 employees across departments to deliver project outcomes',
       ],
       whatTheySubmit: [
@@ -1002,9 +1002,9 @@ const programData = {
     outcome: 'Ready for roles where output and proof matter more than pedigree.',
     y1: {
       workExp: [
-        { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
-        { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (2 months)' },
+        { t: '9 Business Challenges', h: 'Business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
+        { t: 'Client Projects / Hackathon', h: '2 client engagements', d: 'Solving business problems for companies (typically 1–8 weeks each)' },
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a company, supervised by industry mentors (2 months)' },
         { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
@@ -1018,7 +1018,7 @@ const programData = {
     y2: {
       common: [
         { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
-        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — real consulting engagement with a client company (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)' },
         { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
         { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
         { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
@@ -1163,7 +1163,7 @@ const programData = {
     year3Content: {
       intro: 'A "handover-ready" student can manage business processes without constant supervision, handle difficult conversations, make decisions considering long-term relationships, and document systems for others to follow.',
       portfolio: [
-        'Portfolio artifacts: Process improvements they\'ve implemented in real businesses',
+        'Portfolio artifacts: Process improvements they\'ve implemented in businesses',
         'Management feedback: Reviews from business owners who supervised their work',
         'Reliability record: Track record of meeting deadlines and handling responsibility',
         'Team testimonials: Feedback from employees they\'ve worked with and managed'
@@ -1180,9 +1180,9 @@ const programData = {
 
     y1: {
       workExp: [
-        { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
-        { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (2 months)' },
+        { t: '9 Business Challenges', h: 'Business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
+        { t: 'Client Projects / Hackathon', h: '2 client engagements', d: 'Solving business problems for companies (typically 1–8 weeks each)' },
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a company, supervised by industry mentors (2 months)' },
         { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
@@ -1196,7 +1196,7 @@ const programData = {
     y2: {
       common: [
         { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
-        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — real consulting engagement with a client company (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)' },
         { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
         { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
         { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
@@ -1226,7 +1226,7 @@ const programData = {
         { t: 'Coaching', h: 'Career Coaching', d: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
       ],
       focus: [
-        { t: 'Program Focus', h: '9-Month Family Business Project', d: 'Work inside your own family\'s business, Own real KPIs and deliver real outcomes., Graduate ready for succession.' },
+        { t: 'Program Focus', h: '9-Month Family Business Project', d: 'Work inside your own family\'s business, Own KPIs and deliver outcomes., Graduate ready for succession.' },
         { t: 'Program Focus', h: 'Founder-Led Workshop', d: '3-day Founder Led Business Transition Workshop, How successful families navigate transitions' },
         { t: 'Program Focus', h: 'Business Coaching', d: '6 Individual + 2 Family sessions, Focus: Succession & Integration' }
       ],
@@ -1287,10 +1287,10 @@ const programData = {
       ]
     },
     // Year 1 summary
-    year1Summary: 'Your child learns that real business building means talking to customers, testing ideas, and shipping work every single week.',
+    year1Summary: 'Your child learns that business building means talking to customers, testing ideas, and shipping work every single week.',
     year1Parts: [
       { name: 'Foundation (4 months)', desc: 'Learn customer research and basic testing methods' },
-      { name: 'Application (4 months)', desc: 'Run multiple customer experiments with real feedback' },
+      { name: 'Application (4 months)', desc: 'Run multiple customer experiments with client feedback' },
       { name: 'Leadership (4 months)', desc: 'Build first working prototype based on validated needs' }
     ],
     // Year 1 content - validation
@@ -1349,12 +1349,12 @@ const programData = {
     },
     // Legacy fields for compatibility
     promise: 'Customer validation + founder discipline.',
-    outcome: 'Ready to build a real venture—customers, systems, and repeatability.',
+    outcome: 'Ready to build a venture—customers, systems, and repeatability.',
     y1: {
       workExp: [
-        { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
-        { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (2 months)' },
+        { t: '9 Business Challenges', h: 'Business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
+        { t: 'Client Projects / Hackathon', h: '2 client engagements', d: 'Solving business problems for companies (typically 1–8 weeks each)' },
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a company, supervised by industry mentors (2 months)' },
         { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
@@ -1368,7 +1368,7 @@ const programData = {
     y2: {
       common: [
         { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
-        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — real consulting engagement with a client company (typically 4–8 weeks)' },
+        { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)' },
         { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
         { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
         { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
@@ -1407,7 +1407,7 @@ const programData = {
         evidence: 'Integrated client deliverable + capstone outputs (performance reviews / KPIs / venture traction) + references + final portfolio + readiness certification'
       },
       gradOutcome: {
-        portfolio: ['Business plan with real customer data', 'Financial records and systems', 'Product/service documentation'],
+        portfolio: ['Business plan with customer data', 'Financial records and systems', 'Product/service documentation'],
         references: ['Customer testimonials', 'Mentor feedback', 'Business performance metrics'],
         readiness: ['Continue growing own venture', 'Join early-stage companies', 'Proven business-building capability']
       }
@@ -1477,7 +1477,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
       <div className="mt-4 p-3 bg-white/10 rounded-lg border border-white/20">
         <h5 className="font-bold mb-1" style={{ fontSize: '12px' }}>Recognised BBA Degree (Common)</h5>
         <p style={{ fontSize: '11px', lineHeight: '1.4' }}>
-          BBA degree from partner Online University — completed in parallel with the Working BBA Program (Let's Enterprise). {audience === 'parent' ? 'Your child earns' : 'You earn'} a recognised degree while gaining real experience.
+          BBA degree from partner Online University — completed in parallel with the Working BBA Program (Let's Enterprise). {audience === 'parent' ? 'Your child earns' : 'You earn'} a recognised degree while gaining professional experience.
         </p>
       </div>
     </div>
