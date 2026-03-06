@@ -1582,7 +1582,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
         <div className="pt-body">
           {/* Common Core */}
           <div className="mt-6">
-            <h4 className="text-xl font-bold mb-4 text-[#334c91]">Common Business Core</h4>
+            <h4 className="font-bold mb-4 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y2.common, 'card-delta-common')}
             </div>
@@ -1590,7 +1590,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
           {/* Skills */}
           <div className="mt-8">
-            <h4 className="text-xl font-bold mb-4 text-[#25BCBD]">Skills, Self-Discovery & Coaching</h4>
+            <h4 className="font-bold mb-4 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-discovery and Career Coaching</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y2.skills, 'card-delta-skills')}
             </div>
@@ -1598,7 +1598,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
           {/* Program Focus */}
           <div className="mt-8">
-            <h4 className="text-xl font-bold mb-4 text-[#3663AD]">Program Focus — {current.name}</h4>
+            <h4 className="font-bold mb-4 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y2.focus, 'card-delta-focus')}
             </div>
@@ -1635,7 +1635,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
           {/* Common Core */}
           <div className="mt-6">
-            <h4 className="text-xl font-bold mb-4 text-[#334c91]">Common Business Core</h4>
+            <h4 className="font-bold mb-4 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y3.common, 'card-delta-common')}
             </div>
