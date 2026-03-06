@@ -651,14 +651,14 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'family'}
               onClick={() => setActiveTab('family')}
             >
-              Working BBA — Business Families
+              Working BBA — Family Business
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'venture'}
               onClick={() => setActiveTab('venture')}
             >
-              Working BBA — Venture Starters
+              Working BBA — Venture Builder
             </button>
             <button
               className="pt-tabBtn"
@@ -894,7 +894,7 @@ const portfolioItems = [
 // Program data for Year 2 & 3 specifics
 const programData = {
   original: {
-    name: 'Entrepreneurial Job',
+    name: 'Entrepreneurial Jobs',
     images: {
       y1: { src: portfolioItems[2].src, caption: portfolioItems[2].caption },
       y2: { src: portfolioItems[1].src, caption: portfolioItems[1].caption },
@@ -1061,7 +1061,7 @@ const programData = {
     }
   },
   bf: {
-    name: 'Business Family',
+    name: 'Family Business',
     images: {
       y1: { src: portfolioItems[4].src, caption: portfolioItems[4].caption },
       y2: { src: portfolioItems[6].src, caption: portfolioItems[6].caption },
@@ -1243,7 +1243,7 @@ const programData = {
     }
   },
   solo: {
-    name: 'Venture Starters',
+    name: 'Venture Builder',
     images: {
       y1: { src: portfolioItems[0].src, caption: portfolioItems[0].caption },
       y2: { src: portfolioItems[5].src, caption: portfolioItems[5].caption },
