@@ -899,17 +899,6 @@ const programData = {
       y2: { src: portfolioItems[1].src, caption: portfolioItems[1].caption },
       y3: { src: portfolioItems[7].src, caption: portfolioItems[7].caption }
     },
-    // Fear-first hero
-    fearHero: {
-      parent: {
-        title: 'Your child will graduate with a degree.',
-        sub: 'But without real work pressure, they still won\u2019t be \u201cwork-ready.\u201d This program forces deadlines, manager feedback, and real delivery\u2014before graduation.'
-      },
-      student: {
-        title: 'If you\u2019re scared you won\u2019t survive a real job\u2026 good.',
-        sub: 'You\u2019ll build work confidence the only way it\u2019s built: doing real work under real deadlines.'
-      }
-    },
     // Myth vs Reality
     mythReality: {
       pairs: [
@@ -1076,17 +1065,6 @@ const programData = {
       y1: { src: portfolioItems[4].src, caption: portfolioItems[4].caption },
       y2: { src: portfolioItems[6].src, caption: portfolioItems[6].caption },
       y3: { src: portfolioItems[3].src, caption: portfolioItems[3].caption }
-    },
-    // Fear-first hero
-    fearHero: {
-      parent: {
-        title: 'A family business doesn\u2019t need \u201cideas.\u201d It needs reliability.',
-        sub: 'This program trains your child to show up, follow through, communicate professionally, and earn responsibility.'
-      },
-      student: {
-        title: 'If you want respect inside your own family business, you need proof\u2014not excuses.',
-        sub: 'You\u2019ll build trust by delivering, communicating, and handling responsibility like an adult.'
-      }
     },
     // Myth vs Reality
     mythReality: {
@@ -1269,17 +1247,6 @@ const programData = {
       y1: { src: portfolioItems[0].src, caption: portfolioItems[0].caption },
       y2: { src: portfolioItems[5].src, caption: portfolioItems[5].caption },
       y3: { src: portfolioItems[8].src, caption: "Building a venture requires an ecosystem." }
-    },
-    // Fear-first hero
-    fearHero: {
-      parent: {
-        title: 'Most \u201cstartup kids\u201d love ideas and hate execution.',
-        sub: 'That becomes expensive. This program builds a disciplined founder: customers, deadlines, systems, repeatability.'
-      },
-      student: {
-        title: 'If you want to start a venture, you don\u2019t need motivation. You need output.',
-        sub: 'Here, you ship every week\u2014customers, feedback, and uncomfortable truth included.'
-      }
     },
     // Hero section
     heroTitle: 'Build Your Own Business Through Disciplined Execution',
@@ -1518,13 +1485,6 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
   return (
     <div className="pt-tabPane active fade-in">
-      {/* ===================== FEAR-FIRST HERO ===================== */}
-      {current.fearHero && (
-        <div className="pt-fearHero">
-          <h2>{current.fearHero[audience].title}</h2>
-          <p>{current.fearHero[audience].sub}</p>
-        </div>
-      )}
 
       {/* ===================== HERO SECTION ===================== */}
       <div className="pt-hero">
