@@ -2217,7 +2217,9 @@ summary.pt-sumRow::-webkit-details-marker {
     justify-content: center;
 }
 
-.card-delta-skills {
+.pt-scope.light-theme .card-delta-skills {
+    background: #f0fdfa;
+    border: 1px solid #99f6e4;
     border-left: 3px solid var(--c5);
     min-height: 120px;
     padding: 20px 24px;
@@ -2226,7 +2228,9 @@ summary.pt-sumRow::-webkit-details-marker {
     justify-content: center;
 }
 
-.card-delta-focus {
+.pt-scope.light-theme .card-delta-focus {
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
     border-left: 3px solid var(--c6);
     min-height: 120px;
     padding: 20px 24px;
