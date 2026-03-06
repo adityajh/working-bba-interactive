@@ -7,6 +7,7 @@
     --c4: #1e88b8;
     --c5: #0da3bc;
     --c6: #25bcbd;
+    --reality-color: var(--c6);
 
     --bg: var(--c0);
     --card: rgba(255, 255, 255, .06);
@@ -1325,8 +1326,8 @@ summary.pt-sumRow::-webkit-details-marker {
 }
 
 .reality {
-    color: #25BCBD;
-    /* Bright Teal for Reality */
+    color: var(--reality-color);
+    /* Color for Reality, themeable */
     font-weight: 600;
     font-size: 14px;
 }

@@ -22,6 +22,9 @@
     --solid-deep: #160E44;
     --solid-grad: linear-gradient(135deg, #160E44 0%, #3663AD 100%);
 
+    /* Reality Color override */
+    --reality-color: var(--blue);
+
     /* Background override */
     background: var(--bg);
     color: var(--text);
