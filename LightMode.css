@@ -3,7 +3,7 @@
    Style: Dark Blue Header + Solid Dark Blue Highlights
    ============================ */
 
-.pt-scope.light-mode {
+.pt-scope.light-theme {
     /* Brand */
     --teal: #25BCBD;
     --blue: #3663AD;
@@ -31,7 +31,7 @@
 }
 
 /* ================= HEADER (Dark Blue Block) ================= */
-.pt-scope.light-mode .pt-top {
+.pt-scope.light-theme .pt-top {
     background: var(--solid-grad);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 8px 30px rgba(54, 99, 173, 0.35);
@@ -39,28 +39,28 @@
 }
 
 /* Force text inside header to be white */
-.pt-scope.light-mode .pt-top * {
+.pt-scope.light-theme .pt-top * {
     color: white !important;
 }
 
 /* Subtext slightly transparent */
-.pt-scope.light-mode .pt-top .pt-sub {
+.pt-scope.light-theme .pt-top .pt-sub {
     color: rgba(255, 255, 255, 0.9) !important;
 }
 
 /* Chips in Header */
-.pt-scope.light-mode .pt-chip {
+.pt-scope.light-theme .pt-chip {
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.pt-scope.light-mode .pt-dot {
+.pt-scope.light-theme .pt-dot {
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 /* ================= TABS ================= */
 /* ================= TABS ================= */
-.pt-scope.light-mode .pt-tabs {
+.pt-scope.light-theme .pt-tabs {
     background: transparent;
     border: none;
     box-shadow: none;
@@ -69,20 +69,20 @@
 }
 
 /* Inactive Tabs */
-.pt-scope.light-mode .pt-tabBtn {
+.pt-scope.light-theme .pt-tabBtn {
     color: rgba(255, 255, 255, 0.7) !important;
     background: transparent;
     font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.pt-scope.light-mode .pt-tabBtn:hover {
+.pt-scope.light-theme .pt-tabBtn:hover {
     background: rgba(255, 255, 255, 0.1);
     color: white !important;
 }
 
 /* Active Tab */
-.pt-scope.light-mode .pt-tabBtn[data-active="true"] {
+.pt-scope.light-theme .pt-tabBtn[data-active="true"] {
     background: white;
     color: var(--deep) !important;
     font-weight: 800;
@@ -91,20 +91,20 @@
 }
 
 /* Toggle Button */
-.pt-scope.light-mode .pt-theme-toggle {
+.pt-scope.light-theme .pt-theme-toggle {
     background: transparent;
     color: white;
     /* Icon must be white on blue header */
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.pt-scope.light-mode .pt-theme-toggle:hover {
+.pt-scope.light-theme .pt-theme-toggle:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
 /* ================= HERO SECTIONS ================= */
 /* Dark Blue Header Block */
-.pt-scope.light-mode .pt-hero {
+.pt-scope.light-theme .pt-hero {
     background: var(--solid-blue);
     color: white;
     border: none;
@@ -112,36 +112,36 @@
 }
 
 /* Ensure text inside hero is white */
-.pt-scope.light-mode .pt-hero h2,
-.pt-scope.light-mode .pt-hero h3,
-.pt-scope.light-mode .pt-hero li,
-.pt-scope.light-mode .pt-hero strong {
+.pt-scope.light-theme .pt-hero h2,
+.pt-scope.light-theme .pt-hero h3,
+.pt-scope.light-theme .pt-hero li,
+.pt-scope.light-theme .pt-hero strong {
     color: white !important;
 }
 
 /* ================= HIGHLIGHT BOXES (Solid Deep Blue) ================= */
 /* "How confidence is built" box */
-.pt-scope.light-mode .pt-mechanism {
+.pt-scope.light-theme .pt-mechanism {
     background: rgba(22, 14, 68, 0.3);
     /* Slightly transparent on dark bg */
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
 }
 
-.pt-scope.light-mode .pt-mechanism strong {
+.pt-scope.light-theme .pt-mechanism strong {
     color: white !important;
 }
 
 /* "Best For" Section */
-.pt-scope.light-mode .pt-trackMeta {
+.pt-scope.light-theme .pt-trackMeta {
     color: var(--deep) !important;
 }
 
-.pt-scope.light-mode .pt-trackMeta span {
+.pt-scope.light-theme .pt-trackMeta span {
     color: var(--deep) !important;
 }
 
-.pt-scope.light-mode .pt-trackMeta .lbl {
+.pt-scope.light-theme .pt-trackMeta .lbl {
     background: var(--deep);
     color: white !important;
     padding: 4px 8px;
@@ -149,59 +149,59 @@
 }
 
 /* "Year 1 in one line" Summary Box */
-.pt-scope.light-mode .pt-yearSummary {
+.pt-scope.light-theme .pt-yearSummary {
     background: var(--solid-deep);
     color: white;
     box-shadow: 0 10px 30px rgba(22, 14, 68, 0.2);
     border: 1px solid rgba(54, 99, 173, 0.3);
 }
 
-.pt-scope.light-mode .pt-yearSummary h4,
-.pt-scope.light-mode .pt-yearSummary h5,
-.pt-scope.light-mode .pt-yearSummary p,
-.pt-scope.light-mode .pt-yearSummary li {
+.pt-scope.light-theme .pt-yearSummary h4,
+.pt-scope.light-theme .pt-yearSummary h5,
+.pt-scope.light-theme .pt-yearSummary p,
+.pt-scope.light-theme .pt-yearSummary li {
     color: white !important;
 }
 
 /* Parent Clarity Boxes */
-.pt-scope.light-mode .pt-clarityBox {
+.pt-scope.light-theme .pt-clarityBox {
     background: white;
     /* Keep content cards white for readability */
     border: 2px solid rgba(54, 99, 173, 0.15);
     box-shadow: 0 4px 12px rgba(54, 99, 173, 0.05);
 }
 
-.pt-scope.light-mode .pt-clarityBox h4 {
+.pt-scope.light-theme .pt-clarityBox h4 {
     color: var(--blue);
 }
 
-.pt-scope.light-mode .pt-clarityBox li {
+.pt-scope.light-theme .pt-clarityBox li {
     color: var(--text);
 }
 
 /* Progress Mechanism Box */
-.pt-scope.light-mode .pt-progressCheck {
+.pt-scope.light-theme .pt-progressCheck {
     background: var(--solid-blue);
     color: white;
     border-radius: var(--r2);
     padding: 16px;
 }
 
-.pt-scope.light-mode .pt-progressCheck h4,
-.pt-scope.light-mode .pt-progressCheck p {
+.pt-scope.light-theme .pt-progressCheck h4,
+.pt-scope.light-theme .pt-progressCheck p {
     color: white !important;
 }
 
 /* ================= OPERATING SYSTEM TAB (Tab 4) ================= */
 
 /* Main Header & Explainer */
-.pt-scope.light-mode .pt-tableExplain h2 {
+.pt-scope.light-theme .pt-tableExplain h2 {
     color: var(--deep) !important;
     /* Header on light bg should be dark */
     margin-bottom: 24px;
 }
 
-.pt-scope.light-mode .pt-explainBox {
+.pt-scope.light-theme .pt-explainBox {
     background: var(--solid-deep);
     color: white;
     padding: 20px;
@@ -210,45 +210,45 @@
     box-shadow: 0 8px 24px rgba(22, 14, 68, 0.15);
 }
 
-.pt-scope.light-mode .pt-explainBox h4,
-.pt-scope.light-mode .pt-explainBox li,
-.pt-scope.light-mode .pt-explainBox strong {
+.pt-scope.light-theme .pt-explainBox h4,
+.pt-scope.light-theme .pt-explainBox li,
+.pt-scope.light-theme .pt-explainBox strong {
     color: white !important;
 }
 
 /* Legend */
-.pt-scope.light-mode .pt-legend {
+.pt-scope.light-theme .pt-legend {
     background: white !important;
     border: 1px solid rgba(54, 99, 173, 0.2) !important;
     box-shadow: 0 4px 12px rgba(54, 99, 173, 0.08) !important;
 }
 
-.pt-scope.light-mode .pt-legend span {
+.pt-scope.light-theme .pt-legend span {
     color: var(--deep) !important;
     font-weight: 600;
 }
 
 /* Parent Takeaway */
-.pt-scope.light-mode .pt-parentTakeaway {
+.pt-scope.light-theme .pt-parentTakeaway {
     background: var(--solid-blue);
     color: white;
     padding: 20px;
     border-radius: 12px;
 }
 
-.pt-scope.light-mode .pt-parentTakeaway h4,
-.pt-scope.light-mode .pt-parentTakeaway p,
-.pt-scope.light-mode .pt-parentTakeaway li {
+.pt-scope.light-theme .pt-parentTakeaway h4,
+.pt-scope.light-theme .pt-parentTakeaway p,
+.pt-scope.light-theme .pt-parentTakeaway li {
     color: white !important;
 }
 
 /* Progress Tracking - New Section */
-.pt-scope.light-mode .pt-progressTracking h4 {
+.pt-scope.light-theme .pt-progressTracking h4 {
     color: var(--deep) !important;
     margin-bottom: 16px;
 }
 
-.pt-scope.light-mode .pt-trackingBox {
+.pt-scope.light-theme .pt-trackingBox {
     background: var(--solid-deep);
     color: white;
     padding: 20px;
@@ -257,44 +257,44 @@
     height: 100%;
 }
 
-.pt-scope.light-mode .pt-trackingBox h5,
-.pt-scope.light-mode .pt-trackingBox li,
-.pt-scope.light-mode .pt-trackingBox strong {
+.pt-scope.light-theme .pt-trackingBox h5,
+.pt-scope.light-theme .pt-trackingBox li,
+.pt-scope.light-theme .pt-trackingBox strong {
     color: white !important;
 }
 
 /* Periodic Table Colors */
 /* Ensure headers in the dark tables are legible */
-.pt-scope.light-mode .text-\[\#3269ae\],
-.pt-scope.light-mode .text-\[\#1e88b8\] {
+.pt-scope.light-theme .text-\[\#3269ae\],
+.pt-scope.light-theme .text-\[\#1e88b8\] {
     color: #5BA4E5 !important;
     /* Lighter blue for better contrast on dark NAVY bg */
 }
 
 /* ================= YEAR CONTENT STYLES ================= */
 /* The main year cards */
-.pt-scope.light-mode .pt-yearContent {
+.pt-scope.light-theme .pt-yearContent {
     background: white;
     border: 1px solid rgba(54, 99, 173, 0.15);
 }
 
-.pt-scope.light-mode .pt-contentBlock h5 {
+.pt-scope.light-theme .pt-contentBlock h5 {
     color: var(--deep);
     border-bottom: 2px solid rgba(54, 99, 173, 0.1);
     padding-bottom: 8px;
 }
 
-.pt-scope.light-mode .pt-contentBlock li {
+.pt-scope.light-theme .pt-contentBlock li {
     color: var(--text);
 }
 
 /* Year Headings */
-.pt-scope.light-mode .pt-yearTitle strong {
+.pt-scope.light-theme .pt-yearTitle strong {
     color: var(--deep);
 }
 
 /* ================= DELTA PANELS (Capstone Activities) ================= */
-.pt-scope.light-mode .deltaPanel {
+.pt-scope.light-theme .deltaPanel {
     background: white;
     border: 1px solid rgba(11, 16, 34, 0.15);
     /* Thin outline */
@@ -302,7 +302,7 @@
     /* Subtle shadow */
 }
 
-.pt-scope.light-mode .deltaPanel .pt-panelTitle {
+.pt-scope.light-theme .deltaPanel .pt-panelTitle {
     color: var(--deep) !important;
     font-weight: 800;
     text-transform: uppercase;
@@ -312,37 +312,42 @@
 }
 
 /* ================= AUDIENCE TOGGLE (Light Mode) ================= */
-.pt-scope.light-mode .pt-audienceToggle {
+.pt-scope.light-theme .pt-audienceToggle {
     border: 1px solid rgba(255, 255, 255, 0.25);
     background: rgba(255, 255, 255, 0.1);
 }
 
-.pt-scope.light-mode .pt-audBtn {
+.pt-scope.light-theme .pt-audBtn {
     color: rgba(255, 255, 255, 0.7) !important;
 }
 
-.pt-scope.light-mode .pt-audBtn:hover {
+.pt-scope.light-theme .pt-audBtn:hover {
     color: white !important;
     background: rgba(255, 255, 255, 0.15);
 }
 
-.pt-scope.light-mode .pt-audBtn.active {
+.pt-scope.light-theme .pt-audBtn.active {
     background: white;
     color: var(--deep) !important;
     font-weight: 800;
 }
 
 /* ================= FOOTER BANNER (Light Mode) ================= */
-.pt-scope.light-mode .pt-footerBanner {
+.pt-scope.light-theme .pt-footerBanner {
     background: linear-gradient(135deg, #160E44 0%, #3663AD 100%);
     border: none;
     box-shadow: 0 12px 30px rgba(22, 14, 68, 0.25);
 }
 
-.pt-scope.light-mode .pt-footerBanner p {
+.pt-scope.light-theme .pt-footerBanner p {
     color: white !important;
 }
 
-.pt-scope.light-mode .pt-footerBanner strong {
+.pt-scope.light-theme .pt-footerBanner strong {
     color: #25BCBD !important;
+}
+
+/* Myth Visibility Fix */
+.pt-scope.light-theme .myth {
+    color: var(--deep);
 }
