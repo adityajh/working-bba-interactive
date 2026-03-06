@@ -160,7 +160,7 @@ export default function WorkingBBAInteractive() {
 
     // Awareness - Self (Bright Teal #25BCBD)
     conflexion: {
-      name: "CONFLEX-ION",
+      name: "CONFLEXION",
       pillar: "awareness",
       color: "bg-[#25BCBD] text-[#160E44]", // Teal with Dark Text
       description: "Monthly publishing, personal reflection and meaning-making",
@@ -594,7 +594,7 @@ export default function WorkingBBAInteractive() {
           <div className="pt-brand">
             <div className="pt-logo" aria-label="Let's Enterprise logo">
               <img
-                src={isDarkMode ? "/Let's-Enterprise-Final-Logo_PNG.png" : "/Let's-Enterprise-Final-Logo_LightMode.png"}
+                src="/Let's-Enterprise-Final-Logo_PNG.png"
                 alt="Let's Enterprise"
                 style={{ height: '62px', width: 'auto', filter: 'none' }}
               />
@@ -1004,13 +1004,13 @@ const programData = {
       workExp: [
         { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
         { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (typically ~2–3 months)' },
-        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 from: Prompt Engineering, User Research, Data Analysis — self-paced deep skill building' }
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (2 months)' },
+        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
-        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (7 days)' },
-        { t: 'Self-Reflection', h: 'Conflex-ion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
-        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week with professionals (typically ~3–7 days)' },
+        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (5 days)' },
+        { t: 'Self-Reflection', h: 'Conflexion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
+        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week culminating in a Mega Networking Event' },
         { t: 'Career Coaching', h: 'Career Blueprint sessions', d: '4 individual sessions — mapping skills, interests, and goals into an actionable career path' },
         { t: 'StorySells Workshop 1', h: 'Portfolio & LinkedIn', d: '3 days: crafting your professional story' }
       ]
@@ -1182,13 +1182,13 @@ const programData = {
       workExp: [
         { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
         { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (typically ~2–3 months)' },
-        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 from: Prompt Engineering, User Research, Data Analysis — self-paced deep skill building' }
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (2 months)' },
+        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
-        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (7 days)' },
-        { t: 'Self-Reflection', h: 'Conflex-ion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
-        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week with professionals (typically ~3–7 days)' },
+        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (5 days)' },
+        { t: 'Self-Reflection', h: 'Conflexion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
+        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week culminating in a Mega Networking Event' },
         { t: 'Career Coaching', h: 'Career Blueprint sessions', d: '4 individual sessions — mapping skills, interests, and goals into an actionable career path' },
         { t: 'StorySells Workshop 1', h: 'Portfolio & LinkedIn', d: '3 days: crafting your professional story' }
       ]
@@ -1354,13 +1354,13 @@ const programData = {
       workExp: [
         { t: '9 Business Challenges', h: 'Real-world business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
         { t: 'Client Projects / Hackathon', h: '2 real client engagements', d: 'Solving real business problems for real companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (typically ~2–3 months)' },
-        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 from: Prompt Engineering, User Research, Data Analysis — self-paced deep skill building' }
+        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a real company, supervised by industry mentors (2 months)' },
+        { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
-        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (7 days)' },
-        { t: 'Self-Reflection', h: 'Conflex-ion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
-        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week with professionals (typically ~3–7 days)' },
+        { t: 'Camp & Immersions', h: 'Outdoor immersion & team bonding', d: 'Self Awareness Workshop (3 days) + Rural Project (5 days)' },
+        { t: 'Self-Reflection', h: 'Conflexion & Masterminds', d: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)' },
+        { t: 'Industry Networking Week', h: 'Professional networking', d: 'Industry networking week culminating in a Mega Networking Event' },
         { t: 'Career Coaching', h: 'Career Blueprint sessions', d: '4 individual sessions — mapping skills, interests, and goals into an actionable career path' },
         { t: 'StorySells Workshop 1', h: 'Portfolio & LinkedIn', d: '3 days: crafting your professional story' }
       ]
