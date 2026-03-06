@@ -1532,16 +1532,16 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
         <div className="pt-body">
           {/* Work Experience (Deep Blue) */}
-          <div className="mb-12">
-            <h4 className="font-bold mb-4 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Work Experience</h4>
+          <div className="mb-10">
+            <h4 className="font-bold mb-6 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Work Experience</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y1.workExp, 'card-delta-common')}
             </div>
           </div>
 
           {/* Skills & Coaching (Teal) */}
-          <div className="mb-12">
-            <h4 className="font-bold mb-4 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-Discovery & Career Coaching</h4>
+          <div className="mb-10">
+            <h4 className="font-bold mb-6 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-Discovery & Career Coaching</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y1.skills, 'card-delta-skills')}
             </div>
@@ -1581,24 +1581,24 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
         <div className="pt-body">
           {/* Common Core */}
-          <div className="mt-6">
-            <h4 className="font-bold mb-4 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
+          <div className="mb-10 mt-6">
+            <h4 className="font-bold mb-6 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y2.common, 'card-delta-common')}
             </div>
           </div>
 
           {/* Skills */}
-          <div className="mt-8">
-            <h4 className="font-bold mb-4 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-discovery and Career Coaching</h4>
+          <div className="mb-10">
+            <h4 className="font-bold mb-6 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-discovery and Career Coaching</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y2.skills, 'card-delta-skills')}
             </div>
           </div>
 
           {/* Program Focus */}
-          <div className="mt-8">
-            <h4 className="font-bold mb-4 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
+          <div className="mb-10">
+            <h4 className="font-bold mb-6 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y2.focus, 'card-delta-focus')}
             </div>
@@ -1634,23 +1634,23 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
           </p>
 
           {/* Common Core */}
-          <div className="mt-6">
-            <h4 className="font-bold mb-4 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
+          <div className="mb-10 mt-6">
+            <h4 className="font-bold mb-6 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y3.common, 'card-delta-common')}
             </div>
           </div>
           {/* Career Coaching & Narrative Making */}
-          <div className="mb-12">
-            <h4 className="font-bold mb-4 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Career Coaching & Narrative Making</h4>
+          <div className="mb-10">
+            <h4 className="font-bold mb-6 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Career Coaching & Narrative Making</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y3.skills, 'card-delta-skills')}
             </div>
           </div>
 
           {/* Program Focus */}
-          <div className="mb-12">
-            <h4 className="font-bold mb-4 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
+          <div className="mb-10">
+            <h4 className="font-bold mb-6 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y3.focus, 'card-delta-focus')}
             </div>
