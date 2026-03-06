@@ -1649,8 +1649,8 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
           </div>
 
           {/* Program Focus */}
-          <div className="mt-8">
-            <h4 className="text-xl font-bold mb-4 text-[#3663AD]">Program Focus — {current.name}</h4>
+          <div className="mb-12">
+            <h4 className="font-bold mb-4 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
             <div className="pt-deltaCards">
               {renderDelta(current.y3.focus, 'card-delta-focus')}
             </div>
