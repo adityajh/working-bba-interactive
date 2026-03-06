@@ -2031,16 +2031,34 @@ summary.pt-sumRow::-webkit-details-marker {
 .card-delta-common {
     border-top: 3px solid var(--c2);
     background: linear-gradient(180deg, rgba(51, 76, 145, 0.15) 0%, rgba(51, 76, 145, 0.05) 100%);
+    border-left: 3px solid var(--c3);
+    min-height: 120px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card-delta-skills {
     border-top: 3px solid var(--c6);
     background: linear-gradient(180deg, rgba(37, 188, 189, 0.15) 0%, rgba(37, 188, 189, 0.05) 100%);
+    border-left: 3px solid var(--c5);
+    min-height: 120px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card-delta-focus {
     border-top: 3px solid var(--c4);
     background: linear-gradient(180deg, rgba(30, 136, 184, 0.15) 0%, rgba(30, 136, 184, 0.05) 100%);
+    border-left: 3px solid var(--c6);
+    min-height: 120px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .card-outcome {
