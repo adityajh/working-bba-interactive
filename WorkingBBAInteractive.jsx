@@ -1047,7 +1047,7 @@ const programData = {
         { t: 'Coaching', h: 'Career Coaching', d: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
       ],
       focus: [
-        { t: 'Program Focus', h: '9‑Month Capstone', d: 'Entrepreneurial Jobs: full‑time apprenticeship role with clear outputs + strong references' }
+        { t: 'Program Focus', h: '9‑Month Apprenticeship', d: 'Entrepreneurial Jobs: full‑time apprenticeship role with clear outputs + strong references' }
       ],
       tracking: {
         visibility: '9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry benchmark comparison · Career readiness certification',
@@ -1379,8 +1379,8 @@ const programData = {
         { t: 'Skills & Coaching', h: 'Career + Reflection', d: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
       ],
       focus: [
-        { t: 'Program Focus', h: 'Program-Specific Experience', d: 'Family Business Project (2 months), Work inside another family\'s business — learn how others do it' },
-        { t: 'Program Focus', h: 'Founder-Led Venture Workshop', d: '2-day Founder Led Family Business Workshop, Learn from experienced family business founders' },
+        { t: 'Program Focus', h: 'Family Business Project', d: 'Family Business Project (2 months), Work inside another family\'s business — learn how others do it' },
+        { t: 'Program Focus', h: 'Founder-Led Venture Workshop', d: '2-day Founder Led Venture Workshop, Learn to refine and execute your business ideas' },
         { t: 'Program Focus', h: 'Business Coaching', d: '2 Individual + 2 Family coaching sessions (Family alignment & expectations)' }
       ],
       tracking: {
