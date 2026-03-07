@@ -798,7 +798,7 @@ export default function WorkingBBAInteractive() {
         <main className="pt-section">
           {activeTab === 'job' && <ProgramView programKey="original" audience={audience} onCTA={openBooking} />}
           {activeTab === 'family' && <ProgramView programKey="bf" audience={audience} onCTA={openBooking} />}
-          {activeTab === 'venture' && <ProgramView programKey="solo" audience={audience} onCTA={openBooking} />}
+          {activeTab === 'venture' && <ProgramView programKey="venture" audience={audience} onCTA={openBooking} />}
           {activeTab === 'compare' && <CompareTracks />}
 
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
@@ -1367,7 +1367,7 @@ const programData = {
       }
     }
   },
-  solo: {
+  venture: {
     name: 'Venture Builder',
     images: {
       y1: { src: portfolioItems[0].src, caption: portfolioItems[0].caption },

@@ -20,12 +20,12 @@
 | Year 3 - Work Year | 3.50L | 6.40L | 7.40L |
 
 ## Important Notes
-1. For Solo (Venture Builder) and Family Track, student must register at the beginning, but may choose to make a change at the end of year 1.
-2. UG-MED regular students are not permitted to change their track.
+1. For Venture Builder and Family Business Programs, student must register at the beginning, but may choose to make a change at the end of year 1.
+2. Working BBA Entrepreneurial Jobs students will not permitted to change to other program.
 3. No fee hike done in Growth year. Increase is only in Project and Work year as now our program has matured.
 
 ## Additional Costs
-1. **University Fee**: To be paid directly to University. DY Patil Online fees is approximately **Rs. 1.35L**.
+1. **University Fee**: To be paid directly to University of your choice. E.g. DY Patil Online fees is approximately **Rs. 1.35L**.
 2. **Travel Project expenses**: Approximately 10K - 15K per year.
 3. **Local Transport**: Approx INR 1500 per month on actuals based on mode of transport.
 4. **Boarding & Lodging**: For outstation students (variable).
