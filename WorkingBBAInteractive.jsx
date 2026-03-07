@@ -810,8 +810,8 @@ export default function WorkingBBAInteractive() {
                 <h2 style={{ fontSize: 19, fontWeight: 800, marginBottom: 6 }} className="hiw-heading">How It Works</h2>
                 <p className="hiw-intro" style={{ fontSize: '14px', lineHeight: 1.5, maxWidth: '720px', margin: '0 0 16px', opacity: 0.85 }}>
                   {audience === 'parent'
-                    ? 'One integrated system that tracks and connects every part of your child\u2019s education and work experience\u2014complete transparency, zero gaps.'
-                    : 'One integrated system that tracks and connects every part of your education and work experience\u2014complete transparency, zero gaps.'}
+                    ? 'One integrated system that tracks and connects every part of your child\u2019s education and work experience—complete transparency, zero gaps.'
+                    : 'One integrated system that tracks and connects every part of your education and work experience—complete transparency, zero gaps.'}
                 </p>
               </div>
 
@@ -819,11 +819,11 @@ export default function WorkingBBAInteractive() {
               <div className="hiw-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 10 }}>
                 {[
                   { icon: '\ud83d\udd27', title: 'Work Discipline', desc: 'Students build adult habits: punctuality, follow-through, hygiene, and weekly delivery. Not vibes. Not motivation. Output.' },
-                  { icon: '\ud83d\udde3\ufe0f', title: 'Communication Under Pressure', desc: 'Updates, follow-ups, presentations, stakeholder calls\u2014done repeatedly. They learn to speak clearly even when nervous.' },
-                  { icon: '\ud83d\udcca', title: 'Business Execution', desc: 'Sales, operations, research, basic finance thinking, and structured problem-solving\u2014done through challenges and projects.' },
+                  { icon: '\ud83d\udde3\ufe0f', title: 'Communication Under Pressure', desc: 'Updates, follow-ups, presentations, stakeholder calls—done repeatedly. They learn to speak clearly even when nervous.' },
+                  { icon: '\ud83d\udcca', title: 'Business Execution', desc: 'Sales, operations, research, basic finance thinking, and structured problem-solving—done through challenges and projects.' },
                   { icon: '\ud83d\udcc1', title: 'Proof-Based Portfolio', desc: 'Everything is documented: docs, media, testimonials, feedback scores, and project outcomes. Proof beats potential.' },
-                  { icon: '\ud83d\udd04', title: 'Feedback Loops (Not Exams)', desc: 'Assessment happens through supervisors, clients, peers, facilitators\u2014and professional deliverables. They improve by being evaluated, not by cramming.' },
-                  { icon: '\ud83e\udded', title: 'Career Clarity Through Work', desc: 'Students don\u2019t \u201cchoose\u201d blindly. They experience roles, environments, and expectations\u2014then decide with evidence.' }
+                  { icon: '\ud83d\udd04', title: 'Feedback Loops (Not Exams)', desc: 'Assessment happens through supervisors, clients, peers, facilitators—and professional deliverables. They improve by being evaluated, not by cramming.' },
+                  { icon: '\ud83e\udded', title: 'Career Clarity Through Work', desc: 'Students don\u2019t \u201cchoose\u201d blindly. They experience roles, environments, and expectations—then decide with evidence.' }
                 ].map((card, i) => (
                   <div key={i} className="hiw-card">
                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
@@ -923,8 +923,8 @@ export default function WorkingBBAInteractive() {
         <div className="pt-footerBanner">
           <p style={{ color: '#fff' }}>
             {audience === 'parent'
-              ? <><strong style={{ color: '#25BCBD' }}>Students graduate with</strong> recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and industry connections \u2014 not just a marksheet</>
-              : <><strong style={{ color: '#25BCBD' }}>You graduate with</strong> a recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and industry connections \u2014 not just a marksheet</>
+              ? <><strong style={{ color: '#25BCBD' }}>Students graduate with</strong> recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and industry connections — not just a marksheet</>
+              : <><strong style={{ color: '#25BCBD' }}>You graduate with</strong> a recognised BBA degree + a portfolio of 5 shipped client projects, 15 months of work experiences, and industry connections — not just a marksheet</>
             }
           </p>
         </div>
@@ -1130,7 +1130,7 @@ const programData = {
       workExp: [
         { t: '9 Business Challenges', h: 'Business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
         { t: 'Client Projects / Hackathon', h: '2 client engagements', d: 'Solving business problems for companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a company, supervised by industry mentors (2 months)' },
+        { t: 'First Apprenticeship', h: '1st Apprenticeship', d: 'Professional experience in a company, supervised by industry mentors (2 months)' },
         { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
@@ -1146,7 +1146,7 @@ const programData = {
         { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
         { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)' },
         { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
-        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
+        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (2 months)' },
         { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
       ],
       skills: [
@@ -1154,7 +1154,7 @@ const programData = {
         { t: 'Skills & Coaching', h: 'Career + Reflection', d: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
       ],
       focus: [
-        { t: 'Program Focus', h: 'Outstation Apprenticeship', d: 'Work in a new city with a different employer — broader exposure and network (typically ~2–3 months)' }
+        { t: 'Program Focus', h: 'Outstation Apprenticeship', d: 'Work in a new city with a different employer — broader exposure and network (2 months)' }
       ],
       tracking: {
         visibility: 'Quarterly portfolio reviews · Client & employer feedback reports · Industry ratings from apprenticeship hosts · Skills progression dashboard',
@@ -1308,7 +1308,7 @@ const programData = {
       workExp: [
         { t: '9 Business Challenges', h: 'Business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
         { t: 'Client Projects / Hackathon', h: '2 client engagements', d: 'Solving business problems for companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a company, supervised by industry mentors (2 months)' },
+        { t: 'First Apprenticeship', h: '1st Apprenticeship', d: 'Professional experience in a company, supervised by industry mentors (2 months)' },
         { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
@@ -1324,7 +1324,7 @@ const programData = {
         { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
         { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)' },
         { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
-        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
+        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (2 months)' },
         { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
       ],
       skills: [
@@ -1480,7 +1480,7 @@ const programData = {
       workExp: [
         { t: '9 Business Challenges', h: 'Business sprints', d: 'Kickstart · Product Design · Design Thinking · Digital Marketing · Sales · Research Methods · Accounting & Financial Analysis · Spreadsheets (delivered in short 2–4 week sprints across the year)' },
         { t: 'Client Projects / Hackathon', h: '2 client engagements', d: 'Solving business problems for companies (typically 1–8 weeks each)' },
-        { t: 'First Apprenticeship', h: 'Professional work experience', d: 'Working inside a company, supervised by industry mentors (2 months)' },
+        { t: 'First Apprenticeship', h: '1st Apprenticeship', d: 'Professional experience in a company, supervised by industry mentors (2 months)' },
         { t: 'Self-Study Skill Tracks', h: 'Deep skill building', d: 'Choose 2 Self-paced specialized tracks for deep skill building' }
       ],
       skills: [
@@ -1496,7 +1496,7 @@ const programData = {
         { t: 'Work Experience', h: '4 Advanced Challenges', d: 'Product & Display Prototyping · Business Automation · Value Proposition Design · Data Analysis & Visualisation' },
         { t: 'Work Experience', h: 'Consulting Project', d: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)' },
         { t: 'Work Experience', h: 'Venture Project', d: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)' },
-        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (typically ~2–3 months)' },
+        { t: 'Work Experience', h: '2nd Apprenticeship', d: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (2 months)' },
         { t: 'Work Experience', h: 'Self-Study Skill Tracks', d: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology' }
       ],
       skills: [
@@ -1504,7 +1504,7 @@ const programData = {
         { t: 'Skills & Coaching', h: 'Career + Reflection', d: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
       ],
       focus: [
-        { t: 'Program Focus', h: 'Family Business Project', d: 'Family Business Project (2 months), Work inside another family\'s business — learn how others do it' },
+        { t: 'Program Focus', h: 'Venture Project', d: 'Venture Project, come up with an idea, do the market research, and go to market with an MVP' },
         { t: 'Program Focus', h: 'Founder-Led Venture Workshop', d: '2-day Founder Led Venture Workshop, Learn to refine and execute your business ideas' },
         { t: 'Program Focus', h: 'Business Coaching', d: '2 Individual + 2 Family coaching sessions (Family alignment & expectations)' }
       ],
