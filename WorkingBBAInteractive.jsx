@@ -96,6 +96,7 @@ const CompareTracks = () => {
 
       <div className="text-gray-300 space-y-4 max-w-4xl mx-auto">
         {otherContent.map((line, idx) => {
+          if (line.includes('Program Differences') || line.includes('Investment (Fees')) return null;
           if (line.startsWith('### ')) return <h3 key={idx} className="mt-10 mb-5 text-[#3663AD] font-bold text-lg md:text-xl uppercase tracking-wide border-b border-[rgba(255,255,255,0.1)] pb-2">{line.replace('### ', '')}</h3>;
           if (line.startsWith('## ')) return <h2 key={idx} className="mt-14 mb-8 text-[#25BCBD] font-black text-xl md:text-2xl uppercase">{line.replace('## ', '')}</h2>;
           if (line.startsWith('# ')) return null;
