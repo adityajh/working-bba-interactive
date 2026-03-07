@@ -2,9 +2,106 @@ import { useState, useEffect } from 'react';
 import './ProgramTabs.css';
 import './LightMode.css';
 
+const CompareTracks = () => {
+  const [feesData, setFeesData] = useState(null);
+
+  useEffect(() => {
+    fetch('/program_fees.md')
+      .then(res => res.text())
+      .then(text => setFeesData(text))
+      .catch(console.error);
+  }, []);
+
+  if (!feesData) {
+    return <div className="p-8 text-center text-white opacity-50">Loading comparison...</div>;
+  }
+
+  const lines = feesData.split('\n');
+  let isTable = false;
+  const tableRows = [];
+  const otherContent = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.trim().startsWith('|')) {
+      if (!isTable) isTable = true;
+      if (!line.includes('---')) {
+        const cells = line.split('|').map(cell => cell.trim()).filter((cell, index, arr) => index !== 0 && index !== arr.length - 1);
+        tableRows.push(cells);
+      }
+    } else {
+      isTable = false;
+      otherContent.push(line);
+    }
+  }
+
+  return (
+    <div className="pt-compareTracks p-4 md:p-8 animate-fade-in fade-in-up pb-[100px]">
+      <div className="mb-10 text-center">
+        <h2 style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, margin: 0, lineHeight: 1.1, textTransform: 'uppercase' }} className="text-white">Program Comparison & Investment</h2>
+        <div style={{ marginTop: '12px', fontSize: '16px', opacity: 0.8, fontWeight: 400 }} className="max-w-2xl mx-auto">
+          Compare the three Working BBA tracks side-by-side to understand the different outcomes, deliverables, and fees.
+        </div>
+      </div>
+
+      <div className="overflow-x-auto mb-16 rounded-xl shadow-2xl pt-tableWrap" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+        <table className="w-full text-left border-collapse min-w-[900px]">
+          <thead>
+            {tableRows.length > 0 && (
+              <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
+                {tableRows[0].map((header, idx) => (
+                  <th key={idx} className="p-5 font-bold text-[#c1cbf5] border-b border-[rgba(255,255,255,0.1)] text-sm md:text-base">{header}</th>
+                ))}
+              </tr>
+            )}
+          </thead>
+          <tbody>
+            {tableRows.slice(1).map((row, rowIdx) => {
+              const isTotalFees = row[0]?.includes('Total Fees');
+              return (
+                <tr key={rowIdx} className="hover:bg-[rgba(255,255,255,0.04)] transition-colors group">
+                  {row.map((cell, idx) => {
+                    let cssClasses = `p-4 border-b border-[rgba(255,255,255,0.05)] text-sm md:text-[15px] leading-relaxed `;
+                    if (isTotalFees) {
+                      cssClasses += idx === 0 ? 'font-bold text-white text-base ' : 'font-extrabold text-[#25BCBD] text-lg md:text-xl drop-shadow-[0_0_8px_rgba(37,188,189,0.5)] ';
+                    } else {
+                      cssClasses += idx === 0 ? 'font-semibold text-white ' : 'text-gray-300 group-hover:text-white ';
+                    }
+                    return (
+                      <td
+                        key={idx}
+                        className={cssClasses}
+                        dangerouslySetInnerHTML={{ __html: cell.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+                      />
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="text-gray-300 space-y-4 max-w-4xl mx-auto">
+        {otherContent.map((line, idx) => {
+          if (line.startsWith('### ')) return <h3 key={idx} className="mt-10 mb-5 text-[#3663AD] font-bold text-xl md:text-2xl uppercase tracking-wide border-b border-[rgba(255,255,255,0.1)] pb-2">{line.replace('### ', '')}</h3>;
+          if (line.startsWith('## ')) return <h2 key={idx} className="mt-14 mb-8 text-[#25BCBD] font-black text-2xl md:text-3xl uppercase">{line.replace('## ', '')}</h2>;
+          if (line.startsWith('# ')) return null;
+          if (line.startsWith('- ')) return <li key={idx} className="ml-6 mb-3 text-[15px] leading-relaxed marker:text-[#25BCBD]" dangerouslySetInnerHTML={{ __html: line.replace('- ', '').replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>') }} />;
+          if (line.trim() === '') return null;
+          if (line.match(/^\d+\./)) {
+            return <div key={idx} className="mb-4 pl-4 text-[15px] leading-relaxed border-l-2 border-[#1e88b8]" dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>') }} />;
+          }
+          return <p key={idx} className="mb-4 opacity-90 text-[15px] leading-relaxed">{line}</p>;
+        })}
+      </div>
+    </div>
+  );
+};
+
 export default function WorkingBBAInteractive() {
   const [selectedElement, setSelectedElement] = useState(null);
-  const [activeTab, setActiveTab] = useState('job'); // job | family | venture | periodic
+  const [activeTab, setActiveTab] = useState('job'); // job | family | venture | compare | periodic
   const [isDarkMode, setIsDarkMode] = useState(true); // true = dark, false = light
   const [audience, setAudience] = useState('student'); // 'parent' | 'student'
   const [bookingModal, setBookingModal] = useState(null); // null | { section, label }
@@ -662,6 +759,13 @@ export default function WorkingBBAInteractive() {
             </button>
             <button
               className="pt-tabBtn"
+              data-active={activeTab === 'compare'}
+              onClick={() => setActiveTab('compare')}
+            >
+              Compare Tracks
+            </button>
+            <button
+              className="pt-tabBtn"
               data-active={activeTab === 'periodic'}
               onClick={() => setActiveTab('periodic')}
             >
@@ -675,6 +779,7 @@ export default function WorkingBBAInteractive() {
           {activeTab === 'job' && <ProgramView programKey="original" audience={audience} onCTA={openBooking} />}
           {activeTab === 'family' && <ProgramView programKey="bf" audience={audience} onCTA={openBooking} />}
           {activeTab === 'venture' && <ProgramView programKey="solo" audience={audience} onCTA={openBooking} />}
+          {activeTab === 'compare' && <CompareTracks />}
 
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
           {activeTab === 'periodic' && (
