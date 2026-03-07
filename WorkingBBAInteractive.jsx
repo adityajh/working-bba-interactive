@@ -880,13 +880,13 @@ const ctaCopy = {
 
 // Portfolio images + captions
 const portfolioItems = [
-  { src: '/portfolio-messy-desk-evidence.png', caption: 'This is what a year of work looks like. Every item is earned, not assigned.', hero: true },
-  { src: '/portfolio-client-pitch-room.png', caption: 'Client Project \u2014 presenting a live marketing strategy to company leadership. Week 4 of an engagement.' },
-  { src: '/portfolio-whiteboard-brainstorm.png.png', caption: 'The thinking behind the work \u2014 a business model canvas built during the Kickstart challenge.' },
+  { src: '/MakingBusinessHappen.jpg', caption: 'This is what a year of work looks like. Every item is earned, not assigned.', hero: true },
+  { src: '/PitchingToClients.jpg', caption: 'Client Project — presenting a live marketing strategy to company leadership. Week 4 of an engagement.' },
+  { src: '/ThinkingBEhindtheWork.jpg', caption: 'The thinking behind the work — a business model canvas built during the Kickstart challenge.' },
   { src: '/portfolio-reference-letter-desk.png', caption: 'The letter you take home \u2014 a reference from the manager who supervised 9 weeks of professional work.' },
-  { src: '/portfolio-daily-cards-stack.png', caption: '200+ daily reflection cards. The habit that turns experience into learning.' },
-  { src: '/portfolio-storysells-stage.png', caption: 'Telling your story to a room \u2014 the professional storytelling presentation every student delivers.' },
-  { src: '/portfolio-jury-saturday.png', caption: 'Saturday jury review \u2014 presenting project work to industry professionals who score and challenge you.' },
+  { src: '/BuildingPortfolio.jpg', caption: '200+ daily reflection cards. The habit that turns experience into learning.' },
+  { src: '/ImplementChanges.jpg', caption: 'Telling your story to a room — the professional storytelling presentation every student delivers.' },
+  { src: '/PresentingtoJury.jpg', caption: 'Saturday jury review — presenting project work to industry professionals who score and challenge you.' },
   { src: '/portfolio-apprenticeship-workspace.png', caption: '9 weeks inside a company. Not visiting. Not observing. Working.', hero: true },
   { src: '/portfolio-client-project-urbanbrew.png', caption: 'Deliverable \u2014 a marketing campaign execution for Urban Brew, driving actual footfall and sales.' }
 ];
