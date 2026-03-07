@@ -47,52 +47,59 @@ const CompareTracks = () => {
         </div>
       </div>
 
-      {tables.map((tableRows, tableIdx) => (
-        <div key={tableIdx} className="overflow-x-auto mb-16 rounded-xl shadow-2xl pt-tableWrap" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
-          <table className="w-full text-left border-collapse table-fixed">
-            <thead>
-              {tableRows.length > 0 && (
-                <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
-                  {tableRows[0].map((header, idx) => (
-                    <th key={idx} className={`p-4 md:p-5 font-bold text-[#c1cbf5] border-b border-[rgba(255,255,255,0.1)] text-xs md:text-sm ${idx === 0 ? 'w-[20%] md:w-[25%]' : 'w-[26.6%] md:w-[25%]'}`}>{header}</th>
-                  ))}
-                </tr>
-              )}
-            </thead>
-            <tbody>
-              {tableRows.slice(1).map((row, rowIdx) => {
-                const isTotalFees = row[0]?.includes('Total Fees');
-                const isOutcome = row[0]?.includes('Outcome');
-                const isDifferencesTable = tableRows[0][0]?.includes('Year');
+      {tables.map((tableRows, tableIdx) => {
+        const isDifferencesTable = tableRows[0][0]?.includes('Year');
+        const title = isDifferencesTable ? "Program Differences (Deliverables)" : "Investment (Fees 2026)";
 
-                return (
-                  <tr key={rowIdx} className="hover:bg-[rgba(255,255,255,0.04)] transition-colors group">
-                    {row.map((cell, idx) => {
-                      let cssClasses = `p-3 md:p-4 border-b border-[rgba(255,255,255,0.05)] text-[13px] md:text-sm leading-relaxed align-top `;
+        return (
+          <div key={tableIdx} className="mb-16">
+            <h2 className="mb-6 text-[#25BCBD] font-black text-xl md:text-2xl uppercase text-center md:text-left px-2">{title}</h2>
+            <div className="overflow-x-auto rounded-xl shadow-2xl pt-tableWrap" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)' }}>
+              <table className="w-full text-left border-collapse table-fixed">
+                <thead>
+                  {tableRows.length > 0 && (
+                    <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
+                      {tableRows[0].map((header, idx) => (
+                        <th key={idx} className={`p-4 md:p-5 font-bold text-[#c1cbf5] border-b border-[rgba(255,255,255,0.1)] text-xs md:text-sm ${idx === 0 ? 'w-[20%] md:w-[25%]' : 'w-[26.6%] md:w-[25%]'}`}>{header}</th>
+                      ))}
+                    </tr>
+                  )}
+                </thead>
+                <tbody>
+                  {tableRows.slice(1).map((row, rowIdx) => {
+                    const isTotalFees = row[0]?.includes('Total Fees');
+                    const isOutcome = row[0]?.includes('Outcome');
 
-                      // Text wrapping and breaking for mobile
-                      cssClasses += (isOutcome || isDifferencesTable) ? 'whitespace-normal break-words hyphens-auto ' : '';
+                    return (
+                      <tr key={rowIdx} className="hover:bg-[rgba(255,255,255,0.04)] transition-colors group">
+                        {row.map((cell, idx) => {
+                          let cssClasses = `p-3 md:p-4 border-b border-[rgba(255,255,255,0.05)] text-[13px] md:text-sm leading-relaxed align-top `;
 
-                      if (isTotalFees) {
-                        cssClasses += idx === 0 ? 'font-bold text-white text-sm md:text-base ' : 'font-extrabold text-[#25BCBD] text-base md:text-xl drop-shadow-[0_0_8px_rgba(37,188,189,0.5)] ';
-                      } else {
-                        cssClasses += idx === 0 ? 'font-semibold text-white ' : 'text-gray-300 group-hover:text-white ';
-                      }
-                      return (
-                        <td
-                          key={idx}
-                          className={cssClasses}
-                          dangerouslySetInnerHTML={{ __html: cell.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
-                        />
-                      );
-                    })}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      ))}
+                          // Text wrapping and breaking for mobile
+                          cssClasses += (isOutcome || isDifferencesTable) ? 'whitespace-normal break-words hyphens-auto ' : '';
+
+                          if (isTotalFees) {
+                            cssClasses += idx === 0 ? 'font-bold text-white text-sm md:text-base ' : 'font-extrabold text-[#25BCBD] text-base md:text-xl drop-shadow-[0_0_8px_rgba(37,188,189,0.5)] ';
+                          } else {
+                            cssClasses += idx === 0 ? 'font-semibold text-white ' : 'text-gray-300 group-hover:text-white ';
+                          }
+                          return (
+                            <td
+                              key={idx}
+                              className={cssClasses}
+                              dangerouslySetInnerHTML={{ __html: cell.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }}
+                            />
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        );
+      })}
 
       <div className="text-gray-300 space-y-4 max-w-4xl mx-auto">
         {otherContent.map((line, idx) => {
