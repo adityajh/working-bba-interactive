@@ -1848,19 +1848,63 @@ const ActivityItem = ({ item }) => {
 };
 
 const ImageStrip = ({ images }) => {
+  const [selectedImg, setSelectedImg] = useState(null);
+  
   if (!images || images.length === 0) return null;
   // Convert array back into a list if it was a single image object
   const imageList = Array.isArray(images) ? images : [images];
   
   return (
-    <div className="pt-imageStrip">
-      {imageList.map((img, i) => (
-        <div key={i} className="pt-imageThumbContainer">
-          <img src={img.src} alt="Program thumbnail" className="pt-imageThumb" />
-          {img.caption && <div className="pt-imageCaption">{img.caption}</div>}
+    <>
+      <div className="pt-imageStrip">
+        {imageList.map((img, i) => (
+          <div key={i} className="pt-imageThumbContainer" onClick={() => setSelectedImg(img)} style={{ cursor: 'zoom-in' }}>
+            <img src={img.src} alt="Program thumbnail" className="pt-imageThumb" />
+            {img.caption && <div className="pt-imageCaption">{img.caption}</div>}
+          </div>
+        ))}
+      </div>
+
+      {selectedImg && (
+        <div 
+          style={{
+            position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, 
+            backgroundColor: 'rgba(11, 16, 34, 0.92)', backdropFilter: 'blur(10px)',
+            zIndex: 99999, display: 'flex', flexDirection: 'column', 
+            alignItems: 'center', justifyContent: 'center', padding: '20px'
+          }}
+          onClick={() => setSelectedImg(null)}
+        >
+          <button 
+            style={{ 
+              position: 'absolute', top: '24px', right: '32px', background: 'none', 
+              border: 'none', color: 'white', fontSize: '40px', cursor: 'pointer', 
+              zIndex: 100000, lineHeight: 1, opacity: 0.8 
+            }}
+            onClick={(e) => { e.stopPropagation(); setSelectedImg(null); }}
+            onMouseOver={(e) => e.target.style.opacity = 1}
+            onMouseOut={(e) => e.target.style.opacity = 0.8}
+          >
+            &times;
+          </button>
+          <img 
+            src={selectedImg.src} 
+            alt="Full screen view" 
+            style={{ 
+              maxWidth: '95%', maxHeight: '75vh', objectFit: 'contain', 
+              borderRadius: '8px', boxShadow: '0 24px 60px rgba(0,0,0,0.6)',
+              cursor: 'default'
+            }} 
+            onClick={(e) => e.stopPropagation()}
+          />
+          {selectedImg.caption && (
+            <div style={{ color: 'rgba(255,255,255,0.95)', marginTop: '20px', fontSize: '16px', maxWidth: '800px', textAlign: 'center', fontWeight: '500', lineHeight: 1.5 }}>
+              {selectedImg.caption}
+            </div>
+          )}
         </div>
-      ))}
-    </div>
+      )}
+    </>
   );
 };
 
