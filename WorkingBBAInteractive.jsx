@@ -1896,13 +1896,26 @@ const PillarSection = ({ pillar, programKey }) => {
   );
 
   if (isAssessment) {
+    // Get the first item (typically one Tracking item per year/program)
+    const assessmentItem = visibleItems[0];
+    
+    const formatAssessmentDetail = (text) => {
+      if (!text) return null;
+      if (text.includes('\n')) {
+        return text.split('\n').map((line, idx) => (
+          <p key={idx} style={{ marginTop: idx > 0 ? '8px' : '0' }}>{line.trim()}</p>
+        ));
+      }
+      return <p>{text}</p>;
+    };
+
     return (
       <details className="pt-assessment mb-6">
-        <summary className="font-bold text-[#FBBF24] uppercase text-sm tracking-wide">
+        <summary className="font-bold text-[#FBBF24] uppercase text-sm tracking-wide cursor-pointer">
           Tracking & Assessment
         </summary>
-        <div className="mt-3">
-          {renderItems()}
+        <div className="mt-3 text-[13px] leading-[1.45] text-white/90 border-l-2 border-[#FBBF24] pl-3 ml-1">
+          {assessmentItem && formatAssessmentDetail(assessmentItem.detail)}
         </div>
       </details>
     );

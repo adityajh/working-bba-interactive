@@ -2272,7 +2272,7 @@ summary.pt-sumRow::-webkit-details-marker {
 }
 .pt-pillarTitle.education { border-left-color: #3663AD; color: #3663AD; }
 .pt-pillarTitle.experience { border-left-color: #25BCBD; color: #25BCBD; }
-.pt-pillarTitle.awareness { border-left-color: #D946EF; color: #D946EF; }
+.pt-pillarTitle.awareness { border-left-color: #e2e8f0; color: #e2e8f0; }
 .pt-pillarTitle.assessment { border-left-color: #FBBF24; color: #FBBF24; }
 .pt-pillarTitle.dark { border-left-color: #fff; color: #fff; }
 
@@ -2289,9 +2289,6 @@ summary.pt-sumRow::-webkit-details-marker {
 }
 .pt-activityItem:hover {
     background: rgba(255, 255, 255, 0.08);
-}
-.pt-activityItem.core {
-    /* default style */
 }
 .pt-activityItem.university {
     background: rgba(255, 255, 255, 0.02);
@@ -2325,8 +2322,9 @@ summary.pt-sumRow::-webkit-details-marker {
 }
 .pt-activityDot.education { background-color: #3663AD; }
 .pt-activityDot.experience { background-color: #25BCBD; }
-.pt-activityDot.awareness { background-color: #D946EF; }
+.pt-activityDot.awareness { background-color: #e2e8f0; }
 .pt-activityDot.assessment { background-color: #FBBF24; }
+
 
 .pt-activityTitle {
     font-size: 15px;
