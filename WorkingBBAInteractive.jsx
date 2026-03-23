@@ -761,7 +761,7 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'job'}
               onClick={() => setActiveTab('job')}
             >
-              The Working BBA - Enterprise leadership
+              The Working BBA - Enterprise Leadership
             </button>
             <button
               className="pt-tabBtn"
@@ -775,7 +775,7 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'venture'}
               onClick={() => setActiveTab('venture')}
             >
-              The Working BBA - Venture builder
+              The Working BBA - Venture Builder
             </button>
             <button
               className="pt-tabBtn"
@@ -1171,7 +1171,7 @@ const year3Data = {
       {
         name: 'EXPERIENCE',
         items: [
-          { title: '9‑Month Apprenticeship', detail: 'Enterprise leadership: full‑time apprenticeship role with clear outputs + strong references', badge: 'EJ', category: 'focus' },
+          { title: '9‑Month Apprenticeship', detail: 'Enterprise Leadership: full‑time apprenticeship role with clear outputs + strong references', badge: 'EJ', category: 'focus' },
           { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business', badge: 'ALL', category: 'core' }
         ]
       },
@@ -1269,7 +1269,7 @@ const y1CommonImages = [
 
 const programData = {
   original: {
-    name: 'The Working BBA - Enterprise leadership',
+    name: 'The Working BBA - Enterprise Leadership',
     images: {
       y1: [
         { src: '/Y1_TeamBuilding.jpg', caption: 'The self-awareness and team-bonding immersion trip.' },
@@ -1642,7 +1642,7 @@ const programData = {
     }
   },
   venture: {
-    name: 'The Working BBA - Venture builder',
+    name: 'The Working BBA - Venture Builder',
     images: {
       y1: [
         { src: '/BuildingPortfolio.jpg', caption: 'Daily reflection cards—the habit of relentless iteration.' },
@@ -1865,9 +1865,9 @@ const ActivityItem = ({ item }) => {
 
   const getBadgeText = (badge) => {
     switch (badge) {
-      case 'EJ': return 'Enterprise leadership';
+      case 'EJ': return 'Enterprise Leadership';
       case 'FAM': return 'Family Business';
-      case 'VEN': return 'Venture builder';
+      case 'VEN': return 'Venture Builder';
       default: return badge;
     }
   };
@@ -2064,6 +2064,19 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
 
   return (
     <div className="pt-tabPane active fade-in">
+      {/* ===================== PROGRAM TITLE HEADER ===================== */}
+      <div className="pt-programHeader" style={{ padding: '0 0 16px', textAlign: 'center' }}>
+        <h1 style={{ 
+          fontSize: 'clamp(28px, 5vw, 42px)', 
+          fontWeight: 900, 
+          color: '#25BCBD',
+          textTransform: 'uppercase',
+          letterSpacing: '1px',
+          margin: 0
+        }}>
+          {current.name}
+        </h1>
+      </div>
 
       {/* ===================== HERO SECTION ===================== */}
       <div className="pt-hero">
