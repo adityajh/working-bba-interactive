@@ -1016,7 +1016,249 @@ const portfolioItems = [
   { src: '/VenturePlanning.png', caption: 'Deliverable — a marketing campaign execution for Urban Brew, driving actual footfall and sales.' }
 ];
 
-// Program data for Year 2 & 3 specifics
+// ====== NEW PROGRAM ROLLUP SCHEMA ======
+
+const year1Common = {
+  pillars: [
+    {
+      name: 'EDUCATION',
+      items: [
+        { title: '9 Business Challenges', detail: 'Kickstart | Product Design | Design Thinking | Digital Marketing | Sales | Research Methods | Accounting & Financial Analysis | Spreadsheets (delivered in short 2–4 week sprints across the year)', badge: 'ALL', category: 'core' },
+        { title: '2 Client Engagements', detail: 'Solving business problems for companies (typically 1–8 weeks each)', badge: 'ALL', category: 'core' },
+        { title: '2 Self Paced Skill Tracks', detail: 'Choose 2 Self-paced specialized tracks for deep skill building', badge: 'ALL', category: 'core' },
+        { title: 'University Subjects*', detail: 'Principles of Management | Business Communication | Business Accounting | Business Economics – Micro | Business Mathematics | Business Demography | Business Organisations & Systems | Principles of Marketing | Principles of Finance | Basics of Cost Accounting | Business Statistics | Business Informatics', badge: 'ALL', category: 'university' }
+      ]
+    },
+    {
+      name: 'EXPERIENCE',
+      items: [
+        { title: 'Apprenticeship 1', detail: 'Professional experience in a company, supervised by industry mentors (2 months)', badge: 'ALL', category: 'core' }
+      ]
+    },
+    {
+      name: 'AWARENESS',
+      items: [
+        { title: 'Outdoor immersion & team bonding', detail: 'Self Awareness Workshop (3 days) + Rural Project (5 days)', badge: 'ALL', category: 'core' },
+        { title: 'Conflexion & Masterminds', detail: '6 Reflection & Coaching Sessions + fortnightly Mastermind groups + Daily Cards (daily reflection journal)', badge: 'ALL', category: 'core' },
+        { title: 'Professional networking', detail: 'Industry networking week culminating in a Mega Networking Event', badge: 'ALL', category: 'core' },
+        { title: 'Career Blueprint sessions', detail: '4 individual sessions — mapping skills, interests, and goals into an actionable career path', badge: 'ALL', category: 'core' },
+        { title: 'Portfolio & LinkedIn', detail: '3 days: crafting your professional story', badge: 'ALL', category: 'core' }
+      ]
+    }
+  ]
+};
+
+const year2Data = {
+  original: {
+    pillars: [
+      {
+        name: 'EDUCATION',
+        items: [
+          { title: '4 Advanced Challenges', detail: 'Product & Display Prototyping | Business Automation | Value Proposition Design | Data Analysis & Visualisation', badge: 'ALL', category: 'core' },
+          { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology', badge: 'ALL', category: 'core' },
+          { title: 'Consulting Project', detail: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'Venture Project', detail: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'University Subjects*', detail: 'Business Law | Human Resources | Management Accounting | Business Economics – Macro | I.T. in Management | Production & Operations Management | Industrial Relations & Labour Laws | Business Taxation | International Business | Management Information Systems', badge: 'ALL', category: 'university' }
+        ]
+      },
+      {
+        name: 'EXPERIENCE',
+        items: [
+          { title: '2nd Apprenticeship', detail: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (2 months)', badge: 'ALL', category: 'core' },
+          { title: 'Outstation Apprenticeship', detail: 'Work in a new city with a different employer — broader exposure and network (2 months)', badge: 'EJ', category: 'focus' }
+        ]
+      },
+      {
+        name: 'AWARENESS',
+        items: [
+          { title: 'Camp', detail: 'Solo Travel Service Project (typically ~3–7 days) — independent immersion experience', badge: 'ALL', category: 'core' },
+          { title: 'Career + Reflection', detail: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards', badge: 'ALL', category: 'core' }
+        ]
+      },
+      {
+        name: 'ASSESSMENT',
+        items: [
+          { title: 'How We Track Progress (Year 2)', detail: 'Progress Visibility: Self & Mentor Assessments · Apprenticeship Feedback · Peer Feedback · Skills progression dashboard\nEvidence produced (Year 2): Challenge Artefacts + Consulting Client Letter + Venture Report + Apprenticeship Letter + Working Documents + Quarterly Portfolio reviews', badge: 'ALL', category: 'core' }
+        ]
+      }
+    ]
+  },
+  bf: {
+    pillars: [
+      {
+        name: 'EDUCATION',
+        items: [
+          { title: '4 Advanced Challenges', detail: 'Product & Display Prototyping | Business Automation | Value Proposition Design | Data Analysis & Visualisation', badge: 'ALL', category: 'core' },
+          { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology', badge: 'ALL', category: 'core' },
+          { title: 'Consulting Project', detail: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'Venture Project', detail: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'Founder Led Workshop', detail: 'Learn from experienced family business founders', badge: 'FAM', category: 'focus' },
+          { title: 'University Subjects*', detail: 'Business Law | Human Resources | Management Accounting | Business Economics – Macro | I.T. in Management | Production & Operations Management | Industrial Relations & Labour Laws | Business Taxation | International Business | Management Information Systems', badge: 'ALL', category: 'university' }
+        ]
+      },
+      {
+        name: 'EXPERIENCE',
+        items: [
+          { title: '2nd Apprenticeship', detail: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (2 months)', badge: 'ALL', category: 'core' },
+          { title: 'Family Business Project', detail: 'Work inside another family\'s business — learn how others do it (2 months)', badge: 'FAM', category: 'focus' }
+        ]
+      },
+      {
+        name: 'AWARENESS',
+        items: [
+          { title: 'Camp', detail: 'Solo Travel Service Project (typically ~3–7 days) — independent immersion experience', badge: 'ALL', category: 'core' },
+          { title: 'Career + Reflection', detail: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards', badge: 'ALL', category: 'core' },
+          { title: 'Business Coaching', detail: '2 Individual + 2 Family coaching sessions (Family alignment & expectations)', badge: 'FAM', category: 'focus' }
+        ]
+      },
+      {
+        name: 'ASSESSMENT',
+        items: [
+          { title: 'How We Track Progress (Year 2)', detail: 'Progress Visibility: Self & Mentor Assessments · Apprenticeship Feedback · Peer Feedback · Skills progression dashboard\nEvidence produced (Year 2): Challenge Artefacts + Consulting Client Letter + Venture Report + Apprenticeship Letter + Working Documents + Quarterly Portfolio reviews', badge: 'ALL', category: 'core' }
+        ]
+      }
+    ]
+  },
+  venture: {
+    pillars: [
+      {
+        name: 'EDUCATION',
+        items: [
+          { title: '4 Advanced Challenges', detail: 'Product & Display Prototyping | Business Automation | Value Proposition Design | Data Analysis & Visualisation', badge: 'ALL', category: 'core' },
+          { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Organisation Dynamics, Consulting Frameworks, Business & Consumer Psychology', badge: 'ALL', category: 'core' },
+          { title: 'Consulting Project', detail: 'Business Consulting Team Project — consulting engagement with a client company (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'Venture Project', detail: 'Kickstart / #Karo Venture Project — build and test a business (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'Founder-Led Venture Workshop', detail: '2-day Founder Led Venture Workshop, Learn to refine and execute your business ideas', badge: 'VEN', category: 'focus' },
+          { title: 'University Subjects*', detail: 'Business Law | Human Resources | Management Accounting | Business Economics – Macro | I.T. in Management | Production & Operations Management | Industrial Relations & Labour Laws | Business Taxation | International Business | Management Information Systems', badge: 'ALL', category: 'university' }
+        ]
+      },
+      {
+        name: 'EXPERIENCE',
+        items: [
+          { title: '2nd Apprenticeship', detail: 'Professional Apprenticeship 2 — deeper industry immersion, increased responsibility (2 months)', badge: 'ALL', category: 'core' },
+          { title: 'Venture Project', detail: 'Venture Project, come up with an idea, do the market research, and go to market with an MVP', badge: 'VEN', category: 'focus' }
+        ]
+      },
+      {
+        name: 'AWARENESS',
+        items: [
+          { title: 'Camp', detail: 'Solo Travel Service Project (typically ~3–7 days) — independent immersion experience', badge: 'ALL', category: 'core' },
+          { title: 'Career + Reflection', detail: '4 Career Blueprint sessions + StorySells 2 + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards', badge: 'ALL', category: 'core' },
+          { title: 'Business Coaching', detail: '2 Individual + 2 Family coaching sessions (Family alignment & expectations)', badge: 'VEN', category: 'focus' }
+        ]
+      },
+      {
+        name: 'ASSESSMENT',
+        items: [
+          { title: 'How We Track Progress (Year 2)', detail: 'Progress Visibility: Self & Mentor Assessments · Apprenticeship Feedback · Peer Feedback · Skills progression dashboard\nEvidence produced (Year 2): Challenge Artefacts + Consulting Client Letter + Venture Report + Apprenticeship Letter + Working Documents + Quarterly Portfolio reviews', badge: 'ALL', category: 'core' }
+        ]
+      }
+    ]
+  }
+};
+
+const year3Data = {
+  original: {
+    pillars: [
+      {
+        name: 'EDUCATION',
+        items: [
+          { title: 'Final Challenges', detail: 'Legal Aspects of Business + Business Ethics & Governance (typically 2–4 weeks total)', badge: 'ALL', category: 'core' },
+          { title: 'Client Multi-domain Project', detail: 'Integrated project or team residency covering marketing, data analysis, legal aspects, client management (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'University Subjects*', detail: 'Supply Chain & Logistics | Environment & Sustainability | Entrepreneurship Development | Business Ethics | Research Methodology | Business Planning & Project Management | Personal Finance | Event Management | Management Control Systems | E-Commerce', badge: 'ALL', category: 'university' }
+        ]
+      },
+      {
+        name: 'EXPERIENCE',
+        items: [
+          { title: '9‑Month Apprenticeship', detail: 'Entrepreneurial Jobs: full‑time apprenticeship role with clear outputs + strong references', badge: 'EJ', category: 'focus' },
+          { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business', badge: 'ALL', category: 'core' }
+        ]
+      },
+      {
+        name: 'AWARENESS',
+        items: [
+          { title: 'Career Coaching', detail: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards', badge: 'ALL', category: 'core' }
+        ]
+      },
+      {
+        name: 'ASSESSMENT',
+        items: [
+          { title: 'How We Track Progress (Year 3)', detail: 'Progress Visibility: 9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry Benchmark comparison · Career Readiness Certification\nEvidence produced (Year 3): Integrated Client deliverable + Capstone Uutputs (performance reviews / KPIs / venture traction) + References + Final portfolio', badge: 'ALL', category: 'core' }
+        ]
+      }
+    ]
+  },
+  bf: {
+    pillars: [
+      {
+        name: 'EDUCATION',
+        items: [
+          { title: 'Final Challenges', detail: 'Legal Aspects of Business + Business Ethics & Governance (typically 2–4 weeks total)', badge: 'ALL', category: 'core' },
+          { title: 'Client Multi-domain Project', detail: 'Integrated project or team residency covering marketing, data analysis, legal aspects, client management (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'Founder-Led Workshop', detail: '3-day Founder Led Business Transition Workshop, How successful families navigate transitions', badge: 'FAM', category: 'focus' },
+          { title: 'University Subjects*', detail: 'Supply Chain & Logistics | Environment & Sustainability | Entrepreneurship Development | Business Ethics | Research Methodology | Business Planning & Project Management | Personal Finance | Event Management | Management Control Systems | E-Commerce', badge: 'ALL', category: 'university' }
+        ]
+      },
+      {
+        name: 'EXPERIENCE',
+        items: [
+          { title: '9-Month Family Business Project', detail: 'Work inside your own family\'s business, Own KPIs and deliver outcomes., Graduate ready for succession.', badge: 'FAM', category: 'focus' },
+          { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business', badge: 'ALL', category: 'core' }
+        ]
+      },
+      {
+        name: 'AWARENESS',
+        items: [
+          { title: 'Career Coaching', detail: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards', badge: 'ALL', category: 'core' },
+          { title: 'Business Coaching', detail: '6 Individual + 2 Family sessions, Focus: Succession & Integration', badge: 'FAM', category: 'focus' }
+        ]
+      },
+      {
+        name: 'ASSESSMENT',
+        items: [
+          { title: 'How We Track Progress (Year 3)', detail: 'Progress Visibility: 9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry Benchmark comparison · Career Readiness Certification\nEvidence produced (Year 3): Integrated Client deliverable + Capstone Uutputs (performance reviews / KPIs / venture traction) + References + Final portfolio', badge: 'ALL', category: 'core' }
+        ]
+      }
+    ]
+  },
+  venture: {
+    pillars: [
+      {
+        name: 'EDUCATION',
+        items: [
+          { title: 'Final Challenges', detail: 'Legal Aspects of Business + Business Ethics & Governance (typically 2–4 weeks total)', badge: 'ALL', category: 'core' },
+          { title: 'Client Multi-domain Project', detail: 'Integrated project or team residency covering marketing, data analysis, legal aspects, client management (typically 4–8 weeks)', badge: 'ALL', category: 'core' },
+          { title: 'Founder-Led Workshop', detail: '3-day Founder Led Business Incubation Workshop, How founders scale from idea to traction', badge: 'VEN', category: 'focus' },
+          { title: 'University Subjects*', detail: 'Supply Chain & Logistics | Environment & Sustainability | Entrepreneurship Development | Business Ethics | Research Methodology | Business Planning & Project Management | Personal Finance | Event Management | Management Control Systems | E-Commerce', badge: 'ALL', category: 'university' }
+        ]
+      },
+      {
+        name: 'EXPERIENCE',
+        items: [
+          { title: '9-Month Venture Building', detail: 'Build your own business from scratch., Find customers, build systems, create repeatability., Graduate with a running business or proven capability.', badge: 'VEN', category: 'focus' },
+          { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business', badge: 'ALL', category: 'core' }
+        ]
+      },
+      {
+        name: 'AWARENESS',
+        items: [
+          { title: 'Career Coaching', detail: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards', badge: 'ALL', category: 'core' },
+          { title: 'Business Coaching', detail: '7 Individual + 1 Family sessions, Focus: Growth & Resilience', badge: 'VEN', category: 'focus' }
+        ]
+      },
+      {
+        name: 'ASSESSMENT',
+        items: [
+          { title: 'How We Track Progress (Year 3)', detail: 'Progress Visibility: 9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry Benchmark comparison · Career Readiness Certification\nEvidence produced (Year 3): Integrated Client deliverable + Capstone Uutputs (performance reviews / KPIs / venture traction) + References + Final portfolio', badge: 'ALL', category: 'core' }
+        ]
+      }
+    ]
+  }
+};
+
+// ======================================
+
 const programData = {
   original: {
     name: 'Entrepreneurial Jobs',
@@ -1541,37 +1783,147 @@ const programData = {
   }
 };
 
+// ====== NEW COMPONENTS ======
+
+const ActivityItem = ({ item }) => {
+  const [expanded, setExpanded] = useState(false);
+  
+  // Format details for bullets if there's a delimiter (like | or ·)
+  const formatDetail = (text) => {
+    let parts = [];
+    if (text.includes(' | ')) parts = text.split(' | ');
+    else if (text.includes(' · ')) parts = text.split(' · ');
+    
+    if (parts.length > 1) {
+      return (
+        <ul style={{ listStyle: 'disc', color: 'inherit', paddingLeft: '16px', marginTop: '4px' }}>
+          {parts.map((p, idx) => <li key={idx} style={{ marginBottom: '2px' }}>{p.trim()}</li>)}
+        </ul>
+      );
+    }
+    // Handle manual newlines from CSV
+    if (text.includes('\n')) {
+      return text.split('\n').map((line, idx) => (
+        <p key={idx} style={{ marginTop: idx > 0 ? '4px' : '0' }}>{line.trim()}</p>
+      ));
+    }
+    return <p>{text}</p>;
+  };
+
+  const getBadgeClass = (badge) => {
+    switch (badge) {
+      case 'EJ': return 'pt-badge ej';
+      case 'FAM': return 'pt-badge fam';
+      case 'VEN': return 'pt-badge ven';
+      default: return 'pt-badge';
+    }
+  };
+
+  const getBadgeText = (badge) => {
+    switch (badge) {
+      case 'EJ': return 'Entrepreneurial Jobs';
+      case 'FAM': return 'Family Business';
+      case 'VEN': return 'Venture Builder';
+      default: return badge;
+    }
+  };
+
+  return (
+    <div className={`pt-activityItem ${item.category}`} onClick={() => setExpanded(!expanded)}>
+      <div className="pt-activityHeader">
+        <div className="pt-activityLeft">
+          <div className="pt-activityTitle">{item.title}</div>
+        </div>
+        {item.badge !== 'ALL' && (
+          <div className={getBadgeClass(item.badge)}>{getBadgeText(item.badge)}</div>
+        )}
+      </div>
+      {(expanded || item.category === 'focus') && item.detail && (
+        <div className="pt-activityDetail fade-in">
+          {formatDetail(item.detail)}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const ImageStrip = ({ images }) => {
+  if (!images || images.length === 0) return null;
+  // Convert array back into a list if it was a single image object
+  const imageList = Array.isArray(images) ? images : [images];
+  
+  return (
+    <div className="pt-imageStrip">
+      {imageList.map((img, i) => (
+        <div key={i} className="pt-imageThumbContainer">
+          <img src={img.src} alt="Program thumbnail" className="pt-imageThumb" />
+          {img.caption && <div className="pt-imageCaption">{img.caption}</div>}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const PillarSection = ({ pillar, programKey }) => {
+  const isAssessment = pillar.name === 'ASSESSMENT';
+  
+  // Filter out items not relevant to this program
+  const visibleItems = pillar.items.filter(item => 
+    item.badge === 'ALL' || item.badge.toLowerCase() === programKey || 
+    (programKey === 'bf' && item.badge === 'FAM') ||
+    (programKey === 'original' && item.badge === 'EJ') ||
+    (programKey === 'venture' && item.badge === 'VEN')
+  );
+
+  if (visibleItems.length === 0) return null;
+
+  const renderItems = () => (
+    <>
+      {visibleItems.map((item, i) => (
+        <ActivityItem key={i} item={item} />
+      ))}
+      {visibleItems.some(item => item.category === 'university') && (
+        <div className="pt-uniNote fade-in">
+          <p><strong>* Note regarding University Subjects:</strong></p>
+          <ul style={{ listStyle: 'decimal', paddingLeft: '16px', marginTop: '4px' }}>
+            <li>Lectures / Exams on University subjects are not provided by Let's Enterprise.</li>
+            <li>Student is expected to conduct self-study for University subjects.</li>
+            <li>Important and relevant topics from subjects are incorporated in The Working BBA Curriculum.</li>
+          </ul>
+        </div>
+      )}
+    </>
+  );
+
+  if (isAssessment) {
+    return (
+      <details className="pt-assessment mb-6">
+        <summary className="font-bold text-[#FBBF24] uppercase text-sm tracking-wide">
+          Tracking & Assessment
+        </summary>
+        <div className="mt-3">
+          {renderItems()}
+        </div>
+      </details>
+    );
+  }
+
+  return (
+    <div className="pt-pillar">
+      <h4 className={`pt-pillarTitle ${pillar.name.toLowerCase()}`}>{pillar.name}</h4>
+      {renderItems()}
+    </div>
+  );
+};
+
+// ======================================
+
 // PROGRAM VIEW - Complete 3-year journey for a specific program
 const ProgramView = ({ programKey, audience, onCTA }) => {
   const current = programData[programKey];
   const [expandedChallenge, setExpandedChallenge] = useState(null);
 
-  const renderDelta = (list, variantClass) => {
-    if (!list) return null;
-    return list.map((x, i) => (
-      <div key={i} className={`pt-card ${variantClass || ''}`}>
-        <div className="h">{x.h}</div>
-        {x.d && x.d.includes(' · ') ? (
-          <ul className="d-list" style={{ marginTop: '6px', paddingLeft: '14px', listStyle: 'disc', fontSize: '12px', lineHeight: '1.4', color: 'inherit' }}>
-            {x.d.split(' · ').map((item, idx) => (
-              <li key={idx} style={{ marginBottom: '2px' }}>{item}</li>
-            ))}
-          </ul>
-        ) : (
-          <div className="d">{x.d}</div>
-        )}
-      </div>
-    ));
-  };
-  const TrackingSection = ({ data, year }) => (
-    <div className="pt-progress-tracking">
-      <h4 style={{ fontSize: '13px', fontWeight: 800, letterSpacing: '.3px', marginBottom: '6px' }}>How We Track Progress ({year})</h4>
-      <p style={{ fontSize: '12px', lineHeight: '1.35' }}><strong>Progress Visibility:</strong> {data.visibility}</p>
-      <div className="pt-evidence-list">
-        <p style={{ fontSize: '12px', lineHeight: '1.35' }}><strong>Evidence produced ({year}):</strong> {data.evidence}</p>
-      </div>
-    </div>
-  );
+
 
   const GradOutcomeSection = ({ data, audience }) => (
     <div className="pt-grad-outcome">
@@ -1653,32 +2005,13 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
             <span className="pt-tealBox" style={{ fontSize: '12px' }}>Common for all 3 programs</span>
             <div style={{ marginTop: '4px', fontSize: '14px', opacity: 0.8, fontWeight: 400 }}>Foundation building</div>
           </div>
+          <ImageStrip images={current.images?.y1} />
         </div>
 
         <div className="pt-body">
-          {/* Work Experience (Deep Blue) */}
-          <div className="mb-10">
-            <h4 className="font-bold mb-6 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Work Experience</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y1.workExp, 'card-delta-common')}
-            </div>
-          </div>
-
-          {/* Skills & Coaching (Teal) */}
-          <div className="mb-10">
-            <h4 className="font-bold mb-6 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-Discovery & Career Coaching</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y1.skills, 'card-delta-skills')}
-            </div>
-          </div>
-
-          {/* Program Image Y1 */}
-          {current.images?.y1 && (
-            <div className="mt-6 mb-6">
-              <img src={current.images.y1.src} alt={current.images.y1.caption} className="w-full rounded-xl shadow-lg" />
-              <p className="text-sm text-center text-gray-400 mt-2 italic">{current.images.y1.caption}</p>
-            </div>
-          )}
+          {year1Common.pillars.map((pillar, i) => (
+            <PillarSection key={`y1-${i}`} pillar={pillar} programKey={programKey} />
+          ))}
         </div>
       </section>
 
@@ -1702,43 +2035,13 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
               → {audience === 'parent' ? 'Your child tackles' : 'You tackle'} advanced challenges, {audience === 'parent' ? 'runs' : 'run'} a consulting project and a venture, {audience === 'parent' ? 'completes' : 'complete'} a 2nd apprenticeship — then {audience === 'parent' ? 'enters their' : 'enter your'} program-specific Focus Area.
             </div>
           </div>
+          <ImageStrip images={current.images?.y2} />
         </div>
 
         <div className="pt-body">
-          {/* Common Core */}
-          <div className="mb-10 mt-6">
-            <h4 className="font-bold mb-6 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y2.common, 'card-delta-common')}
-            </div>
-          </div>
-
-          {/* Skills */}
-          <div className="mb-10">
-            <h4 className="font-bold mb-6 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Skills, Self-discovery and Career Coaching</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y2.skills, 'card-delta-skills')}
-            </div>
-          </div>
-
-          {/* Program Focus */}
-          <div className="mb-10">
-            <h4 className="font-bold mb-6 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y2.focus, 'card-delta-focus')}
-            </div>
-          </div>
-
-          {/* Tracking */}
-          <TrackingSection data={current.y2.tracking} year="Year 2" />
-
-          {/* Program Image Y2 */}
-          {current.images?.y2 && (
-            <div className="mt-6 mb-6">
-              <img src={current.images.y2.src} alt={current.images.y2.caption} className="w-full rounded-xl shadow-lg" />
-              <p className="text-sm text-center text-gray-400 mt-2 italic">{current.images.y2.caption}</p>
-            </div>
-          )}
+          {year2Data[programKey].pillars.map((pillar, i) => (
+            <PillarSection key={`y2-${i}`} pillar={pillar} programKey={programKey} />
+          ))}
         </div>
       </section>
 
@@ -1750,6 +2053,7 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
             <span className="pt-tealBox" style={{ fontSize: '12px' }}>{current.name}</span>
             <div style={{ marginTop: '4px', fontSize: '14px', opacity: 0.8, fontWeight: 400 }}>Deep Industry Immersion</div>
           </div>
+          <ImageStrip images={current.images?.y3} />
         </div>
 
         <div className="pt-body">
@@ -1758,42 +2062,12 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
             {audience === 'parent' ? current.y3.intro : current.y3.intro.replace(/Your child/g, 'You').replace(/your child/g, 'you').replace(/completes/g, 'complete').replace(/spends/g, 'spend').replace(/their ultimate/g, 'your ultimate')}
           </p>
 
-          {/* Common Core */}
-          <div className="mb-10 mt-6">
-            <h4 className="font-bold mb-6 text-[#334c91]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Common Business Core</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y3.common, 'card-delta-common')}
-            </div>
-          </div>
-          {/* Career Coaching & Narrative Making */}
-          <div className="mb-10">
-            <h4 className="font-bold mb-6 text-[#25BCBD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Career Coaching & Narrative Making</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y3.skills, 'card-delta-skills')}
-            </div>
-          </div>
-
-          {/* Program Focus */}
-          <div className="mb-10">
-            <h4 className="font-bold mb-6 text-[#3663AD]" style={{ fontSize: '22px', textTransform: 'uppercase' }}>Program Focus — {current.name}</h4>
-            <div className="pt-deltaCards">
-              {renderDelta(current.y3.focus, 'card-delta-focus')}
-            </div>
-          </div>
-
-          {/* Tracking */}
-          <TrackingSection data={current.y3.tracking} year="Year 3" />
+          {year3Data[programKey].pillars.map((pillar, i) => (
+            <PillarSection key={`y3-${i}`} pillar={pillar} programKey={programKey} />
+          ))}
 
           {/* Graduation Outcome */}
           <GradOutcomeSection data={current.y3.gradOutcome} audience={audience} />
-
-          {/* Program Image Y3 */}
-          {current.images?.y3 && (
-            <div className="mt-6 mb-6">
-              <img src={current.images.y3.src} alt={current.images.y3.caption} className="w-full rounded-xl shadow-lg" />
-              <p className="text-sm text-center text-gray-400 mt-2 italic">{current.images.y3.caption}</p>
-            </div>
-          )}
         </div>
       </section>
 

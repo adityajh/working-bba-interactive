@@ -2257,3 +2257,205 @@ summary.pt-sumRow::-webkit-details-marker {
     background: #ffffff;
     border: 1px solid #e2e8f0;
 }
+/* New Restructure Components */
+.pt-pillar {
+    margin-bottom: 24px;
+}
+
+.pt-pillarTitle {
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 3px solid var(--c6);
+}
+.pt-pillarTitle.education { border-left-color: #3663AD; color: #3663AD; }
+.pt-pillarTitle.experience { border-left-color: #25BCBD; color: #25BCBD; }
+.pt-pillarTitle.awareness { border-left-color: #D946EF; color: #D946EF; }
+.pt-pillarTitle.assessment { border-left-color: #FBBF24; color: #FBBF24; }
+.pt-pillarTitle.dark { border-left-color: #fff; color: #fff; }
+
+.pt-activityItem {
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 8px;
+    padding: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+.pt-activityItem:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+.pt-activityItem.core {
+    /* default style */
+}
+.pt-activityItem.university {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: rgba(255, 255, 255, 0.05);
+    opacity: 0.8;
+}
+.pt-activityItem.focus {
+    border-color: rgba(37, 188, 189, 0.4);
+    background: rgba(37, 188, 189, 0.08);
+}
+
+.pt-activityHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.pt-activityLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pt-activityDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--c6);
+    flex-shrink: 0;
+}
+.pt-activityDot.education { background-color: #3663AD; }
+.pt-activityDot.experience { background-color: #25BCBD; }
+.pt-activityDot.awareness { background-color: #D946EF; }
+.pt-activityDot.assessment { background-color: #FBBF24; }
+
+.pt-activityTitle {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pt-badge {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+}
+.pt-badge.ej { background: rgba(54, 99, 173, 0.2); color: #8cb4ff; }
+.pt-badge.fam { background: rgba(217, 70, 239, 0.2); color: #f5a6ff; }
+.pt-badge.ven { background: rgba(251, 191, 36, 0.2); color: #ffe499; }
+
+.pt-activityDetail {
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.pt-uniNote {
+    font-size: 12px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.pt-imageStrip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+.pt-imageStrip::-webkit-scrollbar {
+    height: 4px;
+}
+.pt-imageThumbContainer {
+    position: relative;
+    flex: 0 0 auto;
+    width: 200px;
+    height: 140px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.pt-imageThumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.pt-imageThumbContainer:hover .pt-imageThumb {
+    transform: scale(1.05);
+}
+.pt-imageCaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 11px;
+    padding: 4px 8px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+.pt-imageThumbContainer:hover .pt-imageCaption {
+    opacity: 1;
+}
+
+.pt-assessment {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.pt-assessment summary {
+    font-weight: 700;
+    list-style: none; /* remove default arrow */
+}
+.pt-assessment[open] summary {
+    margin-bottom: 8px;
+    color: #FBBF24;
+}
+
+/* Light mode overrides */
+.light-mode .pt-activityItem {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.light-mode .pt-activityItem:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+.light-mode .pt-activityTitle {
+    color: #071027;
+}
+.light-mode .pt-activityDetail {
+    color: rgba(0, 0, 0, 0.7);
+}
+.light-mode .pt-badge {
+    background: rgba(0, 0, 0, 0.05);
+    color: #071027;
+}
+.light-mode .pt-uniNote {
+    background: rgba(0, 0, 0, 0.03);
+    color: rgba(0, 0, 0, 0.6);
+}
+.light-mode .pt-activityItem.university {
+    background: rgba(0, 0, 0, 0.01);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+.light-mode .pt-assessment {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+.light-mode .pt-assessment[open] summary {
+    color: #b45309;
+}
