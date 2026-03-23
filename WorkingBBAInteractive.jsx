@@ -1271,14 +1271,20 @@ const programData = {
   original: {
     name: 'Entrepreneurial Jobs',
     images: {
-      y1: y1CommonImages,
+      y1: [
+        { src: '/Y1_TeamBuilding.jpg', caption: 'The self-awareness and team-bonding immersion trip.' },
+        { src: '/Y1_KickstartPitch.jpg', caption: 'The Kickstart Challenge: Presenting the first business model.' },
+        { src: '/MakingBusinessHappen.jpg', caption: 'Building the foundation through constant execution.' }
+      ],
       y2: [
-        { src: '/EJ_ClientProjectOnSite.jpg', caption: 'Working directly on-site to solve live operational problems for corporate clients.' },
-        { src: '/EJ_NetworkingEvent.jpg', caption: 'Building professional capital: Engaging with industry leaders at elite networking events.' }
+        { src: '/EJ_ClientProjectOnSite.jpg', caption: 'Working directly on-site to solve live operational problems.' },
+        { src: '/WorkingInaCompany.png', caption: '9 weeks inside a company. Not visiting. Reporting for duty.' },
+        { src: '/EJ_NetworkingEvent.jpg', caption: 'Building professional capital: Engaging with industry leaders.' }
       ],
       y3: [
-        { src: '/EJ_PortfolioPresentation.jpg', caption: 'The ultimate culmination: Defending a 3-year proof-of-work portfolio to industry hiring managers.' },
-        { src: '/TY_SaturdayUpdates.jpg', caption: 'Continuous accountability: Weekly check-ins during the heavy Year 3 industry immersion.' }
+        { src: '/EJ_PortfolioPresentation.jpg', caption: 'Defending a 3-year proof-of-work portfolio to industry managers.' },
+        { src: '/PresentingtoJury.jpg', caption: 'Graduation Jury: Pitching to industry veterans.' },
+        { src: '/PitchingToClients.jpg', caption: 'Presenting live marketing strategy to company leadership.' }
       ]
     },
     // Myth vs Reality
@@ -1444,14 +1450,20 @@ const programData = {
   bf: {
     name: 'Family Business',
     images: {
-      y1: y1CommonImages,
+      y1: [
+        { src: '/Y1_SellingChaiAtRailwayStation.jpg', caption: 'Getting out of the building: Learning raw negotiation and sales on the ground.' },
+        { src: '/FY_WeeklyPresentations.jpg', caption: 'Sprinting through business challenges and defending work every Saturday.' },
+        { src: '/ThinkingBEhindtheWork.jpg', caption: 'Analyzing business models and operational bottlenecks.' }
+      ],
       y2: [
-        { src: '/FB_UserResearch.jpg', caption: 'Conducting intensive user research to identify expansion opportunities for the family business.' },
+        { src: '/FB_UserResearch.jpg', caption: 'Conducting intensive user research to identify expansion opportunities.' },
+        { src: '/ImplementChanges.jpg', caption: 'Shadowing key departments in the family enterprise.' },
         { src: '/FY_ProductDevelopment.jpg', caption: 'From concept to shelf: Overseeing the development of a new product line.' }
       ],
       y3: [
-        { src: '/FB_BuildingAVision.jpg', caption: 'Sitting in the boardroom: Mapping the next decade of growth for the holding company.' },
-        { src: '/TY_SaturdayUpdates.jpg', caption: 'Continuous accountability: Weekly check-ins driving heavy Year 3 industry immersion.' }
+        { src: '/FB_BuildingAVision.jpg', caption: 'Sitting in the boardroom: Mapping the next decade of growth.' },
+        { src: '/TY_SaturdayUpdates.jpg', caption: 'Continuous accountability: Weekly check-ins during the heavy Year 3 immersion.' },
+        { src: '/BusinessFamilies.png', caption: 'Presenting the expansion roadmap to the family board.' }
       ]
     },
     // Myth vs Reality
@@ -1632,15 +1644,19 @@ const programData = {
   venture: {
     name: 'Venture Builder',
     images: {
-      y1: y1CommonImages,
+      y1: [
+        { src: '/BuildingPortfolio.jpg', caption: 'Daily reflection cards—the habit of relentless iteration.' },
+        { src: '/FY_VibeCodingProject.jpg', caption: 'Building the MVP: Hands-on technical development.' },
+        { src: '/FY_MentorMeeting.jpg', caption: 'Weekly Masterminds: Translating raw experience into professional career capital.' }
+      ],
       y2: [
         { src: '/VB_PrototypeTesting.jpg', caption: 'Rapid iteration: Physically testing early venture prototypes with beta users.' },
         { src: '/VB_SalesHustle.jpg', caption: 'Executing a bootstrap marketing campaign to drive real sales traction.' },
-        { src: '/FY_VibeCodingProject.jpg', caption: 'Building the MVP: Hands-on technical development and product engineering.' }
+        { src: '/VenturePlanning.png', caption: 'Mapping the go-to-market strategy for the initial prototype.' }
       ],
       y3: [
         { src: '/VB_InvestorPitch.jpg', caption: 'The big stage: Pitching the fully developed venture to seed investors.' },
-        { src: '/Venture_BusinessUpdate.jpg', caption: 'Board meetings: Delivering hard metrics and traction updates to mentors and advisors.' },
+        { src: '/Venture_BusinessUpdate.jpg', caption: 'Board meetings: Delivering hard metrics to mentors and advisors.' },
         { src: '/FY_PassionProject.jpg', caption: 'Deep expertise focus: Turning a passion project into a viable commercial spin-off.' }
       ]
     },
