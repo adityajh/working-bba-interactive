@@ -351,3 +351,84 @@
 .pt-scope.light-theme .myth {
     color: var(--deep);
 }
+
+/* ================= NEW PILLAR COMPONENTS (Light Mode) ================= */
+.pt-scope.light-theme .pt-pillarTitle {
+    color: var(--deep) !important;
+}
+.pt-scope.light-theme .pt-pillarTitle.education { border-left-color: var(--blue); color: var(--blue) !important; }
+.pt-scope.light-theme .pt-pillarTitle.experience { border-left-color: var(--teal); color: var(--teal) !important; }
+.pt-scope.light-theme .pt-pillarTitle.awareness { border-left-color: #64748b; color: #64748b !important; } /* darker slate for readability */
+.pt-scope.light-theme .pt-pillarTitle.assessment { border-left-color: #d97706; color: #d97706 !important; } /* darker yellow/gold */
+
+.pt-scope.light-theme .pt-activityItem {
+    background: white;
+    border: 1px solid rgba(11, 16, 34, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+.pt-scope.light-theme .pt-activityItem:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+    background: white;
+}
+
+/* Pillar specific tints for items */
+.pt-scope.light-theme .pt-pillar:has(.education) .pt-activityItem { background: rgba(54, 99, 173, 0.02); border-left: 2px solid rgba(54, 99, 173, 0.2); }
+.pt-scope.light-theme .pt-pillar:has(.experience) .pt-activityItem { background: rgba(37, 188, 189, 0.02); border-left: 2px solid rgba(37, 188, 189, 0.2); }
+.pt-scope.light-theme .pt-pillar:has(.awareness) .pt-activityItem { background: rgba(11, 16, 34, 0.02); border-left: 2px solid rgba(11, 16, 34, 0.1); }
+
+.pt-scope.light-theme .pt-activityDot.education { background-color: var(--blue); }
+.pt-scope.light-theme .pt-activityDot.experience { background-color: var(--teal); }
+.pt-scope.light-theme .pt-activityDot.awareness { background-color: #64748b; }
+.pt-scope.light-theme .pt-activityDot.assessment { background-color: #d97706; }
+
+/* Typography inside cards */
+.pt-scope.light-theme .pt-activityTitle {
+    color: var(--deep);
+}
+.pt-scope.light-theme .pt-activityDetail,
+.pt-scope.light-theme .pt-activityDetail ul,
+.pt-scope.light-theme .pt-activityDetail p {
+    color: var(--text);
+}
+
+/* Badges */
+.pt-scope.light-theme .pt-badge {
+    color: white !important;
+    font-weight: 700;
+}
+.pt-scope.light-theme .pt-badge.ej { background-color: var(--blue); }
+.pt-scope.light-theme .pt-badge.ven { background-color: var(--teal); }
+.pt-scope.light-theme .pt-badge.fam { background-color: #d946ef; } /* Keep magenta for fam business here */
+
+/* Assessment dropdown */
+.pt-scope.light-theme .pt-assessment {
+    background: rgba(251, 191, 36, 0.08); /* light yellow */
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+}
+.pt-scope.light-theme .pt-assessment summary {
+    color: #b45309 !important; /* darker amber */
+}
+.pt-scope.light-theme .pt-assessment div {
+    color: var(--text) !important;
+    border-left-color: #d97706;
+}
+.pt-scope.light-theme .pt-assessment div p {
+    color: var(--text) !important;
+}
+
+/* University Disclaimer */
+.pt-scope.light-theme .pt-uniNote {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: var(--deep);
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+.pt-scope.light-theme .pt-activityItem.university {
+    background: #f8fafc !important;
+    border: 1px dashed #94a3b8 !important;
+    opacity: 1;
+}
