@@ -2025,16 +2025,26 @@ const ProgramView = ({ programKey, audience, onCTA }) => {
           {year1Common.pillars.map((pillar, i) => (
             <PillarSection key={`y1-${i}`} pillar={pillar} programKey={programKey} />
           ))}
+          
+          {/* Dynamic Assessment Pillar mapped from programData */}
+          <PillarSection 
+            pillar={{
+              name: 'ASSESSMENT',
+              items: [{
+                title: 'Progress Review',
+                detail: audience === 'parent' 
+                  ? current.progressReview 
+                  : current.progressReview.replace(/parents receive/g, 'you receive')
+                                          .replace(/students and parents/g, 'you')
+                                          .replace(/Students who/g, 'If you'),
+                badge: 'ALL',
+                category: 'core'
+              }]
+            }} 
+            programKey={programKey} 
+          />
         </div>
       </section>
-
-
-
-      {/* ===================== PROGRESS REVIEW ===================== */}
-      <div className="pt-progressCheck">
-        <h4>Progress Review:</h4>
-        <p>{audience === 'parent' ? current.progressReview : current.progressReview.replace(/parents receive/g, 'you receive').replace(/students and parents/g, 'you').replace(/Students who/g, 'If you')}</p>
-      </div>
 
       {/* ===================== YEAR 2 ===================== */}
       {/* ===================== YEAR 2 ===================== */}
