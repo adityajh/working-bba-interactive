@@ -6,8 +6,8 @@ An interactive React application visualizing the curriculum structure for the Wo
 
 - **Interactive Periodic Table**: Click any element to see detailed information
 - **Three Main Tabs**:
-  - Program Overview: Year 1 foundation and track comparison
-  - Track Comparison: Compare Original, Business Families, and Solo-preneurs tracks
+  - Program Overview: Year 1 foundation and program comparison
+  - Program Investment: Compare Entrepreneurial Jobs, Family Business, and Venture Builder programs
   - Periodic Table: Complete interactive grid of all program elements
 
 ## Sections

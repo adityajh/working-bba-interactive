@@ -12,16 +12,16 @@
 
 | Category | Entrepreneurial Jobs | Family Business | Venture Builder |
 | :--- | :--- | :--- | :--- |
-| **Outcome after 3 years** | Entrepreneurial job | Join your family business | Launch your own venture |
-| **Total Fees (2026)** | **13.50L** | **17.50L** | **19.50L** |
+| Outcome after 3 years | Entrepreneurial job | Join your family business | Launch your own venture |
+| **Fees 2026** | **13.50L** | **17.50L** | **19.50L** |
 | Registration Fee | 50K | 50K | 50K |
-| Year 1 - Growth Year | 5.65L | 5.65L | 5.65L |
-| Year 2 - Projects Year | 4.00L | 5.45L | 6.45L |
-| Year 3 - Work Year | 3.50L | 6.40L | 7.40L |
+| 1 - Growth Year | 5.65L | 5.65L | 5.65L |
+| 2 - Projects Year | 4.00L | 5.25L | 6.25L |
+| 3 - Work Year | 3.35L | 6.10L | 7.10L |
 
 ## Important Notes
 1. For Venture Builder and Family Business Programs, student must register at the beginning, but may choose to make a change at the end of year 1.
-2. Working BBA Entrepreneurial Jobs students will not permitted to change to other program.
+2. Working BBA Entrepreneurial Jobs students will not permitted to change to other programs.
 3. No fee hike done in Growth year. Increase is only in Project and Work year as now our program has matured.
 
 ## Additional Costs

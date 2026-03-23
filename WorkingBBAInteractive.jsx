@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './ProgramTabs.css';
 import './LightMode.css';
 
-const CompareTracks = () => {
+const ProgramInvestment = () => {
   const [feesData, setFeesData] = useState(null);
 
   useEffect(() => {
@@ -41,9 +41,9 @@ const CompareTracks = () => {
   return (
     <div className="pt-compareTracks p-4 md:p-8 animate-fade-in fade-in-up pb-[100px]">
       <div className="mb-10 text-center">
-        <h2 style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, margin: 0, lineHeight: 1.1, textTransform: 'uppercase' }} className="text-white">Program Comparison & Investment</h2>
+        <h2 style={{ fontSize: 'clamp(28px, 5vw, 42px)', fontWeight: 900, margin: 0, lineHeight: 1.1, textTransform: 'uppercase' }} className="text-white">Program Investment & Comparison</h2>
         <div style={{ marginTop: '12px', fontSize: '16px', opacity: 0.8, fontWeight: 400 }} className="max-w-2xl mx-auto">
-          Compare the three Working BBA tracks side-by-side to understand the different outcomes, deliverables, and fees.
+          Compare the three Working BBA programs side-by-side to understand the different outcomes, deliverables, and fees.
         </div>
       </div>
 
@@ -782,7 +782,7 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'compare'}
               onClick={() => setActiveTab('compare')}
             >
-              Compare Tracks
+              Program Investment
             </button>
             <button
               className="pt-tabBtn"
@@ -799,7 +799,7 @@ export default function WorkingBBAInteractive() {
           {activeTab === 'job' && <ProgramView programKey="original" audience={audience} onCTA={openBooking} />}
           {activeTab === 'family' && <ProgramView programKey="bf" audience={audience} onCTA={openBooking} />}
           {activeTab === 'venture' && <ProgramView programKey="venture" audience={audience} onCTA={openBooking} />}
-          {activeTab === 'compare' && <CompareTracks />}
+          {activeTab === 'compare' && <ProgramInvestment />}
 
           {/* TAB 3: PERIODIC TABLE (Existing Integration) */}
           {activeTab === 'periodic' && (
@@ -994,7 +994,7 @@ const year1Challenges = [
 // CTA copy per section × audience
 const ctaCopy = {
   hero: { parent: 'See if your child is a fit', student: 'See if you\u2019re built for this' },
-  bestFor: { parent: 'Check fit checklist', student: 'Pick your track' },
+  bestFor: { parent: 'Check fit checklist', student: 'Pick your program' },
   howItWorks: { parent: 'Get the full program structure', student: 'See the weekly rhythm' },
   yearJourney: { parent: 'View Year 1\u20133 roadmap', student: 'See what you\u2019ll do each year' },
   challenges: { parent: 'Explore the 9 challenges', student: 'See what you\u2019ll build' },
@@ -1438,7 +1438,7 @@ const programData = {
       ]
     },
     // Progress review
-    progressReview: 'Every 6 months, parents receive a detailed execution report. This includes customer conversation counts, shipping frequency, and business validation progress. Students who don\'t execute consistently receive additional structure or track recommendations.',
+    progressReview: 'Every 6 months, parents receive a detailed execution report. This includes customer conversation counts, shipping frequency, and business validation progress. Students who don\'t execute consistently receive additional structure or program recommendations.',
     // Year 2 content - systems
     year2Content: {
       workplace: [
