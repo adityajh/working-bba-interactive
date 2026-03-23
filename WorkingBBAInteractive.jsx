@@ -1259,13 +1259,27 @@ const year3Data = {
 
 // ======================================
 
+const y1CommonImages = [
+  { src: '/Y1_TeamBuilding.jpg', caption: 'The self-awareness and team-bonding immersion trip — building the foundation of trust.' },
+  { src: '/Y1_SellingChaiAtRailwayStation.jpg', caption: 'Getting out of the building: Learning raw negotiation and sales on the ground.' },
+  { src: '/Y1_KickstartPitch.jpg', caption: 'The Kickstart Challenge: Presenting the first business model canvas to an expert jury.' },
+  { src: '/FY_WeeklyPresentations.jpg', caption: 'Sprinting through 2-4 week business challenges and defending work every Saturday.' },
+  { src: '/FY_MentorMeeting.jpg', caption: 'Weekly Masterminds: Translating raw experience into professional career capital.' }
+];
+
 const programData = {
   original: {
     name: 'Entrepreneurial Jobs',
     images: {
-      y1: { src: portfolioItems[2].src, caption: portfolioItems[2].caption },
-      y2: { src: portfolioItems[1].src, caption: portfolioItems[1].caption },
-      y3: { src: portfolioItems[7].src, caption: portfolioItems[7].caption }
+      y1: y1CommonImages,
+      y2: [
+        { src: '/EJ_ClientProjectOnSite.jpg', caption: 'Working directly on-site to solve live operational problems for corporate clients.' },
+        { src: '/EJ_NetworkingEvent.jpg', caption: 'Building professional capital: Engaging with industry leaders at elite networking events.' }
+      ],
+      y3: [
+        { src: '/EJ_PortfolioPresentation.jpg', caption: 'The ultimate culmination: Defending a 3-year proof-of-work portfolio to industry hiring managers.' },
+        { src: '/TY_SaturdayUpdates.jpg', caption: 'Continuous accountability: Weekly check-ins during the heavy Year 3 industry immersion.' }
+      ]
     },
     // Myth vs Reality
     mythReality: {
@@ -1430,9 +1444,15 @@ const programData = {
   bf: {
     name: 'Family Business',
     images: {
-      y1: { src: portfolioItems[4].src, caption: portfolioItems[4].caption },
-      y2: { src: portfolioItems[6].src, caption: portfolioItems[6].caption },
-      y3: { src: portfolioItems[3].src, caption: portfolioItems[3].caption }
+      y1: y1CommonImages,
+      y2: [
+        { src: '/FB_UserResearch.jpg', caption: 'Conducting intensive user research to identify expansion opportunities for the family business.' },
+        { src: '/FY_ProductDevelopment.jpg', caption: 'From concept to shelf: Overseeing the development of a new product line.' }
+      ],
+      y3: [
+        { src: '/FB_BuildingAVision.jpg', caption: 'Sitting in the boardroom: Mapping the next decade of growth for the holding company.' },
+        { src: '/TY_SaturdayUpdates.jpg', caption: 'Continuous accountability: Weekly check-ins driving heavy Year 3 industry immersion.' }
+      ]
     },
     // Myth vs Reality
     mythReality: {
@@ -1612,9 +1632,17 @@ const programData = {
   venture: {
     name: 'Venture Builder',
     images: {
-      y1: { src: portfolioItems[0].src, caption: portfolioItems[0].caption },
-      y2: { src: portfolioItems[5].src, caption: portfolioItems[5].caption },
-      y3: { src: portfolioItems[8].src, caption: "Building a venture requires an ecosystem." }
+      y1: y1CommonImages,
+      y2: [
+        { src: '/VB_PrototypeTesting.jpg', caption: 'Rapid iteration: Physically testing early venture prototypes with beta users.' },
+        { src: '/VB_SalesHustle.jpg', caption: 'Executing a bootstrap marketing campaign to drive real sales traction.' },
+        { src: '/FY_VibeCodingProject.jpg', caption: 'Building the MVP: Hands-on technical development and product engineering.' }
+      ],
+      y3: [
+        { src: '/VB_InvestorPitch.jpg', caption: 'The big stage: Pitching the fully developed venture to seed investors.' },
+        { src: '/Venture_BusinessUpdate.jpg', caption: 'Board meetings: Delivering hard metrics and traction updates to mentors and advisors.' },
+        { src: '/FY_PassionProject.jpg', caption: 'Deep expertise focus: Turning a passion project into a viable commercial spin-off.' }
+      ]
     },
     // Hero section
     heroTitle: 'Build Your Own Business Through Disciplined Execution',
