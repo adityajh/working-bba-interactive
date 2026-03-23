@@ -2,7 +2,7 @@
 
 ## Program Differences (Deliverables)
 
-| Year | Entrepreneurial Jobs | Family Business | Venture Builder |
+| Year | The Working BBA - Enterprise leadership | The Working BBA - Family Business | The Working BBA - Venture builder |
 | :--- | :--- | :--- | :--- |
 | **Year 1 - Growth Year** | Common across all tracks. | Common across all tracks. | Common across all tracks. |
 | **Year 2 - Projects Year** | 1 Consulting Project<br>1 Kickstart Project<br>2 Skill Tracks<br>1 Camp<br>1 Career Workshop<br>4 Career Coaching<br>4 Advanced Challenges<br>**2 Apprenticeships** | 1 Consulting Project<br>1 Kickstart Project<br>2 Skill Tracks<br>1 Camp<br>1 Career Workshop<br>4 Career Coaching<br>4 Advanced Challenges<br>**1 Apprenticeship**<br>**1 Family Project**<br>**Family Business Workshop**<br>**4 Business Coaching** | 1 Consulting Project<br>1 Kickstart Project<br>2 Skill Tracks<br>1 Camp<br>1 Career Workshop<br>4 Career Coaching<br>4 Advanced Challenges<br>**2 Apprenticeships**<br>**1 Venture Project**<br>**Founder Led Venture Workshop**<br>**4 Business Coaching** |
@@ -10,9 +10,9 @@
 
 ## Investment (Fees 2026)
 
-| Category | Entrepreneurial Jobs | Family Business | Venture Builder |
+| Category | The Working BBA - Enterprise leadership | The Working BBA - Family Business | The Working BBA - Venture builder |
 | :--- | :--- | :--- | :--- |
-| Outcome after 3 years | Entrepreneurial job | Join your family business | Launch your own venture |
+| Outcome after 3 years | Enterprise leadership | Join your family business | Launch your own venture |
 | **Fees 2026** | **13.50L** | **17.50L** | **19.50L** |
 | Registration Fee | 50K | 50K | 50K |
 | 1 - Growth Year | 5.65L | 5.65L | 5.65L |
@@ -20,8 +20,8 @@
 | 3 - Work Year | 3.35L | 6.10L | 7.10L |
 
 ## Important Notes
-1. For Venture Builder and Family Business Programs, student must register at the beginning, but may choose to make a change at the end of year 1.
-2. Working BBA Entrepreneurial Jobs students will not permitted to change to other programs.
+1. For The Working BBA - Venture builder and The Working BBA - Family Business Programs, student must register at the beginning, but may choose to make a change at the end of year 1.
+2. The Working BBA - Enterprise leadership students will not permitted to change to other programs.
 3. No fee hike done in Growth year. Increase is only in Project and Work year as now our program has matured.
 
 ## Additional Costs

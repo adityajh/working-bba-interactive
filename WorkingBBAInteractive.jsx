@@ -761,21 +761,21 @@ export default function WorkingBBAInteractive() {
               data-active={activeTab === 'job'}
               onClick={() => setActiveTab('job')}
             >
-              Working BBA — Entrepreneurial Jobs
+              The Working BBA - Enterprise leadership
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'family'}
               onClick={() => setActiveTab('family')}
             >
-              Working BBA — Family Business
+              The Working BBA - Family Business
             </button>
             <button
               className="pt-tabBtn"
               data-active={activeTab === 'venture'}
               onClick={() => setActiveTab('venture')}
             >
-              Working BBA — Venture Builder
+              The Working BBA - Venture builder
             </button>
             <button
               className="pt-tabBtn"
@@ -1171,7 +1171,7 @@ const year3Data = {
       {
         name: 'EXPERIENCE',
         items: [
-          { title: '9‑Month Apprenticeship', detail: 'Entrepreneurial Jobs: full‑time apprenticeship role with clear outputs + strong references', badge: 'EJ', category: 'focus' },
+          { title: '9‑Month Apprenticeship', detail: 'Enterprise leadership: full‑time apprenticeship role with clear outputs + strong references', badge: 'EJ', category: 'focus' },
           { title: 'Self-Study Skill Tracks', detail: 'Choose 2 from: Team Design & Performance Mgmt, Technology in Business, Design in Business', badge: 'ALL', category: 'core' }
         ]
       },
@@ -1269,7 +1269,7 @@ const y1CommonImages = [
 
 const programData = {
   original: {
-    name: 'Entrepreneurial Jobs',
+    name: 'The Working BBA - Enterprise leadership',
     images: {
       y1: [
         { src: '/Y1_TeamBuilding.jpg', caption: 'The self-awareness and team-bonding immersion trip.' },
@@ -1307,7 +1307,7 @@ const programData = {
       ]
     },
     // Best for section
-    whoFor: 'Students who want fast-track work and entrepreneurial jobs.',
+    whoFor: 'Students who want fast-track work and enterprise leadership roles.',
     // Parent clarity
     whatTheyDo: {
       title: 'What your child will do (in simple terms):',
@@ -1434,7 +1434,7 @@ const programData = {
         { t: 'Coaching', h: 'Career Coaching', d: '4 Career Blueprint sessions + StorySells 3 (Purpose & Values) + Reflection & Coaching Sessions + Industry Networking Week + Daily Cards' }
       ],
       focus: [
-        { t: 'Program Focus', h: '9‑Month Apprenticeship', d: 'Entrepreneurial Jobs: full‑time apprenticeship role with clear outputs + strong references' }
+        { t: 'Program Focus', h: '9‑Month Apprenticeship', d: 'Enterprise leadership: full‑time apprenticeship role with clear outputs + strong references' }
       ],
       tracking: {
         visibility: '9-month capstone reviews · Employer/client/family feedback reports · Final portfolio assessment · Industry benchmark comparison · Career readiness certification',
@@ -1448,7 +1448,7 @@ const programData = {
     }
   },
   bf: {
-    name: 'Family Business',
+    name: 'The Working BBA - Family Business',
     images: {
       y1: [
         { src: '/Y1_SellingChaiAtRailwayStation.jpg', caption: 'Getting out of the building: Learning raw negotiation and sales on the ground.' },
@@ -1642,7 +1642,7 @@ const programData = {
     }
   },
   venture: {
-    name: 'Venture Builder',
+    name: 'The Working BBA - Venture builder',
     images: {
       y1: [
         { src: '/BuildingPortfolio.jpg', caption: 'Daily reflection cards—the habit of relentless iteration.' },
@@ -1865,9 +1865,9 @@ const ActivityItem = ({ item }) => {
 
   const getBadgeText = (badge) => {
     switch (badge) {
-      case 'EJ': return 'Entrepreneurial Jobs';
+      case 'EJ': return 'Enterprise leadership';
       case 'FAM': return 'Family Business';
-      case 'VEN': return 'Venture Builder';
+      case 'VEN': return 'Venture builder';
       default: return badge;
     }
   };
